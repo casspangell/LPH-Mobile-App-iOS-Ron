@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C205" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favoritesCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unreadNewsCount" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="categoryId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="LocalNotification" representedClassName="LocalNotification" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="NewsCategory" representedClassName=".NewsCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isRead" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="newsDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsDetailsUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsTimeStamp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="newsId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="NewsFavourite" representedClassName=".NewsFavourite" syncable="YES" codeGenerationType="class">
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isRead" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="newsDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsDetailsUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsTimeStamp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="newsId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="NewsRecent" representedClassName=".NewsRecent" syncable="YES" codeGenerationType="class">
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isRead" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="newsDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsDetailsUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsTimeStamp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="newsId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="amPm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isActivated" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minute" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reminderId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repeatDays" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="27" positionY="90" width="128" height="135"/>
+        <element name="LocalNotification" positionX="18" positionY="81" width="128" height="30"/>
+        <element name="NewsCategory" positionX="36" positionY="108" width="128" height="180"/>
+        <element name="NewsFavourite" positionX="27" positionY="81" width="128" height="180"/>
+        <element name="NewsRecent" positionX="-18" positionY="27" width="128" height="180"/>
+        <element name="Reminder" positionX="-18" positionY="-18" width="128" height="150"/>
+    </elements>
+</model>

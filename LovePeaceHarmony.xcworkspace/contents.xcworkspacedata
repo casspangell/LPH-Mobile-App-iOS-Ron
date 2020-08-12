@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:LocalNotification+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:LocalNotification+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Category+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Category+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Reminder+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Reminder+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:LovePeaceHarmony.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

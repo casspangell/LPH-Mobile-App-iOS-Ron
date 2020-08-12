@@ -1,0 +1,675 @@
+//
+//  ChantNowController.swift
+//  LovePeaceHarmony
+//
+//  Created by Aghil C M on 07/11/17.
+//  Copyright © 2017 LovePeaceHarmony. All rights reserved.
+//
+
+import UIKit
+import EventKit
+import XLPagerTabStrip
+import AVFoundation
+import Firebase
+import MaterialShowcase
+
+class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlayerDelegate {
+    
+    // MARK: - Variables
+    var audioPlayer: AVAudioPlayer?
+    var sliderTimer: Timer?
+    var totalChantDuration: Float?
+    var songListStatus = [ChantFile: Bool]()
+    var songListOriginal = [ChantFile]()
+    var songListShuffled = [ChantFile]()
+    var currentSong: ChantFile?
+    var isShuffleEnabled = false
+    var isRepeatEnabled = false
+    var chantMilestoneCounter:Float = 0
+    var chantTitle = ["Mandarin, Soul Language and English", "Instrumental", "Hindi"]
+    
+    // MARK: - IBProperties
+    @IBOutlet weak var buttonPlayPause: UIButton!
+    @IBOutlet weak var labelSeekTime: UILabel!
+    @IBOutlet weak var labelTotalDuration: UILabel!
+    @IBOutlet weak var sliderMusicSeek: UISlider!
+    @IBOutlet weak var sliderVolume: UISlider!
+    @IBOutlet weak var switchMandarinSoulEnglish: UISwitch!
+    @IBOutlet weak var switchInstrumental: UISwitch!
+    @IBOutlet weak var switchHindi: UISwitch!
+    @IBOutlet weak var buttonShuffle: UIButton!
+    @IBOutlet weak var buttonRepeat: UIButton!
+    @IBOutlet weak var labelSongName: UILabel!
+    
+    // MARK: - View
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .normal)
+        sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .selected)
+        sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .focused)
+        sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .highlighted)
+        restoreChantSettings()
+        initiateMusicPlayer()
+        if isShuffleEnabled {
+            generateShuffleList()
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        //        UIApplication.shared.beginReceivingRemoteControlEvents()
+        //        var mpic = MPNow
+        //        mpic.nowPlayingInfo = [
+        //            MPMediaItemPropertyTitle:"This Is a Test",
+        //            MPMediaItemPropertyArtist:"Matt Neuburg"
+        //        ]
+    }
+    
+    @objc func didBecomeActive() {
+        if audioPlayer != nil && !(audioPlayer?.isPlaying)! {
+            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
+        }
+    }
+    
+    func renderShowcaseView() {
+        LPHUtils.renderShowcaseView(title: "Turn on / off chants", view: switchMandarinSoulEnglish, delegate: nil, secondaryText: "Use the switches to customize your chanting playlist.")
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
+    }
+    // MARK: - XLPagerTabStrip
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "Title")
+    }
+    
+    // MARK: - Actions
+    private func restoreChantSettings() {
+        let isMandarinOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish)
+        let isInstrumentalOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn)
+        let isHindiOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isHindiOn)
+        isShuffleEnabled = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShuffleEnabled)
+        if isShuffleEnabled {
+            buttonShuffle.tintColor = Color.orange
+        } else {
+            buttonShuffle.tintColor = Color.disabled
+        }
+        isRepeatEnabled = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isRepeatEnabled)
+        if isRepeatEnabled {
+            buttonRepeat.tintColor = Color.orange
+        } else {
+            buttonRepeat.tintColor = Color.disabled
+        }
+        songListStatus[.mandarin_soul_english] = isMandarinOn
+        songListStatus[.instrumental] = isInstrumentalOn
+        songListStatus[.hindi] = isHindiOn
+        switchMandarinSoulEnglish.isOn = isMandarinOn
+        switchInstrumental.isOn = isInstrumentalOn
+        switchHindi.isOn = isHindiOn
+        
+        if totalChantDuration != nil {
+            let currentTime = TimeInterval(LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentSeek))
+            audioPlayer?.currentTime = currentTime
+            let minutes = String(format: "%02d", Int(currentTime / 60))
+            let seconds = String(format: "%02d", Int(currentTime.truncatingRemainder(dividingBy: 60)))
+            labelSeekTime.text = String("\(minutes).\(seconds)")
+            let temp: Float = (Float(currentTime) / totalChantDuration!) / 60
+            sliderMusicSeek.setValue(Float(temp), animated: true)
+        }
+        
+        if songListStatus[.mandarin_soul_english]! {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 0)
+        } else if songListStatus[.instrumental]! {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 1)
+        } else if songListStatus[.hindi]! {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 2)
+        } else {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: -1)
+        }
+        
+        songListOriginal.append(.mandarin_soul_english)
+        songListOriginal.append(.instrumental)
+        songListOriginal.append(.hindi)
+        
+    }
+    
+    private func generateShuffleList() {
+        songListShuffled.removeAll()
+        songListShuffled.append(currentSong!)
+        var shuffledTempArray = [ChantFile]()
+        for song in songListOriginal {
+            if song != currentSong {
+                shuffledTempArray.append(song)
+            }
+        }
+        shuffledTempArray.shuffle()
+        songListShuffled.append(contentsOf: shuffledTempArray)
+        print("---shuffled song list---")
+        for song in songListShuffled {
+            print(song)
+        }
+    }
+    
+    private func initiateMusicPlayer() {
+        let currentSongIndex = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentChantSong)
+        print("current song index: \(currentSongIndex)")
+        if currentSongIndex != -1 {
+            currentSong = ChantFile(rawValue: currentSongIndex)
+            renderSongName()
+            labelSeekTime.text = "00:00"
+            var songName: String?
+            if currentSong! == .mandarin_soul_english {
+                songName = ChantFileName.mandarinSoulEnglish
+            } else if currentSong! == .instrumental {
+                songName = ChantFileName.instrumental
+            } else {
+                songName = ChantFileName.hindi
+            }
+            guard let url = Bundle.main.url(forResource: songName!, withExtension: "mp3") else { return }
+            audioPlayer = try? AVAudioPlayer(contentsOf: url)
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+            } catch let error {
+                print("nnnnnnnn \(error)")
+            }
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.delegate = self
+            let asset = AVURLAsset(url: url)
+            totalChantDuration = Float((CMTimeGetSeconds(asset.duration)) / 60)
+            let totalMinute = Int(totalChantDuration!)
+            let decimalMinute: Float = (totalChantDuration! - Float(totalMinute)) * 100
+            let originalMinute: Int = Int(decimalMinute * 0.6)
+            labelTotalDuration.text = "\(totalMinute).\(originalMinute)"
+            
+            // Settings volume to previous value
+            var volume = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.playerVolume)
+            if volume == 0 {
+                volume = 30
+            }
+            audioPlayer?.volume = volume
+            sliderVolume.setValue(volume / 100, animated: false)
+            
+            // Setting to previous seek position
+            let currentTime = TimeInterval(LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentSeek))
+            audioPlayer?.currentTime = currentTime
+            updateSlider()
+        } else {
+            labelTotalDuration.text = "-:-"
+        }
+    }
+    
+    @objc func updateSlider() {
+        if audioPlayer != nil {
+            chantMilestoneCounter += 1
+            let milestoneTempMinutes = chantMilestoneCounter.truncatingRemainder(dividingBy: 600)
+            if milestoneTempMinutes == 0 {
+                let pendingMilestonesTemp = Int(chantMilestoneCounter / 600)
+                LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.chantMinutePendingTemp, value: pendingMilestonesTemp)
+            }
+            let currentTime = (audioPlayer?.currentTime)!
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: Int(currentTime))
+            let minutes = String(format: "%02d", Int(currentTime / 60))
+            let seconds = String(format: "%02d", Int(currentTime.truncatingRemainder(dividingBy: 60)))
+            labelSeekTime.text = String("\(minutes).\(seconds)")
+            var temp: Float = (Float(currentTime) / totalChantDuration!) / 60
+            if temp != 1 && temp > 1 {
+                temp = 0
+                audioPlayerDidFinishPlaying(audioPlayer!, successfully: true)
+                togglePlayPauseButton()
+            }
+            sliderMusicSeek.setValue(Float(temp), animated: true)
+        }
+    }
+    
+    private func togglePlayPauseButton() {
+        if audioPlayer != nil {
+            if (audioPlayer?.isPlaying)! {
+                sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+                buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)
+            } else {
+                sliderTimer?.invalidate()
+                buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
+                processChantingMilestone()
+            }
+        } else {
+            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
+            processChantingMilestone()
+        }
+    }
+    
+    private func renderSongName() {
+        if currentSong != nil {
+            labelSongName.text = "Now playing: \(chantTitle[(currentSong?.rawValue)!])"
+        } else {
+            labelSongName.text = " "
+        }
+    }
+    
+    func stopChantingIfPlaying() {
+        if audioPlayer != nil  && (audioPlayer?.isPlaying)! {
+            audioPlayer?.stop()
+            togglePlayPauseButton()
+        }
+    }
+    
+    private func processChantingMilestone() {
+        if LPHUtils.getLoginVo().loginType != .withoutLogin {
+            let timeInMinutes:Float = chantMilestoneCounter / 600.0
+            var pendingMinutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending)
+            pendingMinutes += timeInMinutes
+            if pendingMinutes > 0 {
+                LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending, value: pendingMinutes)
+                chantMilestoneCounter = 0
+                fireMilestoneSavingApi(minutes: pendingMinutes)
+            }
+        }
+    }
+    
+    private func forceStopPlaying(chantSong : ChantFile) {
+        processChantingMilestone()
+        if currentSong == chantSong {
+            if (audioPlayer != nil && (audioPlayer?.isPlaying)!) {
+                audioPlayer?.stop()
+            }
+            labelSeekTime.text = "0.0"
+            labelTotalDuration.text = "-:-"
+            sliderMusicSeek.setValue(0, animated: true)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
+            if currentSong != nil {
+                currentSong = getNextSong()
+                print(currentSong)
+                if currentSong != nil {
+                    LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (currentSong?.rawValue)!)
+                } else {
+                    LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: -1)
+                    showToast(message: AlertMessage.enableSong)
+                }
+            }
+            renderSongName()
+            initiateMusicPlayer()
+            togglePlayPauseButton()
+        }
+        
+        
+        var currentSongIndex = -1
+        if currentSong == nil {
+            if songListStatus[.mandarin_soul_english]! {
+                currentSong = .mandarin_soul_english
+            } else if songListStatus[.instrumental]! {
+                currentSong = .instrumental
+            } else if songListStatus[.hindi]! {
+                currentSong = .hindi
+            }
+            renderSongName()
+        }
+        
+        if currentSong != nil {
+            currentSongIndex = (currentSong?.rawValue)!
+            labelSeekTime.text = "0.0"
+            sliderMusicSeek.setValue(0, animated: true)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
+        } else {
+            labelTotalDuration.text = "-:-"
+        }
+        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: currentSongIndex)
+    }
+    
+    private func getNextSong() -> ChantFile? {
+        processChantingMilestone()
+        var nextSong: ChantFile?
+        if currentSong != nil {
+            let currentSongIndex = currentSong?.rawValue
+            if isShuffleEnabled {
+                var shuffledSongIndex: Int?
+                for (index, song) in songListShuffled.enumerated() {
+                    if song == currentSong {
+                        shuffledSongIndex = index
+                        break
+                    }
+                }
+                if shuffledSongIndex != nil {
+                    for (index, song) in songListShuffled.enumerated() {
+                        if shuffledSongIndex! < index {
+                            if songListStatus[song]! {
+                                nextSong = song
+                                break
+                            }
+                        }
+                    }
+                }
+                
+                if nextSong == nil && isRepeatEnabled {
+                    for song in songListShuffled {
+                        if songListStatus[song]! {
+                            nextSong = song
+                            break
+                        }
+                    }
+                }
+                
+            } else if isRepeatEnabled {
+                for (index, song) in songListOriginal.enumerated() {
+                    print(song)
+                    if currentSongIndex! < index {
+                        if songListStatus[song]! {
+                            nextSong = song
+                            break
+                        }
+                    }
+                }
+                
+                if nextSong == nil {
+                    for song in songListOriginal {
+                        print(song)
+                        if songListStatus[song]! {
+                            nextSong = song
+                            break
+                        }
+                    }
+                }
+            } else {
+                for (index, song) in songListOriginal.enumerated() {
+                    print(song)
+                    if currentSongIndex! < index {
+                        if songListStatus[song]! {
+                            nextSong = song
+                            break
+                        }
+                    }
+                }
+            }
+        }
+        return nextSong
+    }
+    
+    private func getPreviousSong() -> ChantFile? {
+        processChantingMilestone()
+        var previousSong: ChantFile?
+        let songListSize = songListStatus.count
+        if currentSong != nil {
+            let currentSongIndex = currentSong?.rawValue
+            if isShuffleEnabled {
+                var shuffledSongIndex: Int?
+                for (index, song) in songListShuffled.enumerated() {
+                    if song == currentSong {
+                        shuffledSongIndex = index
+                        break
+                    }
+                }
+                
+                if shuffledSongIndex != nil {
+                    for index in stride(from: shuffledSongIndex! - 1, through: 0, by: -1) {
+                        if songListStatus[songListOriginal[index]]! {
+                            previousSong = songListShuffled[index]
+                            break
+                        }
+                    }
+                    
+                    if previousSong == nil && isRepeatEnabled {
+                        for index in stride(from: songListSize - 1, through: 0, by: -1) {
+                            if songListStatus[songListOriginal[index]]! {
+                                previousSong = songListShuffled[index]
+                                break
+                            }
+                        }
+                    }
+                }
+                
+            } else if isRepeatEnabled {
+                for index in stride(from: currentSongIndex! - 1, through: 0, by: -1) {
+                    if songListStatus[songListOriginal[index]]! {
+                        previousSong = songListOriginal[index]
+                        break
+                    }
+                }
+                
+                if previousSong == nil {
+                    for index in stride(from: songListSize - 1, through: 0, by: -1) {
+                        if songListStatus[songListOriginal[index]]! {
+                            previousSong = songListOriginal[index]
+                            break
+                        }
+                    }
+                }
+            } else {
+                for index in stride(from: currentSongIndex! - 1, through: 0, by: -1) {
+                    if songListStatus[songListOriginal[index]]! {
+                        previousSong = songListOriginal[index]
+                        break
+                    }
+                }
+            }
+        }
+        return previousSong
+    }
+    
+    
+    private func checkAndTurnShuffleRepeatOff() -> Bool {
+        var turnAllOff = true
+        for song in songListStatus {
+            if song.value {
+                turnAllOff = false
+                break
+            }
+        }
+        if turnAllOff {
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShuffleEnabled, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isRepeatEnabled, value: false)
+            isShuffleEnabled = false
+            isRepeatEnabled = false
+            buttonRepeat.tintColor = Color.disabled
+            buttonShuffle.tintColor = Color.disabled
+            audioPlayer = nil
+            sliderTimer?.invalidate()
+            togglePlayPauseButton()
+        }
+        return turnAllOff
+    }
+    
+    private func resetAudioPlayer() {
+        if (audioPlayer != nil && (audioPlayer?.isPlaying)!) {
+            audioPlayer?.stop()
+        }
+        labelSeekTime.text = "0.0"
+        labelTotalDuration.text = "-:-"
+        sliderMusicSeek.setValue(0, animated: true)
+        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
+    }
+    
+    // MARK: - AVAudioDelegate
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        sliderTimer?.invalidate()
+        if currentSong != nil {
+            currentSong = getNextSong()
+            print(currentSong)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
+            if currentSong != nil {
+                LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (currentSong?.rawValue)!)
+                initiateMusicPlayer()
+                audioPlayer?.play()
+                renderSongName()
+                sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+            }
+            togglePlayPauseButton()
+        }
+    }
+    
+    //MARK: - IBActions
+    @IBAction func onTapPlay(_ sender: UIButton) {
+        if currentSong != nil {
+            animateMusicButton(sender, 0) {}
+            if audioPlayer == nil {
+                initiateMusicPlayer()
+            }
+            if (audioPlayer?.isPlaying)! {
+                audioPlayer?.pause()
+            } else {
+                audioPlayer?.play()
+            }
+            togglePlayPauseButton()
+        } else {
+            showToast(message: AlertMessage.enableSong)
+        }
+    }
+    
+    @IBAction func onTapPreviousSong(_ sender: UIButton) {
+        let previousSong = getPreviousSong()
+        if (previousSong != nil && previousSong != currentSong) {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (previousSong?.rawValue)!)
+            resetAudioPlayer()
+            initiateMusicPlayer()
+            audioPlayer?.play()
+            togglePlayPauseButton()
+        } else {
+            showToast(message: AlertMessage.noPreviousSong)
+        }
+    }
+    
+    @IBAction func onTapNextSong(_ sender: UIButton) {
+        let nextSong = getNextSong()
+        if (nextSong != nil && nextSong != currentSong) {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (nextSong?.rawValue)!)
+            resetAudioPlayer()
+            initiateMusicPlayer()
+            audioPlayer?.play()
+            togglePlayPauseButton()
+        } else {
+            showToast(message: AlertMessage.noNextSong)
+        }
+    }
+    
+    @IBAction func onTapShuffle(_ sender: UIButton) {
+        if !checkAndTurnShuffleRepeatOff() {
+            isShuffleEnabled = !isShuffleEnabled
+            if isShuffleEnabled {
+                showToast(message: AlertMessage.shuffleOn)
+                generateShuffleList()
+            } else {
+                showToast(message: AlertMessage.shuffleOff)
+            }
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShuffleEnabled, value: isShuffleEnabled)
+            if isShuffleEnabled {
+                sender.tintColor = Color.orange
+            } else {
+                sender.tintColor = Color.disabled
+            }
+        } else {
+            showToast(message: AlertMessage.enableSong)
+        }
+        
+    }
+    
+    @IBAction func onTapReplay(_ sender: UIButton) {
+        if !checkAndTurnShuffleRepeatOff() {
+            isRepeatEnabled = !isRepeatEnabled
+            if isRepeatEnabled {
+                showToast(message: AlertMessage.repeatOn)
+            } else {
+                showToast(message: AlertMessage.repeatOff)
+            }
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isRepeatEnabled, value: isRepeatEnabled)
+            if isRepeatEnabled {
+                sender.tintColor = Color.orange
+            } else {
+                sender.tintColor = Color.disabled
+            }
+        } else {
+            showToast(message: AlertMessage.enableSong)
+        }
+    }
+    
+    @IBAction func onSliderVolumeChanged(_ sender: UISlider) {
+        let volume: Float = sender.value
+        audioPlayer?.volume = volume
+        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.playerVolume, value: volume)
+    }
+    
+    @IBAction func onSliderSeekValueChanged(_ sender: UISlider) {
+        audioPlayer?.currentTime = TimeInterval(sender.value * 60 * totalChantDuration!)
+        updateSlider()
+    }
+    
+    @IBAction func onTapSwitchMandarinSoulEnglish(_ sender: UISwitch) {
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: sender.isOn)
+        songListStatus[.mandarin_soul_english] = sender.isOn
+        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .mandarin_soul_english)
+    }
+    
+    @IBAction func onTapSwitchInstrumental(_ sender: UISwitch) {
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: sender.isOn)
+        songListStatus[.instrumental] = sender.isOn
+        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .instrumental)
+    }
+    
+    @IBAction func onTapSwitchHindi(_ sender: UISwitch) {
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: sender.isOn)
+        songListStatus[.hindi] = sender.isOn
+        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .hindi)
+    }
+    
+    @IBAction func onTapMandarin(_ sender: UITapGestureRecognizer) {
+        startSong(chantFile: .mandarin_soul_english)
+    }
+    
+    @IBAction func onTapInstrumentalSong(_ sender: UITapGestureRecognizer) {
+        startSong(chantFile: .instrumental)
+    }
+    
+    @IBAction func onTapSongHindi(_ sender: UITapGestureRecognizer) {
+        startSong(chantFile: .hindi)
+    }
+    
+    private func startSong(chantFile: ChantFile) {
+        if songListStatus[chantFile]! {
+            if audioPlayer != nil && (audioPlayer?.isPlaying)! {
+                audioPlayer?.stop()
+            }
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: chantFile.rawValue)
+            initiateMusicPlayer()
+            audioPlayer?.play()
+            togglePlayPauseButton()
+        } else {
+            showToast(message: AlertMessage.enableSong)
+        }
+    }
+    
+    // MARK: - Api
+    private func fireMilestoneSavingApi(minutes: Float) {
+        do {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = DatePattern.sql
+            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+            let date = dateFormatter.string(from: Date())
+            let minutesInString = String(minutes)
+            let deviceToken = FIRInstanceID.instanceID().token()!
+            let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
+            try lphService.updateMilestone(date: date, minutes: minutesInString, deviceToken: deviceToken) { (lphResponse) in
+                if lphResponse.isSuccess() {
+                    let milestoneVo: MilestoneVo = lphResponse.getResult()
+                    LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(milestoneVo.daysCount)!)
+                    LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinute, value: Float(milestoneVo.minutesCount)!)
+                    LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending, value: 0)
+                    LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.chantMinutePendingTemp, value: 0)
+                }
+            }
+        } catch let error {
+            
+        }
+    }
+    
+    func animateMusicButton(_ view: UIView, _ duration: Double, completionListener: @escaping () -> Void) {
+        UIView.animate(withDuration: duration, delay: (TimeInterval(0)), usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut,
+                       animations: {
+                        view.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)},completion: { [weak self] finished in
+                            self?.animateOutMusicButton(view, duration, completionListener)
+        })
+    }
+    
+    func animateOutMusicButton(_ view: UIView, _ duration: Double, _ completionListener: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.5, delay: (TimeInterval(0)), usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut,
+                       animations: {
+                        view.transform = CGAffineTransform(scaleX: 1, y: 1)},completion: { finished in
+                            completionListener()
+                            
+        })
+    }
+    
+}
