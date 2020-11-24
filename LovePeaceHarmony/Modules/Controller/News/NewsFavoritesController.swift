@@ -8,7 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
-import Kingfisher
+//import Kingfisher
 import Firebase
 
 class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITableViewDataSource, UITableViewDelegate, NewsFavouriteDelegate {
@@ -128,7 +128,7 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
         
         cell.labelDescription.text = currentNews.description
         cell.labelTimeStamp.text = currentNews.date
-        cell.imageViewNews.kf.setImage(with: URL(string: currentNews.imageUrl))
+//        cell.imageViewNews.kf.setImage(with: URL(string: currentNews.imageUrl))
         cell.imageViewNews.contentMode = UIViewContentMode.scaleAspectFill
         
         // Checking for pagination
@@ -216,11 +216,20 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     let loginVo = lphResponse.getResult()
-                    let firebaseDeviceToken = FIRInstanceID.instanceID().token()
-                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken!)
-                } else {
                     
-                }
+                    InstanceID.instanceID().instanceID { (result, error) in
+                    if let error = error {
+                    print("Error fetching remote instange ID: \(error)")
+                    } else if let result = result {
+                    print("Remote instance ID token: \(result.token)")
+                        self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: result.token)
+                    } else {
+                        
+                    }
+                     }
+                    }
+                    
+
             }
         } catch let exception as LPHException<LoginError> {
             
@@ -291,18 +300,27 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
     }
     
     private func fireUpdateTokenApi() {
-        let deviceToken = FIRInstanceID.instanceID().token()!
-        let deviceInfo = DEVICE_INFO
-        showLoadingIndicator()
-        do {
-            let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-            try lphService.updateDeviceToken(token: deviceToken, info: deviceInfo) { (parsedResponse) in
-                self.hideLoadingIndicator()
-                self.renderUI(isLoginViewShown: false)
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            let deviceInfo = DEVICE_INFO
+            self.showLoadingIndicator()
+            do {
+                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
+                    self.hideLoadingIndicator()
+                    self.renderUI(isLoginViewShown: false)
+                }
+            } catch let error {
+                
             }
-        } catch let error {
-            
+         }
         }
+        
+
     }
     
     // MARK: - NewsFavouriteDelegate

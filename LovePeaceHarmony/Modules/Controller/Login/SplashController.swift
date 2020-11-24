@@ -69,15 +69,24 @@ class SplashController: BaseViewController, SplashDelegate {
     private func fireLoginApi(savedLoginDetails: LoginVo) {
         let email = savedLoginDetails.email
         let password = savedLoginDetails.password
-        let token = FIRInstanceID.instanceID().token()!
-        do {
-            let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-            try lphService.fireLogin(email: email, password: password, deviceId: token, source: savedLoginDetails.loginType) { (parsedResponse) in
-                self.processLoginResponse(fromServer: parsedResponse, password: password)
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            do {
+                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+                try lphService.fireLogin(email: email, password: password, deviceId: result.token, source: savedLoginDetails.loginType) { (parsedResponse) in
+                    self.processLoginResponse(fromServer: parsedResponse, password: password)
+                }
+            } catch let error {
+                
             }
-        } catch let error {
-            
+         }
         }
+        
+
     }
 
     // MARK: - Navigation

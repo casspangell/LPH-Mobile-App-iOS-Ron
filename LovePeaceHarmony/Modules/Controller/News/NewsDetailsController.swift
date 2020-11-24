@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 class NewsDetailsController: BaseViewController, UIWebViewDelegate {
 

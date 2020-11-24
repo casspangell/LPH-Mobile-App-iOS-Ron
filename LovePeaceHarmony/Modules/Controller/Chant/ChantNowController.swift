@@ -639,7 +639,17 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
             let date = dateFormatter.string(from: Date())
             let minutesInString = String(minutes)
-            let deviceToken = FIRInstanceID.instanceID().token()!
+            var deviceToken = String()
+            
+            InstanceID.instanceID().instanceID { (result, error) in
+                if let error = error {
+                    print("Error fetching remote instange ID: \(error)")
+                } else if let result = result {
+                    print("Remote instance ID token: \(result.token)")
+                    deviceToken = result.token
+                 }
+            }
+            
             let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
             try lphService.updateMilestone(date: date, minutes: minutesInString, deviceToken: deviceToken) { (lphResponse) in
                 if lphResponse.isSuccess() {

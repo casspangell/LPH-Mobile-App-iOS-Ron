@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 class ProfilePicEditController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -22,7 +22,7 @@ class ProfilePicEditController: BaseViewController, UIImagePickerControllerDeleg
         super.initView()
         let loginVo = LPHUtils.getLoginVo()
         if loginVo.profilePicUrl != "" {
-            imageViewProfilePic.kf.setImage(with: URL(string: loginVo.profilePicUrl))
+//            imageViewProfilePic.kf.setImage(with: URL(string: loginVo.profilePicUrl))
         }
         imageViewProfilePic.contentMode = UIViewContentMode.scaleAspectFill
     }

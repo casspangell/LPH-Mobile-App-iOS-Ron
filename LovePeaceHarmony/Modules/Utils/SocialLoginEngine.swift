@@ -51,7 +51,7 @@ class SocialLoginEngine: NSObject, GIDSignInUIDelegate, GIDSignInDelegate {
     
     private func initiateFacebookLogin() {
         let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.email], viewController: presentingViewController) { loginResult in
+        loginManager.logIn(permissions: [.email], viewController: presentingViewController) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
@@ -59,7 +59,7 @@ class SocialLoginEngine: NSObject, GIDSignInUIDelegate, GIDSignInDelegate {
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 print("Logged in!")
-                let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,last_name,email,picture.type(large)"])
+                let graphRequest:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"first_name,last_name,email,picture.type(large)"])
                 
                 graphRequest.start(completionHandler: { (connection, result, error) -> Void in
                     

@@ -8,7 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
-import Kingfisher
+//import Kingfisher
 
 class NewsRecentController: BaseViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource, NewsFavouriteDelegate {
 
@@ -110,8 +110,8 @@ class NewsRecentController: BaseViewController, IndicatorInfoProvider, UITableVi
         cell.buttonFavouriteStar.tag = indexPath.item
         cell.buttonFavouriteStar.addTarget(self, action: #selector(onTapFavourite(sender:)), for: .touchDown)
         
-        cell.imageViewNews.kf.indicatorType = .activity
-        cell.imageViewNews.kf.setImage(with:  URL(string: currentNews.imageUrl))
+//        cell.imageViewNews.kf.indicatorType = .activity
+//        cell.imageViewNews.kf.setImage(with:  URL(string: currentNews.imageUrl))
         cell.imageViewNews.contentMode = UIViewContentMode.scaleAspectFill
         
         // Checking for pagination

@@ -48,8 +48,17 @@ class ProfileLoginController: BaseViewController {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     let loginVo = lphResponse.getResult()
-                    let firebaseDeviceToken = FIRInstanceID.instanceID().token()
-                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken!)
+                    
+                    InstanceID.instanceID().instanceID { (result, error) in
+                    if let error = error {
+                    print("Error fetching remote instange ID: \(error)")
+                    } else if let result = result {
+                    print("Remote instance ID token: \(result.token)")
+                        self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: result.token)
+                     }
+                    }
+                    
+                    
                 } else {
                     
                 }
@@ -99,18 +108,27 @@ class ProfileLoginController: BaseViewController {
     }
     
     private func fireUpdateTokenApi() {
-        let deviceToken = FIRInstanceID.instanceID().token()!
-        let deviceInfo = DEVICE_INFO
-        showLoadingIndicator()
-        do {
-            let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-            try lphService.updateDeviceToken(token: deviceToken, info: deviceInfo) { (parsedResponse) in
-                self.hideLoadingIndicator()
-                self.loginCallback?.loginCallback()
+       
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            let deviceInfo = DEVICE_INFO
+            self.showLoadingIndicator()
+            do {
+                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
+                    self.hideLoadingIndicator()
+                    self.loginCallback?.loginCallback()
+                }
+            } catch let error {
+                
             }
-        } catch let error {
-            
+         }
         }
+        
+
     }
     
     // MARK: - Navigations

@@ -109,7 +109,7 @@ class NewsController: ButtonBarPagerTabStripViewController {
     
     func navigateToNewsFavourite() {
         _ = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(populateNewsFavouriteTab), userInfo: nil, repeats: false)
-//        populateTab(currentTab: .favourites)
+        populateTab(currentTab: .favourites)
     }
     
     func refreshCategoryController() {

@@ -9,6 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 import Firebase
+import FBSDKLoginKit
 
 class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     
@@ -18,7 +19,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     var loginEngine: SocialLoginEngine?
     
     // MARK: - IBOutets
-    @IBOutlet weak var viewFBButtonContainer: UIView!
+    @IBOutlet weak var viewFBButtonContainer: FBLoginButton!
     @IBOutlet weak var buttonGoogleSignIn: GIDSignInButton!
     
     // MARK: - View
@@ -28,13 +29,13 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     }
     
     // MARK: - IBActions
-    @IBAction func onTapFacebookLogin(_ sender: UITapGestureRecognizer) {
-        if LPHUtils.checkNetworkConnection() {
-            initiateLogin(type: .facebook)
-        } else {
-            showToast(message: "Please check your internet connection.")
-        }
-    }
+//    @IBAction func onTapFacebookLogin(_ sender: UITapGestureRecognizer) {
+//        if LPHUtils.checkNetworkConnection() {
+//            initiateLogin(type: .facebook)
+//        } else {
+//            showToast(message: "Please check your internet connection.")
+//        }
+//    }
     
     @IBAction func onTapGoogleSignIn(_ sender: UITapGestureRecognizer) {
         if LPHUtils.checkNetworkConnection() {
@@ -63,12 +64,21 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     
     // MARK: - Actions
     private func initiateLogin(type: LoginType) {
+        var firebaseDeviceToken = String()
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            firebaseDeviceToken = result.token
+         }
+        }
+        
         do {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     let loginVo = lphResponse.getResult()
-                    let firebaseDeviceToken = FIRInstanceID.instanceID().token()
-                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken!)
+                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken)
                 } else {
                     
                 }
@@ -124,9 +134,19 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     }
     
     private func fireUpdateTokenApi() {
-        let deviceToken = FIRInstanceID.instanceID().token()!
+        var deviceToken = String()
         let deviceInfo = DEVICE_INFO
         showLoadingIndicator()
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            deviceToken = result.token
+         }
+        }
+        
         do {
             let lphService = try LPHServiceFactory<LoginError>.getLPHService()
             try lphService.updateDeviceToken(token: deviceToken, info: deviceInfo) { (parsedResponse) in

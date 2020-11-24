@@ -8,7 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
-import Kingfisher
+//import Kingfisher
 
 class NewsCategoriesController: BaseViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource {
 
@@ -91,7 +91,7 @@ class NewsCategoriesController: BaseViewController, IndicatorInfoProvider, UITab
         cell.labelPostCount.text = totalPostCountText
         cell.labelFavouritesCount.text = favouritePostCountText
         if currentCategory.imageUrl != "null" && currentCategory.imageUrl != "" {
-            cell.imageViewCategory.kf.setImage(with: URL(string: currentCategory.imageUrl))
+//            cell.imageViewCategory.kf.setImage(with: URL(string: currentCategory.imageUrl))
             cell.imageViewCategory.contentMode = UIViewContentMode.scaleAspectFill
         } else {
             cell.imageViewCategory.image = #imageLiteral(resourceName: "ic_category_placeholder")

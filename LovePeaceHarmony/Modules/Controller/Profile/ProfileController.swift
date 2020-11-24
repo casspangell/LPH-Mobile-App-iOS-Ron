@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 import SafariServices
-import Kingfisher
+//import Kingfisher
 import FirebaseAuth
 import FBSDKLoginKit
 import Firebase
@@ -36,14 +36,14 @@ class ProfileController: BaseViewController, MFMessageComposeViewControllerDeleg
     }
     
     func renderProfilePic(imageUrl: String) {
-        imageViewProfilePic.kf.indicatorType = .activity
-        imageViewProfilePic.contentMode = UIViewContentMode.scaleAspectFill
-        imageViewProfilePic.kf.setImage(with: URL(string: imageUrl))
-        if UI_USER_INTERFACE_IDIOM() == .pad {
-            imageViewProfilePic.layer.cornerRadius = 70
-        } else if UI_USER_INTERFACE_IDIOM() == .phone {
-            imageViewProfilePic.layer.cornerRadius = 35
-        }
+//        imageViewProfilePic.kf.indicatorType = .activity
+//        imageViewProfilePic.contentMode = UIViewContentMode.scaleAspectFill
+//        imageViewProfilePic.kf.setImage(with: URL(string: imageUrl))
+//        if UI_USER_INTERFACE_IDIOM() == .pad {
+//            imageViewProfilePic.layer.cornerRadius = 70
+//        } else if UI_USER_INTERFACE_IDIOM() == .phone {
+//            imageViewProfilePic.layer.cornerRadius = 35
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -110,12 +110,12 @@ class ProfileController: BaseViewController, MFMessageComposeViewControllerDeleg
         if loginVo.loginType == .google {
             do {
                 GIDSignIn.sharedInstance().signOut()
-                try FIRAuth.auth()?.signOut()
+                try Auth.auth().signOut()
             } catch {
                 
             }
         } else if loginVo.loginType == .facebook {
-            FBSDKLoginManager().logOut()
+            LoginManager().logOut()
         }
         loginVo.isLoggedIn = false
         loginVo.fullName = ""
@@ -172,21 +172,30 @@ class ProfileController: BaseViewController, MFMessageComposeViewControllerDeleg
     
     // MARK: - Api
     private func fireLogoutApi() {
-        let deviceToken = FIRInstanceID.instanceID().token()!
-        showLoadingIndicator()
-        do {
-            let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-            try lphService.logout(deviceToken: deviceToken) { (parsedResponse) in
-                if parsedResponse.isSuccess() {
-                    self.processLogout()
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            self.showLoadingIndicator()
+            do {
+                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+                try lphService.logout(deviceToken: result.token) { (parsedResponse) in
+                    if parsedResponse.isSuccess() {
+                        self.processLogout()
+                    }
                 }
+            } catch let error as LPHException<NewsError> {
+                self.hideLoadingIndicator()
+                self.showToast(message: error.errorMessage)
+            } catch let error {
+                
             }
-        } catch let error as LPHException<NewsError> {
-            self.hideLoadingIndicator()
-            showToast(message: error.errorMessage)
-        } catch let error {
-            
+         }
         }
+        
+
     }
     
     // MARK: - Navigation

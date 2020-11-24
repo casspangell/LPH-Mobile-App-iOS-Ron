@@ -146,9 +146,18 @@ class LoginEmailController: BaseViewController, IndicatorInfoProvider, UITextFie
     }
     
     private func fireUpdateTokenApi() {
-        let deviceToken = FIRInstanceID.instanceID().token()!
+        var deviceToken = String()
         let deviceInfo = DEVICE_INFO
         showLoadingIndicator()
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            deviceToken = result.token
+         }
+        }
         do {
             let lphService = try LPHServiceFactory<LoginError>.getLPHService()
             try lphService.updateDeviceToken(token: deviceToken, info: deviceInfo) { (parsedResponse) in

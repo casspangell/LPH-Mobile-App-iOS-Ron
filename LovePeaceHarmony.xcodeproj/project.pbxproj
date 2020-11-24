@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		319CB3242854F979D94A0538 /* Pods_LovePeaceHarmony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */; };
+		50327B62251CE06E002B34C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50327B61251CE06E002B34C0 /* GoogleService-Info.plist */; };
 		6F0B870C1FEA2A92004A7E45 /* ProfilePicEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B870B1FEA2A92004A7E45 /* ProfilePicEditController.swift */; };
-		6F0FBED3204FE8ED00AD2D1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F0FBED2204FE8EC00AD2D1D /* GoogleService-Info.plist */; };
 		6F18D42D1FF37D400026A617 /* SocialLoginEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F18D42C1FF37D400026A617 /* SocialLoginEngine.swift */; };
 		6F1BA7741FE3C99000BF58B4 /* DBUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1BA7731FE3C99000BF58B4 /* DBUtils.swift */; };
 		6F38C7E11FB1D9D6005390C5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6F38C7E01FB1D9D6005390C5 /* Podfile */; };
@@ -83,9 +83,9 @@
 /* Begin PBXFileReference section */
 		1FE947B96407BB07915B8DF4 /* Pods-LovePeaceHarmony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovePeaceHarmony.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony.release.xcconfig"; sourceTree = "<group>"; };
 		2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LovePeaceHarmony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50327B61251CE06E002B34C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6D679B173A2FC089269966FA /* Pods-LovePeaceHarmony.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovePeaceHarmony.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony.debug.xcconfig"; sourceTree = "<group>"; };
 		6F0B870B1FEA2A92004A7E45 /* ProfilePicEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicEditController.swift; sourceTree = "<group>"; };
-		6F0FBED2204FE8EC00AD2D1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F18D42C1FF37D400026A617 /* SocialLoginEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginEngine.swift; sourceTree = "<group>"; };
 		6F18D42E1FF3825D0026A617 /* LovePeaceHarmony-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LovePeaceHarmony-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F1BA7731FE3C99000BF58B4 /* DBUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUtils.swift; sourceTree = "<group>"; };
@@ -205,13 +205,13 @@
 		6F3D8BBB1FB1CC2B008E0D82 /* LovePeaceHarmony */ = {
 			isa = PBXGroup;
 			children = (
-				6F0FBED2204FE8EC00AD2D1D /* GoogleService-Info.plist */,
 				6FDFDBF3201EE9CD00D1FBB7 /* LovePeaceHarmony.xcdatamodeld */,
 				6FCEBB8F1FE78410003D7238 /* LovePeaceHarmony.entitlements */,
 				6F3D8BD81FB1CD25008E0D82 /* Modules */,
 				6F3D8BD71FB1CD00008E0D82 /* Resources */,
 				6F3D8BC61FB1CC2B008E0D82 /* Assets.xcassets */,
 				6F3D8BCB1FB1CC2B008E0D82 /* Info.plist */,
+				50327B61251CE06E002B34C0 /* GoogleService-Info.plist */,
 			);
 			path = LovePeaceHarmony;
 			sourceTree = "<group>";
@@ -513,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50327B62251CE06E002B34C0 /* GoogleService-Info.plist in Resources */,
 				6F3D8BCA1FB1CC2B008E0D82 /* LaunchScreen.storyboard in Resources */,
 				6F3D8BC71FB1CC2B008E0D82 /* Assets.xcassets in Resources */,
 				6F6356E01FCE8CE4002E2C13 /* Login.storyboard in Resources */,
@@ -522,7 +523,6 @@
 				6F38C7E11FB1D9D6005390C5 /* Podfile in Resources */,
 				6F9A39122008DDC700CF255F /* instrumental.mp3 in Resources */,
 				6FC63F332032FF1E00C1CC96 /* OpenSans-Bold.ttf in Resources */,
-				6F0FBED3204FE8ED00AD2D1D /* GoogleService-Info.plist in Resources */,
 				6F3F6672204D39E900ADFFFC /* OpenSans-Italic.ttf in Resources */,
 				6F3D8BC21FB1CC2B008E0D82 /* Main.storyboard in Resources */,
 				6FC63F312032EEEA00C1CC96 /* OpenSans-SemiboldItalic.ttf in Resources */,
@@ -559,48 +559,48 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KCFloatingActionButton/KCFloatingActionButton.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialShowcase/MaterialShowcase.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KCFloatingActionButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialShowcase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC8A3A371CBCB123C24D0D4F /* [CP] Copy Pods Resources */ = {
@@ -609,16 +609,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -822,7 +822,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.lovepeaceharmony.ios.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -842,7 +842,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.lovepeaceharmony.ios.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";

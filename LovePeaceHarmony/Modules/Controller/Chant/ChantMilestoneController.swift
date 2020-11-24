@@ -175,8 +175,16 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     let loginVo = lphResponse.getResult()
-                    let firebaseDeviceToken = FIRInstanceID.instanceID().token()
-                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken!)
+    
+                    InstanceID.instanceID().instanceID { (result, error) in
+                    if let error = error {
+                    print("Error fetching remote instange ID: \(error)")
+                    } else if let result = result {
+                    print("Remote instance ID token: \(result.token)")
+                        self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: result.token)
+                     }
+                    }
+                    
                 } else {
                     
                 }
@@ -265,9 +273,19 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     }
     
     private func fireUpdateTokenApi() {
-        let deviceToken = FIRInstanceID.instanceID().token()!
+        var deviceToken = String()
         let deviceInfo = DEVICE_INFO
         showLoadingIndicator()
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            deviceToken = result.token
+         }
+        }
+        
         do {
             let lphService = try LPHServiceFactory<LoginError>.getLPHService()
             try lphService.updateDeviceToken(token: deviceToken, info: deviceInfo) { (parsedResponse) in

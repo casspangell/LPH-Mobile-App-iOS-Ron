@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 class NewsCategoryDetailsController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -109,8 +109,8 @@ class NewsCategoryDetailsController: BaseViewController, UITableViewDelegate, UI
         cell.labelTitle.text = currentNews.title
         cell.labelTimeStamp.text = currentNews.date
         cell.labelDescription.text = currentNews.description
-        cell.imageViewNews.kf.indicatorType = .activity
-        cell.imageViewNews.kf.setImage(with: URL(string: currentNews.imageUrl))
+//        cell.imageViewNews.kf.indicatorType = .activity
+//        cell.imageViewNews.kf.setImage(with: URL(string: currentNews.imageUrl))
         cell.imageViewNews.contentMode = UIViewContentMode.scaleAspectFill
         if currentNews.isFavourite {
             cell.buttonFavouriteStar.setImage(#imageLiteral(resourceName: "ic_star_fill"), for: .normal)

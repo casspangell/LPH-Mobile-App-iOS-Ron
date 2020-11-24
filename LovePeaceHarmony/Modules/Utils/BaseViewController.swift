@@ -12,7 +12,7 @@ import Lottie
 class BaseViewController: UIViewController {
 
     // MARK: - Variables
-    private let loadingAnimView = LOTAnimationView(name: LOADING_INDICATOR)
+    private let loadingAnimView = AnimationView(name: LOADING_INDICATOR)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class BaseViewController: UIViewController {
     private func initAnimView() {
         loadingAnimView.frame = CGRect(x: (UIScreen.main.bounds.width / 2) - 25, y: (UIScreen.main.bounds.height / 2) - 120, width: 50, height: 50)
         loadingAnimView.animationSpeed = CGFloat(1.5)
-        loadingAnimView.loopAnimation = true
+        loadingAnimView.loopMode = .loop
     }
     
     public func showLoadingIndicator() {

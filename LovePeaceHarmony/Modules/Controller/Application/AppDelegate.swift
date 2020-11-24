@@ -12,6 +12,7 @@ import UserNotifications
 import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, GIDSignInDelegate {
@@ -31,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         application.registerForRemoteNotifications()
         
-        FIROptions.default()?.deepLinkURLScheme = "com.drsha.ios.LovePeaceHarmony"
-        FIRApp.configure()
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        FirebaseOptions.defaultOptions()?.deepLinkURLScheme = "com.drsha.ios.LovePeaceHarmony"
+        FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
 
         return true
@@ -66,20 +67,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
         let sourceApplication: String? = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
-        let fbLogin = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceApplication, annotation: nil)
+        let fbLogin = ApplicationDelegate.shared.application(app, open: url, sourceApplication: sourceApplication, annotation: nil)
         
         let googleLogin = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
-        let dynamicLink = FIRDynamicLinks.dynamicLinks()?.dynamicLink(fromCustomSchemeURL: url)
+        let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url)
         
         return fbLogin || googleLogin || (dynamicLink != nil)
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        guard let dynamicLinks = FIRDynamicLinks.dynamicLinks() else {
-            return false
-        }
+        let dynamicLinks = DynamicLinks.dynamicLinks()
         let handled = dynamicLinks.handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
             
             let shareUrl: NSURL = (dynamiclink?.url)! as NSURL

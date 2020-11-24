@@ -115,9 +115,17 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         if password != confirmPassword {
             throw LPHException<LoginError>(controllerError: .passwordDoNotMatch)
         }
+      
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+            print("Remote instance ID token: \(result.token)")
+            self.fireSocialLoginRegisterApi(email: email, password: password, name: name, deviceId: result.token)
+         }
+        }
         
-        let firebaseDeviceToken = FIRInstanceID.instanceID().token()
-        fireSocialLoginRegisterApi(email: email, password: password, name: name, deviceId: firebaseDeviceToken!)
+        
         
     }
     
@@ -163,18 +171,25 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     }
     
     private func fireUpdateTokenApi() {
-        let deviceToken = FIRInstanceID.instanceID().token()!
-        let deviceInfo = DEVICE_INFO
-        showLoadingIndicator()
-        do {
-            let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-            try lphService.updateDeviceToken(token: deviceToken, info: deviceInfo) { (parsedResponse) in
-                self.splashDelegate?.isFromLoginEnable()
-                self.dismiss(animated: true, completion: nil)
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            let deviceInfo = DEVICE_INFO
+            self.showLoadingIndicator()
+            do {
+                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
+                    self.splashDelegate?.isFromLoginEnable()
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } catch let error {
+                
             }
-        } catch let error {
-            
+         }
         }
+
     }
     
 }

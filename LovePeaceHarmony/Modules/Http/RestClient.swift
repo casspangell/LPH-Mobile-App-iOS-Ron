@@ -37,38 +37,42 @@ class RestClient {
         print("Http param: \(params)")
         
         let loginVo = LPHUtils.getLoginVo()
-        var header = Dictionary<String, String>()
+//        var header = Dictionary<String, String>()
+        var header : HTTPHeaders = ["Authorization": "Basic MY-API-KEY",
+                                    "Content-Type" : "application/x-www-form-urlencoded"
+                                ]
+        
         if loginVo.isLoggedIn && loginVo.loginType != .withoutLogin {
             print("Header")
             header["Authorization"] = "Bearer \(loginVo.token)"
             print(header)
         }
 
-        Alamofire.request(url, method: alamofireHttpMethod!, parameters: params, encoding: URLEncoding.default, headers: header).responseJSON(completionHandler: { (responseData) in
+        AF.request(url, method: alamofireHttpMethod!, parameters: params, encoding: URLEncoding.default, headers: header).responseJSON(completionHandler: { (responseData) in
             print("Http response: \(responseData)")
-            httpResponse(responseData.result.value as! [String: Any])
+            httpResponse(responseData.result as! [String: Any])
         })
         
     }
     
     public static func initiateDownload(fileRemoteUrl: String, fileName: String) {
         
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+        let destination: DownloadRequest.Destination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent(fileName)
             
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        Alamofire.download(fileRemoteUrl, to: destination).downloadProgress{ progress in
+        AF.download(fileRemoteUrl, to: destination).downloadProgress{ progress in
             print("logo download progress: \(progress.fractionCompleted)")
             }.response { response in
                 
-                if response.error == nil, let _ = response.destinationURL?.path {
-                    print("download completed successfully")
-                } else {
-                    print("download error")
-                }
+//                if response.error == nil, let _ = response.destinationURL?.path {
+//                    print("download completed successfully")
+//                } else {
+//                    print("download error")
+//                }
         }
     }
     

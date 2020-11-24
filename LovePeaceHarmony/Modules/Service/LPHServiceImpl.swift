@@ -11,18 +11,26 @@ public class LPHServiceImpl: LPHService {
     
     private func handleSessionExpiry(completion: @escaping () -> Void) {
         let loginVo = LPHUtils.getLoginVo()
-        let firebaseToken = FIRInstanceID.instanceID().token()!
-        do {
-            try fireLogin(email: loginVo.email, password: loginVo.password, deviceId: firebaseToken, source: loginVo.loginType) {(lphResponse) in
-                if lphResponse.isSuccess() {
-                    loginVo.token = lphResponse.getMetadata() as! String
-                    LPHUtils.setLoginVo(loginVo: loginVo)
-                    completion()
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+        if let error = error {
+        print("Error fetching remote instange ID: \(error)")
+        } else if let result = result {
+        print("Remote instance ID token: \(result.token)")
+            do {
+                try self.fireLogin(email: loginVo.email, password: loginVo.password, deviceId: result.token, source: loginVo.loginType) {(lphResponse) in
+                    if lphResponse.isSuccess() {
+                        loginVo.token = lphResponse.getMetadata() as! String
+                        LPHUtils.setLoginVo(loginVo: loginVo)
+                        completion()
+                    }
                 }
+            } catch {
+                
             }
-        } catch {
-            
+         }
         }
+
     }
     
     public func fireLoginRegister(email: String, password: String, name: String, profilePicUrl: String, source: LoginType, deviceId: String, parsedResponse: @escaping (LPHResponse<ProfileVo, LoginError>) -> Void) {
