@@ -27,13 +27,13 @@ class LoginEmailController: BaseViewController, IndicatorInfoProvider, UITextFie
     
     override func initView() {
         super.initView()
-        textFieldEmail.autocorrectionType = .no
-        textFieldPassword.autocorrectionType = .no
-        if #available(iOS 11, *) {
-            // Disables the password autoFill accessory view.
-            textFieldEmail.textContentType = UITextContentType("")
-            textFieldPassword.textContentType = UITextContentType("")
-        }
+//        textFieldEmail.autocorrectionType = .no
+//        textFieldPassword.autocorrectionType = .no
+//        if #available(iOS 11, *) {
+//            // Disables the password autoFill accessory view.
+//            textFieldEmail.textContentType = UITextContentType("")
+//            textFieldPassword.textContentType = UITextContentType("")
+//        }
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
     }

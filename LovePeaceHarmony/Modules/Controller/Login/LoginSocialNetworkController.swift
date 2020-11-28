@@ -29,13 +29,13 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     }
     
     // MARK: - IBActions
-//    @IBAction func onTapFacebookLogin(_ sender: UITapGestureRecognizer) {
-//        if LPHUtils.checkNetworkConnection() {
-//            initiateLogin(type: .facebook)
-//        } else {
-//            showToast(message: "Please check your internet connection.")
-//        }
-//    }
+    @IBAction func onTapFacebookLogin(_ sender: UITapGestureRecognizer) {
+        if LPHUtils.checkNetworkConnection() {
+            initiateLogin(type: .facebook)
+        } else {
+            showToast(message: "Please check your internet connection.")
+        }
+    }
     
     @IBAction func onTapGoogleSignIn(_ sender: UITapGestureRecognizer) {
         if LPHUtils.checkNetworkConnection() {
@@ -129,7 +129,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
                 self.hideLoadingIndicator()
             }
         } catch let error {
-            
+            print(error.localizedDescription)
         }
     }
     

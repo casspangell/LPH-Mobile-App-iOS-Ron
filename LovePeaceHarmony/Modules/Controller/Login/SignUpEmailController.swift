@@ -26,24 +26,9 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldName.delegate = self
-        textFieldName.autocorrectionType = .no
-        
         textFieldEmail.delegate = self
-        textFieldEmail.autocorrectionType = .no
-        
         textFieldPassword.delegate = self
-        textFieldPassword.autocorrectionType = .no
-        
         textFieldConfirmPassword.delegate = self
-        textFieldConfirmPassword.autocorrectionType = .no
-        
-        if #available(iOS 11, *) {
-            // Disables the password autoFill accessory view.
-            textFieldName.textContentType = UITextContentType("")
-            textFieldEmail.textContentType = UITextContentType("")
-            textFieldPassword.textContentType = UITextContentType("")
-            textFieldConfirmPassword.textContentType = UITextContentType("")
-        }
     }
     
     // MARK: - XLPagerTabStrip
@@ -157,17 +142,34 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     // MARK: - Apis
     private func fireSocialLoginRegisterApi(email: String,password: String, name: String, deviceId: String) {
         showLoadingIndicator()
-        do {
-            let lphService: LPHService = try LPHServiceFactory<LoginError>.getLPHService()
-            lphService.fireLoginRegister(email: email, password: password, name: name, profilePicUrl: "", source: .email, deviceId: deviceId) { (lphResponse) in
-                if lphResponse.isSuccess() {
-                    self.processLoginResponse(serverResponse: lphResponse, password: password)
-                }
-                self.hideLoadingIndicator()
-            }
-        } catch let error {
+//        do {
+//            let lphService: LPHService = try LPHServiceFactory<LoginError>.getLPHService()
+//            lphService.fireLoginRegister(email: email, password: password, name: name, profilePicUrl: "", source: .email, deviceId: deviceId) { (lphResponse) in
+//                if lphResponse.isSuccess() {
+//                    self.processLoginResponse(serverResponse: lphResponse, password: password)
+//                }
+//                self.hideLoadingIndicator()
+//            }
+//        } catch let error {
+//
+//        }
+
+        //Create New User
+          Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+
+              if let error = error {
+                let authError = error as NSError
+                self!.showAlert(title: "Error", message: authError.localizedDescription, vc: self!)
+              }else{
+                print("email signup successful")
+              }
             
-        }
+            self?.hideLoadingIndicator()
+            print("\(email) created")
+//              strongSelf.navigationController?.popViewController(animated: true)
+            }
+
+
     }
     
     private func fireUpdateTokenApi() {

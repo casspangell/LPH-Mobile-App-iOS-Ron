@@ -169,7 +169,7 @@ let TIME_AM = "AM"
 let TIME_PM = "PM"
 let PAGE_LIMIT = 10
 let DEVICE_INFO = "iOS"
-let SESSION_EXPIRY_MESSAGE = "Your session expired. Please log in again"
+let SESSION_EXPIRY_MESSAGE = "Your session has expired. Please log in again"
 
 // Date patterns
 enum DatePattern {
@@ -204,7 +204,7 @@ enum AlertMessage {
     
     //Login
     static let nameEmpty = "Please enter the name"
-    static let emailEmpty = "Please enter the email"
+    static let emailEmpty = "Please enter your email address"
     static let invalidEmail = "Invalid email address"
     static let passwordEmpty = "Please enter the password"
     static let confirmPasswordEmpty = "Please enter the confirm password"
