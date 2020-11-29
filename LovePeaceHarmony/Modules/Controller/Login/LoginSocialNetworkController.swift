@@ -78,7 +78,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     }
     
     @IBAction func signUpPressed(_ sender: Any) {
-        loginControllerCallback?.changeTab(index: 1)
+        loginControllerCallback?.changeTab(index: 2)
     }
     
     

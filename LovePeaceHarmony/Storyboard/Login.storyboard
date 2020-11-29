@@ -526,7 +526,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZT-ti-ag3">
                                                 <rect key="frame" x="8" y="9" width="319" height="32"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <state key="normal" title="Login with Facebook">
+                                                <state key="normal" title="Connect with Facebook">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -565,7 +565,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIk-xX-qyR">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <state key="normal" title="Login with Google">
+                                                <state key="normal" title="Connect with Google">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -600,7 +600,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKR-iC-5Ry">
                                                 <rect key="frame" x="0.0" y="-5" width="335" height="10"/>
-                                                <state key="normal" title="Don't Have an Account? Sign Up">
+                                                <state key="normal" title="Don't have an account? Sign Up">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -1169,7 +1169,7 @@
                                 <rect key="frame" x="0.0" y="50" width="375" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-Ve-mwi">
-                                        <rect key="frame" x="20" y="0.0" width="335" height="250"/>
+                                        <rect key="frame" x="20" y="10" width="335" height="230"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Uj-Fb-geR">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -1210,45 +1210,40 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="join" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBd-0p-MHN" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="160" width="335" height="10"/>
+                                                <rect key="frame" x="0.0" y="160" width="335" height="20"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="10" id="Lou-2c-dAa"/>
-                                                </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyb-mj-bXs" userLabel="Submit">
-                                                <rect key="frame" x="0.0" y="170" width="335" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyb-mj-bXs" userLabel="Submit" customClass="RoundedCornerView" customModule="LovePeaceHarmony" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="180" width="335" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKo-H3-aXn">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKo-H3-aXn">
                                                         <rect key="frame" x="0.0" y="1" width="327" height="54"/>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Submit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bl-ke-tpc">
-                                                        <rect key="frame" x="146" y="29" width="63" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <state key="normal" title="Submit">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.33100718260000001" green="0.30234476919999997" blue="0.4549190998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="kKo-H3-aXn" secondAttribute="trailing" constant="8" id="2zU-2D-054"/>
-                                                    <constraint firstAttribute="height" constant="50" id="9rN-IB-jNi"/>
-                                                    <constraint firstItem="kKo-H3-aXn" firstAttribute="leading" secondItem="Oyb-mj-bXs" secondAttribute="leading" id="Yiw-Pf-KGa"/>
-                                                    <constraint firstItem="7bl-ke-tpc" firstAttribute="centerX" secondItem="Oyb-mj-bXs" secondAttribute="centerX" id="bUl-J8-zmw"/>
-                                                    <constraint firstItem="7bl-ke-tpc" firstAttribute="centerY" secondItem="Oyb-mj-bXs" secondAttribute="centerY" id="fhF-QH-iPA"/>
-                                                    <constraint firstItem="kKo-H3-aXn" firstAttribute="top" secondItem="Oyb-mj-bXs" secondAttribute="top" constant="1" id="n9V-bz-HFg"/>
-                                                    <constraint firstAttribute="bottom" secondItem="kKo-H3-aXn" secondAttribute="bottom" constant="25" id="u5t-5c-VZy"/>
+                                                    <constraint firstAttribute="height" constant="50" id="UjW-vD-eJK"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="bPL-Ve-mwi" firstAttribute="top" secondItem="aLe-Bu-6uv" secondAttribute="top" id="4Zi-DJ-Zj5"/>
+                                    <constraint firstItem="bPL-Ve-mwi" firstAttribute="top" secondItem="aLe-Bu-6uv" secondAttribute="top" constant="10" id="4Zi-DJ-Zj5"/>
                                     <constraint firstItem="bPL-Ve-mwi" firstAttribute="centerY" secondItem="aLe-Bu-6uv" secondAttribute="centerY" id="JKg-PR-eTp"/>
                                     <constraint firstAttribute="trailing" secondItem="bPL-Ve-mwi" secondAttribute="trailing" constant="20" id="VJI-tn-tT6"/>
                                     <constraint firstItem="bPL-Ve-mwi" firstAttribute="leading" secondItem="aLe-Bu-6uv" secondAttribute="leading" constant="20" id="i3L-Cj-nxL"/>
-                                    <constraint firstAttribute="bottom" secondItem="bPL-Ve-mwi" secondAttribute="bottom" id="ifW-qe-It4"/>
+                                    <constraint firstAttribute="bottom" secondItem="bPL-Ve-mwi" secondAttribute="bottom" constant="10" id="ifW-qe-It4"/>
                                     <constraint firstItem="bPL-Ve-mwi" firstAttribute="centerX" secondItem="aLe-Bu-6uv" secondAttribute="centerX" id="wkh-qn-Odz"/>
                                 </constraints>
                             </scrollView>

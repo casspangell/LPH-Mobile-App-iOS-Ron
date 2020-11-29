@@ -58,7 +58,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     
     // MARK: - IBActions
     @IBAction func onTapBack(_ sender: UITapGestureRecognizer) {
-        loginControllerCallback?.changeTab(index: 1)
+        loginControllerCallback?.changeTab(index: 0)
     }
     
     @IBAction func onTapCreateAccount(_ sender: UITapGestureRecognizer) {
