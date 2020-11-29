@@ -30,10 +30,6 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let loginButton = FBLoginButton()
-        loginButton.center = stackView.center
-        stackView.addSubview(loginButton)
-
 //        loginEngine = SocialLoginEngine(self)
     }
     
