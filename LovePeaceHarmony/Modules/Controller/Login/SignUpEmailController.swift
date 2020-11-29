@@ -17,7 +17,6 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     var splashDelegate: SplashDelegate?
     
     // MARK: - IBOutlets
-    @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldConfirmPassword: UITextField!
@@ -25,7 +24,6 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldName.delegate = self
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
         textFieldConfirmPassword.delegate = self
@@ -38,9 +36,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == textFieldName {
-            textFieldEmail.becomeFirstResponder()
-        } else if textField == textFieldEmail {
+        if textField == textFieldEmail {
             textFieldPassword.becomeFirstResponder()
         } else if textField == textFieldPassword {
             textFieldConfirmPassword.becomeFirstResponder()
@@ -77,9 +73,6 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     
     // MARK: - Actions
     private func validateForm() throws {
-        guard let name = textFieldName.text, name != "" else {
-            throw LPHException<LoginError>(controllerError: .emptyName)
-        }
         
         guard let email = textFieldEmail.text, email != "" else {
             throw LPHException<LoginError>(controllerError: .emptyEmail)
@@ -106,7 +99,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         print("Error fetching remote instange ID: \(error)")
         } else if let result = result {
             print("Remote instance ID token: \(result.token)")
-            self.fireSocialLoginRegisterApi(email: email, password: password, name: name, deviceId: result.token)
+//            self.fireSocialLoginRegisterApi(email: email, password: password, name: name, deviceId: result.token)
          }
         }
         

@@ -208,6 +208,7 @@
 				6FDFDBF3201EE9CD00D1FBB7 /* LovePeaceHarmony.xcdatamodeld */,
 				6FCEBB8F1FE78410003D7238 /* LovePeaceHarmony.entitlements */,
 				6F3D8BD81FB1CD25008E0D82 /* Modules */,
+				6F8BDED01FB4723600D924C6 /* Storyboard */,
 				6F3D8BD71FB1CD00008E0D82 /* Resources */,
 				6F3D8BC61FB1CC2B008E0D82 /* Assets.xcassets */,
 				6F3D8BCB1FB1CC2B008E0D82 /* Info.plist */,
@@ -285,7 +286,6 @@
 			children = (
 				6F95DA572032DE3C0086B8BA /* Fonts */,
 				6F74D2521FD5B5F400F96E1A /* audio */,
-				6F8BDED01FB4723600D924C6 /* Storyboard */,
 				6F8BDECF1FB4722600D924C6 /* Lottie-Files */,
 			);
 			path = Resources;

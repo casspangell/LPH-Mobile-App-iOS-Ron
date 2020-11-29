@@ -77,6 +77,10 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
                 })
     }
     
+    @IBAction func signUpPressed(_ sender: Any) {
+        loginControllerCallback?.changeTab(index: 1)
+    }
+    
     
     // MARK: - XLPagerTabStrip
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

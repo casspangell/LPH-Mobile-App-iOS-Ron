@@ -39,6 +39,8 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
         view.addGestureRecognizer(tap)
     }
     
+    
+    
     // MARK: -
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         var returnSuccess = true
@@ -54,6 +56,8 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
     }
     
     //MARK: - IBActions
+
+    
     
     // MARK: - Actions
     private func generateTabs() -> [UIViewController] {
