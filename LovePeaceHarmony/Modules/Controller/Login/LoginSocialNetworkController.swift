@@ -20,11 +20,9 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 //    var loginEngine: SocialLoginEngine?
     
     // MARK: - IBOutets
-    @IBOutlet weak var buttonGoogleSignIn: GIDSignInButton!
-    @IBOutlet weak var facebookLoginButton: FBLoginButton!
+    @IBOutlet weak var googleLoginButton: UIButton!
+    @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var facebookView: UIView!
-    @IBOutlet weak var googleView: UIView!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -61,6 +59,24 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 ////        LPHUtils.setLoginVo(loginVo: loginVo)
 ////        navigateToHome()
 //    }
+    
+    @IBAction func facebookLoginPressed(_ sender: Any) {
+        let loginManager = LoginManager()
+                loginManager.logIn(permissions: ["public_profile", "email"], from: self, handler: { result, error in
+                    if error != nil {
+                        print("ERROR: Trying to get login results")
+                    } else if result?.isCancelled != nil {
+                        print("The token is \(result?.token?.tokenString ?? "")")
+                        if result?.token?.tokenString != nil {
+                            print("Logged in")
+//                            self.getUserProfile(token: result?.token, userId: result?.token?.userID)
+                        } else {
+                            print("Cancelled")
+                        }
+                    }
+                })
+    }
+    
     
     // MARK: - XLPagerTabStrip
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

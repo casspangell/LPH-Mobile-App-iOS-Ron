@@ -528,13 +528,23 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ic_fb" translatesAutoresizingMaskIntoConstraints="NO" id="aS9-kc-05g">
                                                 <rect key="frame" x="0.0" y="12" width="335" height="0.0"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZT-ti-ag3">
+                                                <rect key="frame" x="8" y="10" width="319" height="30"/>
+                                                <connections>
+                                                    <action selector="facebookLoginPressed:" destination="lbk-4m-TCN" eventType="touchUpInside" id="Znm-fj-OoP"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26827955250000002" green="0.39584642650000001" blue="0.69807237389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="aS9-kc-05g" firstAttribute="centerY" secondItem="WRh-OE-clE" secondAttribute="centerY" id="Eef-I7-a3l"/>
                                             <constraint firstItem="TZi-LP-rAm" firstAttribute="centerX" secondItem="WRh-OE-clE" secondAttribute="centerX" id="KoI-DQ-oIp"/>
+                                            <constraint firstItem="3ZT-ti-ag3" firstAttribute="top" secondItem="WRh-OE-clE" secondAttribute="top" constant="10" id="XC2-pN-pwE"/>
+                                            <constraint firstItem="3ZT-ti-ag3" firstAttribute="leading" secondItem="WRh-OE-clE" secondAttribute="leading" constant="8" id="gEn-Ub-07p"/>
+                                            <constraint firstAttribute="trailing" secondItem="3ZT-ti-ag3" secondAttribute="trailing" constant="8" id="kku-hW-RTl"/>
                                             <constraint firstItem="aS9-kc-05g" firstAttribute="leading" secondItem="WRh-OE-clE" secondAttribute="leading" constant="20" id="lJG-UC-3fc"/>
                                             <constraint firstAttribute="height" constant="50" id="mcB-qp-D3Y"/>
+                                            <constraint firstAttribute="bottom" secondItem="3ZT-ti-ag3" secondAttribute="bottom" constant="10" id="vrb-Aa-5bB"/>
                                             <constraint firstItem="TZi-LP-rAm" firstAttribute="centerY" secondItem="WRh-OE-clE" secondAttribute="centerY" constant="1.5" id="x6Z-dS-dTY"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -604,8 +614,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="310"/>
                     <connections>
-                        <outlet property="facebookView" destination="WRh-OE-clE" id="fYd-m3-sFp"/>
-                        <outlet property="googleView" destination="Xbu-0v-tOk" id="Ci8-5J-yZ4"/>
+                        <outlet property="facebookLoginButton" destination="3ZT-ti-ag3" id="Db3-Iv-GiR"/>
                         <outlet property="stackView" destination="IV0-nr-n1V" id="71W-me-XEX"/>
                     </connections>
                 </viewController>
