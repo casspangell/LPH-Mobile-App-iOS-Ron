@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         FirebaseOptions.defaultOptions()?.deepLinkURLScheme = "com.drsha.ios.LovePeaceHarmony"
         FirebaseApp.configure()
+        
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
 

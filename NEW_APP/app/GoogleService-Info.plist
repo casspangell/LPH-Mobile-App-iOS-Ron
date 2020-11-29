@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>863691168348-990dd80l6a4joakqbku2nmb90q5inqf8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.863691168348-990dd80l6a4joakqbku2nmb90q5inqf8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBmQJrmXgaET9BaDFqXvwi_VsJlnu0zb2g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>863691168348</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.lovepeaceharmony.ios.app</string>
+	<key>PROJECT_ID</key>
+	<string>love-peace-harmony</string>
+	<key>STORAGE_BUCKET</key>
+	<string>love-peace-harmony.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:863691168348:ios:37e8b26fb6fc1c1fc9e499</string>
+	<key>DATABASE_URL</key>
+	<string>https://love-peace-harmony.firebaseio.com</string>
+</dict>
+</plist>
