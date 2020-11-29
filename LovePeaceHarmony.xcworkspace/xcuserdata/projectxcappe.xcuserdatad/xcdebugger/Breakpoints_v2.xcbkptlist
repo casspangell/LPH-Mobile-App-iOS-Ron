@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CA6BCFAC-6686-4CEE-B6AA-2179C989476E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LovePeaceHarmony/Modules/Http/RestClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "httpRequest(url:method:params:isLoading:httpResponse:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CA6BCFAC-6686-4CEE-B6AA-2179C989476E - f55e52de4dabf42c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static LovePeaceHarmony.RestClient.httpRequest(url: Swift.String, method: LovePeaceHarmony.RestClient.ANHttpMethod, params: Swift.Dictionary&lt;Swift.String, Any&gt;, isLoading: Swift.Bool, httpResponse: (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "LovePeaceHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Http/RestClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "2676">
-               </Location>
-               <Location
-                  uuid = "CA6BCFAC-6686-4CEE-B6AA-2179C989476E - eb4b783ac1ac113b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in static LovePeaceHarmony.RestClient.httpRequest(url: Swift.String, method: LovePeaceHarmony.RestClient.ANHttpMethod, params: Swift.Dictionary&lt;Swift.String, Any&gt;, isLoading: Swift.Bool, httpResponse: (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "LovePeaceHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Http/RestClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "108">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4241C4E0-E08F-4E85-B197-447740E3E5B0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -142,8 +94,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "fireUpdateTokenApi()"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +110,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "processLoginResponse(source:password:serverResponse:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +126,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "initiateLogin(type:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +142,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "LoginSocialNetworkController"
             landmarkType = "3">
          </BreakpointContent>
@@ -206,8 +158,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "LoginSocialNetworkController"
             landmarkType = "3">
          </BreakpointContent>
@@ -222,8 +174,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "fireUpdateTokenApi()"
             landmarkType = "7">
          </BreakpointContent>

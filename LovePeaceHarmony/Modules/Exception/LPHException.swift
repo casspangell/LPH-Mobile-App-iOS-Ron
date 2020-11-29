@@ -82,6 +82,10 @@ public class LPHException<E>: Error {
             message = AlertMessage.invalidEmail
             break
             
+        case .passwordLength:
+            message = AlertMessage.passwordLength
+            break
+            
         case .emptyPassword:
             message = AlertMessage.passwordEmpty
             break

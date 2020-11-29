@@ -47,13 +47,13 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        let yValue = textField.layer.frame.maxY + 15
-        animateViewMoving(true, moveValue: yValue)
+//        let yValue = textField.layer.frame.maxY + 15
+//        animateViewMoving(true, moveValue: yValue)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let yValue = textField.layer.frame.maxY + 15
-        animateViewMoving(false, moveValue: yValue)
+//        let yValue = textField.layer.frame.maxY + 15
+//        animateViewMoving(false, moveValue: yValue)
     }
     
     // MARK: - IBActions
@@ -61,7 +61,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         loginControllerCallback?.changeTab(index: 0)
     }
     
-    @IBAction func onTapCreateAccount(_ sender: UITapGestureRecognizer) {
+    @IBAction func submitPressed(_ sender: Any) {
         do {
             try validateForm()
         } catch let error as LPHException<LoginError> {
@@ -82,6 +82,10 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             throw LPHException<LoginError>(controllerError: .invalidEmail)
         }
         
+        guard let passwordLength = textFieldPassword.text, passwordLength.count >= 6 else {
+            throw LPHException<LoginError>(controllerError: .passwordLength)
+        }
+        
         guard let password = textFieldPassword.text, password != "" else {
             throw LPHException<LoginError>(controllerError: .emptyPassword)
         }
@@ -99,12 +103,9 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         print("Error fetching remote instange ID: \(error)")
         } else if let result = result {
             print("Remote instance ID token: \(result.token)")
-//            self.fireSocialLoginRegisterApi(email: email, password: password, name: name, deviceId: result.token)
+            self.fireSocialLoginRegisterApi(email: email, password: password, deviceId: result.token)
          }
         }
-        
-        
-        
     }
     
     func animateViewMoving (_ up:Bool, moveValue :CGFloat){
@@ -112,57 +113,43 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         loginControllerCallback?.moveScreen(dx: 0, dy: movement)
     }
     
-    private func processLoginResponse(serverResponse response: LPHResponse<ProfileVo, LoginError>, password: String) {
-        if response.isSuccess() {
-            let profileVo = response.getResult()
+//    private func processLoginResponse(serverResponse response: LPHResponse<ProfileVo, LoginError>, password: String) {
+    private func processLoginResponse(email: String, password: String) {
+//        if response.isSuccess() {
+//            let profileVo = response.getResult()
             let loginVo = LPHUtils.getLoginVo()
             loginVo.isLoggedIn = true
-            loginVo.email = profileVo.email
+            loginVo.email = email
             loginVo.password = password
-            loginVo.fullName = profileVo.name
-            loginVo.profilePicUrl = profileVo.profilePic
+//            loginVo.fullName = profileVo.name
+//            loginVo.profilePicUrl = profileVo.profilePic
             loginVo.loginType = .email
-            loginVo.inviteCode = profileVo.inviteCode
-            loginVo.token = response.getMetadata() as! String
+//            loginVo.inviteCode = profileVo.inviteCode
+//            loginVo.token = response.getMetadata() as! String
             LPHUtils.setLoginVo(loginVo: loginVo)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
             self.fireUpdateTokenApi()
-        }
+//        }
     }
     
     // MARK: - Apis
-    private func fireSocialLoginRegisterApi(email: String,password: String, name: String, deviceId: String) {
-        showLoadingIndicator()
-//        do {
-//            let lphService: LPHService = try LPHServiceFactory<LoginError>.getLPHService()
-//            lphService.fireLoginRegister(email: email, password: password, name: name, profilePicUrl: "", source: .email, deviceId: deviceId) { (lphResponse) in
-//                if lphResponse.isSuccess() {
-//                    self.processLoginResponse(serverResponse: lphResponse, password: password)
-//                }
-//                self.hideLoadingIndicator()
-//            }
-//        } catch let error {
-//
-//        }
+    private func fireSocialLoginRegisterApi(email: String,password: String, deviceId: String) {
+    showLoadingIndicator()
+    
+    //Create New User
+      Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
 
-        //Create New User
-          Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
-
-              if let error = error {
-                let authError = error as NSError
-                self!.showAlert(title: "Error", message: authError.localizedDescription, vc: self!)
-              }else{
-                print("email signup successful")
-              }
-            
+          if let error = error {
+            let authError = error as NSError
+            self!.showAlert(title: "Error", message: authError.localizedDescription, vc: self!)
+          }else{
             self?.hideLoadingIndicator()
             print("\(email) created")
-//              strongSelf.navigationController?.popViewController(animated: true)
-            }
-
-
+            self?.processLoginResponse(email: email, password: password)
+          }
+        }
     }
     
     private func fireUpdateTokenApi() {
@@ -172,15 +159,15 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         } else if let result = result {
         print("Remote instance ID token: \(result.token)")
             let deviceInfo = DEVICE_INFO
-            self.showLoadingIndicator()
             do {
-                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
-                    self.splashDelegate?.isFromLoginEnable()
-                    self.dismiss(animated: true, completion: nil)
-                }
+            self.showLoadingIndicator()
+//                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+//                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
+//                    self.splashDelegate?.isFromLoginEnable()
+//                    self.dismiss(animated: true, completion: nil)
+//                }
             } catch let error {
-                
+                self.hideLoadingIndicator()
             }
          }
         }

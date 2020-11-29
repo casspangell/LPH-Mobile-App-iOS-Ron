@@ -207,6 +207,7 @@ enum AlertMessage {
     static let emailEmpty = "Please enter your email address"
     static let invalidEmail = "Invalid email address"
     static let passwordEmpty = "Please enter the password"
+    static let passwordLength = "Password needs to be at least 6 characters"
     static let confirmPasswordEmpty = "Please enter the confirm password"
     static let passwordDoNotMatch = "Passwords do not match"
     

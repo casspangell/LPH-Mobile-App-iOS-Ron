@@ -13,6 +13,11 @@ import Firebase
 import FBSDKLoginKit
 
 class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, LoginButtonDelegate {
+    
+    /** @var handle
+        @brief The handler for the auth state listener, to allow cancelling later.
+     */
+    var handle: AuthStateDidChangeListenerHandle?
 
     // MARK: - Variables
     var loginControllerCallback: LoginControllerCallback?
@@ -20,15 +25,37 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 //    var loginEngine: SocialLoginEngine?
     
     // MARK: - IBOutets
+    
     @IBOutlet weak var googleLoginButton: UIButton!
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
+    
+    
+    
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        loginEngine = SocialLoginEngine(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      // [START auth_listener]
+      handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+        // [START_EXCLUDE]
+//        self.setTitleDisplay(user)
+//        self.tableView.reloadData()
+        // [END_EXCLUDE]
+      }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      // [START remove_auth_listener]
+      Auth.auth().removeStateDidChangeListener(handle!)
+      // [END remove_auth_listener]
     }
     
     // MARK: - IBActions
@@ -59,6 +86,11 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 ////        LPHUtils.setLoginVo(loginVo: loginVo)
 ////        navigateToHome()
 //    }
+    
+    
+    @IBAction func loginWithEmailPressed(_ sender: Any) {
+
+    }
     
     @IBAction func facebookLoginPressed(_ sender: Any) {
         let loginManager = LoginManager()

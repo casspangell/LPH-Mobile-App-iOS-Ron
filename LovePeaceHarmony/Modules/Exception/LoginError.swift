@@ -11,6 +11,7 @@ public enum LoginError: Int, Error {
     case emptyEmail
     case invalidEmail
     case emptyPassword
+    case passwordLength
     case emptyConfirmPassword
     case passwordDoNotMatch
     case invalidCredentials
