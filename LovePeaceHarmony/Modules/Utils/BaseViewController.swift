@@ -59,6 +59,7 @@ class BaseViewController: UIViewController {
     }
     
     func showAlert(title: String, message: String, vc: UIViewController) {
+ 
         var title = title
         if title.count == 0 {
             title = "Alert"

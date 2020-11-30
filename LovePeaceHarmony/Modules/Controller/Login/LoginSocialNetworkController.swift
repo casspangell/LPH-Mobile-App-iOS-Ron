@@ -84,7 +84,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 ////        loginVo.isLoggedIn = true
 ////        loginVo.loginType = .withoutLogin
 ////        LPHUtils.setLoginVo(loginVo: loginVo)
-////        navigateToHome()
+//        navigateToHome()
 //    }
     
     

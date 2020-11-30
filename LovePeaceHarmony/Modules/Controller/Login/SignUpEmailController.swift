@@ -136,8 +136,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     
     // MARK: - Apis
     private func fireSocialLoginRegisterApi(email: String,password: String, deviceId: String) {
-    showLoadingIndicator()
-    
+
     //Create New User
       Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
 
@@ -145,7 +144,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             let authError = error as NSError
             self!.showAlert(title: "Error", message: authError.localizedDescription, vc: self!)
           }else{
-            self?.hideLoadingIndicator()
+
             print("\(email) created")
             self?.processLoginResponse(email: email, password: password)
           }
@@ -153,6 +152,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     }
     
     private func fireUpdateTokenApi() {
+        self.showLoadingIndicator()
         InstanceID.instanceID().instanceID { (result, error) in
         if let error = error {
         print("Error fetching remote instange ID: \(error)")
@@ -160,18 +160,20 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         print("Remote instance ID token: \(result.token)")
             let deviceInfo = DEVICE_INFO
             do {
-            self.showLoadingIndicator()
-//                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-//                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
-//                    self.splashDelegate?.isFromLoginEnable()
-//                    self.dismiss(animated: true, completion: nil)
-//                }
+                self.hideLoadingIndicator()
+                self.splashDelegate?.isFromLoginEnable()
+                self.navigateToHome()
             } catch let error {
                 self.hideLoadingIndicator()
             }
          }
         }
-
+    }
+    
+    // MARK: - Navigation
+    private func navigateToHome() {
+        let homeTabController = LPHUtils.getStoryboard(type: .home).instantiateViewController(withIdentifier: ViewController.homeTab)
+        present(homeTabController, animated: true, completion: nil)
     }
     
 }
