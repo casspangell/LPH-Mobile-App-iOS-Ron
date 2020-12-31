@@ -3,7 +3,7 @@
 //  LovePeaceHarmony
 //
 //  Created by Aghil C M on 29/11/17.
-//  Last Updated by Cass Pangell on 11/29/20.
+//  Last Updated by Cass Pangell on 12/30/20.
 //  Copyright © 2020 LovePeaceHarmony. All rights reserved.
 //
 
@@ -99,9 +99,9 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         self.showLoadingIndicator()
            
               Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                
+
                 self?.hideLoadingIndicator()
-                
+
                   if let error = error {
                     let authError = error as NSError
                     self?.showToast(message: error.localizedDescription)
@@ -141,14 +141,15 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     
     // MARK: - Login Methods
     // Facebook Login
-//    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-//        print("Logged into Facebook")
-//        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-//    }
+    //ARE THESE BEING USED?
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        print("Logged into Facebook")
+        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+    }
     
-//    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-//        print("Logged out of Facebook")
-//    }
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("Logged out of Facebook")
+    }
     
     // ------
     private func initiateLogin(type: LoginType) {
