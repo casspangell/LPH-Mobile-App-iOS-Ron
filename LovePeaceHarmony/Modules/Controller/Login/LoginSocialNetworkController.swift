@@ -29,6 +29,8 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     @IBOutlet weak var googleLoginButton: UIButton!
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     
     
@@ -89,7 +91,26 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     
     
     @IBAction func loginWithEmailPressed(_ sender: Any) {
-
+        guard let email = self.emailTextField.text, let password = self.passwordTextField.text else {
+            self.showToast(message: "email/password can't be empty")
+              return
+            }
+        
+        self.showLoadingIndicator()
+           
+              Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                
+                self?.hideLoadingIndicator()
+                
+                  if let error = error {
+                    let authError = error as NSError
+                    self?.showToast(message: error.localizedDescription)
+                  } else {
+                    //Login success
+                    self!.navigateToHome()
+                  }
+                }
+            
     }
     
     @IBAction func facebookLoginPressed(_ sender: Any) {
