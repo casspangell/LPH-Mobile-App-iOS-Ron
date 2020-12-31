@@ -89,22 +89,22 @@
                                 <rect key="frame" x="87.5" y="358.5" width="200" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Song" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wus-gM-1hZ">
-                                        <rect key="frame" x="15" y="8" width="170.5" height="44.5"/>
+                                        <rect key="frame" x="12.5" y="8" width="175.5" height="52"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="38"/>
                                         <color key="textColor" red="0.39871716499328613" green="0.17920699715614319" blue="0.56889539957046509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ENy-SD-63k">
-                                        <rect key="frame" x="2.5" y="52.5" width="195.5" height="44.5"/>
+                                        <rect key="frame" x="-1.5" y="60" width="203.5" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="can" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOs-Jx-IMu">
-                                                <rect key="frame" x="0.0" y="0.0" width="62" height="44.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="63" height="52"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="38"/>
                                                 <color key="textColor" red="0.39871716499999998" green="0.1792069972" blue="0.56889539960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="change" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyy-UK-X5B">
-                                                <rect key="frame" x="70" y="0.0" width="125.5" height="44.5"/>
+                                                <rect key="frame" x="71" y="0.0" width="132.5" height="52"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="38"/>
                                                 <color key="textColor" red="0.39871716499999998" green="0.1792069972" blue="0.56889539960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -112,16 +112,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jnQ-is-LoW">
-                                        <rect key="frame" x="17" y="97" width="166.5" height="44.5"/>
+                                        <rect key="frame" x="9" y="112" width="182" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pa7-59-VKc">
-                                                <rect key="frame" x="0.0" y="0.0" width="54" height="44.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="58.5" height="52"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="38"/>
                                                 <color key="textColor" red="0.39871716499999998" green="0.1792069972" blue="0.56889539960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="world!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBI-hZ-z5g">
-                                                <rect key="frame" x="62" y="0.0" width="104.5" height="44.5"/>
+                                                <rect key="frame" x="66.5" y="0.0" width="115.5" height="52"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="38"/>
                                                 <color key="textColor" red="0.39871716499999998" green="0.1792069972" blue="0.56889539960000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -581,6 +581,9 @@
                                                 <state key="normal" title="Connect with Google">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="googleLoginPressed:" destination="lbk-4m-TCN" eventType="touchUpInside" id="qeR-i0-ycc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.28838348390000001" green="0.51404094700000003" blue="0.92945671080000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -660,6 +663,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="NKQ-su-kpJ" id="chI-iK-Xrl"/>
                         <outlet property="facebookLoginButton" destination="3ZT-ti-ag3" id="Db3-Iv-GiR"/>
+                        <outlet property="googleLoginButton" destination="LIk-xX-qyR" id="AEw-yr-DsV"/>
                         <outlet property="passwordTextField" destination="DBM-f4-Bta" id="Yzd-Q8-qRm"/>
                         <outlet property="stackView" destination="IV0-nr-n1V" id="71W-me-XEX"/>
                     </connections>
@@ -686,7 +690,7 @@
                                                 <rect key="frame" x="0.0" y="8" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pey-qF-Fr6">
-                                                        <rect key="frame" x="108" y="15" width="159" height="20"/>
+                                                        <rect key="frame" x="106.5" y="13.5" width="162" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -709,7 +713,7 @@
                                                 <rect key="frame" x="0.0" y="66" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ML-ra-4BO">
-                                                        <rect key="frame" x="118.5" y="15" width="138.5" height="20"/>
+                                                        <rect key="frame" x="116.5" y="13.5" width="142" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -736,7 +740,7 @@
                                                 <rect key="frame" x="0.0" y="124" width="375" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5m-vR-XUG">
-                                                        <rect key="frame" x="125" y="15" width="125" height="20"/>
+                                                        <rect key="frame" x="123" y="13.5" width="129.5" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -793,13 +797,13 @@
                                                 </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can always sign in later" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5N-et-RU4">
-                                                <rect key="frame" x="101.5" y="240" width="172.5" height="16.5"/>
+                                                <rect key="frame" x="98.5" y="240" width="178" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from the &quot;Profile&quot; screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcy-eh-Gls">
-                                                <rect key="frame" x="111" y="260.5" width="153" height="16.5"/>
+                                                <rect key="frame" x="107.5" y="263.5" width="160.5" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -876,7 +880,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGy-P8-6L7">
-                                                <rect key="frame" x="20" y="15.5" width="36.5" height="19"/>
+                                                <rect key="frame" x="20" y="14" width="35.5" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -904,7 +908,7 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvj-Ga-4cD">
-                                        <rect key="frame" x="128" y="16.5" width="119" height="17.5"/>
+                                        <rect key="frame" x="126.5" y="15" width="122.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -970,7 +974,7 @@
                                                 <rect key="frame" x="8" y="102" width="359" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cP-wO-2Yr">
-                                                        <rect key="frame" x="153.5" y="10" width="52" height="20"/>
+                                                        <rect key="frame" x="153" y="8.5" width="53" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1008,7 +1012,7 @@
                                                 <rect key="frame" x="8" y="159" width="359" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1F-Sh-b1m">
-                                                        <rect key="frame" x="108.5" y="10" width="142" height="20"/>
+                                                        <rect key="frame" x="107" y="8.5" width="145" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1124,7 +1128,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8R-qd-TyM">
-                                                <rect key="frame" x="25" y="15.5" width="36.5" height="19"/>
+                                                <rect key="frame" x="25" y="14" width="35.5" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1152,7 +1156,7 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajU-Dl-WOZ">
-                                        <rect key="frame" x="116.5" y="15" width="142" height="20"/>
+                                        <rect key="frame" x="115" y="13.5" width="145" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
