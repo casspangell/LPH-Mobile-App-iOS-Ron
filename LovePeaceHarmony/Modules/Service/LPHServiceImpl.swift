@@ -132,86 +132,86 @@ public class LPHServiceImpl: LPHService {
     }
     
     public func fetchNewsList(pageCount: Int, isFetchingFavourite: Bool, parsedResponse: @escaping (LPHResponse<[NewsVo], NewsError>) -> Void) {
-        
-        let newsParam = [HttpParam.pageOffset: String(pageCount),
-                         HttpParam.pageLimit: String(PAGE_LIMIT)]
-        var url: String
-        if isFetchingFavourite {
-            let apiToken = LPHUtils.getLoginVo().token
-            url = LPHUrl.NEWS_FAVOURITE
-        } else {
-            url = LPHUrl.NEWS_RECENT
-        }
-        RestClient.httpRequest(url: url, method: .get, params: newsParam, isLoading: false) { (rawResponse) in
-            let lphResponse = LPHParser.parseNewsList(rawResponse: rawResponse)
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.fetchNewsList(pageCount: pageCount, isFetchingFavourite: isFetchingFavourite, parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
-            }
-        }
+//
+//        let newsParam = [HttpParam.pageOffset: String(pageCount),
+//                         HttpParam.pageLimit: String(PAGE_LIMIT)]
+//        var url: String
+//        if isFetchingFavourite {
+//            let apiToken = LPHUtils.getLoginVo().token
+//            url = LPHUrl.NEWS_FAVOURITE
+//        } else {
+//            url = LPHUrl.NEWS_RECENT
+//        }
+//        RestClient.httpRequest(url: url, method: .get, params: newsParam, isLoading: false) { (rawResponse) in
+//            let lphResponse = LPHParser.parseNewsList(rawResponse: rawResponse)
+//            if lphResponse.getSessionExpiry() {
+//                self.handleSessionExpiry {
+//                    try! self.fetchNewsList(pageCount: pageCount, isFetchingFavourite: isFetchingFavourite, parsedResponse: parsedResponse)
+//                }
+//            } else {
+//                parsedResponse(lphResponse)
+//            }
+//        }
     }
     
     public func markFavourite(newsId: String, markAsFavourite: Bool, parsedResponse: @escaping (LPHResponse<Any, NewsError>) -> Void) {
-        let newsParam = [HttpParam.newsId: newsId,
-                         HttpParam.isFavourite: markAsFavourite ? "1" : "0"]
-        RestClient.httpRequest(url: LPHUrl.MARK_FAVOURITE, method: .post, params: newsParam, isLoading: false) { (rawResponse) in
-            let lphResponse = LPHParser.parseMarkFavourite(rawResponse: rawResponse)
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.markFavourite(newsId: newsId, markAsFavourite: markAsFavourite, parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
-            }
-        }
+//        let newsParam = [HttpParam.newsId: newsId,
+//                         HttpParam.isFavourite: markAsFavourite ? "1" : "0"]
+//        RestClient.httpRequest(url: LPHUrl.MARK_FAVOURITE, method: .post, params: newsParam, isLoading: false) { (rawResponse) in
+//            let lphResponse = LPHParser.parseMarkFavourite(rawResponse: rawResponse)
+//            if lphResponse.getSessionExpiry() {
+//                self.handleSessionExpiry {
+//                    try! self.markFavourite(newsId: newsId, markAsFavourite: markAsFavourite, parsedResponse: parsedResponse)
+//                }
+//            } else {
+//                parsedResponse(lphResponse)
+//            }
+//        }
     }
     
     public func markRead(newsId: String, markAsRead: Bool, parsedResponse: @escaping (LPHResponse<Any, NewsError>) -> Void) {
-        let newsParam = [HttpParam.newsId: newsId,
-                         HttpParam.isRead: markAsRead ? "1" : "0"]
-        RestClient.httpRequest(url: LPHUrl.MARK_READ, method: .post, params: newsParam, isLoading: false) { (rawResponse) in
-            let lphResponse = LPHParser.parseMarkFavourite(rawResponse: rawResponse)
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.markRead(newsId: newsId, markAsRead: markAsRead, parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
-            }
-        }
+//        let newsParam = [HttpParam.newsId: newsId,
+//                         HttpParam.isRead: markAsRead ? "1" : "0"]
+//        RestClient.httpRequest(url: LPHUrl.MARK_READ, method: .post, params: newsParam, isLoading: false) { (rawResponse) in
+//            let lphResponse = LPHParser.parseMarkFavourite(rawResponse: rawResponse)
+//            if lphResponse.getSessionExpiry() {
+//                self.handleSessionExpiry {
+//                    try! self.markRead(newsId: newsId, markAsRead: markAsRead, parsedResponse: parsedResponse)
+//                }
+//            } else {
+//                parsedResponse(lphResponse)
+//            }
+//        }
     }
     
     public func fetchNewsCategoryList(pageCount: Int, parsedResponse: @escaping (LPHResponse<[CategoryVo], NewsError>) -> Void) {
-        let newsRecentParam = [HttpParam.pageOffset: String(pageCount)]
-        RestClient.httpRequest(url: LPHUrl.NEWS_CATEGORY, method: .get, params: newsRecentParam, isLoading: false) { (rawResponse) in
-            let lphResponse = LPHParser.parseNewsCategoryList(rawResponse: rawResponse)
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.fetchNewsCategoryList(pageCount: pageCount, parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
-            }
-        }
+//        let newsRecentParam = [HttpParam.pageOffset: String(pageCount)]
+//        RestClient.httpRequest(url: LPHUrl.NEWS_CATEGORY, method: .get, params: newsRecentParam, isLoading: false) { (rawResponse) in
+//            let lphResponse = LPHParser.parseNewsCategoryList(rawResponse: rawResponse)
+//            if lphResponse.getSessionExpiry() {
+//                self.handleSessionExpiry {
+//                    try! self.fetchNewsCategoryList(pageCount: pageCount, parsedResponse: parsedResponse)
+//                }
+//            } else {
+//                parsedResponse(lphResponse)
+//            }
+//        }
     }
     
     public func fetchNewsListFromCategory(categoryId: String, pageCount: Int, parsedResponse: @escaping (LPHResponse<[NewsVo], NewsError>) -> Void) {
-        let newsRecentParam = [HttpParam.categoryId: String(categoryId),
-                               HttpParam.pageLimit: String(PAGE_LIMIT),
-                               HttpParam.pageOffset: String(pageCount)]
-        RestClient.httpRequest(url: LPHUrl.NEWS_LIST_CATEGORY, method: .get, params: newsRecentParam, isLoading: false) { (rawResponse) in
-            let lphResponse = LPHParser.parseNewsList(rawResponse: rawResponse)
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.fetchNewsListFromCategory(categoryId: categoryId, pageCount: pageCount, parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
-            }
-        }
+//        let newsRecentParam = [HttpParam.categoryId: String(categoryId),
+//                               HttpParam.pageLimit: String(PAGE_LIMIT),
+//                               HttpParam.pageOffset: String(pageCount)]
+//        RestClient.httpRequest(url: LPHUrl.NEWS_LIST_CATEGORY, method: .get, params: newsRecentParam, isLoading: false) { (rawResponse) in
+//            let lphResponse = LPHParser.parseNewsList(rawResponse: rawResponse)
+//            if lphResponse.getSessionExpiry() {
+//                self.handleSessionExpiry {
+//                    try! self.fetchNewsListFromCategory(categoryId: categoryId, pageCount: pageCount, parsedResponse: parsedResponse)
+//                }
+//            } else {
+//                parsedResponse(lphResponse)
+//            }
+//        }
     }
     
     public func updateProfilePic(base64Image: String, parsedResponse: @escaping (LPHResponse<ProfileVo, LoginError>) -> Void) {

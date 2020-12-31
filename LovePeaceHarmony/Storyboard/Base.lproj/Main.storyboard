@@ -27,7 +27,7 @@
             <objects>
                 <viewController id="FrV-we-v0e" customClass="NewsController" customModule="LovePeaceHarmony" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C3G-qK-u8e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="psr-cF-ohb">
@@ -148,7 +148,7 @@
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtM-pb-T9t">
-                                <rect key="frame" x="0.0" y="165" width="375" height="502"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="453"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hHb-EQ-HKX"/>
@@ -168,6 +168,12 @@
                             <constraint firstItem="psr-cF-ohb" firstAttribute="trailing" secondItem="hHb-EQ-HKX" secondAttribute="trailing" id="pC0-Wu-SgW"/>
                             <constraint firstItem="TbZ-28-LbB" firstAttribute="top" secondItem="psr-cF-ohb" secondAttribute="bottom" constant="8" id="zfU-MC-6Hf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="YZe-qD-zqv"/>
+                                <exclude reference="YtM-pb-T9t"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="News" image="ic_tab_news" id="XF0-rf-8ue"/>
                     <connections>
@@ -4267,7 +4273,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chant Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-L3-pjf">
-                                                <rect key="frame" x="27" y="12.5" width="65.5" height="15.5"/>
+                                                <rect key="frame" x="25" y="11" width="69.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667604176594" green="0.3313276731657816" blue="0.55433593749999988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4287,7 +4293,7 @@
                                         <rect key="frame" x="124" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuL-gv-ODe">
-                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
+                                                <rect key="frame" x="25.5" y="11" width="68" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4307,7 +4313,7 @@
                                         <rect key="frame" x="248" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Ha-PKr">
-                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
+                                                <rect key="frame" x="25.5" y="11" width="68.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4400,6 +4406,7 @@
                         <segue destination="NYw-pV-BUu" kind="relationship" relationship="viewControllers" id="osc-2P-wxS"/>
                         <segue destination="C1f-hf-AVe" kind="relationship" relationship="viewControllers" id="NR7-Ui-IsP"/>
                         <segue destination="LMz-od-UwH" kind="relationship" relationship="viewControllers" id="XSN-rD-xr8"/>
+                        <segue destination="FrV-we-v0e" kind="relationship" relationship="viewControllers" id="1M1-Ag-lHP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gks-fe-cN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
