@@ -141,9 +141,16 @@ extension UserDefaults {
         static let isTutorialShown = "UserDefaultsItemIsTutorialShown"
         static let currentChantSong = "UserDefaultsCurrentChantSong"
         static let currentSeek = "UserDefaultsCurrentSeek"
+        
         static let mandarinSoulEnglish = "UserDefaultsMandarinSoulEnglishOn"
         static let isInstrumentalOn = "UserDefaultsInstrumentalOn"
         static let isHindiOn = "UserDefaultsHindiOn"
+        static let isHindi_SL_EnglishOn = "isHindi_SL_EnglishOn"
+        static let isSpanishOn = "isSpanishOn"
+        static let isMandarinEnglishGermanOn = "isMandarinEnglishGermanOn"
+        static let isFrenchOn = "isFrenchOn"
+        static let isfrenchAntilleanCreoleOn = "isfrenchAntilleanCreoleOn"
+        
         static let isRepeatEnabled = "UserDefaultsRepeatEnabled"
         static let isShuffleEnabled = "UserDefaultsShuffleEnabled"
         static let playerVolume = "UserDefaultsPlayerVolume"
@@ -198,8 +205,6 @@ enum ChantFileName {
     static let hindi_sl_english = "hindi_sl_english"
     static let mandarin_english_german = "mandarin_english_german"
     static let spanish = "spanish"
-    
-
 }
 
 // Messages

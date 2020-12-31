@@ -1229,7 +1229,7 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1j6-dw-OQ5">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
                                                         <connections>
-                                                            <action selector="onTapSwitchHindi:" destination="rRm-F9-0wR" eventType="valueChanged" id="YBV-eN-OdF"/>
+                                                            <action selector="onTapSwitchHindiSLEnglish:" destination="rRm-F9-0wR" eventType="valueChanged" id="Btt-Tw-SU5"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
@@ -1266,7 +1266,7 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ITd-na-wvV">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
                                                         <connections>
-                                                            <action selector="onTapSwitchHindi:" destination="rRm-F9-0wR" eventType="valueChanged" id="gxd-YF-mze"/>
+                                                            <action selector="onTapSpanish:" destination="rRm-F9-0wR" eventType="valueChanged" id="hYP-2w-5CY"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
@@ -1303,7 +1303,7 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V12-x0-9zH">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
                                                         <connections>
-                                                            <action selector="onTapSwitchHindi:" destination="rRm-F9-0wR" eventType="valueChanged" id="klB-2o-tBF"/>
+                                                            <action selector="onTapMandarinEngGerman:" destination="rRm-F9-0wR" eventType="valueChanged" id="BVx-0s-6Gf"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
@@ -1340,7 +1340,7 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qXe-T9-Y1I">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
                                                         <connections>
-                                                            <action selector="onTapSwitchHindi:" destination="rRm-F9-0wR" eventType="valueChanged" id="Dpu-VS-IXM"/>
+                                                            <action selector="onTapFrench:" destination="rRm-F9-0wR" eventType="valueChanged" id="Y2M-cd-S6c"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
@@ -1377,7 +1377,7 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="40B-gK-FMQ">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
                                                         <connections>
-                                                            <action selector="onTapSwitchHindi:" destination="rRm-F9-0wR" eventType="valueChanged" id="BRG-YU-Wch"/>
+                                                            <action selector="onTapAntilleanCreole:" destination="rRm-F9-0wR" eventType="valueChanged" id="x4Y-ny-frB"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
@@ -1599,9 +1599,14 @@
                         <outlet property="labelTotalDuration" destination="q2L-7K-BBR" id="zGF-WR-uqY"/>
                         <outlet property="sliderMusicSeek" destination="DN2-6g-ONv" id="j9t-0Z-s0Q"/>
                         <outlet property="sliderVolume" destination="FLH-5N-opq" id="3VK-ge-NoP"/>
+                        <outlet property="switchAntilleanCreole" destination="40B-gK-FMQ" id="T1h-ua-GHu"/>
+                        <outlet property="switchFrench" destination="qXe-T9-Y1I" id="kR2-pr-pKf"/>
                         <outlet property="switchHindi" destination="SbA-bU-wgb" id="z4F-4v-KVU"/>
+                        <outlet property="switchHindiSLEng" destination="1j6-dw-OQ5" id="aLj-W6-Kmf"/>
                         <outlet property="switchInstrumental" destination="ial-Ka-ZAM" id="5v9-Y4-yMV"/>
+                        <outlet property="switchMandarinEngGerman" destination="V12-x0-9zH" id="aZp-gw-cqa"/>
                         <outlet property="switchMandarinSoulEnglish" destination="1Dd-2J-zDt" id="Tks-fl-WZP"/>
+                        <outlet property="switchSpanish" destination="ITd-na-wvV" id="tA4-mr-qx5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghy-Hd-QrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4262,7 +4267,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chant Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-L3-pjf">
-                                                <rect key="frame" x="25" y="11" width="69.5" height="18"/>
+                                                <rect key="frame" x="27" y="12.5" width="65.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667604176594" green="0.3313276731657816" blue="0.55433593749999988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4282,7 +4287,7 @@
                                         <rect key="frame" x="124" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuL-gv-ODe">
-                                                <rect key="frame" x="25.5" y="11" width="68" height="18"/>
+                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4302,7 +4307,7 @@
                                         <rect key="frame" x="248" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Ha-PKr">
-                                                <rect key="frame" x="25.5" y="11" width="68.5" height="18"/>
+                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>

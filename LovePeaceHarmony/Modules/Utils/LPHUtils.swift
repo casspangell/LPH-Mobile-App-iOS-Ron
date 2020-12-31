@@ -277,4 +277,15 @@ enum ChantFile: Int {
     case mandarin_soul_english
     case instrumental
     case hindi
+    case hindi_sl_english
+    case spanish
+    case mandarin_english_german
+    case french
+    case french_antillean_creole
 }
+
+// hindi_sl_english
+// spanish
+// mandarin_english_german
+// french
+// french_antillean_creole
