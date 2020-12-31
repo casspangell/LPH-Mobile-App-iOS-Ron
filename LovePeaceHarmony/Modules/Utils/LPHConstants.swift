@@ -193,6 +193,12 @@ enum ChantFileName {
     static let mandarinSoulEnglish = "mandarin-soul_language-english"
     static let instrumental = "instrumental"
     static let hindi = "hindi"
+    static let french_antillean_creole = "french_antillean_creole"
+    static let french = "french"
+    static let hindi_sl_english = "hindi_sl_english"
+    static let mandarin_english_german = "mandarin_english_german"
+    static let spanish = "spanish"
+    
 
 }
 
