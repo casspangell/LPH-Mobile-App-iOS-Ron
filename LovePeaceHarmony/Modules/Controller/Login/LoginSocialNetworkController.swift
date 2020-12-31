@@ -122,6 +122,8 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
                         print("The token is \(result?.token?.tokenString ?? "")")
                         if result?.token?.tokenString != nil {
                             print("Logged in")
+                            //Login success
+                            self.navigateToHome()
 //                            self.getUserProfile(token: result?.token, userId: result?.token?.userID)
                         } else {
                             print("Cancelled")
