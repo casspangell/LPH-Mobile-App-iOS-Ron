@@ -11,6 +11,11 @@ import XLPagerTabStrip
 
 class NewsController: ButtonBarPagerTabStripViewController {
 
+    //-----------------------------------------------------------//
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var Activity: UIActivityIndicatorView!
+    //-----------------------------------------------------------//
+    
     // MARK: - IBProperties
     @IBOutlet weak var scrollViewContainer: UIScrollView!
     @IBOutlet weak var viewNewsRecentContainer: UIView!
@@ -36,6 +41,16 @@ class NewsController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarHeight = 0
         super.viewDidLoad()
         populateTab(currentTab: .recent)
+        
+        //This is the only thing which is currently used is the webview
+        //I have hidden all the other elements, and will implement them
+        //when the API is hooked back up
+        //-----------------------------------------------------------//
+        let url = URL (string: "https://www.drsha.com/news/")
+        let requestObj = URLRequest(url: url!)
+        webView.loadRequest(requestObj)
+
+        //-----------------------------------------------------------//
     }
     
     // MARK: - XLPagerTabStrip

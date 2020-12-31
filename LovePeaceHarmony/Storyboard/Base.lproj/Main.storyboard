@@ -79,6 +79,10 @@
                                     <constraint firstAttribute="bottom" secondItem="R2s-9b-Kqg" secondAttribute="bottom" id="dkR-Fs-2s3"/>
                                 </constraints>
                             </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3R-L1-EZh">
+                                <rect key="frame" x="0.0" y="121" width="375" height="497"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-qD-zqv">
                                 <rect key="frame" x="4" y="121" width="367" height="40"/>
                                 <subviews>
@@ -154,15 +158,19 @@
                         <viewLayoutGuide key="safeArea" id="hHb-EQ-HKX"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="h3R-L1-EZh" firstAttribute="top" secondItem="TbZ-28-LbB" secondAttribute="bottom" constant="8" symbolic="YES" id="51m-sO-CR4"/>
                             <constraint firstItem="YtM-pb-T9t" firstAttribute="top" secondItem="YZe-qD-zqv" secondAttribute="bottom" constant="4" id="A66-9Z-OWi"/>
+                            <constraint firstItem="h3R-L1-EZh" firstAttribute="leading" secondItem="hHb-EQ-HKX" secondAttribute="leading" id="Cy0-uL-42W"/>
                             <constraint firstItem="YtM-pb-T9t" firstAttribute="leading" secondItem="hHb-EQ-HKX" secondAttribute="leading" id="MvB-kO-ZJW"/>
                             <constraint firstItem="TbZ-28-LbB" firstAttribute="trailing" secondItem="hHb-EQ-HKX" secondAttribute="trailing" id="PZT-1N-Kli"/>
                             <constraint firstItem="psr-cF-ohb" firstAttribute="leading" secondItem="hHb-EQ-HKX" secondAttribute="leading" id="aze-Yk-s3x"/>
+                            <constraint firstItem="h3R-L1-EZh" firstAttribute="bottom" secondItem="hHb-EQ-HKX" secondAttribute="bottom" id="eea-SF-2jV"/>
                             <constraint firstItem="YtM-pb-T9t" firstAttribute="trailing" secondItem="hHb-EQ-HKX" secondAttribute="trailing" id="fGp-Lx-7We"/>
                             <constraint firstItem="YZe-qD-zqv" firstAttribute="trailing" secondItem="hHb-EQ-HKX" secondAttribute="trailing" constant="-4" id="g6s-K2-AV7"/>
                             <constraint firstItem="psr-cF-ohb" firstAttribute="top" secondItem="C3G-qK-u8e" secondAttribute="top" id="gix-Rt-37h"/>
                             <constraint firstItem="TbZ-28-LbB" firstAttribute="leading" secondItem="hHb-EQ-HKX" secondAttribute="leading" id="jlN-jA-3ff"/>
                             <constraint firstItem="YtM-pb-T9t" firstAttribute="bottom" secondItem="hHb-EQ-HKX" secondAttribute="bottom" id="l7g-Go-cl2"/>
+                            <constraint firstItem="h3R-L1-EZh" firstAttribute="trailing" secondItem="hHb-EQ-HKX" secondAttribute="trailing" id="mJa-sm-Rv3"/>
                             <constraint firstItem="YZe-qD-zqv" firstAttribute="leading" secondItem="hHb-EQ-HKX" secondAttribute="leading" constant="4" id="n23-Ap-YFu"/>
                             <constraint firstItem="YZe-qD-zqv" firstAttribute="top" secondItem="TbZ-28-LbB" secondAttribute="bottom" constant="8" id="o3R-fa-Vfz"/>
                             <constraint firstItem="psr-cF-ohb" firstAttribute="trailing" secondItem="hHb-EQ-HKX" secondAttribute="trailing" id="pC0-Wu-SgW"/>
@@ -184,6 +192,7 @@
                         <outlet property="viewNewsCategoryContainer" destination="WyV-sH-hfA" id="DWk-O4-YTo"/>
                         <outlet property="viewNewsFavouritesContainer" destination="y46-6j-LCA" id="lIP-nY-DL4"/>
                         <outlet property="viewNewsRecentContainer" destination="KI9-2H-nqM" id="Z2j-wp-u0Y"/>
+                        <outlet property="webView" destination="h3R-L1-EZh" id="tZ1-hE-H10"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEI-Bn-TPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
