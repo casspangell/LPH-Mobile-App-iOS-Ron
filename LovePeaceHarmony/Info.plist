@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FacebookAdvertiserIDCollectionEnabled</key>
-	<string>TRUE</string>
-	<key>FacebookAutoLogAppEventsEnabled</key>
-	<string>TRUE</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -29,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.809091462328-3ajuh0i5k12p374s7kqk2th9l2u366iv</string>
+				<string>com.googleusercontent.apps.863691168348-990dd80l6a4joakqbku2nmb90q5inqf8</string>
 			</array>
 		</dict>
 		<dict>
@@ -51,8 +47,12 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>2</string>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<string>TRUE</string>
 	<key>FacebookAppID</key>
 	<string>699835990916941</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<string>TRUE</string>
 	<key>FacebookDisplayName</key>
 	<string>Chant Love, Peace Harmony</string>
 	<key>LSApplicationQueriesSchemes</key>
