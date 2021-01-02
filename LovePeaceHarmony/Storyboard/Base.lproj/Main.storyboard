@@ -1490,6 +1490,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fI6-26-khW">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="onTapKawehiHaw:" destination="rRm-F9-0wR" eventType="valueChanged" id="Yeg-WE-FwS"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1524,6 +1527,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k0A-Nu-vLp">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="onTapShaLulaEngKaHaw:" destination="rRm-F9-0wR" eventType="valueChanged" id="JgD-bz-PDr"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1558,6 +1564,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FF0-8f-TFK">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="onTapShaEng:" destination="rRm-F9-0wR" eventType="valueChanged" id="WdI-uV-Z7L"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1783,7 +1792,11 @@
                         <outlet property="switchHindi" destination="SbA-bU-wgb" id="z4F-4v-KVU"/>
                         <outlet property="switchHindiSLEng" destination="1j6-dw-OQ5" id="aLj-W6-Kmf"/>
                         <outlet property="switchInstrumental" destination="ial-Ka-ZAM" id="5v9-Y4-yMV"/>
+                        <outlet property="switchKawehiHaw" destination="fI6-26-khW" id="iFl-fC-sff"/>
                         <outlet property="switchMandarinEngGerman" destination="V12-x0-9zH" id="aZp-gw-cqa"/>
+                        <outlet property="switchMandarinSoulEnglish" destination="01x-u5-uyS" id="CXk-tH-YaF"/>
+                        <outlet property="switchShaEng" destination="FF0-8f-TFK" id="fXU-5f-CcG"/>
+                        <outlet property="switchShaLulaEngKaHaw" destination="k0A-Nu-vLp" id="wdg-1t-h9J"/>
                         <outlet property="switchSpanish" destination="ITd-na-wvV" id="tA4-mr-qx5"/>
                     </connections>
                 </viewController>

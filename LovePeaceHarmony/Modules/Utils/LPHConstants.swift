@@ -150,6 +150,9 @@ extension UserDefaults {
         static let isMandarinEnglishGermanOn = "isMandarinEnglishGermanOn"
         static let isFrenchOn = "isFrenchOn"
         static let isfrenchAntilleanCreoleOn = "isfrenchAntilleanCreoleOn"
+        static let isKawehiHawOn = "isKawehiHawOn"
+        static let isShaEngOn = "isShaEngOn"
+        static let isShaLulaEngKaHawOn = "isShaLulaEngHawOn"
         
         static let isRepeatEnabled = "UserDefaultsRepeatEnabled"
         static let isShuffleEnabled = "UserDefaultsShuffleEnabled"
