@@ -3,6 +3,7 @@
 //  LovePeaceHarmony
 //
 //  Created by Aghil C M on 07/11/17.
+//  Updated by Cass Pangell on 1/1/21.
 //  Copyright © 2017 LovePeaceHarmony. All rights reserved.
 //
 
@@ -55,6 +56,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
+
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .normal)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .selected)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .focused)

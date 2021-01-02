@@ -508,26 +508,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-dp-e4D" userLabel="Forgot Password">
-                                        <rect key="frame" x="0.0" y="165" width="335" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp3-o8-wQG" userLabel="Forgot your Password?">
-                                                <rect key="frame" x="76.5" y="15" width="182" height="32"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <state key="normal" title="Forgot your Password? ">
-                                                    <color key="titleColor" systemColor="systemBlueColor"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="Pp3-o8-wQG" firstAttribute="top" secondItem="Btr-dp-e4D" secondAttribute="top" constant="15" id="M6L-Tc-gpv"/>
-                                            <constraint firstItem="Pp3-o8-wQG" firstAttribute="centerX" secondItem="Btr-dp-e4D" secondAttribute="centerX" id="VHU-1e-I8P"/>
-                                            <constraint firstAttribute="height" constant="50" id="dJo-Gg-LiB"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAo-Cm-Q8h" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="215" width="335" height="5"/>
+                                        <rect key="frame" x="0.0" y="165" width="335" height="55"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-OE-clE" userLabel="Facebook" customClass="RoundedCornerView" customModule="LovePeaceHarmony" customModuleProvider="target">
@@ -642,7 +624,6 @@
                                     <constraint firstItem="rm8-P4-KFc" firstAttribute="top" secondItem="Xbu-0v-tOk" secondAttribute="bottom" id="8vo-ED-obm"/>
                                     <constraint firstItem="Xbu-0v-tOk" firstAttribute="top" secondItem="sbH-1f-mrw" secondAttribute="bottom" id="Bu0-gN-59Y"/>
                                     <constraint firstItem="rm8-P4-KFc" firstAttribute="leading" secondItem="IV0-nr-n1V" secondAttribute="leading" id="E0K-ZC-cc2"/>
-                                    <constraint firstItem="Btr-dp-e4D" firstAttribute="centerY" secondItem="IV0-nr-n1V" secondAttribute="centerY" id="LuH-lg-YgL"/>
                                     <constraint firstItem="TZB-B8-dh4" firstAttribute="top" secondItem="XwC-es-4lm" secondAttribute="bottom" id="RYT-Ub-iWP"/>
                                     <constraint firstItem="WRh-OE-clE" firstAttribute="height" secondItem="Xbu-0v-tOk" secondAttribute="height" id="YRG-UB-uqa"/>
                                     <constraint firstAttribute="trailing" secondItem="rm8-P4-KFc" secondAttribute="trailing" id="f7h-KP-J5l"/>
@@ -1315,9 +1296,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

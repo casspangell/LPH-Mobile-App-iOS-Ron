@@ -32,9 +32,6 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
-    
-    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +41,17 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
-      handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+//      handle = Auth.auth().addStateDidChangeListener { (auth, user) in
 //        self.setTitleDisplay(user)
 //        self.tableView.reloadData()
-        // [END_EXCLUDE]
-      }
+//      }
+        
+       //Does user already have an active session?
+//        if Auth.auth().currentUser != nil {
+//            self.navigateToHome()
+//        }
+        
+        checkLogin()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,6 +61,13 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
       // [END remove_auth_listener]
     }
     
+    private func checkLogin() {
+        let loginVo = LPHUtils.getLoginVo()
+        print(loginVo)
+        if loginVo.isLoggedIn {
+            navigateToHome()
+        }
+    }
     // MARK: - IBActions
 //    @IBAction func onTapFacebookLogin(_ sender: UITapGestureRecognizer) {
 ////        if LPHUtils.checkNetworkConnection() {
@@ -152,6 +162,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     }
     
     // ------
+    
     private func initiateLogin(type: LoginType) {
         var firebaseDeviceToken = String()
         InstanceID.instanceID().instanceID { (result, error) in
@@ -167,9 +178,11 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     let loginVo = lphResponse.getResult()
-                    self.navigateToHome()
-
+    
 //                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken)
+                    
+                    //Bypassing above API call to directly add the login response data
+                    self.processLoginResponse(source: type, password: loginVo.password)
                 } else {
 
                 }
@@ -181,26 +194,41 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         }
     }
     
-    private func processLoginResponse(source loginType: LoginType, password: String, serverResponse response: LPHResponse<ProfileVo, LoginError>) {
-        if response.isSuccess() {
-
-            let profileVo = response.getResult()
+    private func processLoginResponse(source loginType: LoginType, password: String) {
             let loginVo = LPHUtils.getLoginVo()
             loginVo.isLoggedIn = true
-            loginVo.email = profileVo.email
-            loginVo.password = password
-            loginVo.fullName = profileVo.name
-            loginVo.profilePicUrl = profileVo.profilePic
             loginVo.loginType = loginType
-            loginVo.inviteCode = profileVo.inviteCode
-            loginVo.token = response.getMetadata() as! String
+            loginVo.password = password
             LPHUtils.setLoginVo(loginVo: loginVo)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
-            fireUpdateTokenApi()
-        }
+        
+            self.navigateToHome()
     }
+    
+    //Original method with the API
+//    private func processLoginResponse(source loginType: LoginType, password: String, serverResponse response: LPHResponse<ProfileVo, LoginError>) {
+//        if response.isSuccess() {
+//
+//            let profileVo = response.getResult()
+//            let loginVo = LPHUtils.getLoginVo()
+//            loginVo.isLoggedIn = true
+//
+//            loginVo.email = profileVo.email
+//            loginVo.password = password
+//            loginVo.fullName = profileVo.name
+//            loginVo.profilePicUrl = profileVo.profilePic
+//            loginVo.loginType = loginType
+//            loginVo.inviteCode = profileVo.inviteCode
+//            loginVo.token = response.getMetadata() as! String
+//            LPHUtils.setLoginVo(loginVo: loginVo)
+//            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
+//            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
+//            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
+//            fireUpdateTokenApi()
+//        }
+//    }
     
     // MARK: - Navigation
     private func navigateToHome() {
@@ -210,18 +238,18 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     
     // MARK: - Apis
     private func fireSocialLoginRegisterApi(email: String,password: String, name: String, profilePic: String, source: LoginType, deviceId: String) {
-        showLoadingIndicator()
-        do {
-            let lphService: LPHService = try LPHServiceFactory<LoginError>.getLPHService()
-            lphService.fireLoginRegister(email: email, password: password, name: name, profilePicUrl: profilePic, source: source, deviceId: deviceId) { (lphResponse) in
-                if lphResponse.isSuccess() {
-                    self.processLoginResponse(source: source, password: password, serverResponse: lphResponse)
-                }
-                self.hideLoadingIndicator()
-            }
-        } catch let error {
-            print(error.localizedDescription)
-        }
+//        showLoadingIndicator()
+//        do {
+//            let lphService: LPHService = try LPHServiceFactory<LoginError>.getLPHService()
+//            lphService.fireLoginRegister(email: email, password: password, name: name, profilePicUrl: profilePic, source: source, deviceId: deviceId) { (lphResponse) in
+//                if lphResponse.isSuccess() {
+//                    self.processLoginResponse(source: source, password: password, serverResponse: lphResponse)
+//                }
+//                self.hideLoadingIndicator()
+//            }
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
     }
     
     private func fireUpdateTokenApi() {
