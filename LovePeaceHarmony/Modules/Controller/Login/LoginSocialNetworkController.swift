@@ -37,6 +37,8 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         super.viewDidLoad()
 
         loginEngine = SocialLoginEngine(self)
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,13 +47,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 //        self.setTitleDisplay(user)
 //        self.tableView.reloadData()
 //      }
-        
-       //Does user already have an active session?
-//        if Auth.auth().currentUser != nil {
-//            self.navigateToHome()
-//        }
-        
-        checkLogin()
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,14 +56,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
       Auth.auth().removeStateDidChangeListener(handle!)
       // [END remove_auth_listener]
     }
-    
-    private func checkLogin() {
-        let loginVo = LPHUtils.getLoginVo()
-        print(loginVo)
-        if loginVo.isLoggedIn {
-            navigateToHome()
-        }
-    }
+
     // MARK: - IBActions
 //    @IBAction func onTapFacebookLogin(_ sender: UITapGestureRecognizer) {
 ////        if LPHUtils.checkNetworkConnection() {
@@ -200,6 +189,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
             loginVo.loginType = loginType
             loginVo.password = password
             LPHUtils.setLoginVo(loginVo: loginVo)
+            
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)

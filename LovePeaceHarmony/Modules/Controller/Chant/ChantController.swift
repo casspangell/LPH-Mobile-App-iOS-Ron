@@ -46,9 +46,11 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
         populateTab(currentTab: .chantNow)
     }
     
+    //Check to see if the tutorial splash is needed. The bool is set in appdelegate if user 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown) {
+   
+        if LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown) == true {
             renderShowcaseView()
         }
     }
@@ -68,10 +70,11 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
             LPHUtils.renderShowcaseView(title: "View your milestones", view: viewMilestoneContainer, delegate: self)
             break
             
-        case 3:
-            let chantNowController = chantViewControllers[0] as! ChantNowController
-            chantNowController.renderShowcaseView()
-            break
+//        case 3:
+//            //Reset tutorial
+//            let chantNowController = chantViewControllers[0] as! ChantNowController
+//            chantNowController.renderShowcaseView()
+//            break
             
         default:
             break
@@ -79,10 +82,11 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
     }
     
     // MARK: - MaterialShowcaseDelegate
-    func showCaseDidDismiss(showcase: MaterialShowcase) {
+    func showCaseDidDismiss(showcase: MaterialShowcase, didTapTarget: Bool) {
         showcaseViewIndex += 1
         renderShowcaseView()
     }
+
     
     // MARK: - XLPagerTabStrip
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
