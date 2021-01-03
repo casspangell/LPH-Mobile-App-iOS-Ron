@@ -95,14 +95,15 @@ public class LPHServiceImpl: LPHService {
     public func updateMilestone(date: String, minutes: String, deviceToken: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
 
         print("updating milestone")
-
+        let user = "user:\(deviceToken)"
+        
         let milestone: [String:Any] = [
             "user_token": deviceToken as NSObject,
             "minutes": minutes,
             "day_chanted": date
         ]
         
-        lphDatabase.child(deviceToken).child("chanting_milestones").child(date).setValue(milestone)
+        lphDatabase.child(user).child("chanting_milestones").child(date).setValue(milestone)
         
         //Device Token
         //--chanting_milestones
