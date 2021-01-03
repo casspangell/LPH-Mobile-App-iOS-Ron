@@ -69,6 +69,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             labelPeopleCount.text = String(inviteCount)
         }
         
+        fireMilestoneDetails()
     }
     
     //MARK: - IBActions
@@ -175,3 +176,4 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         }
     }
 
+}

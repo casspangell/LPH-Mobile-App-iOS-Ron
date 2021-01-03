@@ -113,17 +113,30 @@ public class LPHServiceImpl: LPHService {
     }
     
     public func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) {
-        RestClient.httpRequest(url: LPHUrl.FETCH_MILESTONE, method: .get, params: [:], isLoading: false) { (rawResponse) in
-            let lphResponse = LPHParser.parseMilestoneDetails(rawResponse: rawResponse)
-            print(lphResponse.getSessionExpiry())
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.fetchMilestone(parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
+        
+        print("fetching milestones")
+        let deviceToken = LPHUtils.getCurrentUserToken()
+        let user = "user:\(deviceToken)"
+        
+        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String: Any] else {
+                return
             }
+            
+            print("value \(value)")
         }
+        
+//        RestClient.httpRequest(url: LPHUrl.FETCH_MILESTONE, method: .get, params: [:], isLoading: false) { (rawResponse) in
+//            let lphResponse = LPHParser.parseMilestoneDetails(rawResponse: rawResponse)
+//            print(lphResponse.getSessionExpiry())
+//            if lphResponse.getSessionExpiry() {
+//                self.handleSessionExpiry {
+//                    try! self.fetchMilestone(parsedResponse: parsedResponse)
+//                }
+//            } else {
+//                parsedResponse(lphResponse)
+//            }
+//        }
     }
     
     public func eraseMilestone(parsedResponse: @escaping (LPHResponse<Any, ChantError>) -> Void) {
