@@ -6,8 +6,12 @@
 //  Copyright © 2017 LovePeaceHarmony. All rights reserved.
 //
 import Firebase
+import FirebaseDatabase
 
 public class LPHServiceImpl: LPHService {
+    
+    //Database in Firestore
+    private let lphDatabase = Database.database().reference()
     
     private func handleSessionExpiry(completion: @escaping () -> Void) {
         let loginVo = LPHUtils.getLoginVo()
@@ -89,19 +93,22 @@ public class LPHServiceImpl: LPHService {
     }
     
     public func updateMilestone(date: String, minutes: String, deviceToken: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
-        let updateTokenParam = [HttpParam.date: date,
-                                HttpParam.minutes: minutes,
-                                HttpParam.deviceToken: deviceToken]
-        RestClient.httpRequest(url: LPHUrl.UPDATE_MILESTONE, method: .post, params: updateTokenParam, isLoading: true) { (rawResponse) in
-            let lphResponse = LPHParser.parseMilestoneDetails(rawResponse: rawResponse)
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.updateMilestone(date: date, minutes: minutes, deviceToken: deviceToken, parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
-            }
-        }
+
+        print("updating milestone")
+
+        let milestone: [String:Any] = [
+            "user_token": deviceToken as NSObject,
+            "minutes": minutes,
+            "day_chanted": date
+        ]
+        
+        lphDatabase.child(deviceToken).child("chanting_milestones").child(date).setValue(milestone)
+        
+        //Device Token
+        //--chanting_milestones
+        //   --milestone
+        //   --miletone
+
     }
     
     public func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) {

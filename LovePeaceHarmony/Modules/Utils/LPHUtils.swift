@@ -9,6 +9,7 @@ import SystemConfiguration
 import UIKit
 import CoreData
 import MaterialShowcase
+import Firebase
 
 public class LPHUtils {
     
@@ -181,6 +182,29 @@ public class LPHUtils {
         userDefaults.synchronize()
     }
     
+    static func getMinutesInString(minutes: Float) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DatePattern.sql
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        let minutesInString = String(minutes)
+        
+        return minutesInString
+    }
+    
+    static func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DatePattern.parse
+        let date = dateFormatter.string(from: Date())
+        
+        return date
+    }
+    
+    static func getCurrentUserToken() -> String {
+        var deviceToken = LPHUtils.getLoginVo().token
+        return deviceToken
+    }
+    
     static func renderShowcaseView(title: String, view: UIView, delegate: MaterialShowcaseDelegate?, secondaryText: String = AlertMessage.showcaseSecondary) {
         let showcase = MaterialShowcase()
         showcase.targetHolderColor = Color.orange
@@ -287,11 +311,3 @@ enum ChantFile: Int {
     case sha_lula_eng_ka_haw
 }
 
-// hindi_sl_english
-// spanish
-// mandarin_english_german
-// french
-// french_antillean_creole
-// kawehi_haw
-// sha_eng
-// sha_lula_eng_ka_haw

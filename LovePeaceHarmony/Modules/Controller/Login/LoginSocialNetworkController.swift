@@ -171,7 +171,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 //                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken)
                     
                     //Bypassing above API call to directly add the login response data
-                    self.processLoginResponse(source: type, password: loginVo.password)
+                    self.processLoginResponse(source: type, password: loginVo.password, token: firebaseDeviceToken)
                 } else {
 
                 }
@@ -183,11 +183,12 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         }
     }
     
-    private func processLoginResponse(source loginType: LoginType, password: String) {
+    private func processLoginResponse(source loginType: LoginType, password: String, token: String) {
             let loginVo = LPHUtils.getLoginVo()
             loginVo.isLoggedIn = true
             loginVo.loginType = loginType
             loginVo.password = password
+            loginVo.token = token
             LPHUtils.setLoginVo(loginVo: loginVo)
             
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)

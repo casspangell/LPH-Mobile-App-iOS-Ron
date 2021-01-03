@@ -310,16 +310,14 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func processChantingMilestone() {
-//        if LPHUtils.getLoginVo().loginType != .withoutLogin {
-//            let timeInMinutes:Float = chantMilestoneCounter / 600.0
-//            var pendingMinutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending)
-//            pendingMinutes += timeInMinutes
-//            if pendingMinutes > 0 {
-//                LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending, value: pendingMinutes)
-//                chantMilestoneCounter = 0
-//                fireMilestoneSavingApi(minutes: pendingMinutes)
-//            }
-//        }
+        let timeInMinutes:Float = chantMilestoneCounter / 600.0
+        var pendingMinutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending)
+        pendingMinutes += timeInMinutes
+        if pendingMinutes > 0 {
+            LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending, value: pendingMinutes)
+            chantMilestoneCounter = 0
+            fireMilestoneSavingApi(minutes: pendingMinutes)
+        }
     }
     
     private func forceStopPlaying(chantSong : ChantFile) {
@@ -770,24 +768,13 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     // MARK: - Api
     private func fireMilestoneSavingApi(minutes: Float) {
         do {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = DatePattern.sql
-            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-            let date = dateFormatter.string(from: Date())
-            let minutesInString = String(minutes)
-            var deviceToken = String()
-            
-            InstanceID.instanceID().instanceID { (result, error) in
-                if let error = error {
-                    print("Error fetching remote instange ID: \(error)")
-                } else if let result = result {
-                    print("Remote instance ID token: \(result.token)")
-                    deviceToken = result.token
-                 }
-            }
-            
+
+            let currentDate = LPHUtils.getCurrentDate()
+            let minutesInString = LPHUtils.getMinutesInString(minutes: minutes)
+            let deviceToken = LPHUtils.getCurrentUserToken()
+
             let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
-            try lphService.updateMilestone(date: date, minutes: minutesInString, deviceToken: deviceToken) { (lphResponse) in
+            try lphService.updateMilestone(date: currentDate, minutes: minutesInString, deviceToken: deviceToken) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     let milestoneVo: MilestoneVo = lphResponse.getResult()
                     LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(milestoneVo.daysCount)!)
