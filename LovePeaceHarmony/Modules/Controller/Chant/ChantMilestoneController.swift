@@ -95,23 +95,8 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         }
         
         //calculate days straight
-        var timeArr:[String] = []
-        for m in milestoneArr {
-            let timestamp = m.day_chanted
-            let timearray = timestamp.components(separatedBy: "T") //grabs date
-            timeArr.append(timearray[0]) //sticks all dates in array
-        }
+        let daysCount = getDaysCount(milestones: milestoneArr)
         
-        //compare dates from today and find the same date in a row
-        var daysCount = 0
-        var d = timeArr[0]
-        for t in timeArr {
-            if t == d {
-                daysCount += 1
-            }
-        }
-        
-
         //calculate total minutes
         
         LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
@@ -131,6 +116,26 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
 //            labelPeopleCount.text = milestoneVo.invitesCount
 //        }
         
+    }
+    
+    func getDaysCount(milestones:[Milestone]) -> Int {
+        var timeArr:[String] = []
+        
+        for m in milestones {
+            let timestamp = m.day_chanted
+            let timearray = timestamp.components(separatedBy: "T") //grabs date
+            timeArr.append(timearray[0]) //sticks all dates in array
+        }
+        
+        //compare dates from today and find the same date in a row
+        var daysCount = 0
+        var d = timeArr[0]
+        for t in timeArr {
+            if t == d {
+                daysCount += 1
+            }
+        }
+        return daysCount
     }
     
     private func getParsedFloatAsString( value: Float) -> String {
