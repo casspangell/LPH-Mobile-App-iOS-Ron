@@ -8,6 +8,11 @@
 import Firebase
 import FirebaseDatabase
 
+enum Result<Value> {
+    case success(Value)
+    case failure(Error)
+}
+
 public class LPHServiceImpl: LPHService {
     
     //Database in Firestore
@@ -112,20 +117,56 @@ public class LPHServiceImpl: LPHService {
 
     }
     
-    public func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) {
-        
+    class func fetchMilestones(completion: @escaping ((Result<Milestones>) -> Void)) {
         print("fetching milestones")
         let deviceToken = LPHUtils.getCurrentUserToken()
         let user = "user:\(deviceToken)"
-        
+
+        //Database in Firestore
+        let lphDatabase = Database.database().reference()
         lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
             guard let value = snapshot.value as? [String: Any] else {
                 return
             }
-            
+
             print("value \(value)")
+
+            var arr:[Milestone] = []
+            
+            do {
+                for (key,v) in value {
+                    let dict = v as! [String : String]
+                    
+                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!, user_token: dict["user_token"]!)
+                    
+                    arr.append(milestone)
+                }
+               print("arr => \(arr)")
+                let milestones = Milestones(chanting_milestones: arr)
+                completion(.success(milestones))
+            } catch {
+                completion(.failure(error))
+            }
+            
         }
+    }
+     
+    
+    public func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) {
         
+//        print("fetching milestones")
+//        let deviceToken = LPHUtils.getCurrentUserToken()
+//        let user = "user:\(deviceToken)"
+//
+//        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
+//            guard let value = snapshot.value as? [String: Any] else {
+//                return
+//            }
+//
+//            print("value \(value)")
+//            let lphResponse = LPHParser.parseMilestoneDetails(rawResponse: value)
+//        }
+//
 //        RestClient.httpRequest(url: LPHUrl.FETCH_MILESTONE, method: .get, params: [:], isLoading: false) { (rawResponse) in
 //            let lphResponse = LPHParser.parseMilestoneDetails(rawResponse: rawResponse)
 //            print(lphResponse.getSessionExpiry())
@@ -138,7 +179,7 @@ public class LPHServiceImpl: LPHService {
 //            }
 //        }
     }
-    
+        
     public func eraseMilestone(parsedResponse: @escaping (LPHResponse<Any, ChantError>) -> Void) {
         RestClient.httpRequest(url: LPHUrl.ERASE_MILESTONE, method: .delete, params: [:], isLoading: false) { (rawResponse) in
             let lphResponse = LPHParser.eraseMilestoneDetails(rawResponse: rawResponse)

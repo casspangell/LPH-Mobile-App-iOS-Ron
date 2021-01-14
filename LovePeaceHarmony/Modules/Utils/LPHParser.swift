@@ -79,19 +79,23 @@ public class LPHParser {
     
     public static func parseMilestoneDetails(rawResponse: [String: Any]) -> LPHResponse<MilestoneVo, ChantError> {
         let lphResponse = LPHResponse<MilestoneVo, ChantError>()
-        let (isSuccess, message, isSessionExpired) = isResponseSuccess(rawResponse: rawResponse)
-        if isSuccess {
-            let jsonData = JSON(rawResponse)["data"]
-            let days = jsonData["chanting_stats"]["days"].rawString()!
-            let minutes = Float(jsonData["chanting_stats"]["minutes"].rawString()!)
-            let minutesInString = String(format: "%.0f", minutes!)
-            let invites = jsonData["invites_stats"]["invitees_count"].rawString()!
-            let milestoneVo = MilestoneVo(daysCount: days, minutesCount: minutesInString, invitesCount: invites)
-            lphResponse.setResult(data: milestoneVo)
-        } else {
-            lphResponse.setSessionExpiry(isExpired: isSessionExpired)
-            lphResponse.setServerMessage(serverMessage: message)
-        }
+        
+        
+        
+        
+//        let (isSuccess, message, isSessionExpired) = isResponseSuccess(rawResponse: rawResponse)
+//        if isSuccess {
+////            let jsonData = JSON(rawResponse)["data"]
+////            let days = jsonData["chanting_stats"]["days"].rawString()!
+////            let minutes = Float(jsonData["chanting_stats"]["minutes"].rawString()!)
+////            let minutesInString = String(format: "%.0f", minutes!)
+////            let invites = jsonData["invites_stats"]["invitees_count"].rawString()!
+////            let milestoneVo = MilestoneVo(daysCount: days, minutesCount: minutesInString, invitesCount: invites)
+////            lphResponse.setResult(data: milestoneVo)
+//        } else {
+//            lphResponse.setSessionExpiry(isExpired: isSessionExpired)
+//            lphResponse.setServerMessage(serverMessage: message)
+//        }
         return lphResponse
     }
     

@@ -135,31 +135,175 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2137C727-162D-48C5-A225-67C89F67777A"
-            shouldBeEnabled = "Yes"
+            uuid = "54551F62-CF17-4F75-BD4D-6B737FD516B3"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
+            filePath = "LovePeaceHarmony/Modules/Service/LPHServiceImpl.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "populateData(milestoneVo:)"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "fetchNewsList(pageCount:isFetchingFavourite:parsedResponse:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "54551F62-CF17-4F75-BD4D-6B737FD516B3"
+            uuid = "D9B561F0-5ECD-433E-8268-69B67E7981DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "fireMilestoneErase()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9B561F0-5ECD-433E-8268-69B67E7981DC - 2fd8d0dcf51bed81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LovePeaceHarmony.ChantMilestoneController.(fireMilestoneErase in _37823FAFA4C026019B165AC08CF56B4C)() -&gt; ()"
+                  moduleName = "LovePeaceHarmony"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "125">
+               </Location>
+               <Location
+                  uuid = "D9B561F0-5ECD-433E-8268-69B67E7981DC - 2fd8d0dcf51bed81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LovePeaceHarmony.ChantMilestoneController.(fireMilestoneErase in _37823FAFA4C026019B165AC08CF56B4C)() -&gt; ()"
+                  moduleName = "LovePeaceHarmony"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "426">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9553FBE-16E1-4215-BD09-458C3FA8FE43"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "777"
+            endingLineNumber = "777"
+            landmarkName = "fireMilestoneSavingApi(minutes:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F9553FBE-16E1-4215-BD09-458C3FA8FE43 - 36b97646e53acb4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LovePeaceHarmony.ChantNowController.(fireMilestoneSavingApi in _F583ABFC70E9105EC1655C415F1F6318)(minutes: Swift.Float) -&gt; ()"
+                  moduleName = "LovePeaceHarmony"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "777"
+                  endingLineNumber = "777"
+                  offsetFromSymbolStart = "319">
+               </Location>
+               <Location
+                  uuid = "F9553FBE-16E1-4215-BD09-458C3FA8FE43 - d9f381a1f0aa04f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (LovePeaceHarmony.LPHResponse&lt;LovePeaceHarmony.MilestoneVo, LovePeaceHarmony.ChantError&gt;) -&gt; () in LovePeaceHarmony.ChantNowController.(fireMilestoneSavingApi in _F583ABFC70E9105EC1655C415F1F6318)(minutes: Swift.Float) -&gt; ()"
+                  moduleName = "LovePeaceHarmony"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "778"
+                  endingLineNumber = "778"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B877DB5D-14B6-4E5C-A6C7-6525A1E034D1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "779"
+            endingLineNumber = "779"
+            landmarkName = "fireMilestoneSavingApi(minutes:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD223A8A-9375-4A42-9C5F-91A35662A977"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Utils/LPHParser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "eraseMilestoneDetails(rawResponse:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "744FD960-080E-4A6F-A5C5-A097B7F97A1A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Utils/LPHParser.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "parseMilestoneDetails(rawResponse:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5BD9D32-AFBD-4C6C-9C73-DFD7922A845E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Service/LPHServiceImpl.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "fetchMilestone(parsedResponse:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -167,16 +311,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C0DABF85-9142-4A91-AFAB-760BC00F819B"
+            uuid = "E8D2DB21-C00B-4AE7-8379-D9C54512E685"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "fireMilestoneDetails()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31B26D4A-6F34-4ABA-943D-50ACA8BBADBE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "fireMilestoneDetails()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8495E1C6-0AB8-4D0C-9D98-F827A61B70DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Service/LPHServiceImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "fireMilestoneDetails()"
+            landmarkName = "fetchMilestones(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
