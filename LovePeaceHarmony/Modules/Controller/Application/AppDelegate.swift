@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         application.registerForRemoteNotifications()
         
-        FirebaseOptions.defaultOptions()?.deepLinkURLScheme = "com.drsha.ios.LovePeaceHarmony"
+        FirebaseOptions.defaultOptions()?.deepLinkURLScheme = "lovepeaceharmony.page.link"
         FirebaseApp.configure()
         
         GIDSignIn.sharedInstance().clientID = "863691168348-990dd80l6a4joakqbku2nmb90q5inqf8.apps.googleusercontent.com"
@@ -97,11 +97,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let dynamicLinks = DynamicLinks.dynamicLinks()
         let handled = dynamicLinks.handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
             
-            let shareUrl: NSURL = (dynamiclink?.url)! as NSURL
-            let stringUrl = shareUrl.absoluteString
-            let index = stringUrl?.index((stringUrl?.startIndex)!, offsetBy: 54)
-            let inviteCode = stringUrl![index!..<(stringUrl?.endIndex)!]
-            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.invitedCode, value: String(inviteCode))
+//            let shareUrl: NSURL = (dynamiclink?.url)! as NSURL
+//            let stringUrl = shareUrl.absoluteString
+//            let index = stringUrl?.index((stringUrl?.startIndex)!, offsetBy: 54)
+//            let inviteCode = stringUrl![index!..<(stringUrl?.endIndex)!]
+//            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.invitedCode, value: String(inviteCode))
         }
         
         return handled

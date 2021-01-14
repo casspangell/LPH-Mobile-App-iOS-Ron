@@ -28,21 +28,10 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        viewMilestoneContainer.isHidden = true
-        
+
         let loginVo = LPHUtils.getLoginVo()
-//        if loginVo.isLoggedIn && loginVo.loginType == .withoutLogin {
-//            renderUI(isLoginViewShown: true)
-//        } else {
-//            if loginType != loginVo.loginType {
-//                fireMilestoneApi()
-//            } else {
-//                renderUI(isLoginViewShown: false)
-                loadPreviouslySavedData()
-//            }
-//        }
-//        loginType = loginVo.loginType
+
+        loadPreviouslySavedData()
     }
     
     private func loadPreviouslySavedData() {
@@ -89,26 +78,27 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         
         let milestones = milestoneVo.chanting_milestones
         var milestoneArr:[Milestone] = []
-        var minutesCount = 0.0
         
+        //create an array from the data
         for m in milestones {
             milestoneArr.append(m)
-            minutesCount += Double(m.minutes)! //calculate total minutes
         }
         
         //calculate days straight
         let daysCount = getDaysCount(milestones: milestoneArr)
+        let minutesCount = getMinutesCount(milestones: milestoneArr)
         
         LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
-        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinute, value: Float(minutesCount))
+        LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantMinute, value: minutesCount)
+        
 //        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.inviteCount, value: Int(milestoneVo.invitesCount)!)
 //        
 //        let daysCount = Float(daysCount)
 //        let minutesCount = Float(minutesCount)
 //        let pendingMinutesTemp = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePendingTemp)
 //        let totalMinutes = minutesCount + pendingMinutesTemp
-        labelDayCount.text = String(daysCount)  //getParsedFloatAsString(value: Float(daysCount))
-        labelMinutesCount.text = String(format: "%.2f", minutesCount)//getParsedFloatAsString(value: Float(minutesCount))
+        labelDayCount.text = String(daysCount)
+        labelMinutesCount.text = "\(minutesCount)!"
 //        
 //        if Int(milestoneVo.invitesCount)! >= 1000 {
 //            labelPeopleCount.text = "\(Int(Int(milestoneVo.invitesCount)! / 1000))K"
@@ -116,6 +106,32 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
 //            labelPeopleCount.text = milestoneVo.invitesCount
 //        }
         
+    }
+    
+    func getMinutesCount(milestones:[Milestone]) -> String {
+        
+        var totalMinutesCount = 0.0
+        var milestoneArr:[Milestone] = []
+        
+        for m in milestones {
+            milestoneArr.append(m)
+            totalMinutesCount += Double(m.minutes)! //calculate total minutes
+        }
+
+        let formatter: DateComponentsFormatter = {
+            let formatter = DateComponentsFormatter()
+            formatter.unitsStyle = .full
+            formatter.allowedUnits = [.hour, .minute]
+            return formatter
+        }()
+        
+        let remaining: TimeInterval = 1111123 //totalMinutesCount
+
+        if let result = formatter.string(from: remaining) {
+            return result
+        } else {
+            return "0"
+        }
     }
     
     func getDaysCount(milestones:[Milestone]) -> Int {
@@ -153,20 +169,25 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     private func initiateShare() {
         
-        if let link = NSURL(string: LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appInviteShareLink)) {
-            let objectsToShare = ["Love Peace Harmony",link] as [Any]
-            let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            let excludeActivities = [
-                UIActivityType.addToReadingList, .airDrop, .assignToContact]
-            activityViewController.excludedActivityTypes = excludeActivities
-            if UI_USER_INTERFACE_IDIOM() == .pad {
-                activityViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-                let popover = activityViewController.popoverPresentationController as UIPopoverPresentationController!
-                popover?.sourceView = self.buttonShareApp
-                popover?.sourceRect = buttonShareApp.frame
-                popover?.permittedArrowDirections = .up
-            }
-            present(activityViewController, animated: true, completion: nil)
+        if let link = NSURL(string: DYNAMIC_LINK_DOMAIN) {
+            
+            let titleItem = "Share Chant Love, Peace, Harmony"
+            let linkItem : NSURL = NSURL(string: DYNAMIC_LINK_DOMAIN)!
+            let imageItem : UIImage = UIImage(named: "AppIcon")!
+            
+            let objectsToShare = [titleItem, linkItem, imageItem] as [Any]
+            let excludeActivities = [UIActivityType.addToReadingList, .airDrop, .assignToContact]
+            
+            let shareViewController = UIActivityViewController(activityItems: [objectsToShare],  applicationActivities: nil)
+            shareViewController.excludedActivityTypes = excludeActivities
+//            if UI_USER_INTERFACE_IDIOM() == .pad {
+//                activityViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+//                let popover = activityViewController.popoverPresentationController as UIPopoverPresentationController!
+//                popover?.sourceView = self.buttonShareApp
+//                popover?.sourceRect = buttonShareApp.frame
+//                popover?.permittedArrowDirections = .up
+//            }
+            present(shareViewController, animated: true, completion: nil)
         }
         
     }
@@ -180,7 +201,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     private func fireMilestoneDetails() {
         showLoadingIndicator()
         do {
-            
             LPHServiceImpl.fetchMilestones { (result) in
                 switch result {
                 case .success(let milestones):
@@ -196,13 +216,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                     fatalError("Error: \(String(describing: error))")
                 }
             }
-            
-//            lphService.fetchMilestone(parsedResponse: { (lphResponse) in
-//                self.hideLoadingIndicator()
-//                if lphResponse.isSuccess() {
-//                    self.populateData(milestoneVo: lphResponse.getResult())
-//                }
-//            })
         }
     }
     

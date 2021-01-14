@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7698DF95-0DA5-4EEB-A9F3-05C73F4260A2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LovePeaceHarmony/Modules/Controller/Home/HomeTabController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "dynamicLink()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4241C4E0-E08F-4E85-B197-447740E3E5B0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -158,13 +142,13 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "fireMilestoneErase()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D9B561F0-5ECD-433E-8268-69B67E7981DC - 2fd8d0dcf51be9a3"
+                  uuid = "D9B561F0-5ECD-433E-8268-69B67E7981DC - 2fd8d0dcf51be816"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -174,12 +158,12 @@
                   urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "218"
-                  endingLineNumber = "218"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
                   offsetFromSymbolStart = "125">
                </Location>
                <Location
-                  uuid = "D9B561F0-5ECD-433E-8268-69B67E7981DC - 2fd8d0dcf51be9a3"
+                  uuid = "D9B561F0-5ECD-433E-8268-69B67E7981DC - 2fd8d0dcf51be816"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -189,8 +173,8 @@
                   urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "218"
-                  endingLineNumber = "218"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
                   offsetFromSymbolStart = "426">
                </Location>
             </Locations>
@@ -247,16 +231,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9DF835EA-B4F7-48AC-A14E-BCBC1DF5D09B"
+            uuid = "CA10D4D3-BFFE-4B88-BA99-3F061B51BE25"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantMilestoneController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "populateData(milestoneVo:)"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "initiateShare()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08B535F2-E535-40AC-8F02-F714A6463EE9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Home/HomeTabController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "HomeTabController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A1B0D926-20CE-4305-AB45-5DC10CB740E3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "checkForUserInvite()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA361198-919D-4A9B-A2C3-F40F1BFF23EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Application/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "application(_:continue:restorationHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

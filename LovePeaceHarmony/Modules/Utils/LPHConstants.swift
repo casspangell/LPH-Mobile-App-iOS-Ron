@@ -3,6 +3,7 @@
 //  LovePeaceHarmony
 //
 //  Created by Aghil C M on 07/11/17.
+//  Updated by Cass Pangell on 1/14/21.
 //  Copyright © 2017 LovePeaceHarmony. All rights reserved.
 //
 import UIKit
@@ -194,9 +195,10 @@ enum DatePattern {
 let YOUTUBE_SONG_ID = "EjMsLYlPSFU"
 let WEBSITE_URL = "https://lovepeaceharmony.org"
 let DONATE_URL = "https://lovepeaceharmony.org/donate/"
-let DYNAMIC_LINK_DOMAIN = "jf627.app.goo.gl"
+let DYNAMIC_LINK_DOMAIN = "https://lovepeaceharmony.page.link/jdF1" //"jf627.app.goo.gl"
 let LPH_IOS_BUNDLE_ID = "org.lovepeaceharmony.ios.app"
 let LPH_ANDROID_BUNDLE_ID = "org.lovepeaceharmony.androidapp"
+let APP_VERSION = "2.0"
 
 // Chanting file paths
 enum ChantFileName {

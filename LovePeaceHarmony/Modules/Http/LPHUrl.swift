@@ -46,6 +46,6 @@ public class LPHUrl {
     
     public static let DONATE_LINK = "https://lovepeaceharmony.org/donate/"
     
-    public static let INVITE_LINK = "https://lovepeaceharmony.org/api/invite.php?invite_id="
+//    public static let INVITE_LINK = "https://lovepeaceharmony.org/api/invite.php?invite_id="
     
 }

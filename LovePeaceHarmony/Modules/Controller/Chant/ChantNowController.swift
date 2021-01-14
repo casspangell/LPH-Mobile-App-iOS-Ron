@@ -48,11 +48,12 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @IBOutlet weak var switchShaLulaEngKaHaw: UISwitch!
     @IBOutlet weak var switchShaEng: UISwitch!
     
-    
     @IBOutlet weak var buttonShuffle: UIButton!
     @IBOutlet weak var buttonRepeat: UIButton!
     @IBOutlet weak var labelSongName: UILabel!
     
+    
+
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
