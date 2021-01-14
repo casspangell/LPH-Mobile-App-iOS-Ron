@@ -125,7 +125,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             return formatter
         }()
         
-        let remaining: TimeInterval = 1111123 //totalMinutesCount
+        let remaining: TimeInterval = totalMinutesCount
 
         if let result = formatter.string(from: remaining) {
             return result
@@ -171,22 +171,24 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         
         if let link = NSURL(string: DYNAMIC_LINK_DOMAIN) {
             
-            let titleItem = "Share Chant Love, Peace, Harmony"
+            let messageItem = "Chant Love, Peace, Harmony with me!"
             let linkItem : NSURL = NSURL(string: DYNAMIC_LINK_DOMAIN)!
             let imageItem : UIImage = UIImage(named: "AppIcon")!
             
-            let objectsToShare = [titleItem, linkItem, imageItem] as [Any]
+            let objectsToShare = [messageItem, linkItem, imageItem] as [Any]
             let excludeActivities = [UIActivityType.addToReadingList, .airDrop, .assignToContact]
             
             let shareViewController = UIActivityViewController(activityItems: [objectsToShare],  applicationActivities: nil)
             shareViewController.excludedActivityTypes = excludeActivities
-//            if UI_USER_INTERFACE_IDIOM() == .pad {
-//                activityViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-//                let popover = activityViewController.popoverPresentationController as UIPopoverPresentationController!
-//                popover?.sourceView = self.buttonShareApp
-//                popover?.sourceRect = buttonShareApp.frame
-//                popover?.permittedArrowDirections = .up
-//            }
+            
+            if UI_USER_INTERFACE_IDIOM() == .pad {
+                shareViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+                let popover = shareViewController.popoverPresentationController as UIPopoverPresentationController!
+                popover?.sourceView = self.buttonShareApp
+                popover?.sourceRect = buttonShareApp.frame
+                popover?.permittedArrowDirections = .up
+            }
+            
             present(shareViewController, animated: true, completion: nil)
         }
         

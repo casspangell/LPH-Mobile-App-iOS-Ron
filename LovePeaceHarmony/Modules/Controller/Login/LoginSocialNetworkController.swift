@@ -53,7 +53,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
       // [START remove_auth_listener]
-      Auth.auth().removeStateDidChangeListener(handle!)
+//      Auth.auth().removeStateDidChangeListener(handle!)
       // [END remove_auth_listener]
     }
 

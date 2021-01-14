@@ -26,7 +26,7 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
     
     // MARK: -View
     override func viewDidLoad() {
-        checkForUserInvite()
+//        checkForUserInvite()
         imageViewCover.contentMode = UIViewContentMode.scaleAspectFill
         self.view.isUserInteractionEnabled = true
         scrollViewContainer.isScrollEnabled = false
