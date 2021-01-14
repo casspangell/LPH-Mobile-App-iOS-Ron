@@ -89,26 +89,26 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         
         let milestones = milestoneVo.chanting_milestones
         var milestoneArr:[Milestone] = []
+        var minutesCount = 0.0
         
         for m in milestones {
             milestoneArr.append(m)
+            minutesCount += Double(m.minutes)! //calculate total minutes
         }
         
         //calculate days straight
         let daysCount = getDaysCount(milestones: milestoneArr)
         
-        //calculate total minutes
-        
         LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
-//        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinute, value: Float(milestoneVo.minutesCount)!)
+        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinute, value: Float(minutesCount))
 //        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.inviteCount, value: Int(milestoneVo.invitesCount)!)
 //        
-//        let daysCount = Float(milestoneVo.daysCount)!
-//        let minutesCount = Float(milestoneVo.minutesCount)!
+//        let daysCount = Float(daysCount)
+//        let minutesCount = Float(minutesCount)
 //        let pendingMinutesTemp = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePendingTemp)
 //        let totalMinutes = minutesCount + pendingMinutesTemp
-//        labelDayCount.text = getParsedFloatAsString(value: daysCount)
-//        labelMinutesCount.text = getParsedFloatAsString(value: totalMinutes)
+        labelDayCount.text = String(daysCount)  //getParsedFloatAsString(value: Float(daysCount))
+        labelMinutesCount.text = String(format: "%.2f", minutesCount)//getParsedFloatAsString(value: Float(minutesCount))
 //        
 //        if Int(milestoneVo.invitesCount)! >= 1000 {
 //            labelPeopleCount.text = "\(Int(Int(milestoneVo.invitesCount)! / 1000))K"
@@ -137,7 +137,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         }
         return daysCount
     }
-    
+
     private func getParsedFloatAsString( value: Float) -> String {
         var value = value
         var strValue: String
