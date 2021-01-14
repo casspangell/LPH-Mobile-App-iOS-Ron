@@ -19,7 +19,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     @IBOutlet weak var viewMilestoneContainer: UIView!
     @IBOutlet weak var buttonShareApp: UIButton!
     
-    var milestones:[Milestone]! = [] 
+    var milestones:Milestones!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -85,8 +85,36 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         initiateShare()
     }
     
-    private func populateData(milestoneVo: MilestoneVo) {
-//        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(milestoneVo.daysCount)!)
+    private func populateData(milestoneVo: Milestones) {
+        
+        let milestones = milestoneVo.chanting_milestones
+        var milestoneArr:[Milestone] = []
+        
+        for m in milestones {
+            milestoneArr.append(m)
+        }
+        
+        //calculate days straight
+        var timeArr:[String] = []
+        for m in milestoneArr {
+            let timestamp = m.day_chanted
+            let timearray = timestamp.components(separatedBy: "T") //grabs date
+            timeArr.append(timearray[0]) //sticks all dates in array
+        }
+        
+        //compare dates from today and find the same date in a row
+        var daysCount = 0
+        var d = timeArr[0]
+        for t in timeArr {
+            if t == d {
+                daysCount += 1
+            }
+        }
+        
+
+        //calculate total minutes
+        
+        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
 //        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinute, value: Float(milestoneVo.minutesCount)!)
 //        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.inviteCount, value: Int(milestoneVo.invitesCount)!)
 //        
@@ -152,15 +180,12 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 switch result {
                 case .success(let milestones):
                     self.hideLoadingIndicator()
-//                    self.milestones = milestones
+
+                    self.milestones = milestones
                     
-//                    JustHUD.shared.hide()
-//                    self.venues = venues
-//
-//                    self.collectionView.reloadData()
-//                    print(self.venues)
-//                    self.saveVenuesToCoreData()
-//
+                    self.hideLoadingIndicator()
+                    self.populateData(milestoneVo: milestones)
+
                 case .failure(let error):
                     self.showToast(message: String("error: \(error.localizedDescription)"))
                     fatalError("Error: \(String(describing: error))")
