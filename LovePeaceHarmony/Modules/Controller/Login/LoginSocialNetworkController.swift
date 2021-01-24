@@ -168,9 +168,6 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
                 if lphResponse.isSuccess() {
                     let loginVo = lphResponse.getResult()
     
-//                    self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: firebaseDeviceToken)
-                    
-                    //Bypassing above API call to directly add the login response data
                     self.processLoginResponse(source: type, password: loginVo.password, token: firebaseDeviceToken)
                 } else {
 

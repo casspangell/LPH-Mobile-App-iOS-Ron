@@ -772,7 +772,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
             let currentDate = LPHUtils.getCurrentDate()
             let minutesInString = LPHUtils.getMinutesInString(minutes: minutes)
-//            let deviceToken = LPHUtils.getCurrentUserToken()
             let userId = LPHUtils.getCurrentUserID()
 
             let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()

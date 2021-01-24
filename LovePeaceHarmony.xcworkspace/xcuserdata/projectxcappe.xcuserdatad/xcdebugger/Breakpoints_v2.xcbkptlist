@@ -247,22 +247,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1060DC37-F550-4AC9-887C-5176EAF0E69F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LovePeaceHarmony/Modules/Utils/LPHUtils.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "renderShowcaseView(title:view:delegate:secondaryText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7C6C35A0-96C7-4A14-8920-3105DB4BFCBA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -284,8 +268,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "fireSocialLoginRegisterApi(email:password:name:profilePic:source:deviceId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -320,54 +304,6 @@
             endingLineNumber = "218"
             landmarkName = "getCurrentUserID()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D5B5E857-83BD-4D7E-957C-0F450B593491"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "779"
-            endingLineNumber = "779"
-            landmarkName = "fireMilestoneSavingApi(minutes:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D5B5E857-83BD-4D7E-957C-0F450B593491 - 36b97646e53acb09"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LovePeaceHarmony.ChantNowController.(fireMilestoneSavingApi in _F583ABFC70E9105EC1655C415F1F6318)(minutes: Swift.Float) -&gt; ()"
-                  moduleName = "LovePeaceHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "779"
-                  endingLineNumber = "779"
-                  offsetFromSymbolStart = "319">
-               </Location>
-               <Location
-                  uuid = "D5B5E857-83BD-4D7E-957C-0F450B593491 - d9f381a1f0aa0b3f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (LovePeaceHarmony.LPHResponse&lt;LovePeaceHarmony.MilestoneVo, LovePeaceHarmony.ChantError&gt;) -&gt; () in LovePeaceHarmony.ChantNowController.(fireMilestoneSavingApi in _F583ABFC70E9105EC1655C415F1F6318)(minutes: Swift.Float) -&gt; ()"
-                  moduleName = "LovePeaceHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "780"
-                  endingLineNumber = "780"
-                  offsetFromSymbolStart = "41">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
