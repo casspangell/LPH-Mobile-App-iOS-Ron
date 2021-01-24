@@ -205,6 +205,19 @@ public class LPHUtils {
         return deviceToken
     }
     
+    static func getCurrentUserID() -> String {
+        var userId:String
+        if Auth.auth().currentUser != nil {
+          // User is signed in.
+            userId = Auth.auth().currentUser!.uid
+        } else {
+          // No user is signed in.
+          userId = ""
+        }
+        
+        return userId
+    }
+    
     static func renderShowcaseView(title: String, view: UIView, delegate: MaterialShowcaseDelegate?, secondaryText: String = AlertMessage.showcaseSecondary) {
         let showcase = MaterialShowcase()
         showcase.targetHolderColor = Color.orange

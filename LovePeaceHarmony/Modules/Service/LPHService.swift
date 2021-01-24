@@ -14,7 +14,7 @@ public protocol LPHService {
     
     func updateDeviceToken(token: String, info: String, parsedResponse: @escaping (LPHResponse<Any, LoginError>) -> Void)
     
-    func updateMilestone(date: String, minutes: String, deviceToken: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws
+    func updateMilestone(date: String, minutes: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws
     
     func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void)
     

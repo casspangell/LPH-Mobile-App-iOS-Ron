@@ -772,10 +772,11 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
             let currentDate = LPHUtils.getCurrentDate()
             let minutesInString = LPHUtils.getMinutesInString(minutes: minutes)
-            let deviceToken = LPHUtils.getCurrentUserToken()
+//            let deviceToken = LPHUtils.getCurrentUserToken()
+            let userId = LPHUtils.getCurrentUserID()
 
             let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
-            try lphService.updateMilestone(date: currentDate, minutes: minutesInString, deviceToken: deviceToken) { (lphResponse) in
+            try lphService.updateMilestone(date: currentDate, minutes: minutesInString, userID: userId) { (lphResponse) in
                 if lphResponse.isSuccess() {
 //                    let milestoneVo: MilestoneVo = lphResponse.getResult()
 //                    LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(milestoneVo.daysCount)!)
