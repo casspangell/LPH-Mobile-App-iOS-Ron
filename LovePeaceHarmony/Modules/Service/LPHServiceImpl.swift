@@ -103,7 +103,8 @@ public class LPHServiceImpl: LPHService {
         let user = "user:\(userID)"
         
         let milestone: [String:Any] = [
-            "minutes": minutes as NSObject
+            "minutes": minutes as NSObject,
+            "day_chanted": date
         ]
         
         lphDatabase.child(user).child("chanting_milestones").child(date).setValue(milestone)
@@ -115,10 +116,10 @@ public class LPHServiceImpl: LPHService {
 
     }
     
-    class func fetchMilestones(completion: @escaping ((Result<Milestones>) -> Void)) {
+    class func fetchMilestones(userID: String, completion: @escaping ((Result<Milestones>) -> Void)) {
         print("fetching milestones")
-        let deviceToken = LPHUtils.getCurrentUserToken()
-        let user = "user:\(deviceToken)"
+
+        let user = "user:\(userID)"
 
         //Database in Firestore
         let lphDatabase = Database.database().reference()
@@ -135,11 +136,11 @@ public class LPHServiceImpl: LPHService {
                 for (key,v) in value {
                     let dict = v as! [String : String]
                     
-                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!, user_token: dict["user_token"]!)
+                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
                     
                     arr.append(milestone)
                 }
-               print("arr => \(arr)")
+//               print("arr => \(arr)")
                 let milestones = Milestones(chanting_milestones: arr)
                 completion(.success(milestones))
             } catch {

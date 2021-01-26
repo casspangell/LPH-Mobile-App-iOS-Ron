@@ -200,6 +200,15 @@ public class LPHUtils {
         return date
     }
     
+    static func getCurrentDay() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DatePattern.parse
+        let date = dateFormatter.string(from: Date())
+        let timeStamp = date.components(separatedBy: "T") //grabs date
+        
+        return timeStamp[0]
+    }
+    
     static func getCurrentUserToken() -> String {
         var deviceToken = LPHUtils.getLoginVo().token
         return deviceToken

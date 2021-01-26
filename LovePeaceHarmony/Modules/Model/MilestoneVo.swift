@@ -15,7 +15,6 @@ struct Milestones: Codable {
 struct Milestone: Codable {
     var day_chanted: String
     var minutes: String
-    var user_token: String
 }
 
 public struct MilestoneVo {

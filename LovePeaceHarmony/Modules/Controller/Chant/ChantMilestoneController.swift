@@ -10,6 +10,18 @@ import UIKit
 import XLPagerTabStrip
 import Firebase
 
+struct MilestoneStats {
+    var daysInARow: Int //consecutive days
+    var highestScoreInARow: Int //Highest Score
+    var totalMinutes: String //total minutes
+    var daysChanted: [String:Double] //total minutes per unique day
+}
+
+struct ChantDate {
+    var day: Int
+    var month: Int
+}
+
 class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     // MARK: - IBProperties
@@ -21,6 +33,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     var milestones:Milestones!
     
+    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +43,12 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         super.viewDidAppear(animated)
 
         let loginVo = LPHUtils.getLoginVo()
-
-        loadPreviouslySavedData()
+        let userId = LPHUtils.getCurrentUserID()
+        
+        loadPreviouslySavedData(userId: userId)
     }
     
-    private func loadPreviouslySavedData() {
+    private func loadPreviouslySavedData(userId: String) {
         let day = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantDay)
         let minutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinute)
         let pendingMinutesTemp = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePendingTemp)
@@ -60,7 +74,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             labelPeopleCount.text = String(inviteCount)
         }
         
-        fireMilestoneDetails()
+        fireMilestoneDetails(userId: userId)
     }
     
     //MARK: - IBActions
@@ -84,12 +98,17 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             milestoneArr.append(m)
         }
         
-        //calculate days straight
-        let daysCount = getDaysCount(milestones: milestoneArr)
-        let minutesCount = getMinutesCount(milestones: milestoneArr)
+//        let daysCount = getDaysCount(milestones: milestoneArr)
+//        let minutesCount = getMinutesCount(milestones: milestoneArr)
+        let statistics = getStatistics(milestones: milestoneArr)
         
-        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
-        LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantMinute, value: minutesCount)
+        
+        
+// //       LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
+//   //     LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantMinute, value: minutesCount)
+        
+        
+        
         
 //        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.inviteCount, value: Int(milestoneVo.invitesCount)!)
 //        
@@ -97,8 +116,12 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
 //        let minutesCount = Float(minutesCount)
 //        let pendingMinutesTemp = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePendingTemp)
 //        let totalMinutes = minutesCount + pendingMinutesTemp
-        labelDayCount.text = String(daysCount)
-        labelMinutesCount.text = "\(minutesCount)!"
+        
+        
+//    //    labelDayCount.text = String(daysCount)
+//     //   labelMinutesCount.text = "\(minutesCount)!"
+        
+        
 //        
 //        if Int(milestoneVo.invitesCount)! >= 1000 {
 //            labelPeopleCount.text = "\(Int(Int(milestoneVo.invitesCount)! / 1000))K"
@@ -108,15 +131,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         
     }
     
-    func getMinutesCount(milestones:[Milestone]) -> String {
-        
-        var totalMinutesCount = 0.0
-        var milestoneArr:[Milestone] = []
-        
-        for m in milestones {
-            milestoneArr.append(m)
-            totalMinutesCount += Double(m.minutes)! //calculate total minutes
-        }
+    func getMinutesCount(minutes:Double) -> String {
 
         let formatter: DateComponentsFormatter = {
             let formatter = DateComponentsFormatter()
@@ -125,7 +140,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             return formatter
         }()
         
-        let remaining: TimeInterval = totalMinutesCount
+        let remaining: TimeInterval = minutes
 
         if let result = formatter.string(from: remaining) {
             return result
@@ -134,25 +149,116 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         }
     }
     
-    func getDaysCount(milestones:[Milestone]) -> Int {
-        var timeArr:[String] = []
+    
+    
+    func getStatistics(milestones:[Milestone]) {
         
-        for m in milestones {
-            let timestamp = m.day_chanted
-            let timearray = timestamp.components(separatedBy: "T") //grabs date
-            timeArr.append(timearray[0]) //sticks all dates in array
-        }
+        var timeArr:[[String:Double]] = [[:]]
+        var minsChanted:[String] = []
+        var uniqueDict:[String:Double] = [:] //unique singular dict
+        var totalMins = ""
         
-        //compare dates from today and find the same date in a row
-        var daysCount = 0
-        var d = timeArr[0]
-        for t in timeArr {
-            if t == d {
-                daysCount += 1
+        if milestones.count > 0 {
+            var totalMinChanted:Double = 0.0
+        
+            for m in milestones {
+                let dayChanted = m.day_chanted
+                let timeStamp = dayChanted.components(separatedBy: "T") //grabs date and removes timestamp
+                let minsChanted = Double(m.minutes) //grabs mins in double
+                
+//                let timeDict:[String:Double] = [timeStamp[0]:minsChanted!]
+                
+                //Calculates total minutes chanted regardless of date
+                totalMinChanted += minsChanted!
+
+                //Creates a dictionary of unique dates with total mins chanted for each date
+                if uniqueDict[timeStamp[0]] != nil {
+
+                    var mins = Double(uniqueDict[timeStamp[0]]!)
+                    mins += minsChanted!
+                    uniqueDict.updateValue(mins, forKey: timeStamp[0])
+                    
+                } else {
+                    uniqueDict.updateValue(minsChanted!, forKey: timeStamp[0])
+                }
             }
+            
+            //Caculate days in a row
+            var chantDatesArr:[ChantDate] = []
+            
+            let currentDay = LPHUtils.getCurrentDay()
+            let currentDayArr = currentDay.components(separatedBy: "-")
+            let todaysDate = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!)
+            
+            var count = 0
+            
+            //[ [month]:[array of days] ] //array of a single month with an array of all the times chanted in that month
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+//            for (_, dict) in uniqueDict.enumerated() {
+//                let timeArr = dict.key.components(separatedBy: "-") //grabs year[0] month[1] day[2]
+////                let timeDict = [timeArr[1]:timeArr[2]]
+//                let chantDate = ChantDate(day: Int(timeArr[2])!, month: Int(timeArr[1])!)
+//                chantDatesArr.append(chantDate)
+//            }
+//
+//            for chantDay in chantDatesArr {
+//                if (todaysDate.day == chantDay.day) && (todaysDate.month == chantDay.month) {
+//                    print("YAY")
+//                }
+//            }
+           
+            //Formatted total minutes chanted
+            totalMins = getMinutesCount(minutes: totalMinChanted)
+            let milestoneStat = getMilestonesStats(totalMinsChanted: totalMins)
         }
-        return daysCount
+        
+  
     }
+    
+    func getMilestonesStats(totalMinsChanted: String) -> MilestoneStats {
+        let milestones:MilestoneStats = MilestoneStats(daysInARow: 0, highestScoreInARow: 0, totalMinutes: "", daysChanted: ["":0.0])
+        return milestones
+    }
+    
+//    func getDaysCount(milestones:[Milestone]) -> Int {
+//        var timeArr:[[String:Double]] = [[:]]
+//        var minsChanted:[String] = []
+//        var uniqueDict:[String:Double] = [:] //unique singular dict
+//
+//        if milestones.count > 0 {
+//            for m in milestones {
+//                let dayChanted = m.day_chanted
+//                let timeStamp = dayChanted.components(separatedBy: "T") //grabs date
+//                let minsChanted = Double(m.minutes) //grabs mins
+//
+//                let timeDict:[String:Double] = [timeStamp[0]:minsChanted!]
+//
+//                //Creates a dictionary of unique dates with total mins chanted for each date
+//                if uniqueDict[timeStamp[0]] != nil {
+//                    print(uniqueDict[timeStamp[0]])
+//                    var mins = Double(uniqueDict[timeStamp[0]]!)
+//                    mins += minsChanted!
+//                    uniqueDict.updateValue(mins, forKey: timeStamp[0])
+//                } else {
+//                    uniqueDict.updateValue(minsChanted!, forKey: timeStamp[0])
+//                }
+//
+//            }
+//
+//            return 0
+//        } else {
+//            return 0
+//        }
+//    }
 
     private func getParsedFloatAsString( value: Float) -> String {
         var value = value
@@ -200,10 +306,10 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     }
     
     // MARK: - Api
-    private func fireMilestoneDetails() {
+    private func fireMilestoneDetails(userId: String) {
         showLoadingIndicator()
         do {
-            LPHServiceImpl.fetchMilestones { (result) in
+            LPHServiceImpl.fetchMilestones(userID:userId) { (result) in
                 switch result {
                 case .success(let milestones):
                     self.hideLoadingIndicator()
