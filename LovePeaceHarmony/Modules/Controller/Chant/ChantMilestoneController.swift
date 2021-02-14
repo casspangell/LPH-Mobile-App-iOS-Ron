@@ -20,6 +20,7 @@ struct MilestoneStats {
 struct ChantDate {
     var day: Int
     var month: Int
+    var year: Int
 }
 
 class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
@@ -30,6 +31,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     @IBOutlet weak var labelPeopleCount: UILabel!
     @IBOutlet weak var viewMilestoneContainer: UIView!
     @IBOutlet weak var buttonShareApp: UIButton!
+    @IBOutlet weak var labelStreakCount: UILabel!
     
     var milestones:Milestones!
     
@@ -57,21 +59,21 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         let daysCount = Int(Float(day))
         let minutesCount = Int(Float(minutes) + pendingMinutesTemp)
         if daysCount >= 1000 {
-            labelDayCount.text = "\(Int(daysCount / 1000))K"
+//            labelDayCount.text = "\(Int(daysCount / 1000))K"
         } else {
-            labelDayCount.text = String(daysCount)
+//            labelDayCount.text = String(daysCount)
         }
         
         if minutesCount >= 1000 {
-            labelMinutesCount.text = "\(Int(minutesCount / 1000))K"
+//            labelMinutesCount.text = "\(Int(minutesCount / 1000))K"
         } else {
-            labelMinutesCount.text = String(minutesCount)
+//            labelMinutesCount.text = String(minutesCount)
         }
         
         if inviteCount >= 1000 {
-            labelPeopleCount.text = "\(Int(inviteCount / 1000))K"
+//            labelPeopleCount.text = "\(Int(inviteCount / 1000))K"
         } else {
-            labelPeopleCount.text = String(inviteCount)
+//            labelPeopleCount.text = String(inviteCount)
         }
         
         fireMilestoneDetails(userId: userId)
@@ -183,39 +185,67 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 }
             }
             
+            
             //Caculate days in a row
             var chantDatesArr:[ChantDate] = []
             
             let currentDay = LPHUtils.getCurrentDay()
             let currentDayArr = currentDay.components(separatedBy: "-")
-            let todaysDate = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!)
+            
+            
             
             var count = 0
             
             //[ [month]:[array of days] ] //array of a single month with an array of all the times chanted in that month
+            var dayArr:[String] = []
+            for (_, dict) in uniqueDict.enumerated() {
+                let day = dict.key
+                let time = dict.value
+                dayArr.append(day)
+               
+                print(day+" "+String(time))
+            }
             
+            //Convert all dates into a chant date
+            var formattedDateArr:[ChantDate] = []
+            for day in dayArr {
+                let currentDayArr = day.components(separatedBy: "-")
+                let formattedDate = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!, year: Int(currentDayArr[0])!)
+                formattedDateArr.append(formattedDate)
+            }
             
-            
-            
-            
-            
-            
-            
+            //Count current day streak and longest streak of all time
+            var currentStreakCount = 0
+            var longestStreakCount = 1
+            for day1 in formattedDateArr {
+                let month_1 = day1.month
+                let day_1 = day1.day
+                let year_1 = day1.year
+                
+                for day2 in formattedDateArr {
+                    let month_2 = day2.month
+                    let day_2 = day2.day
+                    let year_2 = day2.year
+                    
+                    //Same year same month
+                    if year_1 == year_2 {
+                        print("year "+String(year_1))
+                        if month_1 == month_2 {
+                            print("month "+String(month_1))
+                            if day_2 == (day_1 + 1) {
+                                longestStreakCount += 1
+                                labelStreakCount.text = String(longestStreakCount)
+                                print("day1 "+String(day_1)+" day2 "+String(day_2))
+                            }
+                        }
+                    }
+                }
+            }
             
 
-//            for (_, dict) in uniqueDict.enumerated() {
-//                let timeArr = dict.key.components(separatedBy: "-") //grabs year[0] month[1] day[2]
-////                let timeDict = [timeArr[1]:timeArr[2]]
-//                let chantDate = ChantDate(day: Int(timeArr[2])!, month: Int(timeArr[1])!)
-//                chantDatesArr.append(chantDate)
-//            }
-//
-//            for chantDay in chantDatesArr {
-//                if (todaysDate.day == chantDay.day) && (todaysDate.month == chantDay.month) {
-//                    print("YAY")
-//                }
-//            }
            
+
+
             //Formatted total minutes chanted
             totalMins = getMinutesCount(minutes: totalMinChanted)
             let milestoneStat = getMilestonesStats(totalMinsChanted: totalMins)
