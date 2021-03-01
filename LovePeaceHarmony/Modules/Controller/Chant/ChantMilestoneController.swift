@@ -225,7 +225,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             //Count longest streak of all time
             //Count curent streak. Grab current day, go backwards in day until we run out
             var currentStreakCount = 0
-            var longestStreakCount = 1
+            var longestStreakCount = 0
             
             //Grab a milestone day in the array
             for day1 in formattedMilestoneArray {
@@ -241,38 +241,31 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                     
                     //Compare if the milestone day contains the same year, then same month
                     //Then checks to see if the day is right next to each other
-                    
+                    labelStreakCount.text = "hello" //Start without any  streak
                     if year_1 == year_2 {
                         print("year "+String(year_1))
                         if month_1 == month_2 {
                             print("month "+String(month_1))
-                            if day_2 == (day_1 + 1) {
-                                longestStreakCount += 1
-                                labelStreakCount.text = String(longestStreakCount)
-                                print("day1 "+String(day_1)+" day2 "+String(day_2))
-                            }
                             
+                            var checkDay = day_1
+                            for n in 1...formattedMilestoneArray.count {
+                                print("day_2 = \(day_2) checkDay = \(checkDay+n)")
+                                if (day_2 == (checkDay + n)) {
+                                    
+                                    checkDay = checkDay + n
+                                    print("new checkDay = \(checkDay + n)")
+                                    print("----------longestStreakCount \(longestStreakCount+1)")
+                                    longestStreakCount += 1
+
+                                }
+                            }
                         }
+                        //Update label with longest streak
+                        labelStreakCount.text = "\(longestStreakCount)"
                     }
                 }
             }
             
-//            for day1 in formattedDateArr {
-//                let month_1 = day1.month
-//                let day_1 = day1.day
-//                let year_1 = day1.year
-//
-//
-//                if year_1 ==  {
-//
-//                }
-//
-//            }
-            
-            
-
-           
-
 
             //Formatted total minutes chanted
             totalMins = getMinutesCount(minutes: totalMinChanted)
