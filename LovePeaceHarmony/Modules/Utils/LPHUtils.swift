@@ -11,6 +11,7 @@ import CoreData
 import MaterialShowcase
 import Firebase
 
+
 public class LPHUtils {
     
     public static func isConnectedToNetwork(showAlert: Bool, vc: UIViewController) -> Bool {
@@ -207,6 +208,25 @@ public class LPHUtils {
         let timeStamp = date.components(separatedBy: "T") //grabs date
         
         return timeStamp[0]
+    }
+    
+    static func getMonthCalendar() -> [String:String] {
+        let calendar = [
+            "1":"31",
+            "2":"28",
+            "3":"31",
+            "4":"30",
+            "5":"31",
+            "6":"30",
+            "7":"31",
+            "8":"31",
+            "9":"30",
+            "10":"31",
+            "11":"30",
+            "12":"31"
+        ]
+        
+        return calendar
     }
     
     static func getCurrentUserToken() -> String {

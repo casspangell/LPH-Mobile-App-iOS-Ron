@@ -188,10 +188,10 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             //Caculate days in a row
 //            var chantDatesArr:[ChantDate] = []
             
-//            let currDay = LPHUtils.getCurrentDay()
-//            let currentDayArr = currDay.components(separatedBy: "-")
-//            var currentDay:ChantDate
-            
+            let currDay = LPHUtils.getCurrentDay()
+            let currentDayArr = currDay.components(separatedBy: "-")
+            let currentDay = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!, year: Int(currentDayArr[0])!)
+
 //            var count = 0
             
             //[ [month]:[array of days] ]
@@ -219,13 +219,11 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 formattedMilestoneArray.append(formattedDate)
             }
             
-
-
-            
-            //Count longest streak of all time
+            //Count LONGEST STREAK of all time
             //Count curent streak. Grab current day, go backwards in day until we run out
             var currentStreakCount = 0
             var longestStreakCount = 0
+            let LPHUtilCalendar = LPHUtils.getMonthCalendar()
             
             //Grab a milestone day in the array
             for day1 in formattedMilestoneArray {
@@ -247,14 +245,40 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                         if month_1 == month_2 {
                             print("month "+String(month_1))
                             
+                            //-----LONGEST STREAK-----
                             var checkDay = day_1
                             for n in 1...formattedMilestoneArray.count {
                                 print("day_2 = \(day_2) checkDay = \(checkDay+n)")
                                 if (day_2 == (checkDay + n)) {
-                                    
                                     checkDay = checkDay + n
                                     longestStreakCount += 1
-
+                                }
+                            }
+                            
+                            //----- To get CURRENT STREAK, go backwards from current date by 1 each iteration -----
+                            checkDay = currentDay.day
+                            print("current day=\(checkDay)")
+                            for n in (1...formattedMilestoneArray.count).reversed() {
+                                print("day_2 = \(day_2) checkDay = \(checkDay)")
+                                
+                                //Hit the beginning of the month, checking the previous month
+                                if (checkDay - n) == 0 {
+                                    //grab previous month
+                                    let month = LPHUtilCalendar["\(month_1)"]
+                                    
+     //HERE IS WHERE I STOPPED           //if previous month is February grab 28 OR 29
+                                    if (month == "2") {
+                                        
+                                    } else {
+                                        
+                                    }
+                                }
+                                
+                                if (day_2 == (checkDay - n)) {
+                                    print("------- checkDay is now \(checkDay-n)")
+                                    checkDay = checkDay - n
+                                    longestStreakCount += 1
+                                    print("longestStreakCount = \(longestStreakCount)")
                                 }
                             }
                         }
