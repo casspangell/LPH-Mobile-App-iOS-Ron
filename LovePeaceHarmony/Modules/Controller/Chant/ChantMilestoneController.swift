@@ -241,7 +241,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                     
                     //Compare if the milestone day contains the same year, then same month
                     //Then checks to see if the day is right next to each other
-                    labelStreakCount.text = "hello" //Start without any  streak
+                    labelStreakCount.text = "\(longestStreakCount)" //Start without any  streak
                     if year_1 == year_2 {
                         print("year "+String(year_1))
                         if month_1 == month_2 {
@@ -253,8 +253,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                                 if (day_2 == (checkDay + n)) {
                                     
                                     checkDay = checkDay + n
-                                    print("new checkDay = \(checkDay + n)")
-                                    print("----------longestStreakCount \(longestStreakCount+1)")
                                     longestStreakCount += 1
 
                                 }
