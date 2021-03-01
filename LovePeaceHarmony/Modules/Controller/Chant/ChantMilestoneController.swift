@@ -155,9 +155,9 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     func getStatistics(milestones:[Milestone]) {
         
-        var timeArr:[[String:Double]] = [[:]]
-        var minsChanted:[String] = []
-        var uniqueDict:[String:Double] = [:] //unique singular dict
+//        var timeArr:[[String:Double]] = [[:]]
+//        var minsChanted:[String] = []
+        var milestoneDict:[String:Double] = [:] //dict holds total minutes chanted for a given day (consolidates multiple chantings in a single day)
         var totalMins = ""
         
         if milestones.count > 0 {
@@ -174,60 +174,74 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 totalMinChanted += minsChanted!
 
                 //Creates a dictionary of unique dates with total mins chanted for each date
-                if uniqueDict[timeStamp[0]] != nil {
+                if milestoneDict[timeStamp[0]] != nil {
 
-                    var mins = Double(uniqueDict[timeStamp[0]]!)
+                    var mins = Double(milestoneDict[timeStamp[0]]!)
                     mins += minsChanted!
-                    uniqueDict.updateValue(mins, forKey: timeStamp[0])
+                    milestoneDict.updateValue(mins, forKey: timeStamp[0])
                     
                 } else {
-                    uniqueDict.updateValue(minsChanted!, forKey: timeStamp[0])
+                    milestoneDict.updateValue(minsChanted!, forKey: timeStamp[0])
                 }
             }
             
-            
             //Caculate days in a row
-            var chantDatesArr:[ChantDate] = []
+//            var chantDatesArr:[ChantDate] = []
             
-            let currentDay = LPHUtils.getCurrentDay()
-            let currentDayArr = currentDay.components(separatedBy: "-")
+//            let currDay = LPHUtils.getCurrentDay()
+//            let currentDayArr = currDay.components(separatedBy: "-")
+//            var currentDay:ChantDate
             
+//            var count = 0
             
+            //[ [month]:[array of days] ]
             
-            var count = 0
-            
-            //[ [month]:[array of days] ] //array of a single month with an array of all the times chanted in that month
+            //Transforms the milestone dict into an array of a single month with an array of all the times chanted in that month
+            //Also counts total minutes counted
             var dayArr:[String] = []
-            for (_, dict) in uniqueDict.enumerated() {
+            var totalMinutes = 0.0
+            for (_, dict) in milestoneDict.enumerated() {
                 let day = dict.key
                 let time = dict.value
                 dayArr.append(day)
                
+                //Count total minutes
+                totalMinutes += time
+                labelMinutesCount.text = String(totalMinutes)
                 print(day+" "+String(time))
             }
             
-            //Convert all dates into a chant date
-            var formattedDateArr:[ChantDate] = []
+            //Converts all dates in the array into a ChantDate and sticks them into a formattedMilestoneArray
+            var formattedMilestoneArray:[ChantDate] = []
             for day in dayArr {
                 let currentDayArr = day.components(separatedBy: "-")
                 let formattedDate = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!, year: Int(currentDayArr[0])!)
-                formattedDateArr.append(formattedDate)
+                formattedMilestoneArray.append(formattedDate)
             }
             
-            //Count current day streak and longest streak of all time
+
+
+            
+            //Count longest streak of all time
+            //Count curent streak. Grab current day, go backwards in day until we run out
             var currentStreakCount = 0
             var longestStreakCount = 1
-            for day1 in formattedDateArr {
+            
+            //Grab a milestone day in the array
+            for day1 in formattedMilestoneArray {
                 let month_1 = day1.month
                 let day_1 = day1.day
                 let year_1 = day1.year
                 
-                for day2 in formattedDateArr {
+                //Grab another milestone day in the array
+                for day2 in formattedMilestoneArray {
                     let month_2 = day2.month
                     let day_2 = day2.day
                     let year_2 = day2.year
                     
-                    //Same year same month
+                    //Compare if the milestone day contains the same year, then same month
+                    //Then checks to see if the day is right next to each other
+                    
                     if year_1 == year_2 {
                         print("year "+String(year_1))
                         if month_1 == month_2 {
@@ -237,10 +251,24 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                                 labelStreakCount.text = String(longestStreakCount)
                                 print("day1 "+String(day_1)+" day2 "+String(day_2))
                             }
+                            
                         }
                     }
                 }
             }
+            
+//            for day1 in formattedDateArr {
+//                let month_1 = day1.month
+//                let day_1 = day1.day
+//                let year_1 = day1.year
+//
+//
+//                if year_1 ==  {
+//
+//                }
+//
+//            }
+            
             
 
            
@@ -249,6 +277,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             //Formatted total minutes chanted
             totalMins = getMinutesCount(minutes: totalMinChanted)
             let milestoneStat = getMilestonesStats(totalMinsChanted: totalMins)
+            
         }
         
   
@@ -256,6 +285,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     func getMilestonesStats(totalMinsChanted: String) -> MilestoneStats {
         let milestones:MilestoneStats = MilestoneStats(daysInARow: 0, highestScoreInARow: 0, totalMinutes: "", daysChanted: ["":0.0])
+
         return milestones
     }
     
