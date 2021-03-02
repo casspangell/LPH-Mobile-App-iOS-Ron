@@ -136,7 +136,7 @@ public class LPHServiceImpl: LPHService {
                 for (key,v) in value {
                     let dict = v as! [String : String]
                     
-                    let milestone = Milestone(day_chanted: dict["last_day_chanted"]!, minutes: dict["minutes"]!)
+                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
                     
                     arr.append(milestone)
                 }
@@ -161,7 +161,7 @@ public class LPHServiceImpl: LPHService {
                     print("no streak, adding initial streak of 1")
                     let currentStreak: [String:Any] = [
                         "streak": 1 as NSObject,
-                        "day_chanted": date
+                        "last_day_chanted": date
                     ]
                     
                     lphDatabase.child(user).child("current_chanting_streak").child(date).setValue(currentStreak)
