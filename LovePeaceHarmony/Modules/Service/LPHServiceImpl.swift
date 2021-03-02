@@ -149,6 +149,64 @@ public class LPHServiceImpl: LPHService {
             
         }
     }
+
+        public func updateChantingStreak(date: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
+            let user = "user:\(userID)"
+            
+            //Database in Firestore
+            let lphDatabase = Database.database().reference()
+            lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value) { (snapshot) in
+                guard let value = snapshot.value as? [String: Any] else {
+                    //there's no streak set, setting initial streak
+                    print("no streak, adding initial streak of 1")
+                    let currentStreak: [String:Any] = [
+                        "streak": 1 as NSObject,
+                        "day_chanted": date
+                    ]
+                    
+                    lphDatabase.child(user).child("current_chanting_streak").child(date).setValue(currentStreak)
+                    
+                    return
+                }
+
+                print("value \(value)")
+
+//                do {
+//                    for (key,v) in value {
+//                        let dict = v as! [Int : String]
+//                    }
+//
+//                } catch {
+//
+//                }
+                
+            }
+        
+
+
+    }
+    
+//    public func updateChantingStreak(chantDate:ChantDateparsedResponse, @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
+//        print("Setting Chanting Streak")
+//        let currentDate = LPHUtils.getCurrentDay()
+//
+//        //Retrieve current streak
+//        let streak = UserDefaults.standard.integer(forKey: "streak")
+//
+//        //If there is no streak set, set it to one and add current date to last day chanted
+//        if streak == nil {
+//            UserDefaults.standard.set(1, forKey: "streak")
+//            UserDefaults.standard.set(currentDate, forKey: "last_day_chanted")
+//        } else {
+//            //We have a last date and a count, check last_day_chanted with current date and if it was the previous
+//            //date then +1 the streak and replace the last_day_chanted with current date
+//            guard let lastDay = UserDefaults.standard.string(forKey: "ast_day_chanted") else { return }
+////            let formattedLastDay = createChantDate(theDate: lastDay)
+//        }
+            
+            
+
+//    }
      
     
     public func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) {
@@ -180,16 +238,16 @@ public class LPHServiceImpl: LPHService {
     }
         
     public func eraseMilestone(parsedResponse: @escaping (LPHResponse<Any, ChantError>) -> Void) {
-        RestClient.httpRequest(url: LPHUrl.ERASE_MILESTONE, method: .delete, params: [:], isLoading: false) { (rawResponse) in
-            let lphResponse = LPHParser.eraseMilestoneDetails(rawResponse: rawResponse)
-            if lphResponse.getSessionExpiry() {
-                self.handleSessionExpiry {
-                    try! self.eraseMilestone(parsedResponse: parsedResponse)
-                }
-            } else {
-                parsedResponse(lphResponse)
-            }
-        }
+//        RestClient.httpRequest(url: LPHUrl.ERASE_MILESTONE, method: .delete, params: [:], isLoading: false) { (rawResponse) in
+//            let lphResponse = LPHParser.eraseMilestoneDetails(rawResponse: rawResponse)
+//            if lphResponse.getSessionExpiry() {
+//                self.handleSessionExpiry {
+//                    try! self.eraseMilestone(parsedResponse: parsedResponse)
+//                }
+//            } else {
+//                parsedResponse(lphResponse)
+//            }
+//        }
     }
     
     public func fetchNewsList(pageCount: Int, isFetchingFavourite: Bool, parsedResponse: @escaping (LPHResponse<[NewsVo], NewsError>) -> Void) {

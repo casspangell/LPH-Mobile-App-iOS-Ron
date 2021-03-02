@@ -225,8 +225,21 @@ public class LPHUtils {
             "11":"30",
             "12":"31"
         ]
-        
+
         return calendar
+    }
+    
+    static func createChantDate(theDate:String) -> ChantDate {
+        let currentDayArr = theDate.components(separatedBy: "-")
+        let formattedDate = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!, year: Int(currentDayArr[0])!)
+        
+        return formattedDate
+    }
+    
+
+    
+    static func getCurrentChantingStreak() -> Int {
+        return 1
     }
     
     static func getCurrentUserToken() -> String {

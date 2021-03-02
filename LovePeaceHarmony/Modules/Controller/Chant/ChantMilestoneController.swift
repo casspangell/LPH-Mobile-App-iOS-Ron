@@ -186,15 +186,10 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             }
             
             //Caculate days in a row
-//            var chantDatesArr:[ChantDate] = []
-            
             let currDay = LPHUtils.getCurrentDay()
             let currentDayArr = currDay.components(separatedBy: "-")
             let currentDay = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!, year: Int(currentDayArr[0])!)
 
-//            var count = 0
-            
-            //[ [month]:[array of days] ]
             
             //Transforms the milestone dict into an array of a single month with an array of all the times chanted in that month
             //Also counts total minutes counted
@@ -223,7 +218,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             //Count curent streak. Grab current day, go backwards in day until we run out
             var currentStreakCount = 0
             var longestStreakCount = 0
-            let LPHUtilCalendar = LPHUtils.getMonthCalendar()
             
             //Grab a milestone day in the array
             for day1 in formattedMilestoneArray {
@@ -254,55 +248,34 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                                     longestStreakCount += 1
                                 }
                             }
-                            
-                            //----- To get CURRENT STREAK, go backwards from current date by 1 each iteration -----
-                            checkDay = currentDay.day
-                            print("current day=\(checkDay)")
-                            for n in (1...formattedMilestoneArray.count).reversed() {
-                                print("day_2 = \(day_2) checkDay = \(checkDay)")
-                                
-                                //Hit the beginning of the month, checking the previous month
-                                if (checkDay - n) == 0 {
-                                    //grab previous month
-                                    let month = LPHUtilCalendar["\(month_1)"]
-                                    
-     //HERE IS WHERE I STOPPED           //if previous month is February grab 28 OR 29
-                                    if (month == "2") {
-                                        
-                                    } else {
-                                        
-                                    }
-                                }
-                                
-                                if (day_2 == (checkDay - n)) {
-                                    print("------- checkDay is now \(checkDay-n)")
-                                    checkDay = checkDay - n
-                                    longestStreakCount += 1
-                                    print("longestStreakCount = \(longestStreakCount)")
-                                }
-                            }
                         }
+                        
                         //Update label with longest streak
                         labelStreakCount.text = "\(longestStreakCount)"
                     }
                 }
             }
             
+            //Create an empty last chanted day just in case there are no chants
+            //send this value to check the chanting streak
+//            var lastChantDay = ChantDate(day: 0, month: 0, year: 0)
+           
+//            let day = formattedMilestoneArray[formattedMilestoneArray.count-1]
+//            let lastChantDay = ChantDate(day: day.day, month: day.month, year: day.year)
+
+            //Check for streak
+//            let currentStreak = getChantingStreak(lastDayChanted: lastChantDay)
 
             //Formatted total minutes chanted
             totalMins = getMinutesCount(minutes: totalMinChanted)
-            let milestoneStat = getMilestonesStats(totalMinsChanted: totalMins)
+//            let milestoneStat = getMilestonesStats(totalMinsChanted: totalMins)
             
         }
         
   
     }
-    
-    func getMilestonesStats(totalMinsChanted: String) -> MilestoneStats {
-        let milestones:MilestoneStats = MilestoneStats(daysInARow: 0, highestScoreInARow: 0, totalMinutes: "", daysChanted: ["":0.0])
 
-        return milestones
-    }
+
     
 //    func getDaysCount(milestones:[Milestone]) -> Int {
 //        var timeArr:[[String:Double]] = [[:]]

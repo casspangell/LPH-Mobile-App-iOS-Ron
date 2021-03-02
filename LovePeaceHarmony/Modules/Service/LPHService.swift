@@ -20,6 +20,8 @@ public protocol LPHService {
     
     func eraseMilestone(parsedResponse: @escaping (LPHResponse<Any, ChantError>) -> Void)
     
+    func updateChantingStreak(date: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws
+    
     func fetchNewsList(pageCount: Int, isFetchingFavourite: Bool, parsedResponse: @escaping (LPHResponse<[NewsVo], NewsError>) -> Void)
     
     func markFavourite(newsId: String, markAsFavourite: Bool, parsedResponse: @escaping (LPHResponse<Any, NewsError>) -> Void)

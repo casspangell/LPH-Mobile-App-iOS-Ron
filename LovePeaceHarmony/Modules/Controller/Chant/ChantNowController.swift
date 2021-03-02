@@ -768,25 +768,30 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     // MARK: - Api
     private func fireMilestoneSavingApi(minutes: Float) {
+        let currentDate = LPHUtils.getCurrentDate()
+        let minutesInString = LPHUtils.getMinutesInString(minutes: minutes)
+        let userId = LPHUtils.getCurrentUserID()
+        let chantDate = String(currentDate)
+        
         do {
-
-            let currentDate = LPHUtils.getCurrentDate()
-            let minutesInString = LPHUtils.getMinutesInString(minutes: minutes)
-            let userId = LPHUtils.getCurrentUserID()
 
             let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
             try lphService.updateMilestone(date: currentDate, minutes: minutesInString, userID: userId) { (lphResponse) in
                 if lphResponse.isSuccess() {
-//                    let milestoneVo: MilestoneVo = lphResponse.getResult()
-//                    LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(milestoneVo.daysCount)!)
-//                    LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinute, value: Float(milestoneVo.minutesCount)!)
-//                    LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending, value: 0)
-//                    LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.chantMinutePendingTemp, value: 0)
+                    print("updated milestone")
                 }
             }
+            
+            try lphService.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in
+                if lphResponse.isSuccess() {
+                    print("updated chanting streak")
+                }
+            }
+            
         } catch let error {
             
         }
+
     }
     
     func animateMusicButton(_ view: UIView, _ duration: Double, completionListener: @escaping () -> Void) {
