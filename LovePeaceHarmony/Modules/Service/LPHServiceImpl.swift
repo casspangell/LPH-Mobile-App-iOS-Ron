@@ -136,7 +136,7 @@ public class LPHServiceImpl: LPHService {
                 for (key,v) in value {
                     let dict = v as! [String : String]
                     
-                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
+                    let milestone = Milestone(day_chanted: dict["last_day_chanted"]!, minutes: dict["minutes"]!)
                     
                     arr.append(milestone)
                 }
