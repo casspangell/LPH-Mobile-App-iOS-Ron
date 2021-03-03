@@ -3,7 +3,8 @@
 //  LovePeaceHarmony
 //
 //  Created by Aghil C M on 08/11/17.
-//  Copyright © 2017 LovePeaceHarmony. All rights reserved.
+//  Updated by Cass Pangell on 03/03/21.
+//  Copyright © 2021 LovePeaceHarmony. All rights reserved.
 //
 import Firebase
 import FirebaseDatabase
@@ -146,68 +147,64 @@ public class LPHServiceImpl: LPHService {
             } catch {
                 completion(.failure(error))
             }
-            
+        }
+        
+        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value) { (snapshot) in
+            guard let streakValue = snapshot.value as? [String: Any] else {
+                return
+            }
         }
     }
 
-        public func updateChantingStreak(date: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
-            let user = "user:\(userID)"
-            
-            //Database in Firestore
-            let lphDatabase = Database.database().reference()
-            lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value) { (snapshot) in
-                guard let value = snapshot.value as? [String: Any] else {
-                    //there's no streak set, setting initial streak
-                    print("no streak, adding initial streak of 1")
-                    let currentStreak: [String:Any] = [
-                        "streak": 1 as NSObject,
-                        "last_day_chanted": date
-                    ]
-                    
-                    lphDatabase.child(user).child("current_chanting_streak").child(date).setValue(currentStreak)
-                    
-                    return
-                }
-
-                print("value \(value)")
-
-//                do {
-//                    for (key,v) in value {
-//                        let dict = v as! [Int : String]
-//                    }
-//
-//                } catch {
-//
-//                }
-                
-            }
+    public func updateChantingStreak(date: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
+        let user = "user:\(userID)"
         
+        //Database in Firestore
+        let lphDatabase = Database.database().reference()
+        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value) { (snapshot) in
+           
+            guard let streakValue = snapshot.value as? [String: Any] else {
+                //there's no streak set, setting initial streak
+                print("no streak, adding initial streak of 1")
+                let currentStreak: [String:Any] = [
+                    "streak": 1 as NSObject,
+                    "last_day_chanted": date
+                ]
+                
+                lphDatabase.child(user).child("current_chanting_streak").setValue(currentStreak)
+                
+                return
+            }
+            
+            //check to see if value is yesterday, if so, update streak counter and replace date
+            //format it into a Calendar object to check
+            //If date is not yesterday, reset streak
+            let chantingStreakData = streakValue["last_day_chanted"]
+            var currentStreak = streakValue["streak"] as! Int
+            let dateFormatter = ISO8601DateFormatter()
+            let dateValue = dateFormatter.date(from:chantingStreakData as! String)!
+            
+            if (Calendar.current.isDateInYesterday(dateValue)){
+                print("Updating current streak, updating streak by 1")
+                currentStreak+=1
+                
+                let newStreakData: [String:Any] = [
+                    "streak": currentStreak,
+                    "last_day_chanted": date
+                ]
+                lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
+            } else {
+                print("Date not yesterday, resetting streak")
+                let newStreakData: [String:Any] = [
+                    "streak": 0,
+                    "last_day_chanted": date
+                ]
+                lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
+            }
 
-
+        }
     }
-    
-//    public func updateChantingStreak(chantDate:ChantDateparsedResponse, @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
-//        print("Setting Chanting Streak")
-//        let currentDate = LPHUtils.getCurrentDay()
-//
-//        //Retrieve current streak
-//        let streak = UserDefaults.standard.integer(forKey: "streak")
-//
-//        //If there is no streak set, set it to one and add current date to last day chanted
-//        if streak == nil {
-//            UserDefaults.standard.set(1, forKey: "streak")
-//            UserDefaults.standard.set(currentDate, forKey: "last_day_chanted")
-//        } else {
-//            //We have a last date and a count, check last_day_chanted with current date and if it was the previous
-//            //date then +1 the streak and replace the last_day_chanted with current date
-//            guard let lastDay = UserDefaults.standard.string(forKey: "ast_day_chanted") else { return }
-////            let formattedLastDay = createChantDate(theDate: lastDay)
-//        }
-            
-            
 
-//    }
-     
     
     public func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) {
         

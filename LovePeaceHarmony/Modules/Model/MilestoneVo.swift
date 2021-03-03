@@ -9,12 +9,17 @@
 
 struct Milestones: Codable {
     var chanting_milestones: [Milestone]
-
+    var current_chanting_streak: Streak
 }
 
 struct Milestone: Codable {
     var day_chanted: String
     var minutes: String
+}
+
+struct Streak: Codable {
+    var last_day_chanted: String
+    var streak: Int
 }
 
 public struct MilestoneVo {
