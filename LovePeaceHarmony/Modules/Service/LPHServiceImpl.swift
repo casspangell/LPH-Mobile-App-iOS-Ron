@@ -143,6 +143,13 @@ public class LPHServiceImpl: LPHService {
             print(chantStreakData)
         }
         
+        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value) { (snapshot) in
+            guard let totalMinsData = snapshot.value as? Double else {
+                return
+            }
+            print(totalMinsData)
+        }
+        
         //Grab rest of the Milestone data
 //        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
 //            guard let value = snapshot.value as? [String: Any] else {
