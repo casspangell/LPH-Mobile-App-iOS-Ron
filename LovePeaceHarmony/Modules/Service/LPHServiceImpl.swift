@@ -236,7 +236,7 @@ public class LPHServiceImpl: LPHService {
                 //Set new data
                 print("Date not yesterday, resetting streak")
                 let newStreakData: [String:Any] = [
-                    "current_streak": 0,
+                    "current_streak": 1,
                     "last_day_chanted": date,
                     "longest_streak": longestStreak
                 ]
