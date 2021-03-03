@@ -124,36 +124,41 @@ public class LPHServiceImpl: LPHService {
 
         //Database in Firestore
         let lphDatabase = Database.database().reference()
-        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
-            guard let value = snapshot.value as? [String: Any] else {
+        
+        
+        lphDatabase.child(user).observeSingleEvent(of: .value) { (snapshot) in
+            guard let milestoneData = snapshot.value as? [String: Any] else {
                 return
-            }
-
-            print("value \(value)")
-
-            var arr:[Milestone] = []
-            
-            do {
-                for (key,v) in value {
-                    let dict = v as! [String : String]
-                    
-                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
-                    
-                    arr.append(milestone)
-                }
-//               print("arr => \(arr)")
-                let milestones = Milestones(chanting_milestones: arr)
-                completion(.success(milestones))
-            } catch {
-                completion(.failure(error))
             }
         }
         
-        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value) { (snapshot) in
-            guard let streakValue = snapshot.value as? [String: Any] else {
-                return
-            }
-        }
+        //Grab rest of the Milestone data
+//        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
+//            guard let value = snapshot.value as? [String: Any] else {
+//                return
+//            }
+//
+//            print("value \(value)")
+//
+//            var arr:[Milestone] = []
+//
+//            do {
+//                for (key,v) in value {
+//                    let dict = v as! [String : String]
+//
+//                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
+//
+//                    arr.append(milestone)
+//                }
+////               print("arr => \(arr)")
+//                let milestones = Milestones(chanting_milestones: arr)
+//                completion(.success(milestones))
+//            } catch {
+//                completion(.failure(error))
+//            }
+//        }
+        
+
     }
 
     public func updateChantingStreak(date: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws {
@@ -193,6 +198,9 @@ public class LPHServiceImpl: LPHService {
                     "last_day_chanted": date
                 ]
                 lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
+            } else if (Calendar.current.isDateInToday(dateValue)) {
+                print("Date today, not updating chanting streak")
+                //Do nothing we've already chanted today
             } else {
                 print("Date not yesterday, resetting streak")
                 let newStreakData: [String:Any] = [
