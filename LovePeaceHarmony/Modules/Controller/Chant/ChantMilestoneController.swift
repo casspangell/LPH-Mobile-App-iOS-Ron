@@ -216,45 +216,45 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             
             //Count LONGEST STREAK of all time
             //Count curent streak. Grab current day, go backwards in day until we run out
-            var currentStreakCount = 0
-            var longestStreakCount = 0
-            
-            //Grab a milestone day in the array
-            for day1 in formattedMilestoneArray {
-                let month_1 = day1.month
-                let day_1 = day1.day
-                let year_1 = day1.year
-                
-                //Grab another milestone day in the array
-                for day2 in formattedMilestoneArray {
-                    let month_2 = day2.month
-                    let day_2 = day2.day
-                    let year_2 = day2.year
-                    
-                    //Compare if the milestone day contains the same year, then same month
-                    //Then checks to see if the day is right next to each other
-                    labelStreakCount.text = "\(longestStreakCount)" //Start without any  streak
-                    if year_1 == year_2 {
-                        print("year "+String(year_1))
-                        if month_1 == month_2 {
-                            print("month "+String(month_1))
-                            
-                            //-----LONGEST STREAK-----
-                            var checkDay = day_1
-                            for n in 1...formattedMilestoneArray.count {
-                                print("day_2 = \(day_2) checkDay = \(checkDay+n)")
-                                if (day_2 == (checkDay + n)) {
-                                    checkDay = checkDay + n
-                                    longestStreakCount += 1
-                                }
-                            }
-                        }
-                        
-                        //Update label with longest streak
-                        labelStreakCount.text = "\(longestStreakCount)"
-                    }
-                }
-            }
+//            var currentStreakCount = 0
+//            var longestStreakCount = 0
+//
+//            //Grab a milestone day in the array
+//            for day1 in formattedMilestoneArray {
+//                let month_1 = day1.month
+//                let day_1 = day1.day
+//                let year_1 = day1.year
+//
+//                //Grab another milestone day in the array
+//                for day2 in formattedMilestoneArray {
+//                    let month_2 = day2.month
+//                    let day_2 = day2.day
+//                    let year_2 = day2.year
+//
+//                    //Compare if the milestone day contains the same year, then same month
+//                    //Then checks to see if the day is right next to each other
+//                    labelStreakCount.text = "\(longestStreakCount)" //Start without any  streak
+//                    if year_1 == year_2 {
+//                        print("year "+String(year_1))
+//                        if month_1 == month_2 {
+//                            print("month "+String(month_1))
+//
+//                            //-----LONGEST STREAK-----
+//                            var checkDay = day_1
+//                            for n in 1...formattedMilestoneArray.count {
+//                                print("day_2 = \(day_2) checkDay = \(checkDay+n)")
+//                                if (day_2 == (checkDay + n)) {
+//                                    checkDay = checkDay + n
+//                                    longestStreakCount += 1
+//                                }
+//                            }
+//                        }
+//
+//                        //Update label with longest streak
+//                        labelStreakCount.text = "\(longestStreakCount)"
+//                    }
+//                }
+//            }
             
             //Create an empty last chanted day just in case there are no chants
             //send this value to check the chanting streak

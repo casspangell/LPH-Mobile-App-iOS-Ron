@@ -110,11 +110,15 @@ public class LPHServiceImpl: LPHService {
         
         lphDatabase.child(user).child("chanting_milestones").child(date).setValue(milestone)
         
-        //Device Token
-        //--chanting_milestones
-        //   --milestone
-        //   --miletone
-
+        //Update total minutes chanted
+        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value) { (snapshot) in
+            guard let totalMinsData = snapshot.value as? Double else {
+                return
+            }
+            
+            let totalMinsChanted = totalMinsData + Double(minutes)!
+            self.lphDatabase.child(user).child("total_mins_chanted").setValue(totalMinsChanted)
+        }
     }
     
     class func fetchMilestones(userID: String, completion: @escaping ((Result<Milestones>) -> Void)) {
@@ -125,11 +129,18 @@ public class LPHServiceImpl: LPHService {
         //Database in Firestore
         let lphDatabase = Database.database().reference()
         
-        
-        lphDatabase.child(user).observeSingleEvent(of: .value) { (snapshot) in
+        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
             guard let milestoneData = snapshot.value as? [String: Any] else {
                 return
             }
+            print(milestoneData)
+        }
+        
+        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value) { (snapshot) in
+            guard let chantStreakData = snapshot.value as? [String: Any] else {
+                return
+            }
+            print(chantStreakData)
         }
         
         //Grab rest of the Milestone data
@@ -170,10 +181,11 @@ public class LPHServiceImpl: LPHService {
            
             guard let streakValue = snapshot.value as? [String: Any] else {
                 //there's no streak set, setting initial streak
-                print("no streak, adding initial streak of 1")
+                print("no streak, adding initial streak of 0")
                 let currentStreak: [String:Any] = [
-                    "streak": 1 as NSObject,
-                    "last_day_chanted": date
+                    "current_streak": 0 as NSObject,
+                    "last_day_chanted": date,
+                    "longest_streak": 0
                 ]
                 
                 lphDatabase.child(user).child("current_chanting_streak").setValue(currentStreak)
@@ -181,11 +193,12 @@ public class LPHServiceImpl: LPHService {
                 return
             }
             
-            //check to see if value is yesterday, if so, update streak counter and replace date
-            //format it into a Calendar object to check
+            //Check to see if value is yesterday, if so, update streak counter and replace date
+            //Format it into a Calendar object to check
             //If date is not yesterday, reset streak
             let chantingStreakData = streakValue["last_day_chanted"]
-            var currentStreak = streakValue["streak"] as! Int
+            var longestStreak = streakValue["longest_streak"] as! Int
+            var currentStreak = streakValue["current_streak"] as! Int
             let dateFormatter = ISO8601DateFormatter()
             let dateValue = dateFormatter.date(from:chantingStreakData as! String)!
             
@@ -193,27 +206,47 @@ public class LPHServiceImpl: LPHService {
                 print("Updating current streak, updating streak by 1")
                 currentStreak+=1
                 
+                //Check longest streak and update it if we need to
+                if(currentStreak > longestStreak) {
+                    longestStreak = currentStreak
+                }
+                
+                //Set new data
                 let newStreakData: [String:Any] = [
-                    "streak": currentStreak,
-                    "last_day_chanted": date
+                    "current_streak": currentStreak,
+                    "last_day_chanted": date,
+                    "longest_streak": longestStreak
                 ]
+                
                 lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
+                
             } else if (Calendar.current.isDateInToday(dateValue)) {
                 print("Date today, not updating chanting streak")
                 //Do nothing we've already chanted today
+            
             } else {
+                //Current streak needs to be reset. Check longest streak.
+                //If current streak is longer than longest streak update longest streak
+                
+                //Check longest streak and update it if we need to
+                if(currentStreak > longestStreak) {
+                    longestStreak = currentStreak
+                }
+
+                //Set new data
                 print("Date not yesterday, resetting streak")
                 let newStreakData: [String:Any] = [
-                    "streak": 0,
-                    "last_day_chanted": date
+                    "current_streak": 0,
+                    "last_day_chanted": date,
+                    "longest_streak": longestStreak
                 ]
+                
                 lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
             }
 
         }
     }
 
-    
     public func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) {
         
 //        print("fetching milestones")
