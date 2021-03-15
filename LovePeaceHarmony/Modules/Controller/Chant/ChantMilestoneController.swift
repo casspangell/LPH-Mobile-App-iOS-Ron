@@ -51,30 +51,30 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     }
     
     private func loadPreviouslySavedData(userId: String) {
-        let day = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantDay)
-        let minutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinute)
-        let pendingMinutesTemp = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePendingTemp)
-        let inviteCount = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.inviteCount)
+//        let day = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantDay)
+//        let minutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinute)
+//        let pendingMinutesTemp = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePendingTemp)
+//        let inviteCount = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.inviteCount)
         
-        let daysCount = Int(Float(day))
-        let minutesCount = Int(Float(minutes) + pendingMinutesTemp)
-        if daysCount >= 1000 {
-//            labelDayCount.text = "\(Int(daysCount / 1000))K"
-        } else {
-//            labelDayCount.text = String(daysCount)
-        }
-        
-        if minutesCount >= 1000 {
-//            labelMinutesCount.text = "\(Int(minutesCount / 1000))K"
-        } else {
-//            labelMinutesCount.text = String(minutesCount)
-        }
-        
-        if inviteCount >= 1000 {
-//            labelPeopleCount.text = "\(Int(inviteCount / 1000))K"
-        } else {
-//            labelPeopleCount.text = String(inviteCount)
-        }
+//        let daysCount = Int(Float(day))
+//        let minutesCount = Int(Float(minutes) + pendingMinutesTemp)
+//        if daysCount >= 1000 {
+////            labelDayCount.text = "\(Int(daysCount / 1000))K"
+//        } else {
+////            labelDayCount.text = String(daysCount)
+//        }
+//
+//        if minutesCount >= 1000 {
+////            labelMinutesCount.text = "\(Int(minutesCount / 1000))K"
+//        } else {
+////            labelMinutesCount.text = String(minutesCount)
+//        }
+//
+//        if inviteCount >= 1000 {
+////            labelPeopleCount.text = "\(Int(inviteCount / 1000))K"
+//        } else {
+////            labelPeopleCount.text = String(inviteCount)
+//        }
         
         fireMilestoneDetails(userId: userId)
     }
@@ -214,58 +214,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 formattedMilestoneArray.append(formattedDate)
             }
             
-            //Count LONGEST STREAK of all time
-            //Count curent streak. Grab current day, go backwards in day until we run out
-//            var currentStreakCount = 0
-//            var longestStreakCount = 0
-//
-//            //Grab a milestone day in the array
-//            for day1 in formattedMilestoneArray {
-//                let month_1 = day1.month
-//                let day_1 = day1.day
-//                let year_1 = day1.year
-//
-//                //Grab another milestone day in the array
-//                for day2 in formattedMilestoneArray {
-//                    let month_2 = day2.month
-//                    let day_2 = day2.day
-//                    let year_2 = day2.year
-//
-//                    //Compare if the milestone day contains the same year, then same month
-//                    //Then checks to see if the day is right next to each other
-//                    labelStreakCount.text = "\(longestStreakCount)" //Start without any  streak
-//                    if year_1 == year_2 {
-//                        print("year "+String(year_1))
-//                        if month_1 == month_2 {
-//                            print("month "+String(month_1))
-//
-//                            //-----LONGEST STREAK-----
-//                            var checkDay = day_1
-//                            for n in 1...formattedMilestoneArray.count {
-//                                print("day_2 = \(day_2) checkDay = \(checkDay+n)")
-//                                if (day_2 == (checkDay + n)) {
-//                                    checkDay = checkDay + n
-//                                    longestStreakCount += 1
-//                                }
-//                            }
-//                        }
-//
-//                        //Update label with longest streak
-//                        labelStreakCount.text = "\(longestStreakCount)"
-//                    }
-//                }
-//            }
-            
-            //Create an empty last chanted day just in case there are no chants
-            //send this value to check the chanting streak
-//            var lastChantDay = ChantDate(day: 0, month: 0, year: 0)
-           
-//            let day = formattedMilestoneArray[formattedMilestoneArray.count-1]
-//            let lastChantDay = ChantDate(day: day.day, month: day.month, year: day.year)
-
-            //Check for streak
-//            let currentStreak = getChantingStreak(lastDayChanted: lastChantDay)
-
             //Formatted total minutes chanted
             totalMins = getMinutesCount(minutes: totalMinChanted)
 //            let milestoneStat = getMilestonesStats(totalMinsChanted: totalMins)
@@ -274,39 +222,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         
   
     }
-
-
-    
-//    func getDaysCount(milestones:[Milestone]) -> Int {
-//        var timeArr:[[String:Double]] = [[:]]
-//        var minsChanted:[String] = []
-//        var uniqueDict:[String:Double] = [:] //unique singular dict
-//
-//        if milestones.count > 0 {
-//            for m in milestones {
-//                let dayChanted = m.day_chanted
-//                let timeStamp = dayChanted.components(separatedBy: "T") //grabs date
-//                let minsChanted = Double(m.minutes) //grabs mins
-//
-//                let timeDict:[String:Double] = [timeStamp[0]:minsChanted!]
-//
-//                //Creates a dictionary of unique dates with total mins chanted for each date
-//                if uniqueDict[timeStamp[0]] != nil {
-//                    print(uniqueDict[timeStamp[0]])
-//                    var mins = Double(uniqueDict[timeStamp[0]]!)
-//                    mins += minsChanted!
-//                    uniqueDict.updateValue(mins, forKey: timeStamp[0])
-//                } else {
-//                    uniqueDict.updateValue(minsChanted!, forKey: timeStamp[0])
-//                }
-//
-//            }
-//
-//            return 0
-//        } else {
-//            return 0
-//        }
-//    }
 
     private func getParsedFloatAsString( value: Float) -> String {
         var value = value
@@ -357,21 +272,35 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     private func fireMilestoneDetails(userId: String) {
         showLoadingIndicator()
         do {
-            LPHServiceImpl.fetchMilestones(userID:userId) { (result) in
-                switch result {
-                case .success(let milestones):
-                    self.hideLoadingIndicator()
-
-                    self.milestones = milestones
-                    
-                    self.hideLoadingIndicator()
-                    self.populateData(milestoneVo: milestones)
-
-                case .failure(let error):
-                    self.showToast(message: String("error: \(error.localizedDescription)"))
-                    fatalError("Error: \(String(describing: error))")
-                }
+            
+            APIUtilities.fetchChantingMilestones(userID: userId) { (result) in
+                print(result)
             }
+            
+            APIUtilities.fetchTotalMinsChanted(userID: userId) { (result) in
+                print(result)
+            }
+
+            APIUtilities.fetchCurrentChantingStreak(userID: userId) { (result) in
+                print(result)
+            }
+            
+//            APIUtilities.fetchMilestones(userID:userId) { (result) in
+//                switch result {
+//                case .success(let milestones):
+//                    self.hideLoadingIndicator()
+//
+////
+////                    self.milestones = milestones
+////
+////                    self.hideLoadingIndicator()
+////                    self.populateData(milestoneVo: milestones)
+////
+//                case .failure(let error):
+//                    self.showToast(message: String("error: \(error.localizedDescription)"))
+//                    fatalError("Error: \(String(describing: error))")
+//                }
+//            }
         }
     }
     
@@ -392,3 +321,4 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     }
 
 }
+

@@ -210,24 +210,24 @@ public class LPHUtils {
         return timeStamp[0]
     }
     
-    static func getMonthCalendar() -> [String:String] {
-        let calendar = [
-            "1":"31",
-            "2":"28",
-            "3":"31",
-            "4":"30",
-            "5":"31",
-            "6":"30",
-            "7":"31",
-            "8":"31",
-            "9":"30",
-            "10":"31",
-            "11":"30",
-            "12":"31"
-        ]
-
-        return calendar
-    }
+//    static func getMonthCalendar() -> [String:String] {
+//        let calendar = [
+//            "1":"31",
+//            "2":"28",
+//            "3":"31",
+//            "4":"30",
+//            "5":"31",
+//            "6":"30",
+//            "7":"31",
+//            "8":"31",
+//            "9":"30",
+//            "10":"31",
+//            "11":"30",
+//            "12":"31"
+//        ]
+//
+//        return calendar
+//    }
     
     static func createChantDate(theDate:String) -> ChantDate {
         let currentDayArr = theDate.components(separatedBy: "-")
@@ -235,8 +235,6 @@ public class LPHUtils {
         
         return formattedDate
     }
-    
-
     
     static func getCurrentChantingStreak() -> Int {
         return 1

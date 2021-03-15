@@ -775,17 +775,13 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         do {
 
-            let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
-            try lphService.updateMilestone(date: currentDate, minutes: minutesInString, userID: userId) { (lphResponse) in
-                if lphResponse.isSuccess() {
-                    print("updated milestone")
-                }
+//            let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
+            try APIUtilities.updateMilestone(date: currentDate, minutes: minutesInString, userID: userId) { (lphResponse) in
+
             }
             
-            try lphService.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in
-                if lphResponse.isSuccess() {
-                    print("updated chanting streak")
-                }
+            try APIUtilities.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in
+
             }
             
         } catch let error {

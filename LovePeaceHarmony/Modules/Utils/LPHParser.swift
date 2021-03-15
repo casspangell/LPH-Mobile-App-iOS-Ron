@@ -77,9 +77,9 @@ public class LPHParser {
         return lphResponse
     }
     
-    public static func parseMilestoneDetails(rawResponse: [String: Any]) -> LPHResponse<MilestoneVo, ChantError> {
-        let lphResponse = LPHResponse<MilestoneVo, ChantError>()
-        
+//    public static func parseMilestoneDetails(rawResponse: [String: Any]) -> LPHResponse<MilestoneVo, ChantError> {
+//        let lphResponse = LPHResponse<MilestoneVo, ChantError>()
+//        
         
         
         
@@ -96,8 +96,8 @@ public class LPHParser {
 //            lphResponse.setSessionExpiry(isExpired: isSessionExpired)
 //            lphResponse.setServerMessage(serverMessage: message)
 //        }
-        return lphResponse
-    }
+//        return lphResponse
+//    }
     
     public static func eraseMilestoneDetails(rawResponse: [String: Any]) -> LPHResponse<Any, ChantError> {
         let lphResponse = LPHResponse<Any, ChantError>()
@@ -109,6 +109,17 @@ public class LPHParser {
         lphResponse.setServerMessage(serverMessage: message)
         return lphResponse
     }
+    
+//    public static func fetchMilestones(response: Milestones) -> LPHResponse<Milestones, ChantError> {
+//        let lphResponse = LPHResponse<Milestones, ChantError>()
+//        let (isSuccess, message, isSessionExpired) = isResponseSuccess(rawResponse: response)
+//        if isSuccess {
+//            lphResponse.setSucess(isSucess: isSuccess)
+//        }
+//        lphResponse.setSessionExpiry(isExpired: isSessionExpired)
+//        lphResponse.setServerMessage(serverMessage: message)
+//        return lphResponse
+//    }
     
     public static func parseNewsList(rawResponse: [String: Any]) -> LPHResponse<[NewsVo], NewsError> {
         let lphResponse = LPHResponse<[NewsVo], NewsError>()

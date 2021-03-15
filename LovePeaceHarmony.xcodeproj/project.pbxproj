@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		319CB3242854F979D94A0538 /* Pods_LovePeaceHarmony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */; };
+		5018584C25FFEFEA005BF009 /* APIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5018584B25FFEFEA005BF009 /* APIUtilities.swift */; };
 		50327B62251CE06E002B34C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50327B61251CE06E002B34C0 /* GoogleService-Info.plist */; };
 		50530153259D9EED00C61E82 /* french.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5053014E259D9EE600C61E82 /* french.mp3 */; };
 		50530154259D9EED00C61E82 /* mandarin_english_german.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5053014F259D9EE700C61E82 /* mandarin_english_german.mp3 */; };
@@ -91,6 +92,7 @@
 /* Begin PBXFileReference section */
 		1FE947B96407BB07915B8DF4 /* Pods-LovePeaceHarmony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LovePeaceHarmony.release.xcconfig"; path = "Pods/Target Support Files/Pods-LovePeaceHarmony/Pods-LovePeaceHarmony.release.xcconfig"; sourceTree = "<group>"; };
 		2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LovePeaceHarmony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5018584B25FFEFEA005BF009 /* APIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtilities.swift; sourceTree = "<group>"; };
 		50327B61251CE06E002B34C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5053014E259D9EE600C61E82 /* french.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = french.mp3; sourceTree = "<group>"; };
 		5053014F259D9EE700C61E82 /* mandarin_english_german.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mandarin_english_german.mp3; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				6F3D8BDB1FB1CDB0008E0D82 /* BaseViewController.swift */,
+				5018584B25FFEFEA005BF009 /* APIUtilities.swift */,
 				6F3D8BE11FB1D09D008E0D82 /* LPHConstants.swift */,
 				6F3C77731FB30F0300438088 /* LPHUtils.swift */,
 				6F8BDEC91FB41EEE00D924C6 /* LPHParser.swift */,
@@ -719,6 +722,7 @@
 				6F3D8BF41FB1D792008E0D82 /* ChantReminderController.swift in Sources */,
 				6FC82B4A200C7A62000F0327 /* MilestoneVo.swift in Sources */,
 				6F8BDECC1FB4316800D924C6 /* LPHResponse.swift in Sources */,
+				5018584C25FFEFEA005BF009 /* APIUtilities.swift in Sources */,
 				6F8BDECA1FB41EEE00D924C6 /* LPHParser.swift in Sources */,
 				6FA48E521FD183BB0083BAF5 /* AlarmRepeatController.swift in Sources */,
 				6F3C777E1FB32CCC00438088 /* NewsRecentController.swift in Sources */,

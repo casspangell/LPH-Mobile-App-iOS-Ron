@@ -13,15 +13,9 @@ public protocol LPHService {
     func fireLogin(email: String, password: String, deviceId: String, source: LoginType, parsedResponse: @escaping (LPHResponse<ProfileVo, LoginError>) -> Void) throws
     
     func updateDeviceToken(token: String, info: String, parsedResponse: @escaping (LPHResponse<Any, LoginError>) -> Void)
-    
-    func updateMilestone(date: String, minutes: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws
-    
-    func fetchMilestone(parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void)
-    
+
     func eraseMilestone(parsedResponse: @escaping (LPHResponse<Any, ChantError>) -> Void)
-    
-    func updateChantingStreak(date: String, userID: String, parsedResponse: @escaping (LPHResponse<MilestoneVo, ChantError>) -> Void) throws
-    
+
     func fetchNewsList(pageCount: Int, isFetchingFavourite: Bool, parsedResponse: @escaping (LPHResponse<[NewsVo], NewsError>) -> Void)
     
     func markFavourite(newsId: String, markAsFavourite: Bool, parsedResponse: @escaping (LPHResponse<Any, NewsError>) -> Void)
