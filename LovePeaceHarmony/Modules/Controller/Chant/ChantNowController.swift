@@ -775,7 +775,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         do {
 
-//            let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
             try APIUtilities.updateMilestone(date: currentDate, minutes: minutesInString, userID: userId) { (lphResponse) in
 
             }

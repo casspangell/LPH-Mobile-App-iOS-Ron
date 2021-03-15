@@ -14,8 +14,6 @@ public protocol LPHService {
     
     func updateDeviceToken(token: String, info: String, parsedResponse: @escaping (LPHResponse<Any, LoginError>) -> Void)
 
-    func eraseMilestone(parsedResponse: @escaping (LPHResponse<Any, ChantError>) -> Void)
-
     func fetchNewsList(pageCount: Int, isFetchingFavourite: Bool, parsedResponse: @escaping (LPHResponse<[NewsVo], NewsError>) -> Void)
     
     func markFavourite(newsId: String, markAsFavourite: Bool, parsedResponse: @escaping (LPHResponse<Any, NewsError>) -> Void)
