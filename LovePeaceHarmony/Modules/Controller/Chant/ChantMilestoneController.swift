@@ -10,12 +10,12 @@ import UIKit
 import XLPagerTabStrip
 import Firebase
 
-struct MilestoneStats {
-    var daysInARow: Int //consecutive days
-    var highestScoreInARow: Int //Highest Score
-    var totalMinutes: String //total minutes
-    var daysChanted: [String:Double] //total minutes per unique day
-}
+//struct MilestoneStats {
+//    var daysInARow: Int //consecutive days
+//    var highestScoreInARow: Int //Highest Score
+//    var totalMinutes: String //total minutes
+//    var daysChanted: [String:Double] //total minutes per unique day
+//}
 
 struct ChantDate {
     var day: Int
@@ -268,39 +268,36 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         return IndicatorInfo(title: "Title")
     }
     
-    // MARK: - Api
+    // MARK: Fetching Milestone Data
     private func fireMilestoneDetails(userId: String) {
         showLoadingIndicator()
         do {
             
-            APIUtilities.fetchChantingMilestones(userID: userId) { (result) in
-                print(result)
-            }
-            
-            APIUtilities.fetchTotalMinsChanted(userID: userId) { (result) in
-                print(result)
+            APIUtilities.fetchTotalMinsChanted(userID: userId) { [self] (result) in
+                switch result {
+                case .success(let minutes):
+                    
+                    labelMinutesCount.text = "\(Int(minutes.rounded(.up)))"
+                    
+                case .failure(let error):
+                    fatalError("Error: \(String(describing: error))")
+                }
+                
             }
 
             APIUtilities.fetchCurrentChantingStreak(userID: userId) { (result) in
-                print(result)
+                switch result {
+                case .success(let streak):
+                    
+                    self.labelStreakCount.text = String(streak.longest_streak)
+                    self.labelDayCount.text = String(streak.current_streak)
+                    
+                case .failure(let error):
+                    fatalError("Error: \(String(describing: error))")
+                }
             }
             
-//            APIUtilities.fetchMilestones(userID:userId) { (result) in
-//                switch result {
-//                case .success(let milestones):
-//                    self.hideLoadingIndicator()
-//
-////
-////                    self.milestones = milestones
-////
-////                    self.hideLoadingIndicator()
-////                    self.populateData(milestoneVo: milestones)
-////
-//                case .failure(let error):
-//                    self.showToast(message: String("error: \(error.localizedDescription)"))
-//                    fatalError("Error: \(String(describing: error))")
-//                }
-//            }
+            hideLoadingIndicator()
         }
     }
     

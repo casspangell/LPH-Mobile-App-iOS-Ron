@@ -127,34 +127,40 @@ class APIUtilities {
     }
     
 //MARK: Fetch Milestones
-    class func fetchChantingMilestones(userID: String, completion: @escaping(Result<[Milestone]>) -> Void) {
-       
-        let user = "user:\(userID)"
-        var chantingMilestones:[Milestone] = []
-        
-        //Database in Firestore
-        let lphDatabase = Database.database().reference()
-        print("fetching chanting milestones for user:\(userID)")
-
-        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value) { (snapshot) in
-            guard let milestoneData = snapshot.value as? [String: Any] else {
-                print("no milestone object")
-                return
-            }
-            print(milestoneData)
-            
-            do {
-                for (_,v) in milestoneData {
-                    let dict = v as! [String : String]
-                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
-
-                    chantingMilestones.append(milestone)
-                    }
-                
-                completion(.success(chantingMilestones))
-            }
-        }
-    }
+    
+    //
+    // kilroy: Not needed yet, but written just in case
+    //
+//    class func fetchChantingMilestones(userID: String, completion: @escaping(Result<[Milestone]>) -> Void) {
+//
+//        let user = "user:\(userID)"
+//        var chantingMilestones:[Milestone] = []
+//
+//        //Database in Firestore
+//        let lphDatabase = Database.database().reference()
+//        print("fetching chanting milestones for user:\(userID)")
+//
+//        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value, with: { (snapshot) in
+//            guard let milestoneData = snapshot.value as? [String: Any] else {
+//                return
+//            }
+//            print(milestoneData)
+//
+//            do {
+//                for (_,v) in milestoneData {
+//                    let dict = v as! [String : String]
+//                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
+//
+//                    chantingMilestones.append(milestone)
+//                    }
+//
+//                completion(.success(chantingMilestones))
+//            }
+//        }) { (error) in
+//            completion(.failure(error))
+//            print(error.localizedDescription)
+//        }
+//    }
     
     class func fetchCurrentChantingStreak(userID: String, completion: @escaping(Result<Streak>) -> Void) {
         print("fetching current chanting streak for user:\(userID)")
@@ -165,9 +171,8 @@ class APIUtilities {
         //Database in Firestore
         let lphDatabase = Database.database().reference()
         
-        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value) { (snapshot) in
+        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let chantStreakData = snapshot.value as? [String: Any] else {
-                print("no chant streak object")
                 return
             }
             print(chantStreakData)
@@ -179,6 +184,9 @@ class APIUtilities {
                 
                 completion(.success(currentChantingStreak))
             }
+        }) { (error) in
+            completion(.failure(error))
+            print(error.localizedDescription)
         }
     
     }
@@ -188,18 +196,19 @@ class APIUtilities {
 
         let user = "user:\(userID)"
 
-        
         //Database in Firestore
         let lphDatabase = Database.database().reference()
         
-        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value) { (snapshot) in
+        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let totalMinsData = snapshot.value as? Double else {
-                print("no mins chanted object")
                 return
             }
             print(totalMinsData)
             
             completion(.success(totalMinsData))
+        }) { (error) in
+            completion(.failure(error))
+            print(error.localizedDescription)
         }
         
     }
