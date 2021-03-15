@@ -271,34 +271,33 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     // MARK: Fetching Milestone Data
     private func fireMilestoneDetails(userId: String) {
         showLoadingIndicator()
-        do {
-            
-            APIUtilities.fetchTotalMinsChanted(userID: userId) { [self] (result) in
-                switch result {
-                case .success(let minutes):
-                    
-                    labelMinutesCount.text = "\(Int(minutes.rounded(.up)))"
-                    
-                case .failure(let error):
-                    fatalError("Error: \(String(describing: error))")
-                }
+        
+        APIUtilities.fetchTotalMinsChanted(userID: userId) { [self] (result) in
+            switch result {
+            case .success(let seconds):
+                let (h, m, s) = LPHUtils.secondsToHoursMinutesSeconds(seconds: Int(seconds))
+                labelMinutesCount.text = "\(h):\(m):\(s)"
                 
-            }
-
-            APIUtilities.fetchCurrentChantingStreak(userID: userId) { (result) in
-                switch result {
-                case .success(let streak):
-                    
-                    self.labelStreakCount.text = String(streak.longest_streak)
-                    self.labelDayCount.text = String(streak.current_streak)
-                    
-                case .failure(let error):
-                    fatalError("Error: \(String(describing: error))")
-                }
+            case .failure(let error):
+                fatalError("Error: \(String(describing: error))")
             }
             
-            hideLoadingIndicator()
         }
+
+        APIUtilities.fetchCurrentChantingStreak(userID: userId) { (result) in
+            switch result {
+            case .success(let streak):
+                
+                self.labelStreakCount.text = String(streak.longest_streak)
+                self.labelDayCount.text = String(streak.current_streak)
+                
+            case .failure(let error):
+                fatalError("Error: \(String(describing: error))")
+            }
+        }
+        
+        hideLoadingIndicator()
+
     }
     
     private func fireMilestoneErase() {

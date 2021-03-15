@@ -229,6 +229,10 @@ public class LPHUtils {
 //        return calendar
 //    }
     
+    static func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
     static func createChantDate(theDate:String) -> ChantDate {
         let currentDayArr = theDate.components(separatedBy: "-")
         let formattedDate = ChantDate(day: Int(currentDayArr[2])!, month: Int(currentDayArr[1])!, year: Int(currentDayArr[0])!)
