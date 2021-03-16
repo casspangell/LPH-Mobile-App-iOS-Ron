@@ -131,7 +131,26 @@ class APIUtilities {
             } else if (Calendar.current.isDateInToday(dateValue)) {
                 print("Date today, not updating chanting streak")
                 //Do nothing we've already chanted today
-            
+                
+                //However, if it's 0, we need to up it to 1
+                if (currentStreak == 0 && longestStreak == 0) {
+                    let newStreakData: [String:Any] = [
+                        "current_streak": 1,
+                        "last_day_chanted": date,
+                        "longest_streak": 1
+                    ]
+                    
+                    lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
+                } else if (currentStreak == 0) {
+                    let newStreakData: [String:Any] = [
+                        "current_streak": 1,
+                        "last_day_chanted": date,
+                        "longest_streak": longestStreak
+                    ]
+                    
+                    lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
+                } else {}
+                
             } else {
                 //Current streak needs to be reset. Check longest streak.
                 //If current streak is longer than longest streak update longest streak
@@ -183,6 +202,8 @@ class APIUtilities {
         //Reset Milestones
         lphDatabase.child(user).child("chanting_milestones").setValue(nil)
 
+        //Update UI
+        completion(.success(true))
         
     }
     
@@ -251,7 +272,7 @@ class APIUtilities {
     
     }
     
-    class func fetchTotalMinsChanted(userID: String, completion: @escaping(Result<Double>) -> Void) {
+    class func fetchTotalSecsChanted(userID: String, completion: @escaping(Result<Double>) -> Void) {
         print("fetching total seconds chanted for user:\(userID)")
 
         let user = "user:\(userID)"

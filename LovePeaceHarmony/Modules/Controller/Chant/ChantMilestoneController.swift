@@ -154,7 +154,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     private func fireMilestoneDetails(userId: String) {
         showLoadingIndicator()
         
-        APIUtilities.fetchTotalMinsChanted(userID: userId) { [self] (result) in
+        APIUtilities.fetchTotalSecsChanted(userID: userId) { [self] (result) in
             switch result {
             case .success(let seconds):
                 let (h, m, s) = LPHUtils.secondsToHoursMinutesSeconds(seconds: Int(seconds))
