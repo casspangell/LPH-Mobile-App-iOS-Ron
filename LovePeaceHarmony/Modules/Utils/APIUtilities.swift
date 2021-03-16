@@ -24,7 +24,7 @@ class APIUtilities {
     //
     //  Updates Milestone when new chanting data is made
     //
-    class func updateMilestone(date: String, seconds: Int, userID: String, completion: @escaping (Result<Any>) -> Void) throws {
+    class func updateMilestone(date: String, seconds: Int, userID: String, completion: @escaping (Result<Any>) -> Void) {
 
         print("updating milestone")
         let user = "user:\(userID)"
@@ -79,7 +79,8 @@ class APIUtilities {
     //
     //  Updates Chanting Streak when new milestone data is made
     //
-    class func updateChantingStreak(date: String, userID: String, completion: @escaping (Result<Any>) -> Void) throws {
+    class func updateChantingStreak(date: String, userID: String, completion: @escaping (Result<Any>) -> Void) {
+        print("updating chanting streak")
         let user = "user:\(userID)"
         
         //Database in Firestore

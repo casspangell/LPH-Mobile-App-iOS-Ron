@@ -777,17 +777,12 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     // MARK: - Api
     private func fireMilestoneSavingApi(seconds: Int) {
         let currentDate = LPHUtils.getCurrentDate()
-        let userId = LPHUtils.getCurrentUserID()
         let chantDate = String(currentDate)
+        let userId = LPHUtils.getCurrentUserID()
+        print("USER \(userId)")
         
-        do {
-            try APIUtilities.updateMilestone(date: currentDate, seconds: seconds, userID: userId) { (lphResponse) in
-            }
-            try APIUtilities.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in
-            }
-        } catch let error {
-            
-        }
+       APIUtilities.updateMilestone(date: chantDate, seconds: seconds, userID: userId) { (lphResponse) in }
+       APIUtilities.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in }
 
     }
     
