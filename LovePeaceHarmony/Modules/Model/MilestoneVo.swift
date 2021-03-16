@@ -10,7 +10,7 @@
 public struct Milestones: Codable {
     var chanting_milestones: [Milestone]
     var current_chanting_streak: Streak
-    var total_mins_chanted: Double
+    var total_secs_chanted: Int
 }
 
 struct Milestone: Codable {

@@ -81,8 +81,13 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     //MARK: - IBActions
     @IBAction func onTapEraseMilestone(_ sender: UIButton) {
+        let userId = LPHUtils.getCurrentUserID()
+        
         showAlertConfirm(title: "", message: "Do you want to reset all your milestones?", vc: self) {(UIAlertAction) in
-//            self.fireMilestoneErase()
+            APIUtilities.eraseMilestones(userID: userId) { (result) in
+                self.showToast(message: "Milestone Data Deleted")
+                self.fireMilestoneDetails(userId: userId)
+            }
         }
     }
     
@@ -176,22 +181,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         hideLoadingIndicator()
 
     }
-    
-//    private func fireMilestoneErase() {
-//        do {
-//            let lphService: LPHService = try LPHServiceFactory<ChantError>.getLPHService()
-////            self.populateData(milestoneVo: MilestoneVo.getEmptyMilestone())
-////            lphService.eraseMilestone(parsedResponse: { (lphResponse) in
-////                if lphResponse.isSuccess() {
-////
-////                }
-////            })
-//        } catch let error as LPHException<ChantError> {
-//            showToast(message: error.errorMessage)
-//        } catch let error {
-//
-//        }
-//    }
 
 }
 

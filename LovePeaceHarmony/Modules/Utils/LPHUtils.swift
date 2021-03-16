@@ -183,15 +183,15 @@ public class LPHUtils {
         userDefaults.synchronize()
     }
     
-    static func getMinutesInString(minutes: Float) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DatePattern.sql
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        
-        let minutesInString = String(minutes)
-        
-        return minutesInString
-    }
+//    static func getSecondsInString(seconds: Float) -> String {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = DatePattern.sql
+//        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+//        
+//        let secondsInString = String(seconds)
+//        
+//        return secondsInString
+//    }
     
     static func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()

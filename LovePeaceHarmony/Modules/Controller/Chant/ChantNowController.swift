@@ -20,6 +20,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var audioPlayer: AVAudioPlayer?
     var sliderTimer: Timer?
     var totalChantDuration: Float?
+    var startTime: String?
     var songListStatus = [ChantFile: Bool]()
     var songListOriginal = [ChantFile]()
     var songListShuffled = [ChantFile]()
@@ -250,6 +251,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             // Setting to previous seek position
             let currentTime = TimeInterval(LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentSeek))
             audioPlayer?.currentTime = currentTime
+            
+            //grabs the current timestamp for more accurate chanting time
+            startTime = String(currentTime)
             updateSlider()
         } else {
             labelTotalDuration.text = "-:-"
@@ -282,12 +286,14 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func togglePlayPauseButton() {
         if audioPlayer != nil {
             if (audioPlayer?.isPlaying)! {
+                startTime = labelSeekTime.text //reset start time
                 sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
                 buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)
             } else {
                 sliderTimer?.invalidate()
                 buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
                 processChantingMilestone()
+                startTime = labelSeekTime.text //reset start time
             }
         } else {
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
@@ -311,14 +317,16 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func processChantingMilestone() {
-        let timeInMinutes:Float = chantMilestoneCounter / 600.0
-        var pendingMinutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending)
-        pendingMinutes += timeInMinutes
-        if pendingMinutes > 0 {
-            LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePending, value: pendingMinutes)
-            chantMilestoneCounter = 0
-            fireMilestoneSavingApi(minutes: pendingMinutes)
-        }
+        //Grab timestamp label and convert to total seconds
+        //Calculate the start timestamp and the current timestamp
+        let currentTime = labelSeekTime.text!.components(separatedBy: ".")
+        let sTime = startTime!.components(separatedBy: ".") //I dont know why these values are flipped in the array
+        
+        let currentTimeTotalSecs = (Int(currentTime[0])!*60) + Int(currentTime[1])!
+        let startTimeTotalSecs = (Int(sTime[0])!*60) + Int(sTime[1])!
+        let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
+        
+        fireMilestoneSavingApi(seconds: totalSeconds)
     }
     
     private func forceStopPlaying(chantSong : ChantFile) {
@@ -767,22 +775,16 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     // MARK: - Api
-    private func fireMilestoneSavingApi(minutes: Float) {
+    private func fireMilestoneSavingApi(seconds: Int) {
         let currentDate = LPHUtils.getCurrentDate()
-        let minutesInString = LPHUtils.getMinutesInString(minutes: minutes)
         let userId = LPHUtils.getCurrentUserID()
         let chantDate = String(currentDate)
         
         do {
-
-            try APIUtilities.updateMilestone(date: currentDate, minutes: minutesInString, userID: userId) { (lphResponse) in
-
+            try APIUtilities.updateMilestone(date: currentDate, seconds: seconds, userID: userId) { (lphResponse) in
             }
-            
             try APIUtilities.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in
-
             }
-            
         } catch let error {
             
         }

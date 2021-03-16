@@ -24,13 +24,13 @@ class APIUtilities {
     //
     //  Updates Milestone when new chanting data is made
     //
-    class func updateMilestone(date: String, minutes: String, userID: String, completion: @escaping (Result<Any>) -> Void) throws {
+    class func updateMilestone(date: String, seconds: Int, userID: String, completion: @escaping (Result<Any>) -> Void) throws {
 
         print("updating milestone")
         let user = "user:\(userID)"
         
         let milestone: [String:Any] = [
-            "minutes": minutes as NSObject,
+            "seconds": seconds as NSObject,
             "day_chanted": date
         ]
         
@@ -39,15 +39,15 @@ class APIUtilities {
         lphDatabase.child(user).child("chanting_milestones").child(date).setValue(milestone)
         
         //Update total minutes chanted
-        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value) { (snapshot) in
-            guard let totalMinsData = snapshot.value as? Double else {
+        lphDatabase.child(user).child("total_secs_chanted").observeSingleEvent(of: .value) { (snapshot) in
+            guard let totalSecsData = snapshot.value as? Int else {
                 //Set initial value
-                lphDatabase.child(user).child("total_mins_chanted").setValue(Double(minutes))
+                lphDatabase.child(user).child("total_secs_chanted").setValue(seconds)
                 return
             }
             
-            let totalMinsChanted = totalMinsData + Double(minutes)!
-            lphDatabase.child(user).child("total_mins_chanted").setValue(totalMinsChanted)
+            let totalSecsChanted = totalSecsData + seconds
+            lphDatabase.child(user).child("total_secs_chanted").setValue(totalSecsChanted)
         }
     }
     
@@ -62,13 +62,13 @@ class APIUtilities {
 //        //Database in Firestore
 //        let lphDatabase = Database.database().reference()
 //
-//        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let totalMinsData = snapshot.value as? Double else {
+//        lphDatabase.child(user).child("total_secs_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
+//            guard let totalSecsData = snapshot.value as? Double else {
 //                return
 //            }
-//            print(totalMinsData)
+//            print(totalSecsData)
 //
-//            completion(.success(totalMinsData))
+//            completion(.success(totalSecsData))
 //        }) { (error) in
 //            completion(.failure(error))
 //            print(error.localizedDescription)
@@ -156,50 +156,33 @@ class APIUtilities {
         }
     }
     
-    class func eraseMilestones(userID: String, completion: @escaping (Result<Any>) -> Void) throws {
+    class func eraseMilestones(userID: String, completion: @escaping (Result<Any>) -> Void) {
 
         print("erasing all milestones")
         let user = "user:\(userID)"
+        
+        let currentDate = LPHUtils.getCurrentDate()
+        let chantDate = String(currentDate)
 
         //Database in Firestore
         let lphDatabase = Database.database().reference()
         
         //Reset Chanting Streak
-        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value, with: { (snapshot) in
-
-            let newStreakData: [String:Any] = [
-                "current_streak": 0,
-                "last_day_chanted": "0",
-                "longest_streak": 0
-            ]
-            
-            lphDatabase.child(user).child("current_chanting_streak").removeValue()
-
-        }) { (error) in
-            completion(.failure(error))
-            print(error.localizedDescription)
-        }
+        let newStreakData: [String:Any] = [
+            "current_streak": 0,
+            "last_day_chanted": chantDate,
+            "longest_streak": 0
+        ]
         
+        lphDatabase.child(user).child("current_chanting_streak").setValue(newStreakData)
+
         //Reset Total Minutes Chanted
-        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            lphDatabase.child(user).child("current_chanting_streak").removeValue()
-            
-        }) { (error) in
-            completion(.failure(error))
-            print(error.localizedDescription)
-        }
-        
+        lphDatabase.child(user).child("total_secs_chanted").setValue(0)
+
         //Reset Milestones
-        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            lphDatabase.child(user).child("current_chanting_streak").removeValue()
+        lphDatabase.child(user).child("chanting_milestones").setValue(nil)
 
-        }) { (error) in
-            completion(.failure(error))
-            print(error.localizedDescription)
-        }
-
+        
     }
     
 //MARK: Fetch Milestones
@@ -268,20 +251,20 @@ class APIUtilities {
     }
     
     class func fetchTotalMinsChanted(userID: String, completion: @escaping(Result<Double>) -> Void) {
-        print("fetching total minutes chanted for user:\(userID)")
+        print("fetching total seconds chanted for user:\(userID)")
 
         let user = "user:\(userID)"
 
         //Database in Firestore
         let lphDatabase = Database.database().reference()
         
-        lphDatabase.child(user).child("total_mins_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let totalMinsData = snapshot.value as? Double else {
+        lphDatabase.child(user).child("total_secs_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let totalSecsData = snapshot.value as? Double else {
                 return
             }
-            print(totalMinsData)
+            print(totalSecsData)
             
-            completion(.success(totalMinsData))
+            completion(.success(totalSecsData))
         }) { (error) in
             completion(.failure(error))
             print(error.localizedDescription)
