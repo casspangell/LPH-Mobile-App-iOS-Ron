@@ -243,7 +243,7 @@ enum AlertMessage {
 
 // About text
 enum AboutDescription {
-    static let songTitle = "Join together with 1.5 billion people to chant Love, Peace and Harmony by 2020."
+    static let songTitle = "Join together with 1.5 billion people to chant Love, Peace and Harmony by 2030."
     
     static let songDescription = "When many people join hearts and souls together to chant and meditate, this automatically creates a powerful field. We become what we chant, so as we chant to create world love, peace and harmony, each of us is transforming the message we carry within." +
     
