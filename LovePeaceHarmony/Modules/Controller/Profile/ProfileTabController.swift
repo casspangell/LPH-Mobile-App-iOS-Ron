@@ -34,21 +34,21 @@ class ProfileTabController: BaseViewController, SignOutCallback, ProfileLoginCal
     
     // MARK: - Actions
     private func checkLoginAndPopulateView(_ isLoggedIn: Bool, _ loginType: LoginType) {
-        if isLoggedIn && loginType != .withoutLogin {
-            let profileController = storyboard?.instantiateViewController(withIdentifier: ViewController.profile) as! ProfileController
-            addChildViewController(profileController)
-            profileController.view.frame = viewContainer.bounds
-            viewContainer.addSubview(profileController.view)
-            profileController.didMove(toParentViewController: self)
-            profileLoginController = nil
-        } else {
+//        if isLoggedIn && loginType != .withoutLogin {
+//            let profileController = storyboard?.instantiateViewController(withIdentifier: ViewController.profile) as! ProfileController
+//            addChildViewController(profileController)
+//            profileController.view.frame = viewContainer.bounds
+//            viewContainer.addSubview(profileController.view)
+//            profileController.didMove(toParentViewController: self)
+//            profileLoginController = nil
+//        } else {
             profileLoginController = LPHUtils.getStoryboard(type: .login).instantiateViewController(withIdentifier: ViewController.profileLogin) as! ProfileLoginController
             profileLoginController?.loginCallback = self
             addChildViewController(profileLoginController!)
             profileLoginController?.view.frame = viewContainer.bounds
             viewContainer.addSubview((profileLoginController?.view)!)
             profileLoginController?.didMove(toParentViewController: self)
-        }
+//        }
         
     }
     
@@ -58,11 +58,11 @@ class ProfileTabController: BaseViewController, SignOutCallback, ProfileLoginCal
     }
     
     func loginCallback() {
-        let loginVo = LPHUtils.getLoginVo()
-        if loginVo.loginType != previousLoginType && profileLoginController != nil {
-            profileLoginController?.removeFromParentViewController()
-            checkLoginAndPopulateView(true, loginVo.loginType)
-        }
+//        let loginVo = LPHUtils.getLoginVo()
+//        if loginVo.loginType != previousLoginType && profileLoginController != nil {
+//            profileLoginController?.removeFromParentViewController()
+//            checkLoginAndPopulateView(true, loginVo.loginType)
+//        }
     }
     
 

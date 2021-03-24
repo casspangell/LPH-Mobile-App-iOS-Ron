@@ -43,50 +43,11 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
-//      handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-//        self.setTitleDisplay(user)
-//        self.tableView.reloadData()
-//      }
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-      // [START remove_auth_listener]
-//      Auth.auth().removeStateDidChangeListener(handle!)
-      // [END remove_auth_listener]
     }
-
-    // MARK: - IBActions
-//    @IBAction func onTapFacebookLogin(_ sender: UITapGestureRecognizer) {
-////        if LPHUtils.checkNetworkConnection() {
-////            initiateLogin(type: .facebook)
-////        } else {
-////            showToast(message: "Please check your internet connection.")
-////        }
-//    }
-//
-
-    
-//    @IBAction func onTapGoogleSignIn(_ sender: UITapGestureRecognizer) {
-//        if LPHUtils.checkNetworkConnection() {
-//            initiateLogin(type: .google)
-//        } else {
-//            showToast(message: "Please check your internet connection.")
-//        }
-//    }
-    
-//    @IBAction func onTapSignInEmail(_ sender: UITapGestureRecognizer) {
-////        loginControllerCallback?.changeTab(index: 1)
-//    }
-//
-//    @IBAction func onTapWithoutSignIn(_ sender: UITapGestureRecognizer) {
-////        let loginVo = LPHUtils.getLoginVo()
-////        loginVo.isLoggedIn = true
-////        loginVo.loginType = .withoutLogin
-////        LPHUtils.setLoginVo(loginVo: loginVo)
-//        navigateToHome()
-//    }
     
     
     @IBAction func loginWithEmailPressed(_ sender: Any) {

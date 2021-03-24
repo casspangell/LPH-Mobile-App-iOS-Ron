@@ -335,6 +335,9 @@
                                                 <state key="normal" title="Logout">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="logoutPressed:" destination="S5h-XR-6PT" eventType="touchUpInside" id="uw9-oX-PT4"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.36498147250000001" green="0.80396610499999999" blue="0.79216253759999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
