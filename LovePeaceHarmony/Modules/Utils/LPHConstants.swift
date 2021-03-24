@@ -210,6 +210,9 @@ enum ChantFileName {
     static let hindi_sl_english = "hindi_sl_english"
     static let mandarin_english_german = "mandarin_english_german"
     static let spanish = "spanish"
+    static let kawehi_haw = "kawehi_haw"
+    static let sha_eng = "sha_eng"
+    static let sha_lula_eng_ka_haw = "sha_lula_eng_ka_haw"
 }
 
 // Messages

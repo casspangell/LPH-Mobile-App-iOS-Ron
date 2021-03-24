@@ -43,7 +43,6 @@ class ProfileTabController: BaseViewController, SignOutCallback, ProfileLoginCal
 //            profileLoginController = nil
 //        } else {
             profileLoginController = LPHUtils.getStoryboard(type: .login).instantiateViewController(withIdentifier: ViewController.profileLogin) as! ProfileLoginController
-            profileLoginController?.loginCallback = self
             addChildViewController(profileLoginController!)
             profileLoginController?.view.frame = viewContainer.bounds
             viewContainer.addSubview((profileLoginController?.view)!)

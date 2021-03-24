@@ -217,13 +217,35 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             renderSongName()
             labelSeekTime.text = "00:00"
             var songName: String?
-            if currentSong! == .mandarin_soul_english {
+            
+            switch currentSong {
+            case .mandarin_soul_english:
                 songName = ChantFileName.mandarinSoulEnglish
-            } else if currentSong! == .instrumental {
+            case .instrumental:
                 songName = ChantFileName.instrumental
-            } else {
+            case .hindi:
                 songName = ChantFileName.hindi
+            case .hindi_sl_english:
+                songName = ChantFileName.hindi_sl_english
+            case .spanish:
+                songName = ChantFileName.spanish
+            case .mandarin_english_german:
+                songName = ChantFileName.mandarin_english_german
+            case .french:
+                songName = ChantFileName.french
+            case .french_antillean_creole:
+                songName = ChantFileName.french_antillean_creole
+            case .kawehi_haw:
+                songName = ChantFileName.kawehi_haw
+            case .sha_eng:
+                songName = ChantFileName.sha_eng
+            case .sha_lula_eng_ka_haw:
+                songName = ChantFileName.sha_lula_eng_ka_haw
+
+            default:
+                songName = ChantFileName.mandarinSoulEnglish
             }
+
             guard let url = Bundle.main.url(forResource: songName!, withExtension: "mp3") else { return }
             audioPlayer = try? AVAudioPlayer(contentsOf: url)
             do {
@@ -747,18 +769,18 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     //--------
-    @IBAction func onTapMandarin(_ sender: UITapGestureRecognizer) {
-        startSong(chantFile: .mandarin_soul_english)
-    }
-    
-    @IBAction func onTapInstrumentalSong(_ sender: UITapGestureRecognizer) {
-        startSong(chantFile: .instrumental)
-    }
-    
-    @IBAction func onTapSongHindi(_ sender: UITapGestureRecognizer) {
-        startSong(chantFile: .hindi)
-    }
-    
+//    @IBAction func onTapMandarin(_ sender: UITapGestureRecognizer) {
+//        startSong(chantFile: .mandarin_soul_english)
+//    }
+//
+//    @IBAction func onTapInstrumentalSong(_ sender: UITapGestureRecognizer) {
+//        startSong(chantFile: .instrumental)
+//    }
+//
+//    @IBAction func onTapSongHindi(_ sender: UITapGestureRecognizer) {
+//        startSong(chantFile: .hindi)
+//    }
+//
     private func startSong(chantFile: ChantFile) {
         if songListStatus[chantFile]! {
             if audioPlayer != nil && (audioPlayer?.isPlaying)! {
