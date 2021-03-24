@@ -171,7 +171,7 @@
         <!--Login Controller-->
         <scene sceneID="9fw-w2-8cs">
             <objects>
-                <viewController storyboardIdentifier="LoginController" id="1Cd-DQ-e1o" customClass="LoginController" customModule="LovePeaceHarmony" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Cd-DQ-e1o" customClass="LoginController" customModule="LovePeaceHarmony" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9XJ-f2-hSW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

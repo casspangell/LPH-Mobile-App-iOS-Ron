@@ -11,15 +11,9 @@ import UIKit
 import Firebase
 
 class ProfileLoginController: BaseViewController {
-    
-    // MARK: - Variables
-    var loginCallback: ProfileLoginCallback?
-//    var loginEngine: SocialLoginEngine?
 
-    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loginEngine = SocialLoginEngine(self)
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
@@ -35,62 +29,11 @@ class ProfileLoginController: BaseViewController {
         }
         
         self.hideLoadingIndicator()
-        self.navigateToHome()
+        self.navigateToLogin()
     }
-    
-
-
-    
-    // MARK: - Apis
-//    private func fireSocialLoginRegisterApi(email: String,password: String, name: String, profilePic: String, source: LoginType, deviceId: String) {
-//        showLoadingIndicator()
-//        do {
-//            let lphService: LPHService = try LPHServiceFactory<LoginError>.getLPHService()
-//            lphService.fireLoginRegister(email: email, password: password, name: name, profilePicUrl: profilePic, source: source, deviceId: deviceId) { (lphResponse) in
-//                if lphResponse.isSuccess() {
-//                    self.processLoginResponse(source: source, password: password, serverResponse: lphResponse)
-//                }
-//                self.hideLoadingIndicator()
-//            }
-//        } catch let error {
-//
-//        }
-//    }
-    
-//    private func fireUpdateTokenApi() {
-//
-//        InstanceID.instanceID().instanceID { (result, error) in
-//        if let error = error {
-//        print("Error fetching remote instange ID: \(error)")
-//        } else if let result = result {
-//        print("Remote instance ID token: \(result.token)")
-//            let deviceInfo = DEVICE_INFO
-//            self.showLoadingIndicator()
-//            do {
-//                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-//                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
-//                    self.hideLoadingIndicator()
-//                    self.loginCallback?.loginCallback()
-//                }
-//            } catch let error {
-//
-//            }
-//         }
-//        }
-//
-//
-//    }
-//
-//    // MARK: - Navigations
-//    private func navigateToEmailLogin() {
-//        let loginController = storyboard?.instantiateViewController(withIdentifier: ViewController.login) as! LoginController
-//        loginController.isFromProfileController = true
-//        present(loginController, animated: true, completion: nil)
-//    }
-    
-    // MARK: - Navigation
-    private func navigateToHome() {
-        let homeTabController = LPHUtils.getStoryboard(type: .home).instantiateViewController(withIdentifier: ViewController.homeTab)
+ 
+    private func navigateToLogin() {
+        let homeTabController = LPHUtils.getStoryboard(type: .login).instantiateViewController(withIdentifier: ViewController.login)
         present(homeTabController, animated: true, completion: nil)
     }
 }
