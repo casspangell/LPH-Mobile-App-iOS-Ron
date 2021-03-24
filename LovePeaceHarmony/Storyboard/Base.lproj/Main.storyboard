@@ -455,12 +455,12 @@
             </objects>
             <point key="canvasLocation" x="2388" y="1602.5487256371816"/>
         </scene>
-        <!--Profile-->
+        <!--Logout-->
         <scene sceneID="y6a-mY-WH9">
             <objects>
                 <viewController id="LMz-od-UwH" customClass="ProfileTabController" customModule="LovePeaceHarmony" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ZP-R0-FgU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-mn-qao">
@@ -513,7 +513,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kW-Nc-lIY">
-                                <rect key="frame" x="0.0" y="121" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="121" width="375" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -532,7 +532,7 @@
                             <constraint firstItem="Jbh-mn-qao" firstAttribute="trailing" secondItem="2KH-Xk-gMP" secondAttribute="trailing" id="xkW-tT-vxm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="ic_tab_profile" id="v0c-Yo-irm"/>
+                    <tabBarItem key="tabBarItem" title="Logout" image="power" catalog="system" id="v0c-Yo-irm"/>
                     <connections>
                         <outlet property="viewContainer" destination="8kW-Nc-lIY" id="ci8-Jc-62P"/>
                     </connections>
@@ -2727,7 +2727,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGj-gQ-G0z">
-                                                        <rect key="frame" x="15" y="13.5" width="345" height="58.5"/>
+                                                        <rect key="frame" x="15" y="8.5" width="345" height="68.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="50"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2755,19 +2755,19 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z5-vN-MK2">
-                                                        <rect key="frame" x="175.5" y="35" width="24.5" height="47"/>
+                                                        <rect key="frame" x="175" y="31.5" width="25" height="54.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="40"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Straight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85U-zW-s1v">
-                                                        <rect key="frame" x="230.5" y="55.5" width="129.5" height="16.5"/>
+                                                        <rect key="frame" x="230.5" y="54" width="129.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have chanted for a total of :" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqr-Af-2kX">
-                                                        <rect key="frame" x="5" y="42" width="139" height="33"/>
+                                                        <rect key="frame" x="5" y="39.5" width="139" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2784,19 +2784,19 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-mg-nx8">
-                                                        <rect key="frame" x="230.5" y="137" width="129.5" height="16.5"/>
+                                                        <rect key="frame" x="230.5" y="135.5" width="129.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longest streak:" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcm-L0-Wpd">
-                                                        <rect key="frame" x="5" y="134" width="139.5" height="16.5"/>
+                                                        <rect key="frame" x="5" y="132.5" width="139.5" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxR-wt-hbi">
-                                                        <rect key="frame" x="175.5" y="121.5" width="24.5" height="47"/>
+                                                        <rect key="frame" x="175" y="118" width="25" height="54.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="40"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4486,6 +4486,7 @@
                         <segue destination="NYw-pV-BUu" kind="relationship" relationship="viewControllers" id="osc-2P-wxS"/>
                         <segue destination="C1f-hf-AVe" kind="relationship" relationship="viewControllers" id="NR7-Ui-IsP"/>
                         <segue destination="FrV-we-v0e" kind="relationship" relationship="viewControllers" id="1M1-Ag-lHP"/>
+                        <segue destination="LMz-od-UwH" kind="relationship" relationship="viewControllers" id="yrK-dK-vx7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gks-fe-cN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4594,9 +4595,9 @@
         <image name="ic_tab_about" width="24" height="24"/>
         <image name="ic_tab_chant" width="21.5" height="24.5"/>
         <image name="ic_tab_news" width="24" height="24"/>
-        <image name="ic_tab_profile" width="23" height="24"/>
         <image name="ic_volume_mute" width="24" height="24"/>
         <image name="ic_volume_sound" width="24" height="24"/>
+        <image name="power" catalog="system" width="128" height="124"/>
         <image name="streak" width="256" height="256"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
