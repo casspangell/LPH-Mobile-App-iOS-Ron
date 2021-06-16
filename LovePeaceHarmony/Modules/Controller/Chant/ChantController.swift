@@ -31,12 +31,18 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
     @IBOutlet weak var labelTabChantNow: UILabel!
     @IBOutlet weak var labelTabReminder: UILabel!
     @IBOutlet weak var labelTabMilestone: UILabel!
+    @IBOutlet weak var chantNavTab: UITabBarItem!
     
     // MARK: - View
     override func viewDidLoad() {
         scrollViewContainer.isScrollEnabled = false
         containerView = scrollViewContainer
         settings.style.buttonBarHeight = 0
+        
+        labelTabChantNow.text = NSLocalizedString("Chant Now", comment: "")
+        labelTabReminder.text = NSLocalizedString("Reminders", comment: "")
+        labelTabMilestone.text = NSLocalizedString("Milestones", comment: "")
+        chantNavTab.title = NSLocalizedString("Chant", comment: "")
 
         super.viewDidLoad()
         let chantNowController = storyboard?.instantiateViewController(withIdentifier: ViewController.chantNow)
@@ -59,15 +65,15 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
         switch showcaseViewIndex {
             
         case 0:
-            LPHUtils.renderShowcaseView(title: "Chant any time", view: viewChantNowContainer, delegate: self)
+            LPHUtils.renderShowcaseView(title: NSLocalizedString("Chant any time", comment: ""), view: viewChantNowContainer, delegate: self)
             break
             
         case 1:
-            LPHUtils.renderShowcaseView(title: "Set reminders to chant", view: viewReminderContainer, delegate: self)
+            LPHUtils.renderShowcaseView(title: NSLocalizedString("Set reminders to chant", comment: ""), view: viewReminderContainer, delegate: self)
             break
             
         case 2:
-            LPHUtils.renderShowcaseView(title: "View your milestones", view: viewMilestoneContainer, delegate: self)
+            LPHUtils.renderShowcaseView(title: NSLocalizedString("View your milestones", comment: ""), view: viewMilestoneContainer, delegate: self)
             break
             
 //        case 3:

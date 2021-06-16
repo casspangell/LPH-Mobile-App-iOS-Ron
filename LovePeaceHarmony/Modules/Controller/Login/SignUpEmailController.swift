@@ -20,6 +20,9 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldConfirmPassword: UITextField!
+    @IBOutlet weak var backLabel: UILabel!
+    @IBOutlet weak var createAccountLabel: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -27,6 +30,14 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
         textFieldConfirmPassword.delegate = self
+        
+        //Set up UI labels for translation
+        textFieldEmail.placeholder = NSLocalizedString("Email", comment: "")
+        textFieldPassword.placeholder = NSLocalizedString("Password", comment: "")
+        textFieldConfirmPassword.placeholder = NSLocalizedString("Confirm Passowrd", comment: "")
+        backLabel.text = NSLocalizedString("Back", comment: "")
+        createAccountLabel.text = NSLocalizedString("Create an Account", comment: "")
+        submitButton.titleLabel?.text = NSLocalizedString("Submit", comment: "")
     }
     
     // MARK: - XLPagerTabStrip

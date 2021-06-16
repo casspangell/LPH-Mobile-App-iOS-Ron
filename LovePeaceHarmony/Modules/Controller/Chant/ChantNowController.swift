@@ -49,6 +49,23 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @IBOutlet weak var switchShaLulaEngKaHaw: UISwitch!
     @IBOutlet weak var switchShaEng: UISwitch!
     
+    @IBOutlet weak var mandarinSoulEnglishLabel: UILabel!
+    @IBOutlet weak var instrumentalLabel: UILabel!
+    @IBOutlet weak var hindiLabel: UILabel!
+    @IBOutlet weak var hindiSoulLanguageEnglishLabel: UILabel!
+    @IBOutlet weak var spanishLabel: UILabel!
+    @IBOutlet weak var mandarinEnglishGermanLabel: UILabel!
+    @IBOutlet weak var frenchLabel: UILabel!
+    @IBOutlet weak var frenchCreoleLabel: UILabel!
+    
+    @IBOutlet weak var LPHInManyLanguagesBarLable: UILabel!
+    @IBOutlet weak var expressionsOfLPHBarLabel: UILabel!
+    
+    //Not sure on label names here
+    @IBOutlet weak var kawehiHawLabel: UILabel!
+    @IBOutlet weak var masterShaLulaEnglishLabel: UILabel!
+    @IBOutlet weak var masterShaEnglishLabel: UILabel!
+    
     @IBOutlet weak var buttonShuffle: UIButton!
     @IBOutlet weak var buttonRepeat: UIButton!
     @IBOutlet weak var labelSongName: UILabel!
@@ -58,6 +75,19 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Strings for localization
+        mandarinSoulEnglishLabel.text = NSLocalizedString("Mandarin, Soul Language, English", comment: "")
+        instrumentalLabel.text = NSLocalizedString("Instrumental", comment: "")
+        hindiLabel.text = NSLocalizedString("Hindi", comment: "")
+        hindiSoulLanguageEnglishLabel.text = NSLocalizedString("Hindi, Soul Language, English", comment: "")
+        spanishLabel.text = NSLocalizedString("Mandarin, English, German", comment: "")
+        mandarinEnglishGermanLabel.text = NSLocalizedString("Mandarin, English, German", comment: "")
+        frenchLabel.text = NSLocalizedString("French", comment: "")
+        frenchCreoleLabel.text = NSLocalizedString("French & Creole", comment: "")
+        LPHInManyLanguagesBarLable.text = NSLocalizedString("Love Peace Harmony in Many Languages", comment: "")
+        expressionsOfLPHBarLabel.text = NSLocalizedString("Expressions of Love Peace Harmony", comment: "")
+        
 
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .normal)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .selected)
@@ -84,7 +114,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     func renderShowcaseView() {
-        LPHUtils.renderShowcaseView(title: "Turn on / off chants", view: switchMandarinSoulEnglish, delegate: nil, secondaryText: "Use the switches to customize your chanting playlist.")
+        LPHUtils.renderShowcaseView(title: NSLocalizedString("Turn on / off chants", comment: ""), view: switchMandarinSoulEnglish, delegate: nil, secondaryText: NSLocalizedString("Use the switches to customize your chanting playlist.", comment: ""))
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
     }
     // MARK: - XLPagerTabStrip
@@ -325,7 +355,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     private func renderSongName() {
         if currentSong != nil {
-            labelSongName.text = "Now playing: \(chantTitle[(currentSong?.rawValue)!])"
+            labelSongName.text = "\(NSLocalizedString("Now playing: ", comment: "")) \(chantTitle[(currentSong?.rawValue)!])"
         } else {
             labelSongName.text = " "
         }

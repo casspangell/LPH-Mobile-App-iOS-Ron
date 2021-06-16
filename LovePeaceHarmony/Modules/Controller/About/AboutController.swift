@@ -28,10 +28,21 @@ class AboutController: ButtonBarPagerTabStripViewController {
     @IBOutlet weak var labelTabSong: UILabel!
     @IBOutlet weak var labelTabMovement: UILabel!
     @IBOutlet weak var labelTabMasterSha: UILabel!
+    @IBOutlet weak var visitWebsiteButton: UIButton!
+    @IBOutlet weak var donateNowButton: UIButton!
+    @IBOutlet weak var aboutTabBar: UITabBarItem!
     
     
     // MARK: - Views
     override func viewDidLoad() {
+        
+        labelTabSong.text = NSLocalizedString("The Song", comment: "")
+        labelTabMovement.text = NSLocalizedString("The Movement", comment: "")
+        labelTabMasterSha.text = NSLocalizedString("Master Sha", comment: "")
+        visitWebsiteButton.titleLabel?.text = NSLocalizedString("Visit Out Website", comment: "")
+        donateNowButton.titleLabel?.text = NSLocalizedString("Donate Now", comment: "")
+        aboutTabBar.title = NSLocalizedString("About", comment: "")
+        
         scrollViewContainer.isScrollEnabled = false
         containerView = scrollViewContainer
         settings.style.buttonBarHeight = 0

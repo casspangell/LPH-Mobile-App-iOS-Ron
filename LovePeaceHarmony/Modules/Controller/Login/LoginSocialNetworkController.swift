@@ -31,6 +31,9 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var noAccountButton: UIButton!
+
     
     // MARK: - View
     override func viewDidLoad() {
@@ -38,7 +41,14 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
 
         loginEngine = SocialLoginEngine(self)
         
-
+        //Set up UI labels for translation
+        googleLoginButton.titleLabel?.text = NSLocalizedString("Connect with Google", comment: "")
+        facebookLoginButton.titleLabel?.text = NSLocalizedString("Connect with Facebook", comment: "")
+        loginButton.titleLabel?.text = NSLocalizedString("Login", comment: "")
+        noAccountButton.titleLabel?.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
+        emailTextField.placeholder = NSLocalizedString("Email", comment: "")
+        passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +62,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     
     @IBAction func loginWithEmailPressed(_ sender: Any) {
         guard let email = self.emailTextField.text, let password = self.passwordTextField.text else {
-            self.showToast(message: "email/password can't be empty")
+            self.showToast(message: NSLocalizedString("email/password can't be empty", comment: ""))
               return
             }
         
@@ -77,7 +87,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         if LPHUtils.checkNetworkConnection() {
             initiateLogin(type: .facebook)
         } else {
-            showToast(message: "Please check your internet connection.")
+            showToast(message: NSLocalizedString("Please check your internet connection.", comment: ""))
         }
     }
     
@@ -85,7 +95,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         if LPHUtils.checkNetworkConnection() {
             initiateLogin(type: .google)
         } else {
-            showToast(message: "Please check your internet connection.")
+            showToast(message: NSLocalizedString("Please check your internet connection.", comment: ""))
         }
     }
     

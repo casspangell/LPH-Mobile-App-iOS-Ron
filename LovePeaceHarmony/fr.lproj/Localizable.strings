@@ -1,0 +1,102 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Cass Pangell on 6/9/21.
+  
+*/
+
+/* Login Social Network Controller */
+"Connect with Google" = "";
+"Connect with Facebook" = "";
+"Login" = "";
+"Don't have an account? Sign Up" = "";
+"Email" = "";
+"Password" = "";
+
+/* Sign Up Email Controller */
+"Email" = "";
+"Password" = "";
+"Confirm Password" = "";
+"Back" = "";
+"Create an Account" = "";
+"Submit" = "";
+
+/* Chant Controller */
+"Chant Now" = "";
+"Reminders" = "";
+"Milestones" = "";
+"Chant" = "";
+"Chant any time" = "";
+"Set reminders to chant" = "";
+"View your milestones" = "";
+"Every Day" = "";
+"Off" = "";
+"Sun" = "";
+"Mon" = "";
+"Tue" = "";
+"Wed" = "";
+"Thu" = "";
+"Fri" = "";
+"Sat" = "";
+
+/* Chant Now Controller */
+"Turn on / off chants" = "";
+"Use the switches to customize your chanting playlist." = "";
+"Now playing: " = "";
+"Mandarin, Soul Language, English" = "";
+"Instrumental" = "";
+"Hindi" = "";
+"Hindi, Soul Language, English" = "";
+"Mandarin, English, German" = "";
+"French" = "";
+"French & Creole" = "";
+"Turn on / off chants" = "";
+"Use the switches to customize your chanting playlist." = "";
+"Now playing: " = "";
+"Love Peace Harmony in Many Languages" = ""
+"Expressions of Love Peace Harmony" = ""
+
+/* Chant Milestone Controller */
+"Days Straight" = "";
+"You have chanted for a total of:" = "";
+"Days" = "";
+"Longest streak:" = ""
+"Do you want to reset all your milestones?" = ""
+"Milestone Data Deleted" = "";
+"Erase Milestones" = "";
+
+/* Chant Reminder Controller */
+"Repeat" = "";
+"Default" = "";
+"Delete Reminder" = "";
+"Cancel" = "";
+"Save" = "";
+"Edit Reminder" = "";
+"Sound" = "";
+"Alarm already added for this time!" = "";
+"Do you want to delete the alarm?" = "";
+
+/* Alarm Repeat Controller */
+"Select Repeat" = "";
+"Done" = "";
+"Cancel" = "";
+"Everyday" = "";
+"Sunday" = "";
+"Monday" = "";
+"Tuesday" = "";
+"Wednesday" = "";
+"Thursday" = "";
+"Friday" = "";
+"Saturday" = "";
+
+/* News Controller */
+"News" = "";
+
+/* About Controller */
+"The Song" = "";
+"The Movement" = "";
+"Master Sha" = "";
+"Visit Out Website" = "";
+"Donate Now" = "";
+"About" = "";

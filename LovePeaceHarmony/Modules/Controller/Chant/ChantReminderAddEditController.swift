@@ -38,7 +38,24 @@ class ChantReminderAddEditController: BaseViewController {
     @IBOutlet weak var labelAlarmSoundName: UILabel!
     @IBOutlet weak var buttonDeleteReminder: UIButton!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var editReminderLabel: UILabel!
+    @IBOutlet weak var repeatLabel: UILabel!
+    @IBOutlet weak var soundLabel: UILabel!
+    
     // MARK: - View
+    override func viewDidLoad() {
+        labelRepeat.text = NSLocalizedString("Repeat", comment: "")
+        labelAlarmSoundName.text = NSLocalizedString("Default", comment: "")
+        buttonDeleteReminder.titleLabel?.text = NSLocalizedString("Delete Reminder", comment: "")
+        
+        cancelButton.titleLabel?.text = NSLocalizedString("Cancel", comment: "")
+        saveButton.titleLabel?.text = NSLocalizedString("Save", comment: "")
+        editReminderLabel.text = NSLocalizedString("Edit Reminder", comment: "")
+        repeatLabel.text = NSLocalizedString("Repeat", comment: "")
+        soundLabel.text = NSLocalizedString("Sound", comment: "")
+    }
     override func initView() {
         super.initView()
         if type == .edit {
@@ -91,7 +108,7 @@ class ChantReminderAddEditController: BaseViewController {
         if type == .add {
             print(amPm!)
             if AlarmUtils.isSameReminderExist(hour: String(hour), minute: minute, amPm: amPm!) {
-                showToast(message: "Alarm already added for this time!")
+                showToast(message: NSLocalizedString("Alarm already added for this time!", comment: ""))
             }  else {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = DatePattern.parse
@@ -114,7 +131,7 @@ class ChantReminderAddEditController: BaseViewController {
     }
     
     @IBAction func onTapDelete(_ sender: UIButton) {
-        showAlertConfirm(title: "", message: "Do you want to delete the alarm?", vc: self, callback: { (UIAlertAction) in
+        showAlertConfirm(title: "", message: NSLocalizedString("Do you want to delete the alarm?", comment: ""), vc: self, callback: { (UIAlertAction) in
             AlarmUtils.deleteCoreDataReminder(reminder: self.reminder!)
             self.callback?.refreshView()
             self.dismiss(animated: true, completion: nil)

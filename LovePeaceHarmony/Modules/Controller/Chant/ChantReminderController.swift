@@ -24,7 +24,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
         super.viewDidLoad()
         reminderList.append(contentsOf: AlarmUtils.fetchCoreDataReminderList())
         if reminderList.count == 0 {
-            showNoDataText(message: "No reminder added.", tableView: tableViewReminder)
+            showNoDataText(message: NSLocalizedString("No reminder added.", comment: ""), tableView: tableViewReminder)
         }
         tableViewReminder.reloadData()
     }
@@ -63,9 +63,9 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
             cell?.switchActive.isOn = currentReminder.isActivated
             var repeatText: String
             if currentReminder.repeatDays == "Off" {
-                repeatText = "Repeat - Off"
+                repeatText = NSLocalizedString("Repeat - Off", comment: "")
             } else {
-                repeatText = "Repeats \((currentReminder.repeatDays)!)"
+                repeatText = "\(NSLocalizedString("Repeats ", comment: "")) \((currentReminder.repeatDays)!)"
             }
             cell?.labelRepeat.text = repeatText
             cell?.switchActive.addTarget(self, action: #selector(switchValueChanged(sender:)), for: UIControlEvents.valueChanged)

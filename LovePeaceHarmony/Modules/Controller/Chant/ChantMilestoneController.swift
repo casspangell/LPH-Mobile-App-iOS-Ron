@@ -33,12 +33,26 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     @IBOutlet weak var buttonShareApp: UIButton!
     @IBOutlet weak var labelStreakCount: UILabel!
     
+    //For localization
+    @IBOutlet weak var daysStraightLabel: UILabel!
+    @IBOutlet weak var youHaveChantedLabel: UILabel!
+    @IBOutlet weak var daysLabel: UILabel!
+    @IBOutlet weak var longestStreakLabel: UILabel!
+    @IBOutlet weak var eraseButton: UIButton!
+    
+    
     var milestones:Milestones!
     
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        daysStraightLabel.text = NSLocalizedString("Days Straight", comment: "")
+        youHaveChantedLabel.text = NSLocalizedString("You have chanted for a total of:", comment: "")
+        daysLabel.text = NSLocalizedString("Days", comment: "")
+        longestStreakLabel.text = NSLocalizedString("Longest streak:", comment: "")
+        eraseButton.titleLabel?.text = NSLocalizedString("Erase Milestones", comment: "")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,9 +97,9 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     @IBAction func onTapEraseMilestone(_ sender: UIButton) {
         let userId = LPHUtils.getCurrentUserID()
         
-        showAlertConfirm(title: "", message: "Do you want to reset all your milestones?", vc: self) {(UIAlertAction) in
+        showAlertConfirm(title: "", message: NSLocalizedString("Do you want to reset all your milestones?", comment: ""), vc: self) {(UIAlertAction) in
             APIUtilities.eraseMilestones(userID: userId) { (result) in
-                self.showToast(message: "Milestone Data Deleted")
+                self.showToast(message: NSLocalizedString("Milestone Data Deleted", comment: ""))
                 self.fireMilestoneDetails(userId: userId)
             }
         }
@@ -120,28 +134,28 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
 
     private func initiateShare() {
         
-        if let link = NSURL(string: DYNAMIC_LINK_DOMAIN) {
-            
-            let messageItem = "Chant Love, Peace, Harmony with me!"
-            let linkItem : NSURL = NSURL(string: DYNAMIC_LINK_DOMAIN)!
-            let imageItem : UIImage = UIImage(named: "AppIcon")!
-            
-            let objectsToShare = [messageItem, linkItem, imageItem] as [Any]
-            let excludeActivities = [UIActivityType.addToReadingList, .airDrop, .assignToContact]
-            
-            let shareViewController = UIActivityViewController(activityItems: [objectsToShare],  applicationActivities: nil)
-            shareViewController.excludedActivityTypes = excludeActivities
-            
-            if UI_USER_INTERFACE_IDIOM() == .pad {
-                shareViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-                let popover = shareViewController.popoverPresentationController as UIPopoverPresentationController!
-                popover?.sourceView = self.buttonShareApp
-                popover?.sourceRect = buttonShareApp.frame
-                popover?.permittedArrowDirections = .up
-            }
-            
-            present(shareViewController, animated: true, completion: nil)
-        }
+//        if let link = NSURL(string: DYNAMIC_LINK_DOMAIN) {
+//
+//            let messageItem = "Chant Love, Peace, Harmony with me!"
+//            let linkItem : NSURL = NSURL(string: DYNAMIC_LINK_DOMAIN)!
+//            let imageItem : UIImage = UIImage(named: "AppIcon")!
+//
+//            let objectsToShare = [messageItem, linkItem, imageItem] as [Any]
+//            let excludeActivities = [UIActivityType.addToReadingList, .airDrop, .assignToContact]
+//
+//            let shareViewController = UIActivityViewController(activityItems: [objectsToShare],  applicationActivities: nil)
+//            shareViewController.excludedActivityTypes = excludeActivities
+//
+//            if UI_USER_INTERFACE_IDIOM() == .pad {
+//                shareViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+//                let popover = shareViewController.popoverPresentationController as UIPopoverPresentationController!
+//                popover?.sourceView = self.buttonShareApp
+//                popover?.sourceRect = buttonShareApp.frame
+//                popover?.permittedArrowDirections = .up
+//            }
+//
+//            present(shareViewController, animated: true, completion: nil)
+//        }
         
     }
 

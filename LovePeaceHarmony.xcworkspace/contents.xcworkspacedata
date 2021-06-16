@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/projectxcappe/Documents/Tao Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Localizable.strings">
+   </FileRef>
+   <FileRef
       location = "group:LocalNotification+CoreDataClass.swift">
    </FileRef>
    <FileRef
