@@ -61,10 +61,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @IBOutlet weak var LPHInManyLanguagesBarLable: UILabel!
     @IBOutlet weak var expressionsOfLPHBarLabel: UILabel!
     
-    //Not sure on label names here
-    @IBOutlet weak var kawehiHawLabel: UILabel!
-    @IBOutlet weak var masterShaLulaEnglishLabel: UILabel!
-    @IBOutlet weak var masterShaEnglishLabel: UILabel!
+    @IBOutlet weak var alohaLabel: UILabel!
+    @IBOutlet weak var lulaliHawaiian: UILabel!
+    @IBOutlet weak var lphEnglish: UILabel!
     
     @IBOutlet weak var buttonShuffle: UIButton!
     @IBOutlet weak var buttonRepeat: UIButton!
@@ -87,8 +86,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         frenchCreoleLabel.text = NSLocalizedString("French & Creole", comment: "")
         LPHInManyLanguagesBarLable.text = NSLocalizedString("Love Peace Harmony in Many Languages", comment: "")
         expressionsOfLPHBarLabel.text = NSLocalizedString("Expressions of Love Peace Harmony", comment: "")
+        alohaLabel.text = NSLocalizedString("Aloha, Maluhia, Lokahi (LPH in Hawaiian)", comment: "")
+        lulaliHawaiian.text = NSLocalizedString("Lu La Li Version, English and Hawaiian", comment: "")
+        lphEnglish.text = NSLocalizedString("Love Peace Harmony in English", comment: "")
         
-
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .normal)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .selected)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .focused)
@@ -372,13 +373,18 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //Grab timestamp label and convert to total seconds
         //Calculate the start timestamp and the current timestamp
         let currentTime = labelSeekTime.text!.components(separatedBy: ".")
-        let sTime = startTime!.components(separatedBy: ".") //I dont know why these values are flipped in the array
         
-        let currentTimeTotalSecs = (Int(currentTime[0])!*60) + Int(currentTime[1])!
-        let startTimeTotalSecs = (Int(sTime[0])!*60) + Int(sTime[1])!
-        let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
-        
-        fireMilestoneSavingApi(seconds: totalSeconds)
+        //Is the playtime greater than zero? Double check please.
+        if currentTime.contains(".") {
+            let sTime = startTime!.components(separatedBy: ".") //I dont know why these values are flipped in the array
+            let currentTimeTotalSecs = (Int(currentTime[0])!*60) + Int(currentTime[1])!
+            let startTimeTotalSecs = (Int(sTime[0])!*60) + Int(sTime[1])!
+            let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
+            
+            fireMilestoneSavingApi(seconds: totalSeconds)
+        } else {
+            fireMilestoneSavingApi(seconds: 0)
+        }
     }
     
     private func forceStopPlaying(chantSong : ChantFile) {
@@ -398,7 +404,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                     LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (currentSong?.rawValue)!)
                 } else {
                     LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: -1)
-                    showToast(message: AlertMessage.enableSong)
+                    showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: "") )
                 }
             }
             renderSongName()
@@ -640,7 +646,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             }
             togglePlayPauseButton()
         } else {
-            showToast(message: AlertMessage.enableSong)
+            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
         }
     }
     
@@ -653,7 +659,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             audioPlayer?.play()
             togglePlayPauseButton()
         } else {
-            showToast(message: AlertMessage.noPreviousSong)
+            showToast(message: NSLocalizedString(AlertMessage.noPreviousSong, comment: ""))
         }
     }
     
@@ -666,7 +672,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             audioPlayer?.play()
             togglePlayPauseButton()
         } else {
-            showToast(message: AlertMessage.noNextSong)
+            showToast(message: NSLocalizedString(AlertMessage.noNextSong, comment: ""))
         }
     }
     
@@ -674,10 +680,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         if !checkAndTurnShuffleRepeatOff() {
             isShuffleEnabled = !isShuffleEnabled
             if isShuffleEnabled {
-                showToast(message: AlertMessage.shuffleOn)
+                showToast(message: NSLocalizedString(AlertMessage.shuffleOn, comment: ""))
                 generateShuffleList()
             } else {
-                showToast(message: AlertMessage.shuffleOff)
+                showToast(message: NSLocalizedString(AlertMessage.shuffleOff, comment: ""))
             }
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShuffleEnabled, value: isShuffleEnabled)
             if isShuffleEnabled {
@@ -686,7 +692,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 sender.tintColor = Color.disabled
             }
         } else {
-            showToast(message: AlertMessage.enableSong)
+            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
         }
         
     }
@@ -695,9 +701,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         if !checkAndTurnShuffleRepeatOff() {
             isRepeatEnabled = !isRepeatEnabled
             if isRepeatEnabled {
-                showToast(message: AlertMessage.repeatOn)
+                showToast(message: NSLocalizedString(AlertMessage.repeatOn, comment: "") )
             } else {
-                showToast(message: AlertMessage.repeatOff)
+                showToast(message: NSLocalizedString(AlertMessage.repeatOff, comment: ""))
             }
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isRepeatEnabled, value: isRepeatEnabled)
             if isRepeatEnabled {
@@ -706,7 +712,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 sender.tintColor = Color.disabled
             }
         } else {
-            showToast(message: AlertMessage.enableSong)
+            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
         }
     }
     
@@ -822,7 +828,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             audioPlayer?.play()
             togglePlayPauseButton()
         } else {
-            showToast(message: AlertMessage.enableSong)
+            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
         }
     }
     

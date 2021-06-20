@@ -34,12 +34,12 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
             constraintCalculated = true
         }
         
-        let songTitle = NSMutableAttributedString(string: AboutDescription.songTitle)
+        let songTitle = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songTitle, comment: "") )
         songTitle.addAttribute(.font, value: UIFont(name: "OpenSans-Semibold", size: 15)!, range: NSRange(location: 0, length: songTitle.length))
         songTitle.addAttribute(.font, value: UIFont(name: "OpenSans-SemiboldItalic", size: 15)!, range: NSRange(location: 47, length: 23))
         labelTitle.attributedText = songTitle
         
-        let songDescription = NSMutableAttributedString(string: AboutDescription.songDescription)
+        let songDescription = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription, comment: "") )
         songDescription.addAttribute(.font, value: UIFont(name: "OpenSans", size: 15)!, range: NSRange(location: 0, length: songDescription.length))
         songDescription.addAttribute(.font, value: UIFont(name: "OpenSans-Italic", size: 15)!, range: NSRange(location: 254, length: 23))
         songDescription.addAttribute(.font, value: UIFont(name: "OpenSans-Italic", size: 15)!, range: NSRange(location: 609, length: 23))

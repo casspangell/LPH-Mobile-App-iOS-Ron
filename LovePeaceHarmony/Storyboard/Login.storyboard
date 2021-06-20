@@ -372,6 +372,10 @@
                             </constraint>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="FnX-LL-L9b" id="D8c-kd-MK9"/>
+                        <outlet property="lphMessengerLabel" destination="h8H-KK-7RG" id="oXL-MX-9zT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APs-Ku-D9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="yle-zO-Lr6">
@@ -613,11 +617,6 @@
         <!--View Controller-->
         <scene sceneID="y0n-Vg-scs">
             <objects>
-                <tapGestureRecognizer id="EUp-Ue-i7c"/>
-                <tapGestureRecognizer id="bM0-pG-mpM"/>
-                <tapGestureRecognizer id="5jG-av-3aU"/>
-                <tapGestureRecognizer id="BWU-6D-Kci"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fhI-cz-RKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Jbm-fI-Dp0" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UMv-QV-O1Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
@@ -800,28 +799,17 @@
                         <outlet property="facebookLoginButton" destination="xDY-Dn-fhT" id="Yo0-Xq-60m"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="EUp-Ue-i7c"/>
+                <tapGestureRecognizer id="bM0-pG-mpM"/>
+                <tapGestureRecognizer id="5jG-av-3aU"/>
+                <tapGestureRecognizer id="BWU-6D-Kci"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhI-cz-RKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-175" y="973"/>
         </scene>
         <!--Login Email Controller-->
         <scene sceneID="mXO-m6-OgP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PKR-jk-V1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="red-by-mbh">
-                    <connections>
-                        <action selector="onTapCreateAccount:" destination="0bE-Rl-aEB" id="7vh-y4-T34"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="vYl-Sc-h4y">
-                    <connections>
-                        <action selector="onTapSignIn:" destination="0bE-Rl-aEB" id="W6H-4T-45Q"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="kZs-Iw-Fen">
-                    <connections>
-                        <action selector="onTapBack:" destination="0bE-Rl-aEB" id="xKe-bB-eLH"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <viewController storyboardIdentifier="LoginEmailController" id="0bE-Rl-aEB" customClass="LoginEmailController" customModule="LovePeaceHarmony" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wfc-YQ-awV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
@@ -1048,6 +1036,22 @@
                         <outlet property="textFieldPassword" destination="b0H-KJ-DKM" id="ZdG-Wr-J8e"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PKR-jk-V1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="red-by-mbh">
+                    <connections>
+                        <action selector="onTapCreateAccount:" destination="0bE-Rl-aEB" id="7vh-y4-T34"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vYl-Sc-h4y">
+                    <connections>
+                        <action selector="onTapSignIn:" destination="0bE-Rl-aEB" id="W6H-4T-45Q"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kZs-Iw-Fen">
+                    <connections>
+                        <action selector="onTapBack:" destination="0bE-Rl-aEB" id="xKe-bB-eLH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-175" y="1298"/>
         </scene>

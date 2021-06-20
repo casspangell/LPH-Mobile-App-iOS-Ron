@@ -217,31 +217,31 @@ enum ChantFileName {
 
 // Messages
 enum AlertMessage {
-    static let noNetwork = "Please check your internet connection!"
-    static let login = "Please sign in to add this article to your favorites."
-    static let unKnownException = "Something went wrong, please try again after sometimes"
+    static let noNetwork = "Please check your internet connection!"//k
+    //static let login = "Please sign in to add this article to your favorites."
+    static let unKnownException = "Something went wrong, please try again."//k
     
     //Login
-    static let nameEmpty = "Please enter the name"
-    static let emailEmpty = "Please enter your email address"
-    static let invalidEmail = "Invalid email address"
-    static let passwordEmpty = "Please enter the password"
-    static let passwordLength = "Password needs to be at least 6 characters"
-    static let confirmPasswordEmpty = "Please enter the confirm password"
-    static let passwordDoNotMatch = "Passwords do not match"
+    static let nameEmpty = "Please enter your name"//k
+    static let emailEmpty = "Please enter your email address"//k
+    static let invalidEmail = "Invalid email address"//k
+    static let passwordEmpty = "Please enter your password"//k
+    static let passwordLength = "Password needs to be at least 6 characters"//k
+    static let confirmPasswordEmpty = "Please enter confirmation password"//k
+    static let passwordDoNotMatch = "Passwords do not match"//k
     
     // Showcase view
-    static let showcaseSecondary = "Tap anywhere to continue."
+    static let showcaseSecondary = "Tap anywhere to continue." //k
     
     //Chant
-    static let timeToChant = "It's time to chant!!!"
-    static let enableSong = "Please enable your song & play."
-    static let shuffleOn = "Shuffle turned on"
-    static let shuffleOff = "Shuffle turned off"
-    static let repeatOn = "Repeat turned on"
-    static let repeatOff = "Repeat turned off"
-    static let noPreviousSong = "No previous song"
-    static let noNextSong = "No next song"
+    static let timeToChant = "It's time to chant!!!" //k
+    static let enableSong = "Please enable your song & play."//k
+    static let shuffleOn = "Shuffle turned on"//k
+    static let shuffleOff = "Shuffle turned off"//k
+    static let repeatOn = "Repeat turned on"//k
+    static let repeatOff = "Repeat turned off"//k
+    static let noPreviousSong = "No previous song"//k
+    static let noNextSong = "No next song"//k
 }
 
 // About text

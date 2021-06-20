@@ -97,7 +97,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
         if reminderList.count < 10 {
             navigateToReminderAddEditController(reminder: nil, type: .add)
         } else {
-            showToast(message: "Maximum number of reminders reached.")
+            showToast(message: NSLocalizedString("Maximum number of reminders reached.", comment: "") )
         }
         
     }
@@ -129,7 +129,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
         reminderList.append(contentsOf: AlarmUtils.fetchCoreDataReminderList())
         tableViewReminder.reloadData()
         if reminderList.count == 0 {
-            showNoDataText(message: "No reminder added.", tableView: tableViewReminder)
+            showNoDataText(message: NSLocalizedString("No reminder added.", comment: ""), tableView: tableViewReminder)
         } else {
             tableViewReminder.backgroundView = nil
         }

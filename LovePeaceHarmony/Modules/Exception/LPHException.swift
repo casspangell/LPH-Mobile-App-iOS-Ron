@@ -55,10 +55,10 @@ public class LPHException<E>: Error {
         var errorMessage: String?
         switch applicationError! {
         case .noNetwork:
-            errorMessage = AlertMessage.noNetwork
+            errorMessage = NSLocalizedString(AlertMessage.noNetwork, comment: "")
             break
         default:
-            errorMessage = AlertMessage.unKnownException
+            errorMessage = NSLocalizedString(AlertMessage.unKnownException, comment: "")
             break
         }
         return errorMessage!
@@ -71,35 +71,35 @@ public class LPHException<E>: Error {
         switch loginError {
             
         case .emptyName:
-            message = AlertMessage.nameEmpty
+            message = NSLocalizedString(AlertMessage.nameEmpty, comment: "")
             break
             
         case .emptyEmail:
-            message = AlertMessage.emailEmpty
+            message = NSLocalizedString(AlertMessage.emailEmpty, comment: "")
             break
             
         case .invalidEmail:
-            message = AlertMessage.invalidEmail
+            message = NSLocalizedString(AlertMessage.invalidEmail, comment: "")
             break
             
         case .passwordLength:
-            message = AlertMessage.passwordLength
+            message = NSLocalizedString(AlertMessage.passwordLength, comment: "")
             break
             
         case .emptyPassword:
-            message = AlertMessage.passwordEmpty
+            message = NSLocalizedString(AlertMessage.passwordEmpty, comment: "")
             break
             
         case .emptyConfirmPassword:
-            message = AlertMessage.confirmPasswordEmpty
+            message = NSLocalizedString(AlertMessage.confirmPasswordEmpty, comment: "")
             break
             
         case .passwordDoNotMatch:
-            message = AlertMessage.passwordDoNotMatch
+            message = NSLocalizedString(AlertMessage.passwordDoNotMatch, comment: "")
             break
             
         default:
-            message = AlertMessage.unKnownException
+            message = NSLocalizedString(AlertMessage.unKnownException, comment: "")
             break
         }
         return message!

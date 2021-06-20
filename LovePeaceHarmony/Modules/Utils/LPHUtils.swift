@@ -262,7 +262,7 @@ public class LPHUtils {
         return userId
     }
     
-    static func renderShowcaseView(title: String, view: UIView, delegate: MaterialShowcaseDelegate?, secondaryText: String = AlertMessage.showcaseSecondary) {
+    static func renderShowcaseView(title: String, view: UIView, delegate: MaterialShowcaseDelegate?, secondaryText: String = NSLocalizedString(AlertMessage.showcaseSecondary, comment: "") ) {
         let showcase = MaterialShowcase()
         showcase.targetHolderColor = Color.orange
         showcase.backgroundPromptColor = Color.purpleLight

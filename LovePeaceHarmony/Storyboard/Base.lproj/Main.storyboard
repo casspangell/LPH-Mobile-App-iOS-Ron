@@ -1486,8 +1486,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="WY0-Q2-OJc"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kawehi Haw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vig-o1-eDk">
-                                                        <rect key="frame" x="16" y="17.5" width="72.5" height="15.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aloha, Maluhia, Lokahi (LPH in Hawaiian)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vig-o1-eDk">
+                                                        <rect key="frame" x="16" y="17.5" width="237.5" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1523,8 +1523,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="odC-cM-zMw"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Master Sha Lula English Ka Haw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D6-gd-Z7E">
-                                                        <rect key="frame" x="16" y="17.5" width="189.5" height="15.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lu La Li Version, English and Hawaiian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D6-gd-Z7E">
+                                                        <rect key="frame" x="16" y="17.5" width="224" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1560,8 +1560,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="jSK-ft-Vlv"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Master Sha English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2a-bK-JgZ">
-                                                        <rect key="frame" x="16" y="17.5" width="112.5" height="15.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Love Peace Harmony in English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2a-bK-JgZ">
+                                                        <rect key="frame" x="16" y="17.5" width="184.5" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1784,6 +1784,7 @@
                     </view>
                     <connections>
                         <outlet property="LPHInManyLanguagesBarLable" destination="Oyl-K9-YF5" id="wVq-RU-u96"/>
+                        <outlet property="alohaLabel" destination="Vig-o1-eDk" id="wlX-LT-HyH"/>
                         <outlet property="buttonPlayPause" destination="gWv-ZK-hWv" id="tda-Do-u5q"/>
                         <outlet property="buttonRepeat" destination="OwI-Cg-lQ3" id="fEp-ff-N6v"/>
                         <outlet property="buttonShuffle" destination="7In-Cl-Xof" id="jTR-mJ-MeK"/>
@@ -1793,14 +1794,13 @@
                         <outlet property="hindiLabel" destination="LEU-NC-p0C" id="vfG-gD-1BO"/>
                         <outlet property="hindiSoulLanguageEnglishLabel" destination="5rb-sW-iOg" id="P2s-nl-9Cd"/>
                         <outlet property="instrumentalLabel" destination="FEm-hb-fFn" id="Gaj-LL-UHT"/>
-                        <outlet property="kawehiHawLabel" destination="Vig-o1-eDk" id="hp8-Xk-FZ8"/>
                         <outlet property="labelSeekTime" destination="h8o-r7-XBs" id="Beg-Cz-az8"/>
                         <outlet property="labelSongName" destination="dNd-b4-r0T" id="qOv-mu-17E"/>
                         <outlet property="labelTotalDuration" destination="q2L-7K-BBR" id="zGF-WR-uqY"/>
+                        <outlet property="lphEnglish" destination="E2a-bK-JgZ" id="e1W-om-EMk"/>
+                        <outlet property="lulaliHawaiian" destination="9D6-gd-Z7E" id="abe-0J-MDM"/>
                         <outlet property="mandarinEnglishGermanLabel" destination="J38-id-ivG" id="sPc-Ww-eXt"/>
                         <outlet property="mandarinSoulEnglishLabel" destination="Rzd-0C-ftT" id="f6M-Lb-Nvn"/>
-                        <outlet property="masterShaEnglishLabel" destination="E2a-bK-JgZ" id="9b7-NJ-1vb"/>
-                        <outlet property="masterShaLulaEnglishLabel" destination="9D6-gd-Z7E" id="KrG-eP-OxW"/>
                         <outlet property="sliderMusicSeek" destination="DN2-6g-ONv" id="j9t-0Z-s0Q"/>
                         <outlet property="sliderVolume" destination="FLH-5N-opq" id="3VK-ge-NoP"/>
                         <outlet property="spanishLabel" destination="zBJ-T8-ItE" id="2hM-kr-G1O"/>
@@ -3701,13 +3701,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvm-T9-5hW">
-                                                    <rect key="frame" x="132" y="4" width="235" height="23.5"/>
+                                                    <rect key="frame" x="132" y="4" width="235" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sGd-fD-dq2">
-                                                    <rect key="frame" x="132" y="27.5" width="54.5" height="20"/>
+                                                    <rect key="frame" x="132" y="24" width="54.5" height="20"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FE-e2-Ge1">
                                                             <rect key="frame" x="0.0" y="0.0" width="29.5" height="20"/>
@@ -4369,7 +4369,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chant Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-L3-pjf">
-                                                <rect key="frame" x="25" y="11" width="69.5" height="18"/>
+                                                <rect key="frame" x="27" y="12.5" width="65.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667604176594" green="0.3313276731657816" blue="0.55433593749999988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4406,7 +4406,7 @@
                                         <rect key="frame" x="124" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuL-gv-ODe">
-                                                <rect key="frame" x="25.5" y="11" width="68" height="18"/>
+                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4426,7 +4426,7 @@
                                         <rect key="frame" x="248" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Ha-PKr">
-                                                <rect key="frame" x="25.5" y="11" width="68.5" height="18"/>
+                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>

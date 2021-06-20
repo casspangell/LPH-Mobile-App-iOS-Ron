@@ -240,7 +240,7 @@ class AlarmUtils {
         let content = UNMutableNotificationContent()
         let scheduledDateComponent = Calendar.current.dateComponents([.hour, .minute, .day, .weekday], from: scheduledDate)
         content.title = NSString.localizedUserNotificationString(forKey: "Chant reminder", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: AlertMessage.timeToChant, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: NSLocalizedString(AlertMessage.timeToChant, comment: "") , arguments: nil)
         content.sound = UNNotificationSound.default()
         
         content.badge = 0

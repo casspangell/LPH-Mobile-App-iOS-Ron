@@ -11,9 +11,16 @@ import UIKit
 import Firebase
 
 class ProfileLoginController: BaseViewController {
+    
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var lphMessengerLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoutButton.titleLabel?.text = NSLocalizedString("Logout", comment: "")
+        lphMessengerLabel.text = NSLocalizedString("Love Peace Harmony Messenger", comment: "")
     }
     
     @IBAction func logoutPressed(_ sender: Any) {
