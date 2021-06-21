@@ -14,10 +14,10 @@
 "Email" = "";
 "Password" = "";
 "email/password can't be empty" = "";
-"Please check your internet connection.";
+"Please check your internet connection" = "";
 
 /* Showcase View */
-"Tap anywhere to continue.";
+"Tap anywhere to continue" = "";
 
 /* Sign Up Email Controller */
 "Email" = "";
@@ -27,12 +27,15 @@
 "Create an Account" = "";
 "Submit" = "";
 
-/* Chant Controller */
-"No reminder added." = "";
-"Chant Now" = "";
-"Reminders" = "";
-"Milestones" = "";
-"Chant" = "";
+/* Chant Now Controller */
+"Chant Now" = "Chanter Maintenant";
+"Reminders" = "Rappels";
+"Milestones" = "Objectifs";
+"Chant" = "Chantez";
+"Shuffle Turned On" = "Lecture Aléatoire Activée";
+"Shuffle Turned Off" = "Lecture Aléatoire Désactivée";
+"Repeat Turned Off" = "Répétition Activée";
+"Repeat Turned On" = "Répétition Désactivée";
 "Chant any time" = "";
 "Set reminders to chant" = "";
 "View your milestones" = "";
@@ -45,11 +48,9 @@
 "Thu" = "";
 "Fri" = "";
 "Sat" = "";
-
-/* Chant Now Controller */
 "Turn on / off chants" = "";
 "Use the switches to customize your chanting playlist." = "";
-"Now playing: " = "";
+"Now playing: " = "En Lecture: ";
 "Mandarin, Soul Language, English" = "";
 "Instrumental" = "";
 "Hindi" = "";
@@ -61,48 +62,47 @@
 "Lu La Li Version, English and Hawaiian" = "";
 "Love Peace Harmony in English" = "";
 "Now playing: " = "";
-"Love Peace Harmony in Many Languages" = "";
-"Expressions of Love Peace Harmony" = "";
+"Love Peace Harmony in Many Languages" = "Amour Paix Harmonie dans de Nombreuses Langues";
+"Expressions of Love Peace Harmony" = "Expressions d'Amour Paix Harmonie";
 
 /* Chant Milestone Controller */
-"Days Straight" = "";
-"You have chanted for a total of:" = "";
-"Days" = "";
+"Days Straight" = " Jours d'affilée";
+"You have chanted for a total of:" = "Vous avez chanté pour un total de:";
+"Days" = "Jours";
 "Longest streak:" = "";
-"Do you want to reset all your milestones?" = "";
+"Do you want to reset all your milestones?" = "Voulez-vous réinitialiser tous vos objectifs ?";
 "Milestone Data Deleted" = "";
-"Erase Milestones" = "";
+"Erase Milestones" = "Effacer les Objectifs";
 
 /* Chant Reminder Controller */
-"Repeat" = "";
+"No reminder added" = "Aucun Rappel Ajouté";
+"Repeat" = "Répéter";
 "Default" = "";
-"Delete Reminder" = "";
-"Cancel" = "";
-"Save" = "";
-"Edit Reminder" = "";
+"Delete Reminder" = "Supprimer le rappel";
+"Cancel" = "Annuler";
+"Save" = "Sauvegarder";
+"Edit Reminder" = "Modifier le Rappel";
 "Sound" = "";
 "Alarm already added for this time!" = "";
-"Do you want to delete the alarm?" = "";
-"Maximum number of reminders reached." = "";
+"Do you want to delete the alarm?" = "Voulez-vous supprimer l'alarme?";
+"Maximum number of reminders reached" = "";
 "Repeats " = "";
 "Repeat - Off" = "";
-"Done" = "";
-"Ok" = "";
-
-
+"Done" = "Fait";
+"Ok" = "Ok";
 
 /* Alarm Repeat Controller */
-"Select Repeat" = "";
+"Select Repeat" = "Sélectionnez Répéter";
 "Done" = "";
 "Cancel" = "";
-"Everyday" = "";
-"Sunday" = "";
-"Monday" = "";
-"Tuesday" = "";
-"Wednesday" = "";
-"Thursday" = "";
-"Friday" = "";
-"Saturday" = "";
+"Everyday" = "Tous les jours";
+"Sunday" = "Dimanche";
+"Monday" = "Lundi";
+"Tuesday" = "Mardi";
+"Wednesday" = "Mercredi";
+"Thursday" = "Jeudi";
+"Friday" = "Vendredi";
+"Saturday" = "Samedi";
 
 /* News Controller */
 "News" = "";
@@ -111,15 +111,18 @@
 "The Song" = "";
 "The Movement" = "";
 "Master Sha" = "";
-"Visit Out Website" = "";
-"Donate Now" = "";
-"About" = "";
 "Visit Our Website" = "";
 "Donate Now" = "";
+"About" = "À Propos De";
 
 /* Logout */
-"Logout" = "";
+"Logout" = "Déconnexion";
 "Love Peace Harmony Messenger" = "";
+
+/* Base View Controller */
+"Alert" = "Alerte";
+"Cancel" = "Annuler";
+"Ok" = "Ok";
 
 /* LPH Constants */
 "It's time to chant!!!" = "";
@@ -136,7 +139,7 @@
 "Some of our numerous initiatives have included working with the Tarayana Foundation in Bhutan, a remote kingdom in the Himalayas. We are helping to support access to education, health care, and proper nutrition and creating a pilot project there that we hope will be replicated in many other areas of the world." = "";
 "In Toronto, Canada, we have supported low-income families so they could send their children to the Harbourfront Centre summer camp to experience the many benefits of enjoying a variety of activities with their peers and engaging actively with the environment." = "";
 "We have also contributed to the nonprofit WandAid to help families in earthquake damaged zones in Nepal. We are very honored to help support communities impacted by natural disasters, political crises, and other disadvantages." = "";
-"ove Peace Harmony Foundation has numerous additional ongoing projects and is actively expanding efforts worldwide to help people live happier and healthier lives." = "";
+"Love Peace Harmony Foundation has numerous additional ongoing projects and is actively expanding efforts worldwide to help people live happier and healthier lives." = "";
 "The Divine Soul Song Love, Peace and Harmony has been credited with many deeply transformative experiences by the people who have experienced it, lowering crime rates, incidences of physical abuse, and improving the health for women in low income homes in Mumbai, as well as increasing children’s intelligence and school performance. Chanting Love, Peace and Harmony for children in the slums of Mumbai (Dharavi, Asia’s largest slum) also resulted in greater emotional balance, happiness and other emotional benefits." = "";
 
 /* Dr Sha */

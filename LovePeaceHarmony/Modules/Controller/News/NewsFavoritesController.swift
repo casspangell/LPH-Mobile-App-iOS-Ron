@@ -89,7 +89,7 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
         if LPHUtils.checkNetworkConnection() {
             initiateLogin(type: .google)
         } else {
-            showToast(message: "Please check your internet connection.")
+            showToast(message: "Please check your internet connection")
         }
     }
     
@@ -97,7 +97,7 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
         if LPHUtils.checkNetworkConnection() {
             initiateLogin(type: .facebook)
         } else {
-            showToast(message: "Please check your internet connection.")
+            showToast(message: "Please check your internet connection")
         }
     }
     

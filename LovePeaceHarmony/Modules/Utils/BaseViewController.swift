@@ -50,11 +50,11 @@ class BaseViewController: UIViewController {
     func showAlertConfirm(title: String, message: String, vc: UIViewController, callback: @escaping (UIAlertAction) -> Void) {
         var title = title
         if title.count == 0 {
-            title = "Alert"
+            title = NSLocalizedString("Alert", comment: "")
         }
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: callback))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.default, handler: callback))
         vc.present(alert, animated: true, completion: nil)
     }
     
@@ -62,10 +62,10 @@ class BaseViewController: UIViewController {
  
         var title = title
         if title.count == 0 {
-            title = "Alert"
+            title = NSLocalizedString("Alert", comment: "")
         }
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertActionStyle.default, handler: nil))
         vc.present(alert, animated: true, completion: nil)
     }
     

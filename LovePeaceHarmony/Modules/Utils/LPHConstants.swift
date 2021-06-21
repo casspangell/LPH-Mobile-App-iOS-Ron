@@ -218,8 +218,8 @@ enum ChantFileName {
 // Messages
 enum AlertMessage {
     static let noNetwork = "Please check your internet connection!"//k
-    //static let login = "Please sign in to add this article to your favorites."
-    static let unKnownException = "Something went wrong, please try again."//k
+    static let login = "Please sign in to add this article to your favorites."
+    static let unKnownException = "Something went wrong, please try again"//k
     
     //Login
     static let nameEmpty = "Please enter your name"//k
@@ -231,11 +231,11 @@ enum AlertMessage {
     static let passwordDoNotMatch = "Passwords do not match"//k
     
     // Showcase view
-    static let showcaseSecondary = "Tap anywhere to continue." //k
+    static let showcaseSecondary = "Tap anywhere to continue" //k
     
     //Chant
     static let timeToChant = "It's time to chant!!!" //k
-    static let enableSong = "Please enable your song & play."//k
+    static let enableSong = "Please enable your song & play"//k
     static let shuffleOn = "Shuffle turned on"//k
     static let shuffleOff = "Shuffle turned off"//k
     static let repeatOn = "Repeat turned on"//k

@@ -24,7 +24,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
         super.viewDidLoad()
         reminderList.append(contentsOf: AlarmUtils.fetchCoreDataReminderList())
         if reminderList.count == 0 {
-            showNoDataText(message: NSLocalizedString("No reminder added.", comment: ""), tableView: tableViewReminder)
+            showNoDataText(message: NSLocalizedString("No reminder added", comment: ""), tableView: tableViewReminder)
         }
         tableViewReminder.reloadData()
     }
@@ -62,7 +62,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
             cell?.labelAmPm.text = currentReminder.amPm
             cell?.switchActive.isOn = currentReminder.isActivated
             var repeatText: String
-            if currentReminder.repeatDays == "Off" {
+            if currentReminder.repeatDays == NSLocalizedString("Off", comment: "") {
                 repeatText = NSLocalizedString("Repeat - Off", comment: "")
             } else {
                 repeatText = "\(NSLocalizedString("Repeats ", comment: "")) \((currentReminder.repeatDays)!)"
@@ -97,7 +97,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
         if reminderList.count < 10 {
             navigateToReminderAddEditController(reminder: nil, type: .add)
         } else {
-            showToast(message: NSLocalizedString("Maximum number of reminders reached.", comment: "") )
+            showToast(message: NSLocalizedString("Maximum number of reminders reached", comment: "") )
         }
         
     }
@@ -129,7 +129,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
         reminderList.append(contentsOf: AlarmUtils.fetchCoreDataReminderList())
         tableViewReminder.reloadData()
         if reminderList.count == 0 {
-            showNoDataText(message: NSLocalizedString("No reminder added.", comment: ""), tableView: tableViewReminder)
+            showNoDataText(message: NSLocalizedString("No reminder added", comment: ""), tableView: tableViewReminder)
         } else {
             tableViewReminder.backgroundView = nil
         }

@@ -87,7 +87,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         if LPHUtils.checkNetworkConnection() {
             initiateLogin(type: .facebook)
         } else {
-            showToast(message: NSLocalizedString("Please check your internet connection.", comment: ""))
+            showToast(message: NSLocalizedString("Please check your internet connection", comment: ""))
         }
     }
     
@@ -95,7 +95,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         if LPHUtils.checkNetworkConnection() {
             initiateLogin(type: .google)
         } else {
-            showToast(message: NSLocalizedString("Please check your internet connection.", comment: ""))
+            showToast(message: NSLocalizedString("Please check your internet connection", comment: ""))
         }
     }
     
