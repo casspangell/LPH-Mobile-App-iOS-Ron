@@ -48,7 +48,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         noAccountButton.titleLabel?.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
         emailTextField.placeholder = NSLocalizedString("Email", comment: "")
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

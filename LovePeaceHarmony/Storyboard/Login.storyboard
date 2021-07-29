@@ -417,7 +417,7 @@
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj1-8D-rAE" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="50" width="335" height="5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="s2i-ym-Prz"/>
                                         </constraints>
@@ -432,7 +432,7 @@
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwC-es-4lm" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="105" width="335" height="10"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="VAw-xz-8ba"/>
                                         </constraints>
@@ -465,7 +465,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAo-Cm-Q8h" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="165" width="335" height="55"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-OE-clE" userLabel="Facebook" customClass="RoundedCornerView" customModule="LovePeaceHarmony" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="220" width="335" height="50"/>
@@ -501,7 +501,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbH-1f-mrw" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="270" width="335" height="5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="GDV-Ro-Tkl"/>
                                         </constraints>
@@ -543,7 +543,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rm8-P4-KFc" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="325" width="335" height="5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="uVo-FF-Pwr"/>
                                         </constraints>
@@ -562,7 +562,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="vKR-iC-5Ry" firstAttribute="centerX" secondItem="hXm-vt-VvC" secondAttribute="centerX" id="OJh-Bi-y9a"/>
                                             <constraint firstItem="vKR-iC-5Ry" firstAttribute="centerY" secondItem="hXm-vt-VvC" secondAttribute="centerY" id="pLg-YZ-igX"/>
@@ -591,7 +591,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l8r-b0-Pp8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IV0-nr-n1V" firstAttribute="leading" secondItem="l8r-b0-Pp8" secondAttribute="leading" constant="20" id="0bX-SC-Ux9"/>
                             <constraint firstItem="IV0-nr-n1V" firstAttribute="top" secondItem="l8r-b0-Pp8" secondAttribute="top" constant="10" id="Gla-tL-cjz"/>
@@ -1140,7 +1140,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXI-aC-6jg" userLabel="Spacer">
                                                 <rect key="frame" x="0.0" y="50" width="335" height="5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="8bP-GZ-01a"/>
                                                 </constraints>
@@ -1155,7 +1155,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdE-wR-T3b">
                                                 <rect key="frame" x="0.0" y="105" width="335" height="5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="19h-QJ-FMg"/>
                                                 </constraints>
@@ -1170,7 +1170,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBd-0p-MHN" userLabel="Spacer">
                                                 <rect key="frame" x="0.0" y="160" width="335" height="20"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oyb-mj-bXs" userLabel="Submit" customClass="RoundedCornerView" customModule="LovePeaceHarmony" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="180" width="335" height="50"/>
@@ -2057,9 +2057,6 @@ AAC5pg
         </image>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
