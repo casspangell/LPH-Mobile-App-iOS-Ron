@@ -1137,7 +1137,7 @@
                                                     <constraint firstItem="5tv-ke-XH5" firstAttribute="leading" secondItem="dpn-AP-hkb" secondAttribute="leading" id="usi-5U-nj8"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Deu-n0-Fbl">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Deu-n0-Fbl" userLabel="Mandarin SL Eng">
                                                 <rect key="frame" x="0.0" y="50" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YH-l7-vp0">
@@ -1183,8 +1183,11 @@
                                                     <constraint firstAttribute="height" constant="50" id="UFf-S5-60E"/>
                                                     <constraint firstAttribute="trailing" secondItem="01x-u5-uyS" secondAttribute="trailing" constant="8" id="XIS-IL-V1n"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="a9z-w6-joH" appends="YES" id="NnO-1v-egD"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yk-jq-hdT">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yk-jq-hdT" userLabel="Instrumental">
                                                 <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGN-DU-OOD">
@@ -1224,7 +1227,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="CTs-4x-hKq" appends="YES" id="tTd-QW-cQG"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOh-yI-Hj6">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOh-yI-Hj6" userLabel="Hindi">
                                                 <rect key="frame" x="0.0" y="150" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsq-HR-sfh">
@@ -1264,7 +1267,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="8Em-ls-DHS" appends="YES" id="jvV-x3-mJS"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-CD-f1I">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-CD-f1I" userLabel="Hindi SL Eng">
                                                 <rect key="frame" x="0.0" y="200" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itw-9X-dJ7">
@@ -1300,8 +1303,11 @@
                                                     <constraint firstItem="1j6-dw-OQ5" firstAttribute="centerY" secondItem="fQp-CD-f1I" secondAttribute="centerY" id="leT-an-OzQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="1j6-dw-OQ5" secondAttribute="trailing" constant="8" id="n8C-Px-DCE"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="MzA-R5-TEM" appends="YES" id="dc4-P2-PVc"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCd-h1-ENJ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCd-h1-ENJ" userLabel="Spanish">
                                                 <rect key="frame" x="0.0" y="250" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuB-sH-p7r">
@@ -1337,8 +1343,11 @@
                                                     <constraint firstItem="zBJ-T8-ItE" firstAttribute="centerY" secondItem="bCd-h1-ENJ" secondAttribute="centerY" id="tJu-E1-DuR"/>
                                                     <constraint firstItem="ITd-na-wvV" firstAttribute="centerY" secondItem="bCd-h1-ENJ" secondAttribute="centerY" id="waj-Ca-2X0"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="kv4-hK-Oaz" appends="YES" id="IH9-4l-DHg"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBl-NU-3M9">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBl-NU-3M9" userLabel="Mandarin, Eng, Ger">
                                                 <rect key="frame" x="0.0" y="300" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfh-Cp-E8q">
@@ -1374,8 +1383,11 @@
                                                     <constraint firstItem="V12-x0-9zH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J38-id-ivG" secondAttribute="trailing" constant="8" symbolic="YES" id="opl-mf-tjk"/>
                                                     <constraint firstAttribute="trailing" secondItem="Bfh-Cp-E8q" secondAttribute="trailing" id="zEv-bM-AvN"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="th9-oD-tIx" appends="YES" id="s5c-Q5-Zt1"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpR-4p-rsQ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpR-4p-rsQ" userLabel="French">
                                                 <rect key="frame" x="0.0" y="350" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgk-5T-lX3">
@@ -1411,8 +1423,11 @@
                                                     <constraint firstItem="qgC-ea-5YN" firstAttribute="centerY" secondItem="NpR-4p-rsQ" secondAttribute="centerY" id="f1z-ag-cTL"/>
                                                     <constraint firstItem="qgC-ea-5YN" firstAttribute="leading" secondItem="NpR-4p-rsQ" secondAttribute="leading" constant="16" id="wKG-3H-hCn"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ZMA-xD-m5m" appends="YES" id="owC-bJ-5tG"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-5a-0ud">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-5a-0ud" userLabel="French Creole">
                                                 <rect key="frame" x="0.0" y="400" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhm-v3-ILe">
@@ -1448,6 +1463,9 @@
                                                     <constraint firstItem="40B-gK-FMQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uuw-H8-ulX" secondAttribute="trailing" constant="8" symbolic="YES" id="qey-h2-cJ2"/>
                                                     <constraint firstItem="rhm-v3-ILe" firstAttribute="leading" secondItem="5hw-5a-0ud" secondAttribute="leading" id="tBG-uY-2pB"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="YCK-44-VUB" appends="YES" id="HVK-aP-ruC"/>
+                                                </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKb-c8-G2C" userLabel="Expressions Bar">
                                                 <rect key="frame" x="0.0" y="450" width="375" height="50"/>
@@ -1476,7 +1494,7 @@
                                                     <constraint firstItem="xkL-mr-4kQ" firstAttribute="centerY" secondItem="ZKb-c8-G2C" secondAttribute="centerY" id="gLo-qO-M3S"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGl-pp-nqt">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGl-pp-nqt" userLabel="LPH in Hawaiian">
                                                 <rect key="frame" x="0.0" y="500" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAY-Dy-roH">
@@ -1512,8 +1530,11 @@
                                                     <constraint firstItem="Vig-o1-eDk" firstAttribute="centerY" secondItem="jGl-pp-nqt" secondAttribute="centerY" id="nWC-3f-8dt"/>
                                                     <constraint firstAttribute="trailing" secondItem="fI6-26-khW" secondAttribute="trailing" constant="8" id="rYd-dk-5vg"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="gbY-R6-iTq" appends="YES" id="X0A-VH-z6v"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-Xg-8bF">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-Xg-8bF" userLabel="LuLaLi Eng Hawaiian">
                                                 <rect key="frame" x="0.0" y="550" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YE4-gL-Hgt">
@@ -1549,8 +1570,11 @@
                                                     <constraint firstItem="9D6-gd-Z7E" firstAttribute="leading" secondItem="zB7-Xg-8bF" secondAttribute="leading" constant="16" id="YQZ-AN-3qJ"/>
                                                     <constraint firstAttribute="bottom" secondItem="YE4-gL-Hgt" secondAttribute="bottom" id="keD-f5-60G"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="2gw-6T-NGa" appends="YES" id="GED-q7-8oI"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3h-dm-e5g">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3h-dm-e5g" userLabel="LPH in Eng">
                                                 <rect key="frame" x="0.0" y="600" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7C-Q6-TyF">
@@ -1586,6 +1610,9 @@
                                                     <constraint firstItem="M7C-Q6-TyF" firstAttribute="leading" secondItem="A3h-dm-e5g" secondAttribute="leading" id="nbV-s2-goi"/>
                                                     <constraint firstAttribute="bottom" secondItem="M7C-Q6-TyF" secondAttribute="bottom" id="xW6-Uj-fA5"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Wzq-qa-hg6" appends="YES" id="O4a-jB-hXg"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -1818,19 +1845,64 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghy-Hd-QrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="8Em-ls-DHS">
+                <tapGestureRecognizer id="8Em-ls-DHS" userLabel="onTapHindi">
                     <connections>
-                        <action selector="onTapSongHindi:" destination="rRm-F9-0wR" id="9n0-Xt-b1G"/>
+                        <action selector="onTapGestureHindi:" destination="rRm-F9-0wR" id="ANX-bk-xsN"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="CTs-4x-hKq">
+                <tapGestureRecognizer id="CTs-4x-hKq" userLabel="onTapInstrumental">
                     <connections>
-                        <action selector="onTapInstrumentalSong:" destination="rRm-F9-0wR" id="OwW-3x-due"/>
+                        <action selector="onTapGestureInstrumental:" destination="rRm-F9-0wR" id="sVM-S3-uUR"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="5Me-vu-oHH">
+                <tapGestureRecognizer id="5Me-vu-oHH" userLabel="onTapMandarin">
                     <connections>
                         <action selector="onTapMandarin:" destination="rRm-F9-0wR" id="Ffz-bY-kin"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="a9z-w6-joH" userLabel="onTapMandarinSLEng">
+                    <connections>
+                        <action selector="onTapGestureMandarinSLEng:" destination="rRm-F9-0wR" id="tiy-Ex-pxx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="MzA-R5-TEM" userLabel="onTapHindiSLEng">
+                    <connections>
+                        <action selector="onTapGestureHindiSLEng:" destination="rRm-F9-0wR" id="XbH-lj-JiM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="kv4-hK-Oaz" userLabel="onTapSpanish">
+                    <connections>
+                        <action selector="onTapGestureSpanish:" destination="rRm-F9-0wR" id="gaK-9O-CaF"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="th9-oD-tIx" userLabel="onTapMandarinEngGer">
+                    <connections>
+                        <action selector="onTapGestureMandarinEngGer:" destination="rRm-F9-0wR" id="wkJ-94-GHw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ZMA-xD-m5m" userLabel="onTapFrench">
+                    <connections>
+                        <action selector="onTapGestureFrench:" destination="rRm-F9-0wR" id="MHh-zH-uAx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="YCK-44-VUB" userLabel="onTapFrenchCreole">
+                    <connections>
+                        <action selector="onTapGestureFrenchCreole:" destination="rRm-F9-0wR" id="Oi6-fE-GA4"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="gbY-R6-iTq" userLabel="onTapHawaiian">
+                    <connections>
+                        <action selector="onTapGestureHawaiian:" destination="rRm-F9-0wR" id="zy1-PZ-Jr1"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2gw-6T-NGa" userLabel="onTapSLEngHawaiian">
+                    <connections>
+                        <action selector="onTapGestureSLEngHawaiian:" destination="rRm-F9-0wR" id="BkJ-Zs-C7U"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Wzq-qa-hg6" userLabel="onTapEnglish">
+                    <connections>
+                        <action selector="onTapGestureEnglish:" destination="rRm-F9-0wR" id="Bd3-tv-qNx"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -4369,7 +4441,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chant Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-L3-pjf">
-                                                <rect key="frame" x="27" y="12.5" width="65.5" height="15.5"/>
+                                                <rect key="frame" x="25" y="11" width="69.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667604176594" green="0.3313276731657816" blue="0.55433593749999988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4406,7 +4478,7 @@
                                         <rect key="frame" x="124" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuL-gv-ODe">
-                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
+                                                <rect key="frame" x="25.5" y="11" width="68" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4426,7 +4498,7 @@
                                         <rect key="frame" x="248" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Ha-PKr">
-                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
+                                                <rect key="frame" x="25.5" y="11" width="68.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
