@@ -300,9 +300,8 @@ class AVAudioSingleton {
         player?.prepareToPlay()
     }
     
-    func play(chantFileName: String) {
-        
-        //guard let url = Bundle.main.url(forResource: ChantFileName.mandarinSoulEnglish, withExtension: "mp3") else { return }
+    func startNewSong(chantFileName: String) {
+
         guard let url = Bundle.main.url(forResource: chantFileName, withExtension: "mp3") else { return }
         player = try? AVAudioPlayer(contentsOf: url)
         do {
@@ -319,8 +318,12 @@ class AVAudioSingleton {
         
     }
     
+    func play() {
+        player?.play()
+    }
+    
     func pause() {
-        player?.stop()
+        player?.pause()
     }
     
     func isPlaying() -> Bool {

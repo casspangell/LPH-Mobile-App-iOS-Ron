@@ -345,19 +345,23 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func togglePlayPauseButton() {
         
         if (!isAudioPlaying) {
-            AVAudioSingleton.sharedInstance.play(chantFileName: currentSongString!)
+            
             startTime = labelSeekTime.text //reset start time
+            AVAudioSingleton.sharedInstance.play()
+            
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
-            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)
+            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
             isAudioPlaying = true
         } else {
             AVAudioSingleton.sharedInstance.pause()
             sliderTimer?.invalidate()
-            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
+            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//play image
             processChantingMilestone()
             startTime = labelSeekTime.text //reset start time
             isAudioPlaying = false
         }
+        
+        
     }
     
     private func renderSongName() {
@@ -866,11 +870,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
     private func startSong(chantFile: ChantFile) {
         if songListStatus[chantFile]! {
-            
-//            if audioPlayer != nil && (audioPlayer?.isPlaying)! {
-//                audioPlayer?.stop()
-//            }
-            
+
+            //Reset the player
             if AVAudioSingleton.sharedInstance.isPlaying() {
                 AVAudioSingleton.sharedInstance.pause()
                 isAudioPlaying = false
@@ -910,7 +911,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 songName = ChantFileName.mandarinSoulEnglish
             }
             
-            AVAudioSingleton.sharedInstance.play(chantFileName: songName!)
+            AVAudioSingleton.sharedInstance.startNewSong(chantFileName: songName!)
              
             togglePlayPauseButton()
             
