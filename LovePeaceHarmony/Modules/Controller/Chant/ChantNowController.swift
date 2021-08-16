@@ -80,7 +80,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         instrumentalLabel.text = NSLocalizedString("Instrumental", comment: "")
         hindiLabel.text = NSLocalizedString("Hindi", comment: "")
         hindiSoulLanguageEnglishLabel.text = NSLocalizedString("Hindi, Soul Language, English", comment: "")
-        spanishLabel.text = NSLocalizedString("Mandarin, English, German", comment: "")
+        spanishLabel.text = NSLocalizedString("Spanish", comment: "")
         mandarinEnglishGermanLabel.text = NSLocalizedString("Mandarin, English, German", comment: "")
         frenchLabel.text = NSLocalizedString("French", comment: "")
         frenchCreoleLabel.text = NSLocalizedString("French & Creole", comment: "")

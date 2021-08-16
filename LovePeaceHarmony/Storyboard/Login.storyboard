@@ -612,7 +612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXs-Gf-svp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1519.2" y="973.31334332833592"/>
+            <point key="canvasLocation" x="-1007" y="739"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="y0n-Vg-scs">
@@ -805,7 +805,7 @@
                 <tapGestureRecognizer id="BWU-6D-Kci"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhI-cz-RKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175" y="973"/>
+            <point key="canvasLocation" x="1246" y="739"/>
         </scene>
         <!--Login Email Controller-->
         <scene sceneID="mXO-m6-OgP">
@@ -1053,7 +1053,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-175" y="1298"/>
+            <point key="canvasLocation" x="332" y="730"/>
         </scene>
         <!--Sign Up Email Controller-->
         <scene sceneID="TMr-gM-pg8">
@@ -1244,7 +1244,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-844" y="968.81559220389818"/>
+            <point key="canvasLocation" x="-332" y="735"/>
         </scene>
     </scenes>
     <resources>
