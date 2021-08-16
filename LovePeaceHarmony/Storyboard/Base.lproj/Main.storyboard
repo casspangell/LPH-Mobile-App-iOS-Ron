@@ -1847,62 +1847,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghy-Hd-QrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="8Em-ls-DHS" userLabel="onTapHindi">
                     <connections>
-                        <action selector="onTapGestureHindi:" destination="rRm-F9-0wR" id="ANX-bk-xsN"/>
+                        <action selector="onTapHindiGesture:" destination="rRm-F9-0wR" id="q9W-HR-kGu"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="CTs-4x-hKq" userLabel="onTapInstrumental">
                     <connections>
-                        <action selector="onTapGestureInstrumental:" destination="rRm-F9-0wR" id="sVM-S3-uUR"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="5Me-vu-oHH" userLabel="onTapMandarin">
-                    <connections>
-                        <action selector="onTapMandarin:" destination="rRm-F9-0wR" id="Ffz-bY-kin"/>
+                        <action selector="onTapInstrumentalGesture:" destination="rRm-F9-0wR" id="xN1-cV-R3e"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="a9z-w6-joH" userLabel="onTapMandarinSLEng">
                     <connections>
-                        <action selector="onTapGestureMandarinSLEng:" destination="rRm-F9-0wR" id="tiy-Ex-pxx"/>
+                        <action selector="onTapMandarinSLEngGesture:" destination="rRm-F9-0wR" id="y5b-8D-SCM"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="MzA-R5-TEM" userLabel="onTapHindiSLEng">
                     <connections>
-                        <action selector="onTapGestureHindiSLEng:" destination="rRm-F9-0wR" id="XbH-lj-JiM"/>
+                        <action selector="onTapHindiSLEngGesture:" destination="rRm-F9-0wR" id="CzR-vU-b8i"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="kv4-hK-Oaz" userLabel="onTapSpanish">
                     <connections>
-                        <action selector="onTapGestureSpanish:" destination="rRm-F9-0wR" id="gaK-9O-CaF"/>
+                        <action selector="onTapSpanishGesture:" destination="rRm-F9-0wR" id="j17-Bq-fn5"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="th9-oD-tIx" userLabel="onTapMandarinEngGer">
                     <connections>
-                        <action selector="onTapGestureMandarinEngGer:" destination="rRm-F9-0wR" id="wkJ-94-GHw"/>
+                        <action selector="onTapMandarinEngGerGesture:" destination="rRm-F9-0wR" id="Prc-tb-HPi"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="ZMA-xD-m5m" userLabel="onTapFrench">
                     <connections>
-                        <action selector="onTapGestureFrench:" destination="rRm-F9-0wR" id="MHh-zH-uAx"/>
+                        <action selector="onTapFrenchGesture:" destination="rRm-F9-0wR" id="2Lk-pR-UCi"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="YCK-44-VUB" userLabel="onTapFrenchCreole">
                     <connections>
-                        <action selector="onTapGestureFrenchCreole:" destination="rRm-F9-0wR" id="Oi6-fE-GA4"/>
+                        <action selector="onTapFrenchCreoleGesture:" destination="rRm-F9-0wR" id="2a1-Ar-54C"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="gbY-R6-iTq" userLabel="onTapHawaiian">
                     <connections>
-                        <action selector="onTapGestureHawaiian:" destination="rRm-F9-0wR" id="zy1-PZ-Jr1"/>
+                        <action selector="onTapHawaiianGesture:" destination="rRm-F9-0wR" id="KN1-yI-6Ws"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="2gw-6T-NGa" userLabel="onTapSLEngHawaiian">
                     <connections>
-                        <action selector="onTapGestureSLEngHawaiian:" destination="rRm-F9-0wR" id="BkJ-Zs-C7U"/>
+                        <action selector="onTapSLEngHawaiianGesture:" destination="rRm-F9-0wR" id="cJo-2q-0ec"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Wzq-qa-hg6" userLabel="onTapEnglish">
                     <connections>
-                        <action selector="onTapGestureEnglish:" destination="rRm-F9-0wR" id="Bd3-tv-qNx"/>
+                        <action selector="onTapEnglishGesture:" destination="rRm-F9-0wR" id="mvc-xL-uLR"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -4441,7 +4436,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chant Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-L3-pjf">
-                                                <rect key="frame" x="25" y="11" width="69.5" height="18"/>
+                                                <rect key="frame" x="27" y="12.5" width="65.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667604176594" green="0.3313276731657816" blue="0.55433593749999988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4478,7 +4473,7 @@
                                         <rect key="frame" x="124" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuL-gv-ODe">
-                                                <rect key="frame" x="25.5" y="11" width="68" height="18"/>
+                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4498,7 +4493,7 @@
                                         <rect key="frame" x="248" y="0.0" width="119" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Ha-PKr">
-                                                <rect key="frame" x="25.5" y="11" width="68.5" height="18"/>
+                                                <rect key="frame" x="28" y="12.5" width="63" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>

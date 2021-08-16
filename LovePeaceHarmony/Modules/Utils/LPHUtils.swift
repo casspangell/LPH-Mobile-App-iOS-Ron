@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import MaterialShowcase
 import Firebase
+import AVFoundation
 
 
 public class LPHUtils {
@@ -288,6 +289,48 @@ extension UIColor {
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
+}
+
+// MARK: - AVAudioPlayer
+class AVAudioSingleton {
+    static let sharedInstance = AVAudioSingleton()
+    private var player: AVAudioPlayer?
+
+    func prepare() {
+        player?.prepareToPlay()
+    }
+    
+    func play(chantFileName: String) {
+        
+        //guard let url = Bundle.main.url(forResource: ChantFileName.mandarinSoulEnglish, withExtension: "mp3") else { return }
+        guard let url = Bundle.main.url(forResource: chantFileName, withExtension: "mp3") else { return }
+        player = try? AVAudioPlayer(contentsOf: url)
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func pause() {
+        player?.stop()
+    }
+    
+    func getCurrentTime() -> Double {
+        if player != nil {
+            return player!.currentTime
+        } else {
+            return 0.0
+        }
+    }
+    
 }
 
 @IBDesignable
