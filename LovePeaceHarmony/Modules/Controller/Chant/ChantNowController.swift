@@ -867,9 +867,15 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func startSong(chantFile: ChantFile) {
         if songListStatus[chantFile]! {
             
-            if audioPlayer != nil && (audioPlayer?.isPlaying)! {
-                audioPlayer?.stop()
+//            if audioPlayer != nil && (audioPlayer?.isPlaying)! {
+//                audioPlayer?.stop()
+//            }
+            
+            if AVAudioSingleton.sharedInstance.isPlaying() {
+                AVAudioSingleton.sharedInstance.pause()
+                isAudioPlaying = false
             }
+            
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: chantFile.rawValue)
             initiateMusicPlayer()

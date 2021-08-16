@@ -323,6 +323,14 @@ class AVAudioSingleton {
         player?.stop()
     }
     
+    func isPlaying() -> Bool {
+        if player != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func getCurrentTime() -> Double {
         if player != nil {
             return player!.currentTime
