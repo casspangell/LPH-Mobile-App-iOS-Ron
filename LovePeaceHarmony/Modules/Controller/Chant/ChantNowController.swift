@@ -345,14 +345,18 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func togglePlayPauseButton() {
         
         if (!isAudioPlaying) {
+            AVAudioSingleton.sharedInstance.play(chantFileName: currentSongString!)
             startTime = labelSeekTime.text //reset start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)
+            isAudioPlaying = true
         } else {
+            AVAudioSingleton.sharedInstance.pause()
             sliderTimer?.invalidate()
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
             processChantingMilestone()
             startTime = labelSeekTime.text //reset start time
+            isAudioPlaying = false
         }
     }
     
@@ -636,22 +640,27 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     //MARK: - IBActions
     @IBAction func onTapPlay(_ sender: UIButton) {
-        if currentSong != nil {
-            animateMusicButton(sender, 0) {}
-
-            togglePlayPauseButton()
-            
-            if (isAudioPlaying == false) {
-                AVAudioSingleton.sharedInstance.play(chantFileName: currentSongString!)
-                isAudioPlaying = true
-            } else {
-                AVAudioSingleton.sharedInstance.pause()
-                isAudioPlaying = false
-            }
-            
-        } else {
-            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
-        }
+        
+        animateMusicButton(sender, 0) {}
+        
+        togglePlayPauseButton()
+        
+//        if currentSong != nil {
+//            animateMusicButton(sender, 0) {}
+//
+//            togglePlayPauseButton()
+//
+//            if (isAudioPlaying == false) {
+//                AVAudioSingleton.sharedInstance.play(chantFileName: currentSongString!)
+//                isAudioPlaying = true
+//            } else {
+//                AVAudioSingleton.sharedInstance.pause()
+//                isAudioPlaying = false
+//            }
+//
+//        } else {
+//            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
+//        }
     }
     
     @IBAction func onTapPreviousSong(_ sender: UIButton) {
@@ -898,6 +907,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             AVAudioSingleton.sharedInstance.play(chantFileName: songName!)
              
             togglePlayPauseButton()
+            
         } else {
             showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
         }
