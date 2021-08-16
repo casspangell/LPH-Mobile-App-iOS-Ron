@@ -252,7 +252,7 @@ enum AboutDescription {
     
     "\n\nLove, Peace and Harmony, a song received by Dr. and Master Sha from the Divine, carries the high frequency and vibration of love, forgiveness, compassion and light. Your body naturally resonates with this elevated frequency, and responds by activating love, peace and harmony throughout your being." +
         
-    "\n\nBy 2020, we hope to inspire 1.5 billion people to sing Love, Peace and Harmony for 15 minutes every day. Play and chant this song to create a world of love, peace and harmony." +
+    "\n\nBy 2030, we hope to inspire 1.5 billion people to sing Love, Peace and Harmony for 15 minutes every day. Play and chant this song to create a world of love, peace and harmony." +
         
     "\n\nTogether, we’ll celebrate the power of the human spirit and its ability to transcend, transform and triumph to create miracles. Imagine a world where everyone holds the message of love, peace and harmony."
     
