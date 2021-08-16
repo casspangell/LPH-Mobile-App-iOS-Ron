@@ -326,6 +326,10 @@ class AVAudioSingleton {
         player?.pause()
     }
     
+    func stop() {
+        player?.stop()
+    }
+    
     func isPlaying() -> Bool {
         if player != nil {
             return true

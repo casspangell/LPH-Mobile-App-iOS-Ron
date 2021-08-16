@@ -279,8 +279,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 songName = ChantFileName.mandarinSoulEnglish
             }
 
-            
-            
             guard let url = Bundle.main.url(forResource: songName!, withExtension: "mp3") else { return }
             currentSongString = songName!
             
@@ -346,12 +344,51 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         if (!isAudioPlaying) {
             
-            startTime = labelSeekTime.text //reset start time
-            AVAudioSingleton.sharedInstance.play()
+            if (isAudioPlaying) {
+                startTime = labelSeekTime.text //reset start time
+                AVAudioSingleton.sharedInstance.play()
+                
+                sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+                buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
+                isAudioPlaying = true
             
-            sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
-            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
-            isAudioPlaying = true
+            } else {
+                
+                var songName: String?
+                
+                switch currentSong {
+                case .mandarin_soul_english:
+                    songName = ChantFileName.mandarinSoulEnglish
+                case .instrumental:
+                    songName = ChantFileName.instrumental
+                case .hindi:
+                    songName = ChantFileName.hindi
+                case .hindi_sl_english:
+                    songName = ChantFileName.hindi_sl_english
+                case .spanish:
+                    songName = ChantFileName.spanish
+                case .mandarin_english_german:
+                    songName = ChantFileName.mandarin_english_german
+                case .french:
+                    songName = ChantFileName.french
+                case .french_antillean_creole:
+                    songName = ChantFileName.french_antillean_creole
+                case .kawehi_haw:
+                    songName = ChantFileName.kawehi_haw
+                case .sha_eng:
+                    songName = ChantFileName.sha_eng
+                case .sha_lula_eng_ka_haw:
+                    songName = ChantFileName.sha_lula_eng_ka_haw
+
+                default:
+                    songName = ChantFileName.mandarinSoulEnglish
+                }
+
+                currentSongString = songName!
+                
+                AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
+            }
+            
         } else {
             AVAudioSingleton.sharedInstance.pause()
             sliderTimer?.invalidate()
@@ -615,9 +652,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func resetAudioPlayer() {
-        if (audioPlayer != nil && (audioPlayer?.isPlaying)!) {
-            audioPlayer?.stop()
-        }
+//        if (audioPlayer != nil && (audioPlayer?.isPlaying)!) {
+//            audioPlayer?.stop()
+//        }
+
         labelSeekTime.text = "0.0"
         labelTotalDuration.text = "-:-"
         sliderMusicSeek.setValue(0, animated: true)
@@ -673,7 +711,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (previousSong?.rawValue)!)
             resetAudioPlayer()
             initiateMusicPlayer()
-            audioPlayer?.play()
+            AVAudioSingleton.sharedInstance.play()
             togglePlayPauseButton()
         } else {
             showToast(message: NSLocalizedString(AlertMessage.noPreviousSong, comment: ""))
@@ -686,7 +724,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (nextSong?.rawValue)!)
             resetAudioPlayer()
             initiateMusicPlayer()
-            audioPlayer?.play()
+            AVAudioSingleton.sharedInstance.play()
             togglePlayPauseButton()
         } else {
             showToast(message: NSLocalizedString(AlertMessage.noNextSong, comment: ""))
