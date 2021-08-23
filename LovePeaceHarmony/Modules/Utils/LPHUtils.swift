@@ -346,14 +346,6 @@ class AVAudioSingleton {
         }
     }
     
-//    func getDuration() -> Double {
-//        if player != nil {
-//            return player!.duration
-//        } else {
-//            return 0.0
-//        }
-//    }
-    
     func setVolume(volume: Float) {
         player?.volume = volume
     }

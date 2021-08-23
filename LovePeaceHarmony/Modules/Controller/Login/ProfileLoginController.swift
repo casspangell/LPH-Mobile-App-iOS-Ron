@@ -35,6 +35,7 @@ class ProfileLoginController: BaseViewController {
           print ("Error signing out: %@", signOutError)
         }
         
+        AVAudioSingleton.sharedInstance.stop()
         self.hideLoadingIndicator()
         self.navigateToLogin()
     }

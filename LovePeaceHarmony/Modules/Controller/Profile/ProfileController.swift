@@ -172,29 +172,29 @@ class ProfileController: BaseViewController, MFMessageComposeViewControllerDeleg
     
     // MARK: - Api
     private func fireLogoutApi() {
-        
-        InstanceID.instanceID().instanceID { (result, error) in
-        if let error = error {
-        print("Error fetching remote instange ID: \(error)")
-        } else if let result = result {
-        print("Remote instance ID token: \(result.token)")
-            self.showLoadingIndicator()
-            do {
-                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-                try lphService.logout(deviceToken: result.token) { (parsedResponse) in
-                    if parsedResponse.isSuccess() {
-                        self.processLogout()
-                    }
-                }
-            } catch let error as LPHException<NewsError> {
-                self.hideLoadingIndicator()
-                self.showToast(message: error.errorMessage)
-            } catch let error {
-                
-            }
-         }
-        }
-        
+//
+//        InstanceID.instanceID().instanceID { (result, error) in
+//        if let error = error {
+//        print("Error fetching remote instange ID: \(error)")
+//        } else if let result = result {
+//        print("Remote instance ID token: \(result.token)")
+//            self.showLoadingIndicator()
+//            do {
+//                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+//                try lphService.logout(deviceToken: result.token) { (parsedResponse) in
+//                    if parsedResponse.isSuccess() {
+//                        self.processLogout()
+//                    }
+//                }
+//            } catch let error as LPHException<NewsError> {
+//                self.hideLoadingIndicator()
+//                self.showToast(message: error.errorMessage)
+//            } catch let error {
+//
+//            }
+//         }
+//        }
+//
 
     }
     
