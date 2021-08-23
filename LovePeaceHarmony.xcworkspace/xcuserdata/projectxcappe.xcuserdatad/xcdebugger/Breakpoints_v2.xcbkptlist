@@ -300,8 +300,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "674"
-            endingLineNumber = "674"
+            startingLineNumber = "670"
+            endingLineNumber = "670"
             landmarkName = "audioPlayerDidFinishPlaying()"
             landmarkType = "7">
          </BreakpointContent>
@@ -332,8 +332,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "667"
-            endingLineNumber = "667"
+            startingLineNumber = "663"
+            endingLineNumber = "663"
             landmarkName = "resetAudioPlayer()"
             landmarkType = "7">
          </BreakpointContent>
@@ -463,6 +463,22 @@
             startingLineNumber = "249"
             endingLineNumber = "249"
             landmarkName = "renderShowcaseView(title:view:delegate:secondaryText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE821618-CAA6-4E49-81D1-EB5BE1C5A31C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "968"
+            endingLineNumber = "968"
+            landmarkName = "fireMilestoneSavingApi(seconds:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

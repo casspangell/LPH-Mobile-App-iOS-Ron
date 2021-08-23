@@ -425,18 +425,14 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //Grab timestamp label and convert to total seconds
         //Calculate the start timestamp and the current timestamp
         let currentTime = labelSeekTime.text!.components(separatedBy: ".")
+        let sTime = startTime!.components(separatedBy: ".")
         
-        //Is the playtime greater than zero? Double check please.
-        if currentTime.contains(".") {
-            let sTime = startTime!.components(separatedBy: ".") //I dont know why these values are flipped in the array
-            let currentTimeTotalSecs = (Int(currentTime[0])!*60) + Int(currentTime[1])!
-            let startTimeTotalSecs = (Int(sTime[0])!*60) + Int(sTime[1])!
-            let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
-            
-            fireMilestoneSavingApi(seconds: totalSeconds)
-        } else {
-            fireMilestoneSavingApi(seconds: 0)
-        }
+        let currentTimeTotalSecs = (Int(currentTime[0])!*60) + Int(currentTime[1])!
+        let startTimeTotalSecs = (Int(sTime[0])!*60) + Int(sTime[1])!
+        let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
+        
+        fireMilestoneSavingApi(seconds: totalSeconds)
+
     }
     
     private func forceStopPlaying(chantSong : ChantFile) {
