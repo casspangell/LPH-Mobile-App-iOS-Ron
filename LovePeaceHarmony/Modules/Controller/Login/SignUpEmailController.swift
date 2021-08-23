@@ -124,10 +124,8 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         loginControllerCallback?.moveScreen(dx: 0, dy: movement)
     }
     
-//    private func processLoginResponse(serverResponse response: LPHResponse<ProfileVo, LoginError>, password: String) {
+
     private func processLoginResponse(email: String, password: String) {
-//        if response.isSuccess() {
-//            let profileVo = response.getResult()
             let loginVo = LPHUtils.getLoginVo()
             loginVo.isLoggedIn = true
             loginVo.email = email
@@ -141,8 +139,18 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isFrenchOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isfrenchAntilleanCreoleOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: false)
+        
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
+        
             self.fireUpdateTokenApi()
-//        }
     }
     
     // MARK: - Apis

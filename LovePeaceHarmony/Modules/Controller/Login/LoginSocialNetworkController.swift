@@ -3,7 +3,7 @@
 //  LovePeaceHarmony
 //
 //  Created by Aghil C M on 29/11/17.
-//  Last Updated by Cass Pangell on 12/30/20.
+//  Last Updated by Cass Pangell on 08/22/21.
 //  Copyright © 2020 LovePeaceHarmony. All rights reserved.
 //
 
@@ -12,7 +12,8 @@ import XLPagerTabStrip
 import Firebase
 import FBSDKLoginKit
 
-class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, LoginButtonDelegate {
+class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
+
     
     /** @var handle
         @brief The handler for the auth state listener, to allow cancelling later.
@@ -112,14 +113,14 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
     // MARK: - Login Methods
     // Facebook Login
     //ARE THESE BEING USED?
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        print("Logged into Facebook")
-        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("Logged out of Facebook")
-    }
+//    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+//        print("Logged into Facebook")
+//        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+//    }
+//
+//    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+//        print("Logged out of Facebook")
+//    }
     
     // ------
     
@@ -137,8 +138,12 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
         do {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
+                    
+                    let defaults = UserDefaults.standard
+                    let firstLogin = defaults.value(forKey: "is_first_login")
+                    let userID = LPHUtils.getCurrentUserID()
+                    
                     let loginVo = lphResponse.getResult()
-    
                     self.processLoginResponse(source: type, password: loginVo.password, token: firebaseDeviceToken)
                 } else {
 
@@ -162,6 +167,16 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, L
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isFrenchOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isfrenchAntilleanCreoleOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: false)
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: false)
+        
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
         
             self.navigateToHome()
     }

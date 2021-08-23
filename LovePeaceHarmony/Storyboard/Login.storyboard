@@ -1227,6 +1227,8 @@
                     <size key="freeformSize" width="375" height="300"/>
                     <connections>
                         <outlet property="backLabel" destination="m8R-qd-TyM" id="8Vm-xV-EsL"/>
+                        <outlet property="createAccountLabel" destination="ajU-Dl-WOZ" id="x0d-71-nLy"/>
+                        <outlet property="submitButton" destination="kKo-H3-aXn" id="Zhe-66-dPY"/>
                         <outlet property="textFieldConfirmPassword" destination="yKc-uO-rwL" id="cZ4-lM-XRH"/>
                         <outlet property="textFieldEmail" destination="0Uj-Fb-geR" id="cYk-pE-WFL"/>
                         <outlet property="textFieldPassword" destination="sCT-ba-ge9" id="aDV-rS-j3j"/>

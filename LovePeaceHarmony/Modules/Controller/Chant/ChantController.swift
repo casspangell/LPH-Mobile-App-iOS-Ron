@@ -52,12 +52,13 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
         populateTab(currentTab: .chantNow)
     }
     
-    //Check to see if the tutorial splash is needed. The bool is set in appdelegate if user 
+    //Check to see if the tutorial splash is needed. 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
    
         if LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown) == true {
             renderShowcaseView()
+            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: false)
         }
     }
     

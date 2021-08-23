@@ -38,14 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         GIDSignIn.sharedInstance().clientID = "863691168348-990dd80l6a4joakqbku2nmb90q5inqf8.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
 
-        //Does user already have an active session? If so, bypass login screen
-        //And do not show tutorial splash
          if Auth.auth().currentUser != nil {
              let loginVo = LPHUtils.getLoginVo()
-             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
+//             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
             
              if loginVo.isLoggedIn {
-                LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: false)
+//                LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: false)
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTabController")

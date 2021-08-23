@@ -112,7 +112,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //        ]
     }
     
-    @objc func didBecomeActive() {
+    @objc func didBecomeActive() { //kilroy
 //        if audioPlayer != nil && !(audioPlayer?.isPlaying)! {
 //            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
 //        }
