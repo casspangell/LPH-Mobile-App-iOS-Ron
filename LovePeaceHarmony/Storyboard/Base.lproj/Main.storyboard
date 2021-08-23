@@ -4452,23 +4452,6 @@
                                             <outletCollection property="gestureRecognizers" destination="k7k-JP-Lk0" appends="YES" id="6lS-bd-5dd"/>
                                         </connections>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2n4-1q-wYw">
-                                        <rect key="frame" x="93" y="0.0" width="88" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05N-MC-h00">
-                                                <rect key="frame" x="7" y="11" width="74.5" height="18"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
-                                                <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstItem="05N-MC-h00" firstAttribute="centerX" secondItem="2n4-1q-wYw" secondAttribute="centerX" id="1iC-qL-0zC"/>
-                                            <constraint firstItem="05N-MC-h00" firstAttribute="centerY" secondItem="2n4-1q-wYw" secondAttribute="centerY" id="3gN-DP-8Be"/>
-                                        </constraints>
-                                    </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3y9-OQ-DeI">
                                         <rect key="frame" x="124" y="0.0" width="119" height="40"/>
                                         <subviews>
@@ -4513,11 +4496,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="WkO-33-K91"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="2n4-1q-wYw"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj3-BD-fND">
                                 <rect key="frame" x="0.0" y="165" width="375" height="453"/>
@@ -4544,13 +4522,13 @@
                     <tabBarItem key="tabBarItem" title="Chant" image="ic_tab_chant" id="f4O-Qc-bz3"/>
                     <connections>
                         <outlet property="chantNavTab" destination="f4O-Qc-bz3" id="817-eR-jcg"/>
-                        <outlet property="labelTabChantNow" destination="05N-MC-h00" id="SQq-Hn-LKi"/>
+                        <outlet property="labelTabChantNow" destination="t8f-L3-pjf" id="4XW-1N-jcu"/>
                         <outlet property="labelTabMilestone" destination="Ruu-Ha-PKr" id="39P-kV-edZ"/>
                         <outlet property="labelTabReminder" destination="JuL-gv-ODe" id="G7a-DW-cbk"/>
                         <outlet property="scrollViewContainer" destination="bj3-BD-fND" id="F7G-K6-9qH"/>
-                        <outlet property="viewChantNowContainer" destination="2n4-1q-wYw" id="ZQL-th-iWN"/>
-                        <outlet property="viewMilestoneContainer" destination="u81-sd-qJD" id="Ujk-kB-8vG"/>
-                        <outlet property="viewReminderContainer" destination="3y9-OQ-DeI" id="SYn-fJ-9Uw"/>
+                        <outlet property="viewChantNowContainer" destination="gXL-4Q-RWa" id="Htz-Wz-KjQ"/>
+                        <outlet property="viewMilestoneContainer" destination="u81-sd-qJD" id="2Y5-do-yxu"/>
+                        <outlet property="viewReminderContainer" destination="3y9-OQ-DeI" id="scL-D6-Sn5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7s-UK-jn1" userLabel="First Responder" sceneMemberID="firstResponder"/>

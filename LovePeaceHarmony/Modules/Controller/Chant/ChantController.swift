@@ -57,7 +57,7 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
         super.viewWillAppear(animated)
    
         if LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown) == true {
-            renderShowcaseView()
+//            renderShowcaseView()
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: false)
         }
     }
@@ -77,11 +77,11 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
             LPHUtils.renderShowcaseView(title: NSLocalizedString("View your milestones", comment: ""), view: viewMilestoneContainer, delegate: self)
             break
             
-//        case 3:
-//            //Reset tutorial
-//            let chantNowController = chantViewControllers[0] as! ChantNowController
-//            chantNowController.renderShowcaseView()
-//            break
+        case 3:
+            //Reset tutorial
+            let chantNowController = chantViewControllers[0] as! ChantNowController
+            chantNowController.renderShowcaseView()
+            break
             
         default:
             break
