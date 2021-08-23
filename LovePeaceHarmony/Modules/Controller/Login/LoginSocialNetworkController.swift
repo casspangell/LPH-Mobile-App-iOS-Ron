@@ -139,8 +139,6 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     
-                    let defaults = UserDefaults.standard
-                    let firstLogin = defaults.value(forKey: "is_first_login")
                     let userID = LPHUtils.getCurrentUserID()
                     
                     let loginVo = lphResponse.getResult()
