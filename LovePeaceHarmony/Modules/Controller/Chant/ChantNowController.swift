@@ -179,7 +179,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         if totalChantDuration != nil {
             let currentTime = TimeInterval(LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentSeek))
-//            audioPlayer?.currentTime = currentTime
+            AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval: currentTime)
+            
             let minutes = String(format: "%02d", Int(currentTime / 60))
             let seconds = String(format: "%02d", Int(currentTime.truncatingRemainder(dividingBy: 60)))
             labelSeekTime.text = String("\(minutes).\(seconds)")
@@ -290,8 +291,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             AVAudioSingleton.sharedInstance.prepare()
             
             let asset = AVURLAsset(url: url)
-            
             totalChantDuration = Float((CMTimeGetSeconds(asset.duration)) / 60)
+            
             let totalMinute = Int(totalChantDuration!)
             let decimalMinute: Float = (totalChantDuration! - Float(totalMinute)) * 100
             let originalMinute: Int = Int(decimalMinute * 0.6)
@@ -302,13 +303,14 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             if volume == 0 {
                 volume = 30
             }
-//            audioPlayer?.volume = volume
+            
             AVAudioSingleton.sharedInstance.setVolume(volume: volume)
             sliderVolume.setValue(volume / 100, animated: false)
             
             // Setting to previous seek position
             let currentTime = TimeInterval(LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentSeek))
-//            audioPlayer?.currentTime = currentTime
+
+            AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval: currentTime)
             
             //grabs the current timestamp for more accurate chanting time
             startTime = String(currentTime)
@@ -334,17 +336,15 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
             let seconds = String(format: "%02d", Int(currentTime.truncatingRemainder(dividingBy: 60)))
             labelSeekTime.text = String("\(minutes).\(seconds)")
-        
-            let totalDuration = AVAudioSingleton.sharedInstance.getDuration()
 
-//            var temp: Float = (Float(currentTime) / totalChantDuration!) / 60
-//            if temp != 1 && temp > 1 {
-//                temp = 0
-//                audioPlayerDidFinishPlaying()
-//                togglePlayPauseButton()
-//            }
+            var temp: Float = (Float(currentTime) / totalChantDuration!) / 60
+            if temp != 1 && temp > 1 {
+                temp = 0
+                audioPlayerDidFinishPlaying()
+                togglePlayPauseButton()
+            }
         
-//            sliderMusicSeek.setValue(Float(temp), animated: true)
+            sliderMusicSeek.setValue(Float(temp), animated: true)
     }
     
     private func togglePlayPauseButton() {
@@ -650,7 +650,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             isRepeatEnabled = false
             buttonRepeat.tintColor = Color.disabled
             buttonShuffle.tintColor = Color.disabled
-//            audioPlayer = nil
             AVAudioSingleton.sharedInstance.setPlayerNil()
             sliderTimer?.invalidate()
             togglePlayPauseButton()
@@ -659,33 +658,16 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func resetAudioPlayer() {
-//        if (audioPlayer != nil && (audioPlayer?.isPlaying)!) {
-//            audioPlayer?.stop()
-//        }
+
+        if (AVAudioSingleton.sharedInstance.isPlaying()) {
+            AVAudioSingleton.sharedInstance.stop()
+        }
 
         labelSeekTime.text = "0.0"
         labelTotalDuration.text = "-:-"
         sliderMusicSeek.setValue(0, animated: true)
         LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
     }
-    
-    // MARK: - AVAudioDelegate
-//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-//        sliderTimer?.invalidate()
-//        if currentSong != nil {
-//            currentSong = getNextSong()
-//            print(currentSong)
-//            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
-//            if currentSong != nil {
-//                LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (currentSong?.rawValue)!)
-//                initiateMusicPlayer()
-//                audioPlayer?.play()
-//                renderSongName()
-//                sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
-//            }
-//            togglePlayPauseButton()
-//        }
-//    }
     
     func audioPlayerDidFinishPlaying() {
         sliderTimer?.invalidate()
@@ -798,13 +780,11 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     @IBAction func onSliderVolumeChanged(_ sender: UISlider) {
         let volume: Float = sender.value
-//        audioPlayer?.volume = volume
         AVAudioSingleton.sharedInstance.setVolume(volume: volume)
         LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.playerVolume, value: volume)
     }
     
     @IBAction func onSliderSeekValueChanged(_ sender: UISlider) {
-//        audioPlayer?.currentTime = TimeInterval(sender.value * 60 * totalChantDuration!)
         let interval = TimeInterval(sender.value * 60 * totalChantDuration!)
         AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval:interval)
         updateSlider()
