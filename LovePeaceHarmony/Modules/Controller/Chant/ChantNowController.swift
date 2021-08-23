@@ -98,9 +98,11 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .highlighted)
         restoreChantSettings()
         initiateMusicPlayer()
+        
         if isShuffleEnabled {
             generateShuffleList()
         }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         //        UIApplication.shared.beginReceivingRemoteControlEvents()
         //        var mpic = MPNow
@@ -245,11 +247,14 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func initiateMusicPlayer() {
         let currentSongIndex = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentChantSong)
         print("current song index: \(currentSongIndex)")
+        
+        var songName: String?
+        songName = ChantFileName.mandarinSoulEnglish //set default song 
+        
         if currentSongIndex != -1 {
             currentSong = ChantFile(rawValue: currentSongIndex)
             renderSongName()
             labelSeekTime.text = "00:00"
-            var songName: String?
             
             switch currentSong {
             case .mandarin_soul_english:
@@ -343,16 +348,16 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func togglePlayPauseButton() {
         
         if (!isAudioPlaying) {
-            
-            if (isAudioPlaying) {
-                startTime = labelSeekTime.text //reset start time
-                AVAudioSingleton.sharedInstance.play()
-                
-                sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
-                buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
-                isAudioPlaying = true
-            
-            } else {
+ 
+//            if (isAudioPlaying) {
+//                startTime = labelSeekTime.text //reset start time
+//                AVAudioSingleton.sharedInstance.play()
+//
+//                sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+//                buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
+//                isAudioPlaying = true
+//
+//            } else {
                 
                 var songName: String?
                 
@@ -386,9 +391,16 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
                 currentSongString = songName!
                 
-                AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
+            if (labelSeekTime.text != "00.00") {
+                AVAudioSingleton.sharedInstance.play() //Is there already music playing?
+            } else {
+                AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!) //Is this first run?
             }
             
+            sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
+            isAudioPlaying = true
+
         } else {
             AVAudioSingleton.sharedInstance.pause()
             sliderTimer?.invalidate()
