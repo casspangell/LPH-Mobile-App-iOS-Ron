@@ -769,6 +769,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     @IBAction func onSliderSeekValueChanged(_ sender: UISlider) {
         let interval = TimeInterval(sender.value * 60 * totalChantDuration!)
+        print(interval)
         AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval:interval)
         updateSlider()
     }
