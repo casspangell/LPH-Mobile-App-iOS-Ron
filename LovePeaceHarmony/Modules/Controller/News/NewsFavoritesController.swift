@@ -206,7 +206,6 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
             LPHUtils.setLoginVo(loginVo: loginVo)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
-            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
             fireUpdateTokenApi()
         }
     }

@@ -138,7 +138,6 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             LPHUtils.setLoginVo(loginVo: loginVo)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
-            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: false)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn, value: false)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn, value: false)

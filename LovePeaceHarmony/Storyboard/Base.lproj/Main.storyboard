@@ -1097,7 +1097,7 @@
                                 <rect key="frame" x="0.0" y="154" width="375" height="463"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FRC-EC-Bma">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="650"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpn-AP-hkb" userLabel="LPH Bar">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -1227,48 +1227,8 @@
                                                     <outletCollection property="gestureRecognizers" destination="CTs-4x-hKq" appends="YES" id="tTd-QW-cQG"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOh-yI-Hj6" userLabel="Hindi">
-                                                <rect key="frame" x="0.0" y="150" width="375" height="50"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsq-HR-sfh">
-                                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
-                                                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="YPf-2N-HbO"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hindi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEU-NC-p0C">
-                                                        <rect key="frame" x="16" y="16" width="32.5" height="18"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SbA-bU-wgb">
-                                                        <rect key="frame" x="318" y="9.5" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="onTapSwitchHindi:" destination="rRm-F9-0wR" eventType="valueChanged" id="DQk-WC-0Qk"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="SbA-bU-wgb" secondAttribute="trailing" constant="8" id="2DM-n1-uBo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Tsq-HR-sfh" secondAttribute="bottom" id="9Ks-mI-FRO"/>
-                                                    <constraint firstItem="Tsq-HR-sfh" firstAttribute="leading" secondItem="fOh-yI-Hj6" secondAttribute="leading" id="FTY-jZ-MoB"/>
-                                                    <constraint firstItem="SbA-bU-wgb" firstAttribute="centerY" secondItem="fOh-yI-Hj6" secondAttribute="centerY" id="GiC-xI-Vqr"/>
-                                                    <constraint firstAttribute="height" constant="50" id="UE6-ho-3rO"/>
-                                                    <constraint firstItem="SbA-bU-wgb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LEU-NC-p0C" secondAttribute="trailing" constant="8" symbolic="YES" id="Vs9-vk-ADw"/>
-                                                    <constraint firstItem="LEU-NC-p0C" firstAttribute="leading" secondItem="fOh-yI-Hj6" secondAttribute="leading" constant="16" id="ahP-DF-5oT"/>
-                                                    <constraint firstItem="LEU-NC-p0C" firstAttribute="centerY" secondItem="fOh-yI-Hj6" secondAttribute="centerY" id="iZi-8o-VlA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Tsq-HR-sfh" secondAttribute="trailing" id="zjO-yX-T94"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="8Em-ls-DHS" appends="YES" id="jvV-x3-mJS"/>
-                                                </connections>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-CD-f1I" userLabel="Hindi SL Eng">
-                                                <rect key="frame" x="0.0" y="200" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="150" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itw-9X-dJ7">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1308,7 +1268,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCd-h1-ENJ" userLabel="Spanish">
-                                                <rect key="frame" x="0.0" y="250" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="200" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuB-sH-p7r">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1348,7 +1308,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBl-NU-3M9" userLabel="Mandarin, Eng, Ger">
-                                                <rect key="frame" x="0.0" y="300" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="250" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfh-Cp-E8q">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1388,7 +1348,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpR-4p-rsQ" userLabel="French">
-                                                <rect key="frame" x="0.0" y="350" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="300" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgk-5T-lX3">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1428,7 +1388,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-5a-0ud" userLabel="French Creole">
-                                                <rect key="frame" x="0.0" y="400" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="350" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhm-v3-ILe">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1468,7 +1428,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKb-c8-G2C" userLabel="Expressions Bar">
-                                                <rect key="frame" x="0.0" y="450" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="400" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaE-rH-enM">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1495,7 +1455,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGl-pp-nqt" userLabel="LPH in Hawaiian">
-                                                <rect key="frame" x="0.0" y="500" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="450" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAY-Dy-roH">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1535,7 +1495,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-Xg-8bF" userLabel="LuLaLi Eng Hawaiian">
-                                                <rect key="frame" x="0.0" y="550" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="500" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YE4-gL-Hgt">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1575,7 +1535,7 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3h-dm-e5g" userLabel="LPH in Eng">
-                                                <rect key="frame" x="0.0" y="600" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="550" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7C-Q6-TyF">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1818,7 +1778,6 @@
                         <outlet property="expressionsOfLPHBarLabel" destination="xkL-mr-4kQ" id="0tb-CG-TfU"/>
                         <outlet property="frenchCreoleLabel" destination="uuw-H8-ulX" id="Mxz-Oe-KYD"/>
                         <outlet property="frenchLabel" destination="qgC-ea-5YN" id="fbV-61-oiy"/>
-                        <outlet property="hindiLabel" destination="LEU-NC-p0C" id="vfG-gD-1BO"/>
                         <outlet property="hindiSoulLanguageEnglishLabel" destination="5rb-sW-iOg" id="P2s-nl-9Cd"/>
                         <outlet property="instrumentalLabel" destination="FEm-hb-fFn" id="Gaj-LL-UHT"/>
                         <outlet property="labelSeekTime" destination="h8o-r7-XBs" id="Beg-Cz-az8"/>
@@ -1833,7 +1792,6 @@
                         <outlet property="spanishLabel" destination="zBJ-T8-ItE" id="2hM-kr-G1O"/>
                         <outlet property="switchAntilleanCreole" destination="40B-gK-FMQ" id="T1h-ua-GHu"/>
                         <outlet property="switchFrench" destination="qXe-T9-Y1I" id="kR2-pr-pKf"/>
-                        <outlet property="switchHindi" destination="SbA-bU-wgb" id="z4F-4v-KVU"/>
                         <outlet property="switchHindiSLEng" destination="1j6-dw-OQ5" id="aLj-W6-Kmf"/>
                         <outlet property="switchInstrumental" destination="ial-Ka-ZAM" id="5v9-Y4-yMV"/>
                         <outlet property="switchKawehiHaw" destination="fI6-26-khW" id="iFl-fC-sff"/>
@@ -1845,11 +1803,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghy-Hd-QrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="8Em-ls-DHS" userLabel="onTapHindi">
-                    <connections>
-                        <action selector="onTapHindiGesture:" destination="rRm-F9-0wR" id="q9W-HR-kGu"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="CTs-4x-hKq" userLabel="onTapInstrumental">
                     <connections>
                         <action selector="onTapInstrumentalGesture:" destination="rRm-F9-0wR" id="xN1-cV-R3e"/>

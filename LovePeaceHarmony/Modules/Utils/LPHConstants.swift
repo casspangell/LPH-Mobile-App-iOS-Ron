@@ -145,7 +145,6 @@ extension UserDefaults {
         
         static let mandarinSoulEnglish = "UserDefaultsMandarinSoulEnglishOn"
         static let isInstrumentalOn = "UserDefaultsInstrumentalOn"
-        static let isHindiOn = "UserDefaultsHindiOn"
         static let isHindi_SL_EnglishOn = "isHindi_SL_EnglishOn"
         static let isSpanishOn = "isSpanishOn"
         static let isMandarinEnglishGermanOn = "isMandarinEnglishGermanOn"
@@ -204,7 +203,6 @@ let APP_VERSION = "2.0"
 enum ChantFileName {
     static let mandarinSoulEnglish = "mandarin-soul_language-english"
     static let instrumental = "instrumental"
-    static let hindi = "hindi"
     static let french_antillean_creole = "french_antillean_creole"
     static let french = "french"
     static let hindi_sl_english = "hindi_sl_english"

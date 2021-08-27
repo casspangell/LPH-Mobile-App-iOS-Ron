@@ -30,7 +30,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var isShuffleEnabled = false
     var isRepeatEnabled = false
     var chantMilestoneCounter:Float = 0
-    var chantTitle = ["Mandarin, Soul Language and English", "Instrumental", "Hindi", "Hindi, Soul Language, English", "Spanish", "Mandarin, English, German", "French", "French Antillean Creole", "Kawehi Haw", "Master Sha English", "Master Sha Lula English Ka Haw"]
+    var chantTitle = ["Mandarin, Soul Language and English", "Instrumental", "Hindi, Soul Language, English", "Spanish", "Mandarin, English, German", "French", "French Antillean Creole", "Kawehi Haw", "Master Sha English", "Master Sha Lula English Ka Haw"]
     
     // MARK: - IBProperties
     @IBOutlet weak var buttonPlayPause: UIButton!
@@ -41,7 +41,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     @IBOutlet weak var switchMandarinSoulEnglish: UISwitch!
     @IBOutlet weak var switchInstrumental: UISwitch!
-    @IBOutlet weak var switchHindi: UISwitch!
     @IBOutlet weak var switchHindiSLEng: UISwitch!
     @IBOutlet weak var switchSpanish: UISwitch!
     @IBOutlet weak var switchMandarinEngGerman: UISwitch!
@@ -53,7 +52,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     @IBOutlet weak var mandarinSoulEnglishLabel: UILabel!
     @IBOutlet weak var instrumentalLabel: UILabel!
-    @IBOutlet weak var hindiLabel: UILabel!
     @IBOutlet weak var hindiSoulLanguageEnglishLabel: UILabel!
     @IBOutlet weak var spanishLabel: UILabel!
     @IBOutlet weak var mandarinEnglishGermanLabel: UILabel!
@@ -80,7 +78,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //Strings for localization
         mandarinSoulEnglishLabel.text = NSLocalizedString("Mandarin, Soul Language, English", comment: "")
         instrumentalLabel.text = NSLocalizedString("Instrumental", comment: "")
-        hindiLabel.text = NSLocalizedString("Hindi", comment: "")
         hindiSoulLanguageEnglishLabel.text = NSLocalizedString("Hindi, Soul Language, English", comment: "")
         spanishLabel.text = NSLocalizedString("Spanish", comment: "")
         mandarinEnglishGermanLabel.text = NSLocalizedString("Mandarin, English, German", comment: "")
@@ -132,7 +129,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func restoreChantSettings() {
         let isMandarinOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish)
         let isInstrumentalOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn)
-        let isHindiOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isHindiOn)
         let isHindi_SL_EnglishOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn)
         let isSpanishOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn)
         let isMandarinEnglishGermanOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn)
@@ -156,7 +152,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         }
         songListStatus[.mandarin_soul_english] = isMandarinOn
         songListStatus[.instrumental] = isInstrumentalOn
-        songListStatus[.hindi] = isHindiOn
         songListStatus[.hindi_sl_english] = isHindi_SL_EnglishOn
         songListStatus[.spanish] = isSpanishOn
         songListStatus[.mandarin_english_german] = isMandarinEnglishGermanOn
@@ -168,7 +163,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         switchMandarinSoulEnglish.isOn = isMandarinOn
         switchInstrumental.isOn = isInstrumentalOn
-        switchHindi.isOn = isHindiOn
         switchHindiSLEng.isOn =  isHindi_SL_EnglishOn
         switchSpanish.isOn = isSpanishOn
         switchMandarinEngGerman.isOn = isMandarinEnglishGermanOn
@@ -193,31 +187,28 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 0)
         } else if songListStatus[.instrumental]! {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 1)
-        } else if songListStatus[.hindi]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 2)
         } else if songListStatus[.hindi_sl_english]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 3)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 2)
         } else if songListStatus[.spanish]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 4)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 3)
         } else if songListStatus[.mandarin_english_german]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 5)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 4)
         } else if songListStatus[.french]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 6)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 5)
         } else if songListStatus[.french_antillean_creole]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 7)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 6)
         } else if songListStatus[.kawehi_haw]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 8)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 7)
         } else if songListStatus[.sha_eng]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 9)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 8)
         } else if songListStatus[.sha_lula_eng_ka_haw]! {
-            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 10)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 9)
         } else {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: -1)
         }
         
         songListOriginal.append(.mandarin_soul_english)
         songListOriginal.append(.instrumental)
-        songListOriginal.append(.hindi)
         songListOriginal.append(.hindi_sl_english)
         songListOriginal.append(.spanish)
         songListOriginal.append(.mandarin_english_german)
@@ -263,8 +254,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 songName = ChantFileName.mandarinSoulEnglish
             case .instrumental:
                 songName = ChantFileName.instrumental
-            case .hindi:
-                songName = ChantFileName.hindi
             case .hindi_sl_english:
                 songName = ChantFileName.hindi_sl_english
             case .spanish:
@@ -359,8 +348,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                     songName = ChantFileName.mandarinSoulEnglish
                 case .instrumental:
                     songName = ChantFileName.instrumental
-                case .hindi:
-                    songName = ChantFileName.hindi
                 case .hindi_sl_english:
                     songName = ChantFileName.hindi_sl_english
                 case .spanish:
@@ -469,8 +456,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 currentSong = .mandarin_soul_english
             } else if songListStatus[.instrumental]! {
                 currentSong = .instrumental
-            } else if songListStatus[.hindi]! {
-                currentSong = .hindi
             } else if songListStatus[.hindi_sl_english]! {
                 currentSong = .hindi_sl_english
             } else if songListStatus[.spanish]! {
@@ -801,13 +786,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         forceStopPlaying(chantSong: .instrumental)
     }
     
-    @IBAction func onTapSwitchHindi(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: sender.isOn)
-        songListStatus[.hindi] = sender.isOn
-        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .hindi)
-    }
-    
     @IBAction func onTapSwitchHindiSLEnglish(_ sender: UISwitch) {
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: sender.isOn)
         songListStatus[.hindi_sl_english] = sender.isOn
@@ -865,11 +843,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
 // MARK: OnTap Gestures
-    
-    @IBAction func onTapHindiGesture(_ sender: UITapGestureRecognizer) {
-        startSong(chantFile: .hindi)
-    }
-    
+
     @IBAction func onTapInstrumentalGesture(_ sender: UITapGestureRecognizer) {
         startSong(chantFile: .instrumental)
     }
@@ -931,8 +905,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 songName = ChantFileName.mandarinSoulEnglish
             case .instrumental:
                 songName = ChantFileName.instrumental
-            case .hindi:
-                songName = ChantFileName.hindi
             case .hindi_sl_english:
                 songName = ChantFileName.hindi_sl_english
             case .spanish:

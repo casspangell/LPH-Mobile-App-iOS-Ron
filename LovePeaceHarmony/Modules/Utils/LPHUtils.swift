@@ -408,7 +408,6 @@ enum StoryboardType: Int {
 enum ChantFile: Int {
     case mandarin_soul_english
     case instrumental
-    case hindi
     case hindi_sl_english
     case spanish
     case mandarin_english_german
