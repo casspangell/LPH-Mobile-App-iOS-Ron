@@ -382,12 +382,13 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             isAudioPlaying = true
 
         } else {
-            AVAudioSingleton.sharedInstance.pause()
+//            AVAudioSingleton.sharedInstance.pause()
             sliderTimer?.invalidate()
-            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//play image
+//            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//play image
             processChantingMilestone()
             startTime = labelSeekTime.text //reset start time
-            isAudioPlaying = false
+            sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+            isAudioPlaying = true
         }
         
         
