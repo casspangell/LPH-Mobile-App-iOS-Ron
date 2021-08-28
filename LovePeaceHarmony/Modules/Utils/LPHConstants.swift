@@ -138,6 +138,8 @@ extension UserDefaults {
         static let loginType = "UserDefaultsLoginType"
         static let inviteCode = "UserDefaultsInviteCode"
         static let invitedCode = "UserDefaultsInvitedCode"
+        static let googleAuth = "UserDefaultsGoogleAuth"
+        static let googleToken = "UserDefaultsGoogleToken"
         
         static let isTutorialShown = "UserDefaultsItemIsTutorialShown"
         static let currentChantSong = "UserDefaultsCurrentChantSong"

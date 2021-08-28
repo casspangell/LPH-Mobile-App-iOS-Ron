@@ -15,7 +15,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -35,16 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FirebaseOptions.defaultOptions()?.deepLinkURLScheme = "lovepeaceharmony.page.link"
         FirebaseApp.configure()
         
-        GIDSignIn.sharedInstance().clientID = "863691168348-990dd80l6a4joakqbku2nmb90q5inqf8.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().delegate = self
+//        GIDSignIn.sharedInstance.clientID = "863691168348-990dd80l6a4joakqbku2nmb90q5inqf8.apps.googleusercontent.com"
+//        GIDSignIn.sharedInstance.delegate = self
 
          if Auth.auth().currentUser != nil {
              let loginVo = LPHUtils.getLoginVo()
-//             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
-            
-             if loginVo.isLoggedIn {
-//                LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: false)
-                
+           
+            if loginVo.isLoggedIn {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTabController")
                 self.window?.rootViewController = initialViewController
@@ -82,8 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let sourceApplication: String? = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
         let fbLogin = ApplicationDelegate.shared.application(app, open: url, sourceApplication: sourceApplication, annotation: nil)
-        
-        let googleLogin = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        let googleLogin = GIDSignIn.sharedInstance.handle(url)
         
         let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url)
         
@@ -113,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             return
         }
         
-        guard let authentication = user.authentication else { return }
+//        guard let authentication = user.authentication else { return }
 //        let credential = authentication.credential(withIDToken: authentication.idToken,
 //                                                       accessToken: authentication.accessToken)
         // ...

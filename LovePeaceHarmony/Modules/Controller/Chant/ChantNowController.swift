@@ -338,7 +338,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func togglePlayPauseButton() {
-        
+       
+        //initial run of an mp3, or from pause
         if (!isAudioPlaying) {
  
                 var songName: String?
@@ -377,16 +378,16 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!) //Is this first run?
             }
             
+            startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
             isAudioPlaying = true
 
+        //If from a skip or next
         } else {
-//            AVAudioSingleton.sharedInstance.pause()
             sliderTimer?.invalidate()
-//            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//play image
             processChantingMilestone()
-            startTime = labelSeekTime.text //reset start time
+            startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             isAudioPlaying = true
         }
@@ -417,6 +418,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         let currentTimeTotalSecs = (Int(currentTime[0])!*60) + Int(currentTime[1])!
         let startTimeTotalSecs = (Int(sTime[0])!*60) + Int(sTime[1])!
+        print("currTime \(Int(currentTime[0]))*60 = \((Int(currentTime[0])!*60)) + \(Int(currentTime[1]))")
+        print("startTime \(Int(sTime[0]))*60 = \((Int(sTime[0])!*60)) + \(Int(sTime[1]))")
+        print("total \((currentTimeTotalSecs - startTimeTotalSecs))")
         let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
         
         fireMilestoneSavingApi(seconds: totalSeconds)

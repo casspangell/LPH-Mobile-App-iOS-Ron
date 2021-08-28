@@ -37,6 +37,21 @@ public class LPHParser {
         return loginVo
     }
     
+    static func parseGoogleLogin(response: GIDGoogleUser) -> LoginVo {
+        
+        //Basic profile info
+        let loginVo = LPHUtils.getLoginVo()
+        loginVo.isLoggedIn = true
+        loginVo.loginType = .google
+        loginVo.fullName = response.profile!.name
+        let profilePic = response.profile?.imageURL(withDimension: 320)
+        loginVo.profilePicUrl = profilePic!.absoluteString
+        loginVo.email = response.profile!.email
+        let userId = response.userID
+        loginVo.password = userId!
+        return loginVo
+    }
+    
     static func parseLogin(rawResponse: [String: Any]) -> LPHResponse<ProfileVo, LoginError> {
         let lphResponse = LPHResponse<ProfileVo, LoginError>()
         let (isSuccess, message, isSessionExpired) = isResponseSuccess(rawResponse: rawResponse)

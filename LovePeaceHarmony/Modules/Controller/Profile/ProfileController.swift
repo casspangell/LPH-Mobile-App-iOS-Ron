@@ -109,7 +109,7 @@ class ProfileController: BaseViewController, MFMessageComposeViewControllerDeleg
         let loginVo = LPHUtils.getLoginVo()
         if loginVo.loginType == .google {
             do {
-                GIDSignIn.sharedInstance().signOut()
+                GIDSignIn.sharedInstance.signOut()
                 try Auth.auth().signOut()
             } catch {
                 

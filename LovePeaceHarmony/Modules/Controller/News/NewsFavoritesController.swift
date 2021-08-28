@@ -211,30 +211,30 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
     }
     
     private func initiateLogin(type: LoginType) {
-        do {
-            try loginEngine?.initiateLogin(type) { (lphResponse) in
-                if lphResponse.isSuccess() {
-                    let loginVo = lphResponse.getResult()
-                    
-                    InstanceID.instanceID().instanceID { (result, error) in
-                    if let error = error {
-                    print("Error fetching remote instange ID: \(error)")
-                    } else if let result = result {
-                    print("Remote instance ID token: \(result.token)")
-                        self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: result.token)
-                    } else {
-                        
-                    }
-                     }
-                    }
-                    
-
-            }
-        } catch let exception as LPHException<LoginError> {
-            
-        } catch {
-            
-        }
+//        do {
+//            try loginEngine?.initiateLogin(type) { (lphResponse) in
+//                if lphResponse.isSuccess() {
+//                    let loginVo = lphResponse.getResult()
+//
+//                    InstanceID.instanceID().instanceID { (result, error) in
+//                    if let error = error {
+//                    print("Error fetching remote instange ID: \(error)")
+//                    } else if let result = result {
+//                    print("Remote instance ID token: \(result.token)")
+//                        self.fireSocialLoginRegisterApi(email: loginVo.email, password: loginVo.password, name: loginVo.fullName, profilePic: loginVo.profilePicUrl, source: type, deviceId: result.token)
+//                    } else {
+//
+//                    }
+//                     }
+//                    }
+//
+//
+//            }
+//        } catch let exception as LPHException<LoginError> {
+//
+//        } catch {
+//
+//        }
     }
     
     //MARK: - IBActions
@@ -300,24 +300,24 @@ class NewsFavoritesController: BaseViewController, IndicatorInfoProvider, UITabl
     
     private func fireUpdateTokenApi() {
         
-        InstanceID.instanceID().instanceID { (result, error) in
-        if let error = error {
-        print("Error fetching remote instange ID: \(error)")
-        } else if let result = result {
-        print("Remote instance ID token: \(result.token)")
-            let deviceInfo = DEVICE_INFO
-            self.showLoadingIndicator()
-            do {
-                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
-                    self.hideLoadingIndicator()
-                    self.renderUI(isLoginViewShown: false)
-                }
-            } catch let error {
-                
-            }
-         }
-        }
+//        InstanceID.instanceID().instanceID { (result, error) in
+//        if let error = error {
+//        print("Error fetching remote instange ID: \(error)")
+//        } else if let result = result {
+//        print("Remote instance ID token: \(result.token)")
+//            let deviceInfo = DEVICE_INFO
+//            self.showLoadingIndicator()
+//            do {
+//                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+//                try lphService.updateDeviceToken(token: result.token, info: deviceInfo) { (parsedResponse) in
+//                    self.hideLoadingIndicator()
+//                    self.renderUI(isLoginViewShown: false)
+//                }
+//            } catch let error {
+//                
+//            }
+//         }
+//        }
         
 
     }

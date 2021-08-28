@@ -109,13 +109,13 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             throw LPHException<LoginError>(controllerError: .passwordDoNotMatch)
         }
       
-        InstanceID.instanceID().instanceID { (result, error) in
-        if let error = error {
-        print("Error fetching remote instange ID: \(error)")
-        } else if let result = result {
-            print("Remote instance ID token: \(result.token)")
-            self.fireSocialLoginRegisterApi(email: email, password: password, deviceId: result.token)
-         }
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+            self.fireSocialLoginRegisterApi(email: email, password: password, deviceId: token)
+          }
         }
     }
     
@@ -171,12 +171,13 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     
     private func fireUpdateTokenApi() {
         self.showLoadingIndicator()
-        InstanceID.instanceID().instanceID { (result, error) in
-        if let error = error {
-        print("Error fetching remote instange ID: \(error)")
-        } else if let result = result {
-        print("Remote instance ID token: \(result.token)")
-            let deviceInfo = DEVICE_INFO
+        
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+   
             do {
                 self.hideLoadingIndicator()
                 self.splashDelegate?.isFromLoginEnable()
@@ -184,7 +185,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             } catch let error {
                 self.hideLoadingIndicator()
             }
-         }
+          }
         }
     }
     

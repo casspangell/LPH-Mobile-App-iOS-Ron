@@ -11,6 +11,7 @@ import UIKit
 import XLPagerTabStrip
 import Firebase
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
 
@@ -128,14 +129,15 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     private func initiateLogin(type: LoginType) {
         var firebaseDeviceToken = String()
         
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let error = error {
-                print("Error fetching remote instange ID: \(error)")
-            } else if let result = result {
-                print("Remote instance ID token: \(result.token)")
-                firebaseDeviceToken = result.token
-            }
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+            firebaseDeviceToken = token
+          }
         }
+        
 
         do {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
@@ -176,7 +178,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
         
-        //Firebase Handling
+        //Firebase Handling after user logs in with Facebook or Google
         switch loginType {
         case .facebook:
             let credential = FacebookAuthProvider
@@ -184,7 +186,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
 
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error = error {
-                  let authError = error as NSError
+                  let _ = error as NSError
                     self.showToast(message: error.localizedDescription)
                     return
                   }
@@ -196,6 +198,22 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
             break
 
         case .google:
+            let idToken = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.googleToken)
+            let authToken = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.googleAuth)
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authToken)
+            
+            Auth.auth().signIn(with: credential) { authResult, error in
+                if let error = error {
+                  let _ = error as NSError
+                    self.showToast(message: error.localizedDescription)
+                    return
+                  }
+
+                //Login Success
+                self.navigateToHome()
+                  return
+                }
+            
             break
         case .withoutLogin:
             break
@@ -207,29 +225,6 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     
         
 }
-    
-    //Original method with the API
-//    private func processLoginResponse(source loginType: LoginType, password: String, serverResponse response: LPHResponse<ProfileVo, LoginError>) {
-//        if response.isSuccess() {
-//
-//            let profileVo = response.getResult()
-//            let loginVo = LPHUtils.getLoginVo()
-//            loginVo.isLoggedIn = true
-//
-//            loginVo.email = profileVo.email
-//            loginVo.password = password
-//            loginVo.fullName = profileVo.name
-//            loginVo.profilePicUrl = profileVo.profilePic
-//            loginVo.loginType = loginType
-//            loginVo.inviteCode = profileVo.inviteCode
-//            loginVo.token = response.getMetadata() as! String
-//            LPHUtils.setLoginVo(loginVo: loginVo)
-//            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
-//            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
-//            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindiOn, value: true)
-//            fireUpdateTokenApi()
-//        }
-//    }
     
     // MARK: - Navigation
     private func navigateToHome() {
@@ -258,14 +253,15 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         let deviceInfo = DEVICE_INFO
         showLoadingIndicator()
 
-        InstanceID.instanceID().instanceID { (result, error) in
-        if let error = error {
-        print("Error fetching remote instange ID: \(error)")
-        } else if let result = result {
-        print("Remote instance ID token: \(result.token)")
-            deviceToken = result.token
-         }
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+            deviceToken = token
+          }
         }
+
 
         do {
             let lphService = try LPHServiceFactory<LoginError>.getLPHService()

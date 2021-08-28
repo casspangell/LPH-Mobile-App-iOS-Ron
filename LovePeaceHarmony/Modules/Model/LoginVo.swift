@@ -7,6 +7,16 @@
 //
 import Foundation
 
+//struct GoogleLoginCreds {
+//    var idToken:String
+//    var accessToken:String
+//    
+//    init(idToken: String, accessToken: String) {
+//        self.idToken = idToken
+//        self.accessToken = accessToken
+//    }
+//}
+
  class LoginVo: NSObject, NSCoding {
     
     var email: String

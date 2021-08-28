@@ -70,23 +70,21 @@ class SplashController: BaseViewController, SplashDelegate {
         let email = savedLoginDetails.email
         let password = savedLoginDetails.password
         
-        InstanceID.instanceID().instanceID { (result, error) in
-        if let error = error {
-        print("Error fetching remote instange ID: \(error)")
-        } else if let result = result {
-        print("Remote instance ID token: \(result.token)")
-            do {
-                let lphService = try LPHServiceFactory<LoginError>.getLPHService()
-                try lphService.fireLogin(email: email, password: password, deviceId: result.token, source: savedLoginDetails.loginType) { (parsedResponse) in
-                    self.processLoginResponse(fromServer: parsedResponse, password: password)
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+                do {
+                    let lphService = try LPHServiceFactory<LoginError>.getLPHService()
+                    try lphService.fireLogin(email: email, password: password, deviceId: token, source: savedLoginDetails.loginType) { (parsedResponse) in
+                        self.processLoginResponse(fromServer: parsedResponse, password: password)
+                    }
+                } catch let error {
+    
                 }
-            } catch let error {
-                
-            }
-         }
+          }
         }
-        
-
     }
 
     // MARK: - Navigation
