@@ -69,18 +69,19 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         
         self.showLoadingIndicator()
            
-              Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+      //Firebase Email Login
+      Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
 
-                self?.hideLoadingIndicator()
+        self?.hideLoadingIndicator()
 
-                  if let error = error {
-                    let authError = error as NSError
-                    self?.showToast(message: error.localizedDescription)
-                  } else {
-                    //Login success
-                    self!.navigateToHome()
-                  }
-                }
+          if let error = error {
+            let authError = error as NSError
+            self?.showToast(message: error.localizedDescription)
+          } else {
+            //Login success
+            self!.navigateToHome()
+          }
+        }
             
     }
     
@@ -126,23 +127,23 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     
     private func initiateLogin(type: LoginType) {
         var firebaseDeviceToken = String()
+        
         InstanceID.instanceID().instanceID { (result, error) in
-        if let error = error {
-        print("Error fetching remote instange ID: \(error)")
-        } else if let result = result {
-        print("Remote instance ID token: \(result.token)")
-            firebaseDeviceToken = result.token
-         }
+            if let error = error {
+                print("Error fetching remote instange ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+                firebaseDeviceToken = result.token
+            }
         }
 
         do {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
                 if lphResponse.isSuccess() {
                     
-                    let userID = LPHUtils.getCurrentUserID()
-                    
                     let loginVo = lphResponse.getResult()
                     self.processLoginResponse(source: type, password: loginVo.password, token: firebaseDeviceToken)
+                    
                 } else {
 
                 }
@@ -175,8 +176,45 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
         
-            self.navigateToHome()
-    }
+        //Firebase Handling
+        switch loginType {
+        case .facebook:
+                let credential = FacebookAuthProvider
+                  .credential(withAccessToken: AccessToken.current!.tokenString)
+            // User is signed in
+
+//              return
+//            }
+            
+            Auth.auth().signIn(with: credential) { authResult, error in
+                if let error = error {
+                  let authError = error as NSError
+                    self.showToast(message: error.localizedDescription)
+                    return
+                  }
+                  // ...
+                print("here I am")
+                let userID = LPHUtils.getCurrentUserID()
+                print("Firebase Facebook User Signed In. UserId \(userID)")
+                  return
+                }
+                // User is signed in
+                // ...
+                print("facebook user logged in via firebase")
+            break
+
+        case .google:
+            break
+        case .withoutLogin:
+            break
+        case .none:
+            break
+        case .email:
+            break
+        }//end switch
+    
+        
+}
     
     //Original method with the API
 //    private func processLoginResponse(source loginType: LoginType, password: String, serverResponse response: LPHResponse<ProfileVo, LoginError>) {
