@@ -386,7 +386,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //If from a skip or next
         } else {
             sliderTimer?.invalidate()
-            processChantingMilestone()
+//            processChantingMilestone()
             startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             isAudioPlaying = true

@@ -56,7 +56,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EFBF0B7F-3828-46DE-A8D4-364C4D6CBBBA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Login/SplashController.swift"
@@ -152,7 +152,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "70006A05-F352-40AD-A25C-9A27E4993FF6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Utils/LPHParser.swift"
@@ -174,9 +174,9 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "660"
-            endingLineNumber = "660"
-            landmarkName = "audioPlayerDidFinishPlaying()"
+            startingLineNumber = "708"
+            endingLineNumber = "708"
+            landmarkName = "onTapPreviousSong(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -190,8 +190,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "didBecomeActive()"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,17 +206,17 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "653"
-            endingLineNumber = "653"
-            landmarkName = "resetAudioPlayer()"
-            landmarkType = "7">
+            startingLineNumber = "701"
+            endingLineNumber = "701"
+            landmarkName = "ChantNowController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EDCC777F-871E-4C79-B6CC-CF1980FEE65F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
@@ -232,7 +232,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7D84A7BB-6D11-43AC-8FE3-FF501301EAF6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Login/SignUpEmailController.swift"
@@ -248,7 +248,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "38ADA2B7-BF4E-4F65-8BF7-5D0762FA035B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantController.swift"
@@ -270,8 +270,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "renderShowcaseView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -535,7 +535,85 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E5C3C100-ED26-4D5D-883D-06248399176E"
+            uuid = "C79D9512-6831-417B-9DD6-3CBFB45BB12C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
+            landmarkName = "togglePlayPauseButton()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA4CEB53-8B3A-43EE-A31C-CBBA049CA8EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "forceStopPlaying(chantSong:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4290B341-1609-4263-B7C3-FE6D8E0C5CC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
+            landmarkName = "forceStopPlaying(chantSong:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5C39751-5AEA-4A7D-960E-126485274FD9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "983"
+            endingLineNumber = "983">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65863B2F-0C9E-4463-BAD1-8B756CB29C4D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "479"
+            endingLineNumber = "479"
+            landmarkName = "forceStopPlaying(chantSong:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE37BB54-A33F-404E-8DB8-0FB3B1853CDA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -551,32 +629,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1C994ACC-4D52-4EAA-93A7-C5E960EE10A0"
+            uuid = "737D577B-72B7-4E98-AC55-58DCF5382A3F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
-            landmarkName = "togglePlayPauseButton()"
+            startingLineNumber = "951"
+            endingLineNumber = "951"
+            landmarkName = "fireMilestoneSavingApi(seconds:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "737D577B-72B7-4E98-AC55-58DCF5382A3F - d4365d8e4e805a09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LovePeaceHarmony.ChantNowController.(fireMilestoneSavingApi in _F583ABFC70E9105EC1655C415F1F6318)(seconds: Swift.Int) -&gt; ()"
+                  moduleName = "LovePeaceHarmony"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "951"
+                  endingLineNumber = "951"
+                  offsetFromSymbolStart = "752">
+               </Location>
+               <Location
+                  uuid = "737D577B-72B7-4E98-AC55-58DCF5382A3F - 83f6891eacbabf85"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (LovePeaceHarmony.Result&lt;Any&gt;) -&gt; () in LovePeaceHarmony.ChantNowController.(fireMilestoneSavingApi in _F583ABFC70E9105EC1655C415F1F6318)(seconds: Swift.Int) -&gt; ()"
+                  moduleName = "LovePeaceHarmony"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/projectxcappe/Documents/Tao%20Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "951"
+                  endingLineNumber = "951"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2F4D738D-20EB-4D94-8C41-DCA87D58A320"
+            uuid = "8E89DF31-2657-42B3-B2F5-BCEA1216E90A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
-            landmarkName = "togglePlayPauseButton()"
+            startingLineNumber = "431"
+            endingLineNumber = "431"
+            landmarkName = "forceStopPlaying(chantSong:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
