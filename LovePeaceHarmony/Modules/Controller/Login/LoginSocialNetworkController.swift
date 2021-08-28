@@ -179,28 +179,20 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         //Firebase Handling
         switch loginType {
         case .facebook:
-                let credential = FacebookAuthProvider
+            let credential = FacebookAuthProvider
                   .credential(withAccessToken: AccessToken.current!.tokenString)
-            // User is signed in
 
-//              return
-//            }
-            
             Auth.auth().signIn(with: credential) { authResult, error in
                 if let error = error {
                   let authError = error as NSError
                     self.showToast(message: error.localizedDescription)
                     return
                   }
-                  // ...
-                print("here I am")
-                let userID = LPHUtils.getCurrentUserID()
-                print("Firebase Facebook User Signed In. UserId \(userID)")
+
+                //Login Success
+                self.navigateToHome()
                   return
                 }
-                // User is signed in
-                // ...
-                print("facebook user logged in via firebase")
             break
 
         case .google:
