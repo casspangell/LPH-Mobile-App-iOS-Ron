@@ -211,8 +211,34 @@ public class LPHUtils {
         return timeStamp[0]
     }
     
-    static func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+//    static func secondsToHoursMinutesSeconds (seconds : Int) -> (String, String, String) {
+//        
+//        var sec = "00"
+//        var min = "00"
+//        var hour = "00"
+//        
+//        if (seconds / 3600) < 10 {
+//            sec = "0\(seconds / 3600)"
+//        }
+//        
+//        if ((seconds % 3600) / 60) < 10 {
+//            min = "0\(((seconds % 3600) / 60))"
+//        }
+//        
+//        if (seconds % 60) < 10 {
+//            hour = "0\(seconds % 60)"
+//        }
+//        
+//      return (sec, min, hour)
+//    }
+    
+    static func returnHoursMinsSeconds (seconds: Double) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .positional
+
+        let formattedString = formatter.string(from: TimeInterval(seconds))!
+        return formattedString
     }
     
     static func createChantDate(theDate:String) -> ChantDate {
