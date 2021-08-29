@@ -179,7 +179,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             
             let minutes = String(format: "%02d", Int(currentTime / 60))
             let seconds = String(format: "%02d", Int(currentTime.truncatingRemainder(dividingBy: 60)))
-            labelSeekTime.text = String("\(minutes).\(seconds)")
+            labelSeekTime.text = String("\(minutes):\(seconds)")
             let temp: Float = (Float(currentTime) / totalChantDuration!) / 60
             sliderMusicSeek.setValue(Float(temp), animated: true)
         }
@@ -326,7 +326,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             let minutes = String(format: "%02d", Int(currentTime / 60))
 
             let seconds = String(format: "%02d", Int(currentTime.truncatingRemainder(dividingBy: 60)))
-            labelSeekTime.text = String("\(minutes).\(seconds)")
+            labelSeekTime.text = String("\(minutes):\(seconds)")
 
             var temp: Float = (Float(currentTime) / totalChantDuration!) / 60
             if temp != 1 && temp > 1 {
@@ -458,10 +458,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     private func processChantingMilestone() {
         //Grab timestamp label and convert to total seconds
         //Calculate the start timestamp and the current timestamp
-        let currentTime = labelSeekTime.text!.components(separatedBy: ".")
+        let currentTime = labelSeekTime.text!.components(separatedBy: ":")
         let currentTime_Mins = Int(currentTime[0])
         let currentTime_Secs = Int(currentTime[1])
-        let sTime = startTime!.components(separatedBy: ".")
+        let sTime = startTime!.components(separatedBy: ":")
         let sTime_Mins = Int(sTime[0])
         let sTime_Secs = Int(sTime[1])
         
@@ -483,7 +483,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 AVAudioSingleton.sharedInstance.stop()
             }
             
-            labelSeekTime.text = "0.0"
+            labelSeekTime.text = "0:0"
             labelTotalDuration.text = "-:-"
             sliderMusicSeek.setValue(0, animated: true)
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
@@ -531,7 +531,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
         if currentSong != nil {
             currentSongIndex = (currentSong?.rawValue)!
-            labelSeekTime.text = "0.0"
+            labelSeekTime.text = "0:0"
             sliderMusicSeek.setValue(0, animated: true)
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
         } else {
@@ -700,7 +700,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             AVAudioSingleton.sharedInstance.stop()
         }
 
-        labelSeekTime.text = "0.0"
+        labelSeekTime.text = "0:0"
         labelTotalDuration.text = "-:-"
         sliderMusicSeek.setValue(0, animated: true)
         LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
@@ -823,7 +823,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     @IBAction func onSliderSeekValueChanged(_ sender: UISlider) {
         let interval = TimeInterval(sender.value * 60 * totalChantDuration!)
-        print(interval)
         AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval:interval)
         updateSlider()
     }
