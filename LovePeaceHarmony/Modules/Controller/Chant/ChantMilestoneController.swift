@@ -33,6 +33,10 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     @IBOutlet weak var buttonShareApp: UIButton!
     @IBOutlet weak var labelStreakCount: UILabel!
     
+    @IBOutlet weak var timestampActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var daysStraightActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var longestStreakActivityIndicator: UIActivityIndicatorView!
+    
     //For localization
     @IBOutlet weak var daysStraightLabel: UILabel!
     @IBOutlet weak var youHaveChantedLabel: UILabel!
@@ -53,6 +57,10 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         daysLabel.text = NSLocalizedString("Days", comment: "")
         longestStreakLabel.text = NSLocalizedString("Longest streak:", comment: "")
         eraseButton.titleLabel?.text = NSLocalizedString("Erase Milestones", comment: "")
+        
+        timestampActivityIndicator.hidesWhenStopped = true
+        longestStreakActivityIndicator.hidesWhenStopped = true
+        daysStraightActivityIndicator.hidesWhenStopped = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,30 +73,17 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     }
     
     private func loadPreviouslySavedData(userId: String) {
-//        let day = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantDay)
-//        let minutes = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinute)
-//        let pendingMinutesTemp = LPHUtils.getUserDefaultsFloat(key: UserDefaults.Keys.chantMinutePendingTemp)
-//        let inviteCount = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.inviteCount)
+        let timeStamp = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.chantTimestamp)
+        let daysStraight = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.chantCurrentStreak)
+        let longestStreak = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.chantLongestStreak)
         
-//        let daysCount = Int(Float(day))
-//        let minutesCount = Int(Float(minutes) + pendingMinutesTemp)
-//        if daysCount >= 1000 {
-////            labelDayCount.text = "\(Int(daysCount / 1000))K"
-//        } else {
-////            labelDayCount.text = String(daysCount)
-//        }
-//
-//        if minutesCount >= 1000 {
-////            labelMinutesCount.text = "\(Int(minutesCount / 1000))K"
-//        } else {
-////            labelMinutesCount.text = String(minutesCount)
-//        }
-//
-//        if inviteCount >= 1000 {
-////            labelPeopleCount.text = "\(Int(inviteCount / 1000))K"
-//        } else {
-////            labelPeopleCount.text = String(inviteCount)
-//        }
+        labelMinutesCount.text = timeStamp
+        labelDayCount.text = daysStraight
+        labelStreakCount.text = longestStreak
+
+        timestampActivityIndicator.startAnimating()
+        daysStraightActivityIndicator.startAnimating()
+        longestStreakActivityIndicator.startAnimating()
         
         fireMilestoneDetails(userId: userId)
     }
@@ -111,12 +106,9 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     
     private func populateData(milestoneVo: Milestones) {
 
-// //       LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
-//   //     LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantMinute, value: minutesCount)
-        
-        
-        
-        
+//        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
+//        LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantMinute, value: minutesCount)
+
 //        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.inviteCount, value: Int(milestoneVo.invitesCount)!)
 
 //    //    labelDayCount.text = String(daysCount)
@@ -175,6 +167,8 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 let timeStamp = LPHUtils.returnHoursMinsSeconds(seconds: seconds)
                 labelMinutesCount.text = timeStamp
                 
+                self.timestampActivityIndicator.stopAnimating()
+
             case .failure(let error):
                 fatalError("Error: \(String(describing: error))")
             }
@@ -187,6 +181,9 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 
                 self.labelStreakCount.text = String(streak.longest_streak)
                 self.labelDayCount.text = String(streak.current_streak)
+                
+                self.daysStraightActivityIndicator.stopAnimating()
+                self.longestStreakActivityIndicator.stopAnimating()
                 
             case .failure(let error):
                 fatalError("Error: \(String(describing: error))")

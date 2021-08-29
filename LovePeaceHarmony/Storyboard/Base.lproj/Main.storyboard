@@ -2785,21 +2785,39 @@
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="xgP-sh-wGv" userLabel="timestamp_">
+                                                        <rect key="frame" x="177.5" y="32.5" width="20" height="20"/>
+                                                    </activityIndicatorView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.76777046646170743" blue="0.34468546487359319" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="rGj-gQ-G0z" firstAttribute="leading" secondItem="Pjs-Vr-55O" secondAttribute="leading" constant="15" id="1Vi-MB-RhG"/>
                                                     <constraint firstAttribute="trailing" secondItem="rGj-gQ-G0z" secondAttribute="trailing" constant="15" id="4k6-Id-XoM"/>
                                                     <constraint firstItem="MI1-gq-wsa" firstAttribute="centerY" secondItem="Pjs-Vr-55O" secondAttribute="centerY" id="HgI-tW-1HH"/>
+                                                    <constraint firstItem="xgP-sh-wGv" firstAttribute="centerY" secondItem="Pjs-Vr-55O" secondAttribute="centerY" id="KVS-1R-QAl"/>
                                                     <constraint firstItem="MI1-gq-wsa" firstAttribute="centerX" secondItem="Pjs-Vr-55O" secondAttribute="centerX" id="NWt-f8-cSU"/>
                                                     <constraint firstAttribute="height" constant="85" id="qeO-mP-Nev"/>
                                                     <constraint firstItem="MI1-gq-wsa" firstAttribute="centerX" secondItem="Pjs-Vr-55O" secondAttribute="centerX" id="sS6-co-Hm1"/>
+                                                    <constraint firstItem="xgP-sh-wGv" firstAttribute="centerX" secondItem="Pjs-Vr-55O" secondAttribute="centerX" id="xGM-ui-I2x"/>
                                                     <constraint firstItem="rGj-gQ-G0z" firstAttribute="centerY" secondItem="MI1-gq-wsa" secondAttribute="centerY" id="yB2-NH-UEe"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZB8-XC-mcz">
                                                 <rect key="frame" x="0.0" y="85" width="375" height="200"/>
                                                 <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0M-uG-pvf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+                                                        <subviews>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fXP-vW-cEH">
+                                                                <rect key="frame" x="177.5" y="41" width="20" height="20"/>
+                                                            </activityIndicatorView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.94875913860000005" green="0.83778220420000005" blue="0.19183617829999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstItem="fXP-vW-cEH" firstAttribute="centerX" secondItem="h0M-uG-pvf" secondAttribute="centerX" id="6p6-pO-Ifz"/>
+                                                            <constraint firstItem="fXP-vW-cEH" firstAttribute="centerY" secondItem="h0M-uG-pvf" secondAttribute="centerY" id="PAB-w2-hTN"/>
+                                                        </constraints>
+                                                    </view>
                                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_milestone_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="4SX-uw-drD">
                                                         <rect key="frame" x="152.5" y="20" width="70" height="70"/>
                                                         <constraints>
@@ -2827,7 +2845,16 @@
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNk-Kk-Zcv">
                                                         <rect key="frame" x="0.0" y="100" width="375" height="100"/>
+                                                        <subviews>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="PkN-lQ-xwq">
+                                                                <rect key="frame" x="177.5" y="40" width="20" height="20"/>
+                                                            </activityIndicatorView>
+                                                        </subviews>
                                                         <color key="backgroundColor" red="0.56310015920000001" green="0.75370520350000003" blue="0.36462035780000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstItem="PkN-lQ-xwq" firstAttribute="centerY" secondItem="vNk-Kk-Zcv" secondAttribute="centerY" id="0AZ-RX-P1B"/>
+                                                            <constraint firstItem="PkN-lQ-xwq" firstAttribute="centerX" secondItem="vNk-Kk-Zcv" secondAttribute="centerX" id="2Ou-In-8Xp"/>
+                                                        </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="streak" translatesAutoresizingMaskIntoConstraints="NO" id="A6J-eE-S9d">
                                                         <rect key="frame" x="152.5" y="110" width="70" height="70"/>
@@ -2861,6 +2888,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="vNk-Kk-Zcv" secondAttribute="trailing" id="1n2-9p-vwR"/>
                                                     <constraint firstItem="4SX-uw-drD" firstAttribute="top" secondItem="ZB8-XC-mcz" secondAttribute="top" constant="20" id="29o-kQ-7Zt"/>
                                                     <constraint firstItem="4SX-uw-drD" firstAttribute="centerX" secondItem="ZB8-XC-mcz" secondAttribute="centerX" id="5OE-8B-UrN"/>
+                                                    <constraint firstItem="h0M-uG-pvf" firstAttribute="leading" secondItem="ZB8-XC-mcz" secondAttribute="leading" id="6Fn-EM-4R6"/>
                                                     <constraint firstItem="8z5-vN-MK2" firstAttribute="centerY" secondItem="Qqr-Af-2kX" secondAttribute="centerY" id="7P5-BL-neq"/>
                                                     <constraint firstItem="4SX-uw-drD" firstAttribute="leading" secondItem="Qqr-Af-2kX" secondAttribute="trailing" constant="8.5" id="92A-9Q-Mlj"/>
                                                     <constraint firstAttribute="bottom" secondItem="vNk-Kk-Zcv" secondAttribute="bottom" id="9G3-RQ-5zi"/>
@@ -2871,7 +2899,9 @@
                                                     <constraint firstItem="6Xc-mg-nx8" firstAttribute="centerY" secondItem="A6J-eE-S9d" secondAttribute="centerY" id="IQ8-TA-DRK"/>
                                                     <constraint firstItem="8z5-vN-MK2" firstAttribute="centerX" secondItem="LxR-wt-hbi" secondAttribute="centerX" id="Krv-jw-vG7"/>
                                                     <constraint firstItem="A6J-eE-S9d" firstAttribute="leading" secondItem="zcm-L0-Wpd" secondAttribute="trailing" constant="8" id="ME4-K0-ATw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="h0M-uG-pvf" secondAttribute="trailing" id="MbI-Y6-b7M"/>
                                                     <constraint firstItem="LxR-wt-hbi" firstAttribute="centerY" secondItem="A6J-eE-S9d" secondAttribute="centerY" id="O0k-aZ-HhO"/>
+                                                    <constraint firstItem="h0M-uG-pvf" firstAttribute="top" secondItem="ZB8-XC-mcz" secondAttribute="top" id="TlK-oz-t1b"/>
                                                     <constraint firstItem="A6J-eE-S9d" firstAttribute="centerX" secondItem="ZB8-XC-mcz" secondAttribute="centerX" id="WKw-ib-M9w"/>
                                                     <constraint firstItem="LxR-wt-hbi" firstAttribute="centerX" secondItem="A6J-eE-S9d" secondAttribute="centerX" id="Zcg-Qf-En0"/>
                                                     <constraint firstItem="zcm-L0-Wpd" firstAttribute="leading" secondItem="ZB8-XC-mcz" secondAttribute="leading" constant="5" id="gHW-r1-Zfr"/>
@@ -2882,6 +2912,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="6Xc-mg-nx8" secondAttribute="trailing" constant="15" id="quJ-Yd-0aT"/>
                                                     <constraint firstItem="85U-zW-s1v" firstAttribute="leading" secondItem="4SX-uw-drD" secondAttribute="trailing" constant="8" id="tQb-Sn-lhj"/>
                                                     <constraint firstAttribute="bottom" secondItem="A6J-eE-S9d" secondAttribute="bottom" constant="20" id="upN-5f-PUv"/>
+                                                    <constraint firstItem="A6J-eE-S9d" firstAttribute="top" secondItem="h0M-uG-pvf" secondAttribute="bottom" constant="8" symbolic="YES" id="wPi-R0-Img"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NR4-Xo-0jv">
@@ -2996,13 +3027,16 @@
                     </view>
                     <connections>
                         <outlet property="daysLabel" destination="6Xc-mg-nx8" id="hpW-Yq-Lph"/>
+                        <outlet property="daysStraightActivityIndicator" destination="fXP-vW-cEH" id="UbN-UG-gE1"/>
                         <outlet property="daysStraightLabel" destination="85U-zW-s1v" id="8Qr-Cv-fkC"/>
                         <outlet property="eraseButton" destination="FpW-KG-cGY" id="Zs7-AB-DkQ"/>
                         <outlet property="labelDayCount" destination="8z5-vN-MK2" id="b0s-OH-mlQ"/>
                         <outlet property="labelMinutesCount" destination="rGj-gQ-G0z" id="8S3-lv-0ze"/>
                         <outlet property="labelPeopleCount" destination="FOI-la-3t0" id="16C-5V-q9I"/>
                         <outlet property="labelStreakCount" destination="LxR-wt-hbi" id="4FK-KU-ycB"/>
+                        <outlet property="longestStreakActivityIndicator" destination="PkN-lQ-xwq" id="6If-3c-kg9"/>
                         <outlet property="longestStreakLabel" destination="zcm-L0-Wpd" id="AeG-8s-lnH"/>
+                        <outlet property="timestampActivityIndicator" destination="xgP-sh-wGv" id="6wo-3Z-i6H"/>
                         <outlet property="viewMilestoneContainer" destination="kbz-5I-BJe" id="LaM-rz-8mU"/>
                         <outlet property="youHaveChantedLabel" destination="Qqr-Af-2kX" id="TXf-ZO-uTk"/>
                     </connections>

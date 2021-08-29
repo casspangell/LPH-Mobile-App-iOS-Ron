@@ -110,10 +110,18 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //        ]
     }
     
-    @objc func didBecomeActive() { //kilroy
-//        if audioPlayer != nil && !(audioPlayer?.isPlaying)! {
-//            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)
-//        }
+    @objc func didBecomeActive() { 
+
+        //Load previous chant data in UserDefaults
+        let userID = LPHUtils.getCurrentUserID()
+        APIUtilities.fetchCurrentChantingStreak(userID: userID) { (result) in
+            print("set userdefaults current chanting streak")
+        }
+        
+        APIUtilities.fetchTotalSecsChanted(userID: userID) { (result) in
+            print("set userdefaults total secs chanted")
+        }
+        
     }
     
     func renderShowcaseView() {
@@ -992,13 +1000,21 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     // MARK: - Api
     private func fireMilestoneSavingApi(seconds: Int) {
+        
         let currentDate = LPHUtils.getCurrentDate()
         let chantDate = String(currentDate)
         let userId = LPHUtils.getCurrentUserID()
         print("USER \(userId)")
         
-       APIUtilities.updateMilestone(date: chantDate, seconds: seconds, userID: userId) { (lphResponse) in }
-       APIUtilities.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in }
+        APIUtilities.updateMilestone(date: chantDate, seconds: seconds, userID: userId) { (lphResponse) in
+            //Fetch to save in UserDefaults
+            APIUtilities.fetchTotalSecsChanted(userID: userId) { (result) in print("Updated local data") }
+        }
+       
+        APIUtilities.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in
+            //Fetch to save in UserDefaults
+            APIUtilities.fetchCurrentChantingStreak(userID: userId) { (result) in }
+       }
 
     }
     

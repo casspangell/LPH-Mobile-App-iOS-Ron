@@ -166,6 +166,10 @@ extension UserDefaults {
         static let chantMinutePendingTemp = "UserDefaultsChantMinutePendingTemp"
         static let appInviteShareLink = "UserDefaultsShareLink"
         
+        static let chantTimestamp = "UserDefaultsChantTimestamp"
+        static let chantCurrentStreak = "UserDefaultsChantCurrentStreak"
+        static let chantLongestStreak = "UserDefaultsChantLongestStreak"
+        
     }
 }
 

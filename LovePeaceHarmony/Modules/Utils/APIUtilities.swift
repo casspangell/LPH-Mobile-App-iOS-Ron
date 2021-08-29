@@ -51,30 +51,6 @@ class APIUtilities {
         }
     }
     
-    //
-    //  Updates Minutes when new milestone data is made
-    //
-//    class func updateTotalMinsChanted(userID: String, minutes: String, completion: @escaping(Result<Double>) -> Void) {
-//        print("update total minutes chanted for user:\(userID)")
-//
-//        let user = "user:\(userID)"
-//
-//        //Database in Firestore
-//        let lphDatabase = Database.database().reference()
-//
-//        lphDatabase.child(user).child("total_secs_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let totalSecsData = snapshot.value as? Double else {
-//                return
-//            }
-//            print(totalSecsData)
-//
-//            completion(.success(totalSecsData))
-//        }) { (error) in
-//            completion(.failure(error))
-//            print(error.localizedDescription)
-//        }
-//
-//    }
     
     //
     //  Updates Chanting Streak when new milestone data is made
@@ -208,41 +184,6 @@ class APIUtilities {
     }
     
 //MARK: Fetch Milestones
-    
-    //
-    // kilroy: Not needed yet, but written just in case
-    //
-//    class func fetchChantingMilestones(userID: String, completion: @escaping(Result<[Milestone]>) -> Void) {
-//
-//        let user = "user:\(userID)"
-//        var chantingMilestones:[Milestone] = []
-//
-//        //Database in Firestore
-//        let lphDatabase = Database.database().reference()
-//        print("fetching chanting milestones for user:\(userID)")
-//
-//        lphDatabase.child(user).child("chanting_milestones").observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let milestoneData = snapshot.value as? [String: Any] else {
-//                return
-//            }
-//            print(milestoneData)
-//
-//            do {
-//                for (_,v) in milestoneData {
-//                    let dict = v as! [String : String]
-//                    let milestone = Milestone(day_chanted: dict["day_chanted"]!, minutes: dict["minutes"]!)
-//
-//                    chantingMilestones.append(milestone)
-//                    }
-//
-//                completion(.success(chantingMilestones))
-//            }
-//        }) { (error) in
-//            completion(.failure(error))
-//            print(error.localizedDescription)
-//        }
-//    }
-    
     class func fetchCurrentChantingStreak(userID: String, completion: @escaping(Result<Streak>) -> Void) {
         print("fetching current chanting streak for user:\(userID)")
 
@@ -262,6 +203,10 @@ class APIUtilities {
                 let currentStreak = chantStreakData["current_streak"] as! Int
                 let longestStreak = chantStreakData["longest_streak"] as! Int
                 currentChantingStreak = Streak(last_day_chanted: lastDay, current_streak: currentStreak, longest_streak: longestStreak)
+                
+                //Set UserDefaults
+                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantCurrentStreak, value: "\(currentStreak)")
+                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantLongestStreak, value: "\(longestStreak)")
                 
                 completion(.success(currentChantingStreak))
             }
@@ -285,6 +230,10 @@ class APIUtilities {
                 return
             }
             print(totalSecsData)
+            
+            //Set UserDefaults
+            let timeStamp = LPHUtils.returnHoursMinsSeconds(seconds: totalSecsData)
+            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantTimestamp, value: timeStamp)
             
             completion(.success(totalSecsData))
         }) { (error) in
