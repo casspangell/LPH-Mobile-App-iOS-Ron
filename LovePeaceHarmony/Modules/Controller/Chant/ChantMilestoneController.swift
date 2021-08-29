@@ -171,10 +171,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         APIUtilities.fetchTotalSecsChanted(userID: userId) { [self] (result) in
             switch result {
             case .success(let seconds):
-//                let (h, m, s) = LPHUtils.secondsToHoursMinutesSeconds(seconds: Int(seconds))
-//
-//                labelMinutesCount.text = "\(h):\(m):\(s)"
-            
+
                 let timeStamp = LPHUtils.returnHoursMinsSeconds(seconds: seconds)
                 labelMinutesCount.text = timeStamp
                 
