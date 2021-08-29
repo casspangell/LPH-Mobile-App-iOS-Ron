@@ -104,25 +104,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         initiateShare()
     }
     
-    private func populateData(milestoneVo: Milestones) {
-
-//        LPHUtils.setUserDefaultsFloat(key: UserDefaults.Keys.chantDay, value: Float(daysCount))
-//        LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantMinute, value: minutesCount)
-
-//        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.inviteCount, value: Int(milestoneVo.invitesCount)!)
-
-//    //    labelDayCount.text = String(daysCount)
-//     //   labelMinutesCount.text = "\(minutesCount)!"
-        
-        
-//        
-//        if Int(milestoneVo.invitesCount)! >= 1000 {
-//            labelPeopleCount.text = "\(Int(Int(milestoneVo.invitesCount)! / 1000))K"
-//        } else {
-//            labelPeopleCount.text = milestoneVo.invitesCount
-//        }
-        
-    }
 
     private func initiateShare() {
         
