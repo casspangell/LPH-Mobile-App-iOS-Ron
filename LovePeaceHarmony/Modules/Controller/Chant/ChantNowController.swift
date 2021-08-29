@@ -397,7 +397,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         } else {
             isFirstRun = false
             AVAudioSingleton.sharedInstance.pause()
-            print("4")
             startTime = labelSeekTime.text //set new start time
             processChantingMilestone()
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
@@ -484,7 +483,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func forceStopPlaying(chantSong : ChantFile) {
-        print("1")
+
         processChantingMilestone()
         
         if currentSong == chantSong {
@@ -550,7 +549,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func getNextSong() -> ChantFile? {
-        print("2")
+
         processChantingMilestone()
         var nextSong: ChantFile?
         if currentSong != nil {
@@ -619,7 +618,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func getPreviousSong() -> ChantFile? {
-        print("3")
+
         processChantingMilestone()
         var previousSong: ChantFile?
         let songListSize = songListStatus.count
