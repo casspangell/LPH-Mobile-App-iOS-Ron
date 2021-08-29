@@ -246,7 +246,21 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         }
     }
     
+    @objc func sliderTouchDown(sender: UISlider) {
+        print("touch down")
+    }
+    
+    @objc func sliderRelease(sender: UISlider) {
+        print("release")
+    }
+    
     private func initiateMusicPlayer() {
+        
+        // slider targets
+        sliderMusicSeek.addTarget(self, action: #selector(sliderTouchDown), for: UIControlEvents.touchDown)
+        sliderMusicSeek.addTarget(self, action: #selector(sliderRelease), for: UIControlEvents.touchUpInside)
+
+
         let currentSongIndex = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentChantSong)
         print("current song index: \(currentSongIndex)")
         
@@ -832,6 +846,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @IBAction func onSliderSeekValueChanged(_ sender: UISlider) {
         let interval = TimeInterval(sender.value * 60 * totalChantDuration!)
         AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval:interval)
+
         updateSlider()
     }
     

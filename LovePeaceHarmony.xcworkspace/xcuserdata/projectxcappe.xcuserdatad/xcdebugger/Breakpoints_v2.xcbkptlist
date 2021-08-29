@@ -222,10 +222,10 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "renderShowcaseView()"
-            landmarkType = "7">
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "ChantNowController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -503,16 +503,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F5252A48-F0A5-46C4-8251-0169594CA9DB"
-            shouldBeEnabled = "Yes"
+            uuid = "E50EE0D6-FFEA-44F2-9FEB-4B4DB3AA82B9"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LovePeaceHarmony/Modules/Controller/Chant/ChantNowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
-            landmarkName = "processChantingMilestone()"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
+            landmarkName = "forceStopPlaying(chantSong:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
