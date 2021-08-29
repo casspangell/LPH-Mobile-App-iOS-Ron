@@ -26,6 +26,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var songListShuffled = [ChantFile]()
     var currentSong: ChantFile?
     var currentSongString: String?
+    var isFirstRun = true
     var isAudioPlaying = false
     var isShuffleEnabled = false
     var isRepeatEnabled = false
@@ -339,7 +340,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     private func togglePlayPauseButton() {
        
-        //initial run of an mp3, or from pause
+        //Pressed Play
         if (!isAudioPlaying) {
  
                 var songName: String?
@@ -372,10 +373,11 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
                 currentSongString = songName!
                 
-            if (labelSeekTime.text != "00.00") {
-                AVAudioSingleton.sharedInstance.play() //Is there already music playing?
+            //If first run, start default song, else continue from the current song
+            if (isFirstRun) {
+                AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
             } else {
-                AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!) //Is this first run?
+                AVAudioSingleton.sharedInstance.play()
             }
             
             startTime = labelSeekTime.text //set new start time
@@ -383,16 +385,59 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
             isAudioPlaying = true
 
-        //If from a skip or next
+        //Pressed Pause
         } else {
-            sliderTimer?.invalidate()
-//            processChantingMilestone()
+            isFirstRun = false
+            AVAudioSingleton.sharedInstance.pause()
+            processChantingMilestone()
             startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
-            isAudioPlaying = true
+            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//pause image
+            isAudioPlaying = false
         }
+    }
+    
+    private func pressedSkip() {
         
+        isFirstRun = false
         
+        var songName: String?
+        
+        switch currentSong {
+        case .mandarin_soul_english:
+            songName = ChantFileName.mandarinSoulEnglish
+        case .instrumental:
+            songName = ChantFileName.instrumental
+        case .hindi_sl_english:
+            songName = ChantFileName.hindi_sl_english
+        case .spanish:
+            songName = ChantFileName.spanish
+        case .mandarin_english_german:
+            songName = ChantFileName.mandarin_english_german
+        case .french:
+            songName = ChantFileName.french
+        case .french_antillean_creole:
+            songName = ChantFileName.french_antillean_creole
+        case .kawehi_haw:
+            songName = ChantFileName.kawehi_haw
+        case .sha_eng:
+            songName = ChantFileName.sha_eng
+        case .sha_lula_eng_ka_haw:
+            songName = ChantFileName.sha_lula_eng_ka_haw
+
+        default:
+            songName = ChantFileName.mandarinSoulEnglish
+        }
+
+        currentSongString = songName!
+
+        AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
+        sliderTimer?.invalidate()
+        startTime = labelSeekTime.text //set new start time
+        sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+        buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
+        isAudioPlaying = true
+
     }
     
     private func renderSongName() {
@@ -414,13 +459,15 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //Grab timestamp label and convert to total seconds
         //Calculate the start timestamp and the current timestamp
         let currentTime = labelSeekTime.text!.components(separatedBy: ".")
+        let currentTime_Mins = Int(currentTime[0])
+        let currentTime_Secs = Int(currentTime[1])
         let sTime = startTime!.components(separatedBy: ".")
+        let sTime_Mins = Int(sTime[0])
+        let sTime_Secs = Int(sTime[1])
         
-        let currentTimeTotalSecs = (Int(currentTime[0])!*60) + Int(currentTime[1])!
-        let startTimeTotalSecs = (Int(sTime[0])!*60) + Int(sTime[1])!
-        print("currTime \(Int(currentTime[0]))*60 = \((Int(currentTime[0])!*60)) + \(Int(currentTime[1]))")
-        print("startTime \(Int(sTime[0]))*60 = \((Int(sTime[0])!*60)) + \(Int(sTime[1]))")
-        print("total \((currentTimeTotalSecs - startTimeTotalSecs))")
+        let currentTimeTotalSecs = (currentTime_Mins!*60) + currentTime_Secs!
+        let startTimeTotalSecs = (sTime_Mins!*60) + sTime_Secs!
+
         let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
         
         fireMilestoneSavingApi(seconds: totalSeconds)
@@ -428,6 +475,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func forceStopPlaying(chantSong : ChantFile) {
+        print("kilroy forceStopPlaying")
         processChantingMilestone()
         
         if currentSong == chantSong {
@@ -493,6 +541,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func getNextSong() -> ChantFile? {
+        print("kilroy getNextSong")
         processChantingMilestone()
         var nextSong: ChantFile?
         if currentSong != nil {
@@ -561,6 +610,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func getPreviousSong() -> ChantFile? {
+        print("kilroy getPreviousSong")
         processChantingMilestone()
         var previousSong: ChantFile?
         let songListSize = songListStatus.count
@@ -706,7 +756,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             resetAudioPlayer()
             initiateMusicPlayer()
             AVAudioSingleton.sharedInstance.play()
-            togglePlayPauseButton()
+            pressedSkip()
         } else {
             showToast(message: NSLocalizedString(AlertMessage.noPreviousSong, comment: ""))
         }
@@ -719,7 +769,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             resetAudioPlayer()
             initiateMusicPlayer()
             AVAudioSingleton.sharedInstance.play()
-            togglePlayPauseButton()
+            pressedSkip()
         } else {
             showToast(message: NSLocalizedString(AlertMessage.noNextSong, comment: ""))
         }
