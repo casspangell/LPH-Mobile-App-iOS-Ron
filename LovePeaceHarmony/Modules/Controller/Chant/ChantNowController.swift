@@ -397,8 +397,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         } else {
             isFirstRun = false
             AVAudioSingleton.sharedInstance.pause()
-            processChantingMilestone()
+            print("4")
             startTime = labelSeekTime.text //set new start time
+            processChantingMilestone()
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//pause image
             isAudioPlaying = false
@@ -483,7 +484,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func forceStopPlaying(chantSong : ChantFile) {
-        print("kilroy forceStopPlaying")
+        print("1")
         processChantingMilestone()
         
         if currentSong == chantSong {
@@ -549,7 +550,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func getNextSong() -> ChantFile? {
-        print("kilroy getNextSong")
+        print("2")
         processChantingMilestone()
         var nextSong: ChantFile?
         if currentSong != nil {
@@ -618,7 +619,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func getPreviousSong() -> ChantFile? {
-        print("kilroy getPreviousSong")
+        print("3")
         processChantingMilestone()
         var previousSong: ChantFile?
         let songListSize = songListStatus.count
@@ -1008,7 +1009,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         APIUtilities.updateMilestone(date: chantDate, seconds: seconds, userID: userId) { (lphResponse) in
             //Fetch to save in UserDefaults
-            APIUtilities.fetchTotalSecsChanted(userID: userId) { (result) in print("Updated local data") }
+            APIUtilities.fetchTotalSecsChanted(userID: userId) { (result) in }
         }
        
         APIUtilities.updateChantingStreak(date: chantDate, userID: userId) { (lphResponse) in
