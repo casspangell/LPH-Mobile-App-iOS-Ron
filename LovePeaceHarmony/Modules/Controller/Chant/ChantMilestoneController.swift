@@ -155,7 +155,6 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                     labelMinutesCount.text = timeStamp
                 }
                 
-                
                 self.timestampActivityIndicator.stopAnimating()
 
             case .failure(let error):
