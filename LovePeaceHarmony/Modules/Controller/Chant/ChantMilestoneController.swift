@@ -146,7 +146,15 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
             case .success(let seconds):
 
                 let timeStamp = LPHUtils.returnHoursMinsSeconds(seconds: seconds)
-                labelMinutesCount.text = timeStamp
+                
+                if timeStamp.count == 1 {
+                    labelMinutesCount.text = "00:0\(timeStamp)"
+                } else if timeStamp.count == 2 {
+                    labelMinutesCount.text = "00:\(timeStamp)"
+                } else {
+                    labelMinutesCount.text = timeStamp
+                }
+                
                 
                 self.timestampActivityIndicator.stopAnimating()
 

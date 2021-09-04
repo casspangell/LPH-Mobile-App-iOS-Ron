@@ -51,7 +51,6 @@ class APIUtilities {
         }
     }
     
-    
     //
     //  Updates Chanting Streak when new milestone data is made
     //
