@@ -116,11 +116,10 @@
 
 /* Logout */
 "Logout" = "Déconnexion";
-"Love Peace Harmony Messenger" = "";
+"Love Peace Harmony Messenger" = "Messager d'Amour Paix Harmonie";
 
 /* Base View Controller */
 "Alert" = "Alerte";
-"Cancel" = "Annuler";
 "Ok" = "Ok";
 
 /* LPH Constants */
