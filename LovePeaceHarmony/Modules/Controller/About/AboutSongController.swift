@@ -3,6 +3,7 @@
 //  LovePeaceHarmony
 //
 //  Created by Aghil C M on 13/12/17.
+//  Updated by Cass Pangell on 9/4/21.
 //  Copyright © 2017 LovePeaceHarmony. All rights reserved.
 //
 
@@ -35,15 +36,17 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
         }
         
         let songTitle = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songTitle, comment: "") )
-        songTitle.addAttribute(.font, value: UIFont(name: "OpenSans-Semibold", size: 15)!, range: NSRange(location: 0, length: songTitle.length))
-        songTitle.addAttribute(.font, value: UIFont(name: "OpenSans-SemiboldItalic", size: 15)!, range: NSRange(location: 47, length: 23))
         labelTitle.attributedText = songTitle
         
         let songDescription = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription, comment: "") )
-        songDescription.addAttribute(.font, value: UIFont(name: "OpenSans", size: 15)!, range: NSRange(location: 0, length: songDescription.length))
-        songDescription.addAttribute(.font, value: UIFont(name: "OpenSans-Italic", size: 15)!, range: NSRange(location: 254, length: 23))
-        songDescription.addAttribute(.font, value: UIFont(name: "OpenSans-Italic", size: 15)!, range: NSRange(location: 609, length: 23))
-        labelDescription.attributedText = songDescription
+        let songDescription2 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription2, comment: "") )
+        let songDescription3 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription3, comment: "") )
+        let songDescription4 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription4, comment: "") )
+        
+        let wholeSongDescription = NSMutableAttributedString(string:"\(songDescription)\n\n\(songDescription2)\n\n\(songDescription3)\n\n\(songDescription4)")
+        wholeSongDescription.addAttribute(.font, value: UIFont(name: "OpenSans", size: 15)!, range: NSRange(location: 0, length: wholeSongDescription.length))
+
+        labelDescription.attributedText = wholeSongDescription
     }
 
     // MARK: - XLPagerTabStrip
