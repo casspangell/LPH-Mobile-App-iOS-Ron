@@ -73,8 +73,8 @@
 "Erase Milestones" = "Borrar Hitos";
 
 /* Chant Reminder Controller */
-"On" = "Encendido"
-"Off" = "Apagado"
+"On" = "Encendido";
+"Off" = "Apagado";
 "No reminder added" = "No se ha añadido ningún recordatorio";
 "Repeat" = "Repetir";
 "Default" = "Por Defecto";
@@ -124,22 +124,22 @@
 
 /* LPH Constants */
 "It's time to chant!!!" = "¡¡Es hora de cantar!!";
-"Please check your internet connection!" = "Compruebe su conexión a Internet"
-"Something went wrong, please try again" = "Algo ha ido mal, por favor, inténtelo de nuevo"
-"Please enter your name" = "Por favor, introduce tu nombre"
-"Invalid email address" = "Dirección de correo electrónico inválida"
-"Please enter your password" = "Introduce tu contraseña"
-"Password needs to be at least 6 characters" = "La contraseña debe tener al menos 6 caracteres"
-"Please enter confirmation password" = "Por favor, introduzca la contraseña de confirmación"
-"Passwords do not match" = "Las contraseñas no coinciden"
-"Tap anywhere to continue" = "Pulse en cualquier lugar para continuar"
-"Please enable your song & play" = "Por favor, active su canción y juegue."
-"Shuffle turned on" = "Aleatorio activado"
-"Shuffle turned off" = "Aleatorio desactivado"
-"Repeat turned on" = "Repetición activada"
-"Repeat turned off" = "Repetición desactivada"
-"No previous song" = "Ninguna canción anterior"
-"No next song" = "No hay siguiente canción"
+"Please check your internet connection!" = "Compruebe su conexión a Internet";
+"Something went wrong, please try again" = "Algo ha ido mal, por favor, inténtelo de nuevo";
+"Please enter your name" = "Por favor, introduce tu nombre";
+"Invalid email address" = "Dirección de correo electrónico inválida";
+"Please enter your password" = "Introduce tu contraseña";
+"Password needs to be at least 6 characters" = "La contraseña debe tener al menos 6 caracteres";
+"Please enter confirmation password" = "Por favor, introduzca la contraseña de confirmación";
+"Passwords do not match" = "Las contraseñas no coinciden";
+"Tap anywhere to continue" = "Pulse en cualquier lugar para continuar";
+"Please enable your song & play" = "Por favor, active su canción y juegue.";
+"Shuffle turned on" = "Aleatorio activado";
+"Shuffle turned off" = "Aleatorio desactivado";
+"Repeat turned on" = "Repetición activada";
+"Repeat turned off" = "Repetición desactivada";
+"No previous song" = "Ninguna canción anterior";
+"No next song" = "No hay siguiente canción";
 
 /* About Description */
 "Join together with 1.5 billion people to chant Love, Peace and Harmony by 2030." = "Únanse a 1.500 millones de personas para cantar Amor, Paz y Armonía para el 2030.";

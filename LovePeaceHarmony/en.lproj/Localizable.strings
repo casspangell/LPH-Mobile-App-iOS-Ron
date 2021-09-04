@@ -76,8 +76,8 @@
 "Erase Milestones" = "Erase Milestones";
 
 /* Chant Reminder Controller */
-"On" = "On"
-"Off" = "Off"
+"On" = "On";
+"Off" = "Off";
 "No reminder added" = "No reminder added";
 "Repeat" = "Repeat";
 "Default" = "Default";
@@ -128,22 +128,22 @@
 
 /* LPH Constants */
 "It's time to chant!!!" = "It's time to chant!!!";
-"Please check your internet connection!" = "Please check your internet connection!"
-"Something went wrong, please try again" = "Something went wrong, please try again"
-"Please enter your name" = "Please enter your name"
-"Invalid email address" = "Invalid email address"
-"Please enter your password" = "Please enter your password"
-"Password needs to be at least 6 characters" = "Password needs to be at least 6 characters"
-"Please enter confirmation password" = "Please enter confirmation password"
-"Passwords do not match" = "Passwords do not match"
-"Tap anywhere to continue" = "Tap anywhere to continue"
-"Please enable your song & play" = "Please enable your song & play"
-"Shuffle turned on" = "Shuffle turned on"
-"Shuffle turned off" = "Shuffle turned off"
-"Repeat turned on" = "Repeat turned on"
-"Repeat turned off" = "Repeat turned off"
-"No previous song" = "No previous song"
-"No next song" = "No next song"
+"Please check your internet connection!" = "Please check your internet connection!";
+"Something went wrong, please try again" = "Something went wrong, please try again";
+"Please enter your name" = "Please enter your name";
+"Invalid email address" = "Invalid email address";
+"Please enter your password" = "Please enter your password";
+"Password needs to be at least 6 characters" = "Password needs to be at least 6 characters";
+"Please enter confirmation password" = "Please enter confirmation password";
+"Passwords do not match" = "Passwords do not match";
+"Tap anywhere to continue" = "Tap anywhere to continue";
+"Please enable your song & play" = "Please enable your song & play";
+"Shuffle turned on" = "Shuffle turned on";
+"Shuffle turned off" = "Shuffle turned off";
+"Repeat turned on" = "Repeat turned on";
+"Repeat turned off" = "Repeat turned off";
+"No previous song" = "No previous song";
+"No next song" = "No next song";
 
 /* About Description */
 "Join together with 1.5 billion people to chant Love, Peace and Harmony by 2030." = "Join together with 1.5 billion people to chant Love, Peace and Harmony by 2030.";

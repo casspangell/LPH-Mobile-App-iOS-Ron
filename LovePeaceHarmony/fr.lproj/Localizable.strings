@@ -29,7 +29,7 @@
 "Chant Now" = "Chanter Maintenant";
 "Reminders" = "Rappels";
 "Milestones" = "Objectifs";
-"Chanting for World Peace" = "Chanter pour la paix dans le monde"
+"Chanting for World Peace" = "Chanter pour la paix dans le monde";
 "Chant" = "Chantez";
 "Shuffle Turned On" = "Lecture Aléatoire Activée";
 "Shuffle Turned Off" = "Lecture Aléatoire Désactivée";
@@ -74,8 +74,8 @@
 "Erase Milestones" = "Effacer les Objectifs";
 
 /* Chant Reminder Controller */
-"On" = "Activé"
-"Off" = "Désactivé"
+"On" = "Activé";
+"Off" = "Désactivé";
 "No reminder added" = "Aucun Rappel Ajouté";
 "Repeat" = "Répéter";
 "Default" = "Défaut";
@@ -124,22 +124,22 @@
 
 /* LPH Constants */
 "It's time to chant!!!" = "Il est temps de chanter !!!";
-"Please check your internet connection!" = "Veuillez vérifier votre connexion Internet !"
-"Something went wrong, please try again" = "Quelque chose s'est produit, veuillez réessayer"
-"Please enter your name" = "Veuillez saisir votre nom"
-"Invalid email address" = "Adresse électronique non valide"
-"Please enter your password" = "Veuillez entrer votre mot de passe"
-"Password needs to be at least 6 characters" = "Le mot de passe doit être composé d'au moins 6 caractères"
-"Please enter confirmation password" = "Veuillez entrer le mot de passe de confirmation"
-"Passwords do not match" = "Les mots de passe ne correspondent pas"
-"Tap anywhere to continue" = "Tapez n'importe où pour continuer."
-"Please enable your song & play" = "Veuillez activer votre chanson et la faire jouer"
-"Shuffle turned on" = "Lecture aléatoire activée"
-"Shuffle turned off" = "Lecture aléatoire désactivée"
-"Repeat turned on" = "Répétition activée"
-"Repeat turned off" = "Répétition désactivée"
-"No previous song" = "Aucune chanson précédente"
-"No next song" = "Pas de chanson suivante"
+"Please check your internet connection!" = "Veuillez vérifier votre connexion Internet !";
+"Something went wrong, please try again" = "Quelque chose s'est produit, veuillez réessayer";
+"Please enter your name" = "Veuillez saisir votre nom";
+"Invalid email address" = "Adresse électronique non valide";
+"Please enter your password" = "Veuillez entrer votre mot de passe";
+"Password needs to be at least 6 characters" = "Le mot de passe doit être composé d'au moins 6 caractères";
+"Please enter confirmation password" = "Veuillez entrer le mot de passe de confirmation";
+"Passwords do not match" = "Les mots de passe ne correspondent pas";
+"Tap anywhere to continue" = "Tapez n'importe où pour continuer.";
+"Please enable your song & play" = "Veuillez activer votre chanson et la faire jouer";
+"Shuffle turned on" = "Lecture aléatoire activée";
+"Shuffle turned off" = "Lecture aléatoire désactivée";
+"Repeat turned on" = "Répétition activée";
+"Repeat turned off" = "Répétition désactivée";
+"No previous song" = "Aucune chanson précédente";
+"No next song" = "Pas de chanson suivante";
 
 
 /* About Description */

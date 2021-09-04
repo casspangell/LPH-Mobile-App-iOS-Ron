@@ -73,8 +73,8 @@
 "Erase Milestones" = "Verwijder Mijlpalen";
 
 /* Chant Reminder Controller */
-"On" = "Aan"
-"Off" = "Uit"
+"On" = "Aan";
+"Off" = "Uit";
 "No reminder added" = "Geen herinneringsmelding toegevoegd";
 "Repeat" = "Herhalen";
 "Default" = "Standaardinstelling";
@@ -122,22 +122,22 @@
 
 /* LPH Constants */
 "It's time to chant!!!" = "En nu gaan we chanten!!!";
-"Please check your internet connection!" = "Check alsjeblieft je internetverbinding!"
-"Something went wrong, please try again" = "Er is iets verkeerd gegaan, probeer het alsjeblieft opnieuw"
-"Please enter your name" = "Voer je naam in"
-"Invalid email address" = "Iverkeerd e-mailadres"
-"Please enter your password" = "Voer je wachtwoord in"
-"Password needs to be at least 6 characters" = "Het wachtwoord moet minstens 6 karakters bevatten"
-"Please enter confirmation password" = "Bevestig je wachtwoord"
-"Passwords do not match" = "Wachtwoorden komen niet overeen "
-"Tap anywhere to continue" = "Klik op een willekeurige plek om door te gaan"
-"Please enable your song & play" = "Klik de song van jouw keuze aan  "
-"Shuffle turned on" = "Willekeurig afspelen aangezet"
-"Shuffle turned off" = "Willekeurigafspelen uitgezet"
-"Repeat turned on" = "Herhalen aangezet"
-"Repeat turned off" = "Herhalen uitgezet"
-"No previous song" = "Geen vorige song"
-"No next song" = "Geen volgende song"
+"Please check your internet connection!" = "Check alsjeblieft je internetverbinding!";
+"Something went wrong, please try again" = "Er is iets verkeerd gegaan, probeer het alsjeblieft opnieuw";
+"Please enter your name" = "Voer je naam in";
+"Invalid email address" = "Iverkeerd e-mailadres";
+"Please enter your password" = "Voer je wachtwoord in";
+"Password needs to be at least 6 characters" = "Het wachtwoord moet minstens 6 karakters bevatten";
+"Please enter confirmation password" = "Bevestig je wachtwoord";
+"Passwords do not match" = "Wachtwoorden komen niet overeen";
+"Tap anywhere to continue" = "Klik op een willekeurige plek om door te gaan";
+"Please enable your song & play" = "Klik de song van jouw keuze aan";
+"Shuffle turned on" = "Willekeurig afspelen aangezet";
+"Shuffle turned off" = "Willekeurigafspelen uitgezet";
+"Repeat turned on" = "Herhalen aangezet";
+"Repeat turned off" = "Herhalen uitgezet";
+"No previous song" = "Geen vorige song";
+"No next song" = "Geen volgende song";
 
 /* About Description */
 "Join together with 1.5 billion people to chant Love, Peace and Harmony by 2030." = "Kom samen met 1,5 miljard mensen om Liefde, Vrede en Harmonie te zingen in 2030.";
