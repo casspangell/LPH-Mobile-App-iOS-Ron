@@ -52,16 +52,19 @@
       "scale" : "3x"
     },
     {
+      "filename" : "lph_german.png",
       "idiom" : "universal",
       "locale" : "de",
       "scale" : "1x"
     },
     {
+      "filename" : "lph_german@2x.png",
       "idiom" : "universal",
       "locale" : "de",
       "scale" : "2x"
     },
     {
+      "filename" : "lph_german@3x.png",
       "idiom" : "universal",
       "locale" : "de",
       "scale" : "3x"
