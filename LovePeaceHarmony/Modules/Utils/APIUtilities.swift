@@ -47,7 +47,7 @@ class APIUtilities {
             }
             
             let totalSecsChanted = totalSecsData + seconds
-            lphDatabase.child(user).updateChildValues(["total_secs_chanted" : totalSecsData])
+            lphDatabase.child(user).updateChildValues(["total_secs_chanted" : totalSecsChanted])
         }
     }
     
@@ -199,35 +199,41 @@ class APIUtilities {
         
                 let currentStreak = snapshot["current_chanting_streak"] as? [String: Any]
 
-            do {
-                let lastDay = currentStreak!["last_day_chanted"] as! String
-                let currentStreak = currentStreak!["current_streak"] as! Int
-//                let longestStreak = currentStreak["longest_streak"] as! Int
-            }
-        }
-        
-        
-        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let chantStreakData = snapshot.value as? [String: Any] else {
-                return
-            }
-            print(chantStreakData)
-            do {
-                let lastDay = chantStreakData["last_day_chanted"] as! String
-                let currentStreak = chantStreakData["current_streak"] as! Int
-                let longestStreak = chantStreakData["longest_streak"] as! Int
-                currentChantingStreak = Streak(last_day_chanted: lastDay, current_streak: currentStreak, longest_streak: longestStreak)
+                let lastDay = currentStreak!["last_day_chanted"] as? String
+                let currStreak = currentStreak!["current_streak"] as? Int
+                let longestStreak = currentStreak!["longest_streak"] as? Int
+            
+            currentChantingStreak = Streak(last_day_chanted: lastDay!, current_streak: currStreak!, longest_streak: longestStreak!)
                 
                 //Set UserDefaults
-                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantCurrentStreak, value: "\(currentStreak)")
-                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantLongestStreak, value: "\(longestStreak)")
+                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantCurrentStreak, value: "\(currStreak ?? 0)")
+                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantLongestStreak, value: "\(longestStreak ?? 0)")
                 
                 completion(.success(currentChantingStreak))
-            }
-        }) { (error) in
-            completion(.failure(error))
-            print(error.localizedDescription)
+            
         }
+        
+//        lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value, with: { (snapshot) in
+//            guard let chantStreakData = snapshot.value as? [String: Any] else {
+//                return
+//            }
+//            print(chantStreakData)
+//            do {
+//                let lastDay = chantStreakData["last_day_chanted"] as! String
+//                let currentStreak = chantStreakData["current_streak"] as! Int
+//                let longestStreak = chantStreakData["longest_streak"] as! Int
+//                currentChantingStreak = Streak(last_day_chanted: lastDay, current_streak: currentStreak, longest_streak: longestStreak)
+//
+//                //Set UserDefaults
+//                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantCurrentStreak, value: "\(currentStreak)")
+//                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantLongestStreak, value: "\(longestStreak)")
+//
+//                completion(.success(currentChantingStreak))
+//            }
+//        }) { (error) in
+//            completion(.failure(error))
+//            print(error.localizedDescription)
+//        }
     
     }
     
@@ -243,8 +249,7 @@ class APIUtilities {
             guard let totalSecsData = snapshot.value as? Double else {
                 return
             }
-            print(totalSecsData)
-            
+
             //Set UserDefaults
             let timeStamp = LPHUtils.returnHoursMinsSeconds(seconds: totalSecsData)
             LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantTimestamp, value: timeStamp)

@@ -318,6 +318,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval: currentTime)
             
             //grabs the current timestamp for more accurate chanting time
+            print("Set START TIME \(currentTime)")
             startTime = String(currentTime)
             updateSlider()
         } else {
@@ -418,8 +419,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         } else {
             isFirstRun = false
             AVAudioSingleton.sharedInstance.pause()
-            startTime = labelSeekTime.text //set new start time
             processChantingMilestone()
+            startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//pause image
             isAudioPlaying = false
