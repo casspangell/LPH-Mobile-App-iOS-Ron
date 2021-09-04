@@ -246,14 +246,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         }
     }
     
-    @objc func sliderTouchDown(sender: UISlider) {
-        print("touch down")
-    }
-    
-    @objc func sliderRelease(sender: UISlider) {
-        print("release")
-    }
-    
     private func initiateMusicPlayer() {
         
         // slider targets
@@ -336,7 +328,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @objc func updateSlider() {
         
             let currentTime = AVAudioSingleton.sharedInstance.getCurrentTime()
-        
+
             chantMilestoneCounter += 1
             let milestoneTempMinutes = chantMilestoneCounter.truncatingRemainder(dividingBy: 600)
             if milestoneTempMinutes == 0 {
@@ -358,6 +350,21 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             }
         
             sliderMusicSeek.setValue(Float(temp), animated: true)
+    }
+    
+    @objc func sliderTouchDown(sender: UISlider) {
+        print("touch down")
+        //process milestone with touch down value
+        
+        togglePlayPauseButton()
+    }
+    
+    @objc func sliderRelease(sender: UISlider) {
+        print("release")
+        //update start time to release value
+        startTime = labelSeekTime.text //set new start time
+        togglePlayPauseButton()
+        
     }
     
     private func togglePlayPauseButton() {
@@ -483,12 +490,19 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let currentTime = labelSeekTime.text!.components(separatedBy: ":")
         let currentTime_Mins = Int(currentTime[0])
         let currentTime_Secs = Int(currentTime[1])
+        
+        var sTime_Mins = 0
+        var sTime_Secs = 0
+        
         let sTime = startTime!.components(separatedBy: ":")
-        let sTime_Mins = Int(sTime[0])
-        let sTime_Secs = Int(sTime[1])
+        
+        if sTime.count != 1 {
+            sTime_Mins = Int(sTime[0])!
+            sTime_Secs = Int(sTime[1])!
+        }
         
         let currentTimeTotalSecs = (currentTime_Mins!*60) + currentTime_Secs!
-        let startTimeTotalSecs = (sTime_Mins!*60) + sTime_Secs!
+        let startTimeTotalSecs = (sTime_Mins*60) + sTime_Secs
 
         let totalSeconds = (currentTimeTotalSecs - startTimeTotalSecs)
         

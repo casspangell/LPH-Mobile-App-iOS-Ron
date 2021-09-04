@@ -353,12 +353,12 @@ class AVAudioSingleton {
         }
     }
     
+    
     func setVolume(volume: Float) {
         player?.volume = volume
     }
     
     func setCurrentTime(timeInterval: Double) {
-        print("current time \(timeInterval)")
         player?.currentTime = timeInterval
     }
     

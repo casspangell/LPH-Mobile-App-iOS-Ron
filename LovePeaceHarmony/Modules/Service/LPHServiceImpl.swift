@@ -12,7 +12,7 @@ import FirebaseDatabase
 public class LPHServiceImpl: LPHService {
     
     //Database in Firestore
-    private let lphDatabase = Database.database().reference()
+    private let lphDatabase = Database.database().reference(withPath: "love-peace-harmony")
     
     private func handleSessionExpiry(completion: @escaping () -> Void) {
         let loginVo = LPHUtils.getLoginVo()

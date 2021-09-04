@@ -27,7 +27,7 @@ class APIUtilities {
     class func updateMilestone(date: String, seconds: Int, userID: String, completion: @escaping (Result<Any>) -> Void) {
 
         print("updating milestone")
-        let user = "user:\(userID)"
+        let user = "\(userID)"
         
         let milestone: [String:Any] = [
             "seconds": seconds as NSObject,
@@ -35,19 +35,19 @@ class APIUtilities {
         ]
         
         //Database in Firestore
-        let lphDatabase = Database.database().reference()
+        let lphDatabase = Database.database().reference(withPath: "love-peace-harmony")
         lphDatabase.child(user).child("chanting_milestones").child(date).setValue(milestone)
         
         //Update total minutes chanted
         lphDatabase.child(user).child("total_secs_chanted").observeSingleEvent(of: .value) { (snapshot) in
             guard let totalSecsData = snapshot.value as? Int else {
                 //Set initial value
-                lphDatabase.child(user).child("total_secs_chanted").setValue(seconds)
+                lphDatabase.child(user).updateChildValues(["total_secs_chanted" : seconds])
                 return
             }
             
             let totalSecsChanted = totalSecsData + seconds
-            lphDatabase.child(user).child("total_secs_chanted").setValue(totalSecsChanted)
+            lphDatabase.child(user).updateChildValues(["total_secs_chanted" : totalSecsData])
         }
     }
     
@@ -57,10 +57,10 @@ class APIUtilities {
     //
     class func updateChantingStreak(date: String, userID: String, completion: @escaping (Result<Any>) -> Void) {
         print("updating chanting streak")
-        let user = "user:\(userID)"
+        let user = "\(userID)"
         
         //Database in Firestore
-        let lphDatabase = Database.database().reference()
+        let lphDatabase = Database.database().reference(withPath: "love-peace-harmony")
         lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value, with: { (snapshot) in
            
             guard let streakValue = snapshot.value as? [String: Any] else {
@@ -155,13 +155,13 @@ class APIUtilities {
     class func eraseMilestones(userID: String, completion: @escaping (Result<Any>) -> Void) {
 
         print("erasing all milestones")
-        let user = "user:\(userID)"
+        let user = "\(userID)"
         
         let currentDate = LPHUtils.getCurrentDate()
         let chantDate = String(currentDate)
 
         //Database in Firestore
-        let lphDatabase = Database.database().reference()
+        let lphDatabase = Database.database().reference(withPath: "love-peace-harmony")
         
         //Reset Chanting Streak
         let newStreakData: [String:Any] = [
@@ -187,11 +187,25 @@ class APIUtilities {
     class func fetchCurrentChantingStreak(userID: String, completion: @escaping(Result<Streak>) -> Void) {
         print("fetching current chanting streak for user:\(userID)")
 
-        let user = "user:\(userID)"
+        let user = "\(userID)"
         var currentChantingStreak:Streak!
         
         //Database in Firestore
-        let lphDatabase = Database.database().reference()
+        let lphDatabase = Database.database().reference(withPath: "love-peace-harmony")
+        lphDatabase.child(user).getData { (_, snapshot) in
+            guard let snapshot = snapshot.value as? [String: Any] else {
+                return
+            }
+        
+                let currentStreak = snapshot["current_chanting_streak"] as? [String: Any]
+
+            do {
+                let lastDay = currentStreak!["last_day_chanted"] as! String
+                let currentStreak = currentStreak!["current_streak"] as! Int
+//                let longestStreak = currentStreak["longest_streak"] as! Int
+            }
+        }
+        
         
         lphDatabase.child(user).child("current_chanting_streak").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let chantStreakData = snapshot.value as? [String: Any] else {
@@ -220,10 +234,10 @@ class APIUtilities {
     class func fetchTotalSecsChanted(userID: String, completion: @escaping(Result<Double>) -> Void) {
         print("fetching total seconds chanted for user:\(userID)")
 
-        let user = "user:\(userID)"
+        let user = "\(userID)"
 
         //Database in Firestore
-        let lphDatabase = Database.database().reference()
+        let lphDatabase = Database.database().reference(withPath: "love-peace-harmony")
         
         lphDatabase.child(user).child("total_secs_chanted").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let totalSecsData = snapshot.value as? Double else {
