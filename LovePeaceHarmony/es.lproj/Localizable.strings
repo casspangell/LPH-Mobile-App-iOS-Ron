@@ -1,0 +1,162 @@
+/*
+  Localizable.strings
+  
+
+  Created by Cass Pangell on 6/9/21.
+  
+*/
+
+/* Login Social Network Controller */
+"Connect with Google" = "Conéctate a Google";
+"Connect with Facebook" = "Conéctate a Facebook";
+"Login" = "Inicio de Sesión";
+"Don't have an account? Sign Up" = "¿No tiene una cuenta? Regístrese";
+"Email" = "Correo electrónico";
+"Password" = "Contraseña";
+"email/password can't be empty" = "El correo electrónico/contraseña no puede estar vacío";
+"Please check your internet connection" = "Compruebe su conexión a Internet";
+
+/* Showcase View */
+"Tap anywhere to continue" = "Pulse en cualquier lugar para continuar";
+
+/* Sign Up Email Controller */
+"Confirm Password" = "Confirme la Contraseña";
+"Back" = "Volver";
+"Create an Account" = "Crea una Cuenta";
+"Submit" = "Enviar";
+
+/* Chant Now Controller */
+"Chant Now" = "Cantar Ahora";
+"Reminders" = "Recordatorios";
+"Milestones" = "Hitos";
+"Chant" = "Cantar";
+"Shuffle Turned On" = "Aleatorio Activado";
+"Shuffle Turned Off" = "Aleatorio Desactivado";
+"Repeat Turned Off" = "Repetición Desactivada";
+"Repeat Turned On" = "Repetición Activado";
+"Chant any time" = "Canta en cualquier momento";
+"Set reminders to chant" = "Establecer recordatorios para cantar";
+"View your milestones" = "Ver tus hitos";
+"Every Day" = "Todos los Días";
+"Off" = "Apagado";
+"Sun" = "Dom";
+"Mon" = "Lun";
+"Tue" = "Mar";
+"Wed" = "Mier";
+"Thu" = "Jue";
+"Fri" = "Vier";
+"Sat" = "Sab";
+"Turn on / off chants" = "Activar/desactivar cantos";
+"Use the switches to customize your chanting playlist." = "Utiliza los botones para personalizar tu lista de reproducción de cantos.";
+"Now playing: " = "Reproduciendo ahora: ";
+"Mandarin, Soul Language, English" = "Mandarín, Lenguaje del Alma, Inglés";
+"Instrumental" = "Instrumental";
+
+"Hindi, Soul Language, English" = "Hindi, Lenguaje del Alma, Inglés";
+"German, English, Mandarin" = "Alemán, Mandarín, Inglés";
+"Spanish, Soul Language" = " Español, Lenguaje del Alma";
+"Soul Language, French" = "Lenguaje del Alma, Francès";
+"Soul Language, French, Creole" = "Lenguaje del Alma, Francès, Criollo";
+"Aloha, Maluhia, Lokahi (LPH in Hawaiian)" = "Aloha, Maluhai, Lokahi (LPH en Hawaiano)";
+"Lu La Li Version, English and Hawaiian" = "Versión de Lu La Li, en Inglés y Hawaiano";
+"Love Peace Harmony in English" = "Amor Paz Armonía en Inglés";
+"Love Peace Harmony in Many Languages" = "Amor Paz Armonía en Muchos Idiomas";
+"Expressions of Love Peace Harmony" = "Expresiones de Amor Paz Armonía";
+
+/* Chant Milestone Controller */
+"Days Straight" = "Días Seguidos";
+"You have chanted for a total of:" = "Has cantado durante un total de:";
+"Days" = "Días";
+"Longest streak:" = "La racha más larga:";
+"Do you want to reset all your milestones?" = "¿Quieres reiniciar todos tus hitos?";
+"Milestone Data Deleted" = "Datos de hitos borrados";
+"Erase Milestones" = "Borrar Hitos";
+
+/* Chant Reminder Controller */
+"On" = "Encendido"
+"Off" = "Apagado"
+"No reminder added" = "No se ha añadido ningún recordatorio";
+"Repeat" = "Repetir";
+"Default" = "Por Defecto";
+"Delete Reminder" = "Borrar Recordatorio";
+"Cancel" = "Cancelar";
+"Save" = "Guardar";
+"Edit Reminder" = "Editar Recordatorio";
+"Sound" = "Sonido";
+"Alarm already added for this time!" = "¡Alarma ya añadida para este tiempo!";
+"Do you want to delete the alarm?" = "¿Quieres eliminar la alarma?";
+"Maximum number of reminders reached" = "Número máximo de recordatorios alcanzado";
+"Repeats " = "Repetir ";
+"Repeat - Off" = "Repetir - Desactivado";
+"Done" = "Hecho";
+"Ok" = "Ok";
+
+/* Alarm Repeat Controller */
+"Select Repeat" = "Seleccionar Repetir";
+"Everyday" = "Todos los días";
+"Sunday" = "Domingo";
+"Monday" = "Lunes";
+"Tuesday" = "Martes";
+"Wednesday" = "Miércoles";
+"Thursday" = "Jueves";
+"Friday" = "Viernes";
+"Saturday" = "Sábado";
+
+/* News Controller */
+"News" = "Noticias";
+
+/* About Controller */
+"The Song" = "El Canto";
+"The Movement" = "El Movimiento";
+"Master Sha" = "Maestro Sha";
+"Visit Our Website" = "Visite Nuestro Sitio Web";
+"Donate Now" = "Done Ahora";
+"About" = "Acerca de";
+
+/* Logout */
+"Logout" = "Cierre de sesión";
+"Love Peace Harmony Messenger" = "Love Peace Harmony Messenger";
+"Chanting for World Peace" = "Cantar por la Paz Mundial";
+
+/* Base View Controller */
+"Alert" = "Alerta";
+"Ok" = "Ok";
+
+/* LPH Constants */
+"It's time to chant!!!" = "¡¡Es hora de cantar!!";
+"Please check your internet connection!" = "Compruebe su conexión a Internet"
+"Something went wrong, please try again" = "Algo ha ido mal, por favor, inténtelo de nuevo"
+"Please enter your name" = "Por favor, introduce tu nombre"
+"Invalid email address" = "Dirección de correo electrónico inválida"
+"Please enter your password" = "Introduce tu contraseña"
+"Password needs to be at least 6 characters" = "La contraseña debe tener al menos 6 caracteres"
+"Please enter confirmation password" = "Por favor, introduzca la contraseña de confirmación"
+"Passwords do not match" = "Las contraseñas no coinciden"
+"Tap anywhere to continue" = "Pulse en cualquier lugar para continuar"
+"Please enable your song & play" = "Por favor, active su canción y juegue."
+"Shuffle turned on" = "Aleatorio activado"
+"Shuffle turned off" = "Aleatorio desactivado"
+"Repeat turned on" = "Repetición activada"
+"Repeat turned off" = "Repetición desactivada"
+"No previous song" = "Ninguna canción anterior"
+"No next song" = "No hay siguiente canción"
+
+/* About Description */
+"Join together with 1.5 billion people to chant Love, Peace and Harmony by 2030." = "Únanse a 1.500 millones de personas para cantar Amor, Paz y Armonía para el 2030.";
+"When many people join hearts and souls together to chant and meditate, this automatically creates a powerful field. We become what we chant, so as we chant to create world love, peace and harmony, each of us is transforming the message we carry within." = "Cuando muchas personas unen sus corazones y almas para cantar y meditar, esto crea automáticamente un campo poderoso. Nos convertimos en lo que cantamos, así que mientras cantamos para crear amor, paz y armonía mundial, cada uno de nosotros está transformando el mensaje que llevamos dentro.";
+"Love, Peace and Harmony, a song received by Dr. and Master Sha from the Divine, carries the high frequency and vibration of love, forgiveness, compassion and light. Your body naturally resonates with this elevated frequency, and responds by activating love, peace and harmony throughout your being." = "Amor, Paz y Armonía, un canto recibido por el Dr. y el Maestro Sha de la Divinidad, lleva la alta frecuencia y vibración del amor, el perdón, la compasión y la luz. Tu cuerpo resuena naturalmente con esta elevada frecuencia, y responde activando el amor, la paz y la armonía en todo tu ser.";
+"By 2030, we hope to inspire 1.5 billion people to sing Love, Peace and Harmony for 15 minutes every day. Play and chant this song to create a world of love, peace and harmony." = "Para 2030, esperamos inspirar a 1.500 millones de personas a cantar Amor, Paz y Armonía durante 15 minutos cada día. Toca y canta esta canción para crear un mundo de amor, paz y armonía.";
+"Together, we’ll celebrate the power of the human spirit and its ability to transcend, transform and triumph to create miracles. Imagine a world where everyone holds the message of love, peace and harmony." = "Juntos, celebraremos el poder del espíritu humano y su capacidad de trascender, transformar y triunfar para crear milagros. Imagina un mundo donde todos tengan el mensaje de amor, paz y armonía.";
+
+/* The Movement */
+"Love Peace Harmony Foundation was founded in 2006 and formally registered in the United States as a nonprofit in 2008. The mission of Love Peace Harmony Foundation is to offer assistance and support to various local and global humanitarian efforts. We strive to initiate and support projects that create happy, healthy, and peaceful families and communities. On a philosophical level, the Foundation’s mission is to serve all humanity and to make others happier and healthier. The goal is to raise the consciousness of humanity by chanting the Divine Soul Song Love, Peace and Harmony to uplift the frequency and vibration of Mother Earth and to improve humanity’s health and happiness by teaching of self-healing techniques." = "La Fundación Amor Paz y Armonìa fue fundada en 2006 y registrada oficialmente en los Estados Unidos como organización sin fines de lucro en 2008. La misión de la Fundación Amor Paz y Armonìa es ofrecer asistencia y apoyo a diversas actividades humanitarias locales y mundiales. Nos esforzamos por iniciar y apoyar proyectos que creen familias y comunidades felices, saludables y pacíficas. A nivel filosófico, la misión de la Fundación es servir a toda la humanidad y hacer a otros más felices y saludables. El objetivo es elevar la conciencia de la humanidad cantando el Canto del Alma Divina Amor, Paz y Armonía para elevar la frecuencia y la vibración de la Madre Tierra y mejorar la salud y la felicidad de la humanidad mediante la enseñanza de técnicas de auto curación.";
+"Some of our numerous initiatives have included working with the Tarayana Foundation in Bhutan, a remote kingdom in the Himalayas. We are helping to support access to education, health care, and proper nutrition and creating a pilot project there that we hope will be replicated in many other areas of the world." = "Algunas de nuestras numerosas iniciativas han incluido el trabajo con la Fundación Tarayana en Bhután, un remoto reino en el Himalaya. Estamos ayudando a apoyar el acceso a la educación, la atención de la salud y la nutrición adecuada y creando un proyecto piloto allí que esperamos se reproduzca en muchas otras zonas del mundo.";
+"In Toronto, Canada, we have supported low-income families so they could send their children to the Harbourfront Centre summer camp to experience the many benefits of enjoying a variety of activities with their peers and engaging actively with the environment." = "En Toronto (Canadá), hemos apoyado a familias de bajos ingresos para que pudieran enviar a sus hijos al campamento de verano del Harbourfront Centre para experimentar los muchos beneficios de disfrutar de una variedad de actividades con sus compañeros y participar activamente en el medio ambiente.";
+"We have also contributed to the nonprofit WandAid to help families in earthquake damaged zones in Nepal. We are very honored to help support communities impacted by natural disasters, political crises, and other disadvantages." = "También hemos contribuido a la organización sin fines de lucro WandAid para ayudar a las familias de las zonas dañadas por el terremoto en Nepal. Nos sentimos muy honrados de ayudar a las comunidades afectadas por desastres naturales, crisis políticas y otras desventajas";
+"Love Peace Harmony Foundation has numerous additional ongoing projects and is actively expanding efforts worldwide to help people live happier and healthier lives." = "La Fundación Amor Paz y Armonìa tiene numerosos proyectos adicionales en curso y está ampliando activamente los esfuerzos en todo el mundo para ayudar a las personas a llevar una vida más feliz y saludable.";
+"The Divine Soul Song Love, Peace and Harmony has been credited with many deeply transformative experiences by the people who have experienced it, lowering crime rates, incidences of physical abuse, and improving the health for women in low income homes in Mumbai, as well as increasing children’s intelligence and school performance. Chanting Love, Peace and Harmony for children in the slums of Mumbai (Dharavi, Asia’s largest slum) also resulted in greater emotional balance, happiness and other emotional benefits." = "El canto del Alma Divina Amor, Paz y Armonía ha sido acreditado con muchas experiencias profundamente transformadoras por las personas que lo han experimentado, reduciendo las tasas de criminalidad, los incidentes de abuso físico y mejorando la salud de las mujeres en hogares de bajos ingresos en Mumbai, así como aumentando la inteligencia y el rendimiento escolar de los niños. Cantar Amor, Paz y Armonía para los niños de los barrios marginales de Mumbai (Dharavi, el barrio marginal más grande de Asia) también dio lugar a un mayor equilibrio emocional, felicidad y otros beneficios emocionales.";
+
+/* Dr Sha */
+"Dr. and Master Zhi Gang Sha is a world-renowned healer, Tao Grandmaster, philanthropist, humanitarian, and creator of Tao Calligraphy. He is the founder of Soul Mind Body Medicine™ and an eleven-time New York Times bestselling author of 24 books. An M.D. in China and a doctor of traditional Chinese medicine in China and Canada, Master Sha is the founder of Tao Academy™ and Love Peace Harmony Foundation™, which is dedicated to helping families worldwide create happier and healthier lives." = "El Dr. y Maestro Zhi Gang Sha es un sanador de renombre mundial, Gran Maestro del Tao, filántropo, humanitario y creador de la Caligrafía Tao. Es el fundador de Soul Mind Body Medicine™ y un autor de once bestsellers del New York Times de 24 libros. Doctor en medicina en China y doctor en medicina tradicional china en China y en Canadá, el Maestro Sha es el fundador de Tao Academy™ y la Fundación Amor Paz y Armonìa que se dedica a ayudar a las familias de todo el mundo a crear vidas más felices y saludables";
+"A grandmaster of many ancient disciplines, including tai chi, qigong, kung fu, feng shui, and the I Ching, Master Sha was named Qigong Master of the Year at the Fifth World Congress on Qigong. In 2006, he was honored with the prestigious Martin Luther King, Jr. Commemorative Commission Award for his humanitarian efforts, and in 2016 Master Sha received rare and prestigious appointments as Shu Fa Jia (National Chinese Calligrapher Master) and Yan Jiu Yuan (Honorable Researcher Professor), the highest titles a Chinese calligrapher can receive, by the State Ethnic of Academy of Painting in China." = "Un gran maestro de muchas disciplinas antiguas, incluyendo el tai chi, el qigong, el kung fu, el feng shui y el I Ching, el Maestro Sha fue nombrado Maestro de Qigong del Año en el Quinto Congreso Mundial de Qigong. En 2006, fue honrado con el prestigioso Martin Luther King, Jr. Premio de la Comisión Conmemorativa por sus esfuerzos humanitarios, y en 2016 el Maestro Sha recibió los raros y prestigiosos nombramientos como Shu Fa Jia (Maestro Calígrafo Nacional Chino) y Yan Jiu Yuan (Profesor Investigador Honorario), los más altos títulos que un calígrafo chino puede recibir, por la Étnica Estatal de la Academia de Pintura de China.";
+"Master Sha was named Honorary Member of the Club of Budapest Foundation, an organization dedicated to resolving the social, political, economic, and ecological challenges of the twenty-first century. Officially launching in 2015, Master Sha has been invited to become one of the Founding Signatories of the Fuji Declaration, whose mission is to create lasting peace on Earth. Master Sha is a member of Rotary E-Club of World Peace and is a founding signatory of the Conscious Business Declaration, which aims to define a new standard for business in the twenty-first century that will increase economic prosperity while healing the environment and improving humanity’s well-being. In 2016, Master Sha received a Commendation from Los Angeles County for his humanitarian efforts both locally and worldwide, and a Commendation from the Hawaii Senate as a selfless humanitarian who celebrates the power of the human spirit as he travels the world tirelessly to create a Love Peace Harmony World Family. In 2017, he received the International Tara Award from Ven. Mae Chee Sansanee Sthirasuta of Sathira-Dhammasathan, for being a person who acts like a Boddhisattva, doing good for society. He continues to deliver free webcasts, teleconferences, and events that attract viewers and listeners from around the world." = "El Maestro Sha fue nombrado Miembro Honorario de la Fundación del Club de Budapest, una organización dedicada a resolver los desafíos sociales, políticos, económicos y ecológicos del siglo XXI. Lanzado oficialmente en 2015, el Maestro Sha ha sido invitado a convertirse en uno de los Signatarios Fundadores de la Declaración de Fuji, cuya misión es crear paz duradera en la Tierra. El Maestro Sha es miembro del Ciberclub Rotario de la Paz Mundial y es uno de los signatarios fundadores de la Declaración de Negocios Conscientes, cuyo objetivo es definir un nuevo estándar para los negocios en el siglo XXI que aumente la prosperidad económica al mismo tiempo que sane el medio ambiente y mejore el bienestar de la humanidad. En 2016, el Maestro Sha recibió una Mención del Condado de Los Ángeles por sus esfuerzos humanitarios tanto a nivel local como mundial, y una Mención del Senado de Hawai como humanitario desinteresado que celebra el poder del espíritu humano mientras viaja incansablemente por el mundo para crear una Familia Mundial de Amor, Paz y Armonía. En 2017, recibió el Premio Internacional Tara de manos de la Venerable Mae Chee Sansanee Sthirasuta de Sathira-Dhammasathan, por ser una persona que actúa como un Bodhisattva, haciendo el bien a la sociedad. Continúa ofreciendo transmisiones gratuitas por Internet, teleconferencias y eventos que atraen a espectadores y oyentes de todo el mundo.";

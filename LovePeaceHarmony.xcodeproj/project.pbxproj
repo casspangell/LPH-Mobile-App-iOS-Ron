@@ -103,6 +103,15 @@
 		505301B625A0249000C61E82 /* kawehi_haw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kawehi_haw.mp3; sourceTree = "<group>"; };
 		505301B925A0249800C61E82 /* sha_eng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sha_eng.mp3; sourceTree = "<group>"; };
 		505301BB25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sha_lula_eng_ka_haw.mp3; sourceTree = "<group>"; };
+		505FC94D26E4104A00429570 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		505FC94E26E4104A00429570 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		505FC94F26E4104A00429570 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		505FC95026E4108A00429570 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		505FC95126E4108B00429570 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		505FC95226E4108B00429570 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		505FC95326E4109700429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		505FC95426E4109700429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		505FC95526E4109800429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		50DB653E26710A78004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		50DB653F26710A79004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		50DB654526710E2F004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -531,6 +540,9 @@
 				en,
 				Base,
 				fr,
+				de,
+				es,
+				nl,
 			);
 			mainGroup = 6F3D8BB01FB1CC2B008E0D82;
 			productRefGroup = 6F3D8BBA1FB1CC2B008E0D82 /* Products */;
@@ -738,6 +750,9 @@
 			children = (
 				50DB654526710E2F004A7BFE /* fr */,
 				50DB654826710E3E004A7BFE /* en */,
+				505FC94F26E4104A00429570 /* de */,
+				505FC95226E4108B00429570 /* es */,
+				505FC95526E4109800429570 /* nl */,
 			);
 			name = Localizable.strings;
 			path = "/Users/projectxcappe/Documents/Tao Academy/LPH/LPH-Mobile-App-iOS/LovePeaceHarmony";
@@ -749,6 +764,9 @@
 				6F3D8BC11FB1CC2B008E0D82 /* Base */,
 				50F3CA72260ACDF300046366 /* en */,
 				50DB653E26710A78004A7BFE /* fr */,
+				505FC94D26E4104A00429570 /* de */,
+				505FC95026E4108A00429570 /* es */,
+				505FC95326E4109700429570 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -758,6 +776,9 @@
 			children = (
 				6F3D8BC91FB1CC2B008E0D82 /* Base */,
 				50DB653F26710A79004A7BFE /* fr */,
+				505FC94E26E4104A00429570 /* de */,
+				505FC95126E4108B00429570 /* es */,
+				505FC95426E4109700429570 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

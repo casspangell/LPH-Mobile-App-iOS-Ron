@@ -1,0 +1,342 @@
+
+/* Class = "UILabel"; text = "Sound"; ObjectID = "0nO-YR-bln"; */
+"0nO-YR-bln.text" = "Sound";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "1Ea-Da-Oqx"; */
+"1Ea-Da-Oqx.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = " "; ObjectID = "1RE-yb-5Xd"; */
+"1RE-yb-5Xd.text" = " ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2KC-fc-AwP"; */
+"2KC-fc-AwP.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2P2-tj-aaO"; */
+"2P2-tj-aaO.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2ti-SW-NUh"; */
+"2ti-SW-NUh.text" = "Label";
+
+/* Class = "UILabel"; text = "It looks like you haven't added any favorites yet"; ObjectID = "38e-CT-S6W"; */
+"38e-CT-S6W.text" = "It looks like you haven't added any favorites yet";
+
+/* Class = "UILabel"; text = "Monday"; ObjectID = "3Sj-Ry-jyH"; */
+"3Sj-Ry-jyH.text" = "Monday";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3g4-eg-hJH"; */
+"3g4-eg-hJH.text" = "Label";
+
+/* Class = "UILabel"; text = "Hindi, Soul Language, English"; ObjectID = "5rb-sW-iOg"; */
+"5rb-sW-iOg.text" = "Hindi, Soul Language, English";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "5rj-Lf-8SS"; */
+"5rj-Lf-8SS.text" = "00";
+
+/* Class = "UIButton"; normalTitle = "Donate Now"; ObjectID = "6L0-lb-3PZ"; */
+"6L0-lb-3PZ.normalTitle" = "Donate Now";
+
+/* Class = "UILabel"; text = "Days"; ObjectID = "6Xc-mg-nx8"; */
+"6Xc-mg-nx8.text" = "Days";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "7xf-gg-EUV"; */
+"7xf-gg-EUV.title" = "Done";
+
+/* Class = "UILabel"; text = "Days Straight"; ObjectID = "85U-zW-s1v"; */
+"85U-zW-s1v.text" = "Days Straight";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8FE-e2-Ge1"; */
+"8FE-e2-Ge1.text" = "Label";
+
+/* Class = "UILabel"; text = "Love, Peace and Harmony!"; ObjectID = "8QE-Qn-n0Y"; */
+"8QE-Qn-n0Y.text" = "Love, Peace and Harmony!";
+
+/* Class = "UILabel"; text = "X"; ObjectID = "8z5-vN-MK2"; */
+"8z5-vN-MK2.text" = "X";
+
+/* Class = "UILabel"; text = "Lu La Li Version, English and Hawaiian"; ObjectID = "9D6-gd-Z7E"; */
+"9D6-gd-Z7E.text" = "Lu La Li Version, English and Hawaiian";
+
+/* Class = "UITabBarItem"; title = "About"; ObjectID = "9Ip-ew-fQS"; */
+"9Ip-ew-fQS.title" = "About";
+
+/* Class = "UILabel"; text = "Back"; ObjectID = "9TW-Cr-HoW"; */
+"9TW-Cr-HoW.text" = "Back";
+
+/* Class = "UILabel"; text = " "; ObjectID = "AgZ-eP-wXr"; */
+"AgZ-eP-wXr.text" = " ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Blo-cw-G1X"; */
+"Blo-cw-G1X.text" = "Label";
+
+/* Class = "UILabel"; text = "Repeat"; ObjectID = "D7b-uw-RNc"; */
+"D7b-uw-RNc.text" = "Repeat";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DpP-Rt-wbo"; */
+"DpP-Rt-wbo.text" = "Label";
+
+/* Class = "UILabel"; text = "Love Peace Harmony in English"; ObjectID = "E2a-bK-JgZ"; */
+"E2a-bK-JgZ.text" = "Love Peace Harmony in English";
+
+/* Class = "UILabel"; text = "You have chanted for a total of :"; ObjectID = "EGW-cl-ieV"; */
+"EGW-cl-ieV.text" = "You have chanted for a total of :";
+
+/* Class = "UILabel"; text = "Tuesday"; ObjectID = "EkD-xt-F0N"; */
+"EkD-xt-F0N.text" = "Tuesday";
+
+/* Class = "UILabel"; text = "No favorites to show"; ObjectID = "F71-Ap-T5u"; */
+"F71-Ap-T5u.text" = "No favorites to show";
+
+/* Class = "UILabel"; text = "Profile Pic"; ObjectID = "FEl-JN-8ez"; */
+"FEl-JN-8ez.text" = "Profile Pic";
+
+/* Class = "UILabel"; text = "Instrumental"; ObjectID = "FEm-hb-fFn"; */
+"FEm-hb-fFn.text" = "Instrumental";
+
+/* Class = "UILabel"; text = " "; ObjectID = "FOI-la-3t0"; */
+"FOI-la-3t0.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Erase milestones"; ObjectID = "FpW-KG-cGY"; */
+"FpW-KG-cGY.normalTitle" = "Erase milestones";
+
+/* Class = "UILabel"; text = "on the right to add it to favorites."; ObjectID = "GPz-OY-0de"; */
+"GPz-OY-0de.text" = "on the right to add it to favorites.";
+
+/* Class = "UIButton"; normalTitle = "Visit Our Website"; ObjectID = "HQg-e3-fLa"; */
+"HQg-e3-fLa.normalTitle" = "Visit Our Website";
+
+/* Class = "UILabel"; text = "Every day"; ObjectID = "HZ2-Uf-9Wa"; */
+"HZ2-Uf-9Wa.text" = "Every day";
+
+/* Class = "UILabel"; text = ":"; ObjectID = "Idc-kL-Ogg"; */
+"Idc-kL-Ogg.text" = ":";
+
+/* Class = "UILabel"; text = "German, English, Mandarin"; ObjectID = "J38-id-ivG"; */
+"J38-id-ivG.text" = "German, English, Mandarin";
+
+/* Class = "UILabel"; text = "Reminders"; ObjectID = "JuL-gv-ODe"; */
+"JuL-gv-ODe.text" = "Reminders";
+
+/* Class = "UILabel"; text = "X"; ObjectID = "LxR-wt-hbi"; */
+"LxR-wt-hbi.text" = "X";
+
+/* Class = "UILabel"; text = "Recent"; ObjectID = "MDh-B0-9wO"; */
+"MDh-B0-9wO.text" = "Recent";
+
+/* Class = "UILabel"; text = "Back"; ObjectID = "MVm-od-Z53"; */
+"MVm-od-Z53.text" = "Back";
+
+/* Class = "UILabel"; text = "Categories"; ObjectID = "Mib-JX-75c"; */
+"Mib-JX-75c.text" = "Categories";
+
+/* Class = "UILabel"; text = "The Movement"; ObjectID = "N1K-r3-Ktr"; */
+"N1K-r3-Ktr.text" = "The Movement";
+
+/* Class = "UILabel"; text = "Manage news favorites "; ObjectID = "NdY-el-cpY"; */
+"NdY-el-cpY.text" = "Manage news favorites ";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "O8z-R7-aXB"; */
+"O8z-R7-aXB.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "PM"; ObjectID = "OGN-dI-bLQ"; */
+"OGN-dI-bLQ.text" = "PM";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "ON7-ZI-Yeh"; */
+"ON7-ZI-Yeh.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Love Peace Harmony in Many Languages"; ObjectID = "Oyl-K9-YF5"; */
+"Oyl-K9-YF5.text" = "Love Peace Harmony in Many Languages";
+
+/* Class = "UILabel"; text = " "; ObjectID = "Pu7-VI-zPK"; */
+"Pu7-VI-zPK.text" = " ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PvO-ie-mIT"; */
+"PvO-ie-mIT.text" = "Label";
+
+/* Class = "UILabel"; text = "Off"; ObjectID = "Q25-5G-CD1"; */
+"Q25-5G-CD1.text" = "Off";
+
+/* Class = "UINavigationItem"; title = "Select Alaram Sound"; ObjectID = "QBf-nh-nXA"; */
+"QBf-nh-nXA.title" = "Select Alaram Sound";
+
+/* Class = "UILabel"; text = "You have chanted for a total of :"; ObjectID = "Qqr-Af-2kX"; */
+"Qqr-Af-2kX.text" = "You have chanted for a total of :";
+
+/* Class = "UILabel"; text = "Every Day"; ObjectID = "RVb-GA-jRu"; */
+"RVb-GA-jRu.text" = "Every Day";
+
+/* Class = "UILabel"; text = "Thanks to your invitations, "; ObjectID = "Rca-3Z-Zof"; */
+"Rca-3Z-Zof.text" = "Thanks to your invitations, ";
+
+/* Class = "UILabel"; text = "Milestones"; ObjectID = "Ruu-Ha-PKr"; */
+"Ruu-Ha-PKr.text" = "Milestones";
+
+/* Class = "UILabel"; text = "Mandarin, Soul Language and English"; ObjectID = "Rzd-0C-ftT"; */
+"Rzd-0C-ftT.text" = "Mandarin, Soul Language and English";
+
+/* Class = "UILabel"; text = "Sign in with Email"; ObjectID = "SNe-vH-jQ2"; */
+"SNe-vH-jQ2.text" = "Sign in with Email";
+
+/* Class = "UINavigationItem"; title = "Select Repeat"; ObjectID = "Tuv-Oe-LsO"; */
+"Tuv-Oe-LsO.title" = "Select Repeat";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "V4W-Wn-CKj"; */
+"V4W-Wn-CKj.text" = "12";
+
+/* Class = "UILabel"; text = "Wednesday"; ObjectID = "VVe-O1-C3T"; */
+"VVe-O1-C3T.text" = "Wednesday";
+
+/* Class = "UILabel"; text = "Aloha, Maluhia, Lokahi (LPH in Hawaiian)"; ObjectID = "Vig-o1-eDk"; */
+"Vig-o1-eDk.text" = "Aloha, Maluhia, Lokahi (LPH in Hawaiian)";
+
+/* Class = "UILabel"; text = "Login with Google"; ObjectID = "Vz7-mT-EJv"; */
+"Vz7-mT-EJv.text" = "Login with Google";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Wgx-Be-mNd"; */
+"Wgx-Be-mNd.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "XF0-rf-8ue"; */
+"XF0-rf-8ue.title" = "News";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "XJ4-md-BQg"; */
+"XJ4-md-BQg.title" = "Done";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "a4m-7R-pj6"; */
+"a4m-7R-pj6.text" = "Label";
+
+/* Class = "UILabel"; text = " "; ObjectID = "b0P-rR-ZrP"; */
+"b0P-rR-ZrP.text" = " ";
+
+/* Class = "UILabel"; text = "Choose a photo"; ObjectID = "bIQ-87-GM3"; */
+"bIQ-87-GM3.text" = "Choose a photo";
+
+/* Class = "UILabel"; text = "Share this App"; ObjectID = "bme-JP-yee"; */
+"bme-JP-yee.text" = "Share this App";
+
+/* Class = "UILabel"; text = "Recent Articles"; ObjectID = "bwC-NK-Z2G"; */
+"bwC-NK-Z2G.text" = "Recent Articles";
+
+/* Class = "UILabel"; text = " "; ObjectID = "dNd-b4-r0T"; */
+"dNd-b4-r0T.text" = " ";
+
+/* Class = "UITabBarItem"; title = "Chant"; ObjectID = "f4O-Qc-bz3"; */
+"f4O-Qc-bz3.title" = "Chant";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "g3q-32-qv0"; */
+"g3q-32-qv0.normalTitle" = "+";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gGw-Ok-C0U"; */
+"gGw-Ok-C0U.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "gNc-QF-CNO"; */
+"gNc-QF-CNO.normalTitle" = "Done";
+
+/* Class = "UIButton"; normalTitle = "Delete Reminder"; ObjectID = "gcF-81-00n"; */
+"gcF-81-00n.normalTitle" = "Delete Reminder";
+
+/* Class = "UILabel"; text = " "; ObjectID = "ggo-Dv-Pae"; */
+"ggo-Dv-Pae.text" = " ";
+
+/* Class = "UILabel"; text = "00.00"; ObjectID = "h8o-r7-XBs"; */
+"h8o-r7-XBs.text" = "00.00";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hTb-N9-qcr"; */
+"hTb-N9-qcr.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hqS-xq-xRk"; */
+"hqS-xq-xRk.text" = "Label";
+
+/* Class = "UILabel"; text = "Thursday"; ObjectID = "hrt-wn-l2V"; */
+"hrt-wn-l2V.text" = "Thursday";
+
+/* Class = "UILabel"; text = "Login with Facebook"; ObjectID = "jCm-Iv-uKj"; */
+"jCm-Iv-uKj.text" = "Login with Facebook";
+
+/* Class = "UILabel"; text = "Sign out"; ObjectID = "jSp-Nl-dwo"; */
+"jSp-Nl-dwo.text" = "Sign out";
+
+/* Class = "UILabel"; text = "more people are chanting"; ObjectID = "lzh-Pc-Xjh"; */
+"lzh-Pc-Xjh.text" = "more people are chanting";
+
+/* Class = "UILabel"; text = "Sunday"; ObjectID = "mXc-eW-X0S"; */
+"mXc-eW-X0S.text" = "Sunday";
+
+/* Class = "UILabel"; text = "Favorites"; ObjectID = "nEO-JP-IYj"; */
+"nEO-JP-IYj.text" = "Favorites";
+
+/* Class = "UILabel"; text = " "; ObjectID = "nrR-H3-Vwl"; */
+"nrR-H3-Vwl.text" = " ";
+
+/* Class = "UILabel"; text = "Master Sha"; ObjectID = "p0d-rZ-oXA"; */
+"p0d-rZ-oXA.text" = "Master Sha";
+
+/* Class = "UILabel"; text = "08.12"; ObjectID = "q2L-7K-BBR"; */
+"q2L-7K-BBR.text" = "08.12";
+
+/* Class = "UILabel"; text = "Saturday"; ObjectID = "qCg-Nc-9cf"; */
+"qCg-Nc-9cf.text" = "Saturday";
+
+/* Class = "UILabel"; text = "Soul Language, French"; ObjectID = "qgC-ea-5YN"; */
+"qgC-ea-5YN.text" = "Soul Language, French";
+
+/* Class = "UILabel"; text = "X"; ObjectID = "rGj-gQ-G0z"; */
+"rGj-gQ-G0z.text" = "X";
+
+/* Class = "UILabel"; text = "When reading an article, tap the"; ObjectID = "rPn-im-wqY"; */
+"rPn-im-wqY.text" = "When reading an article, tap the";
+
+/* Class = "UILabel"; text = "Friday"; ObjectID = "ryZ-UC-psS"; */
+"ryZ-UC-psS.text" = "Friday";
+
+/* Class = "UILabel"; text = "Back"; ObjectID = "sC0-VR-5fM"; */
+"sC0-VR-5fM.text" = "Back";
+
+/* Class = "UILabel"; text = "The Song"; ObjectID = "sEq-7p-JWs"; */
+"sEq-7p-JWs.text" = "The Song";
+
+/* Class = "UILabel"; text = "Login to view favorites"; ObjectID = "sLt-Zs-j8e"; */
+"sLt-Zs-j8e.text" = "Login to view favorites";
+
+/* Class = "UILabel"; text = "View chanting milestones"; ObjectID = "sPN-uQ-L0H"; */
+"sPN-uQ-L0H.text" = "View chanting milestones";
+
+/* Class = "UILabel"; text = "Chant Now"; ObjectID = "t8f-L3-pjf"; */
+"t8f-L3-pjf.text" = "Chant Now";
+
+/* Class = "UILabel"; text = "Default"; ObjectID = "tJj-fK-mnY"; */
+"tJj-fK-mnY.text" = "Default";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uZp-cc-YoF"; */
+"uZp-cc-YoF.text" = "Label";
+
+/* Class = "UILabel"; text = "Select Repeat"; ObjectID = "umI-c2-0si"; */
+"umI-c2-0si.text" = "Select Repeat";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "una-zx-QKv"; */
+"una-zx-QKv.text" = "Label";
+
+/* Class = "UILabel"; text = "Soul Language, French, Creole"; ObjectID = "uuw-H8-ulX"; */
+"uuw-H8-ulX.text" = "Soul Language, French, Creole";
+
+/* Class = "UILabel"; text = " "; ObjectID = "uxl-5U-ysY"; */
+"uxl-5U-ysY.text" = " ";
+
+/* Class = "UITabBarItem"; title = "Logout"; ObjectID = "v0c-Yo-irm"; */
+"v0c-Yo-irm.title" = "Logout";
+
+/* Class = "UILabel"; text = "Expressions of Love Peace Harmony"; ObjectID = "xkL-mr-4kQ"; */
+"xkL-mr-4kQ.text" = "Expressions of Love Peace Harmony";
+
+/* Class = "UILabel"; text = "Spanish, Soul Language"; ObjectID = "zBJ-T8-ItE"; */
+"zBJ-T8-ItE.text" = "Spanish, Soul Language";
+
+/* Class = "UILabel"; text = "Edit Reminder"; ObjectID = "zKz-Ob-V6x"; */
+"zKz-Ob-V6x.text" = "Edit Reminder";
+
+/* Class = "UILabel"; text = "Longest streak:"; ObjectID = "zcm-L0-Wpd"; */
+"zcm-L0-Wpd.text" = "Longest streak:";
+
+/* Class = "UILabel"; text = "Take new photo"; ObjectID = "zvj-zF-pdo"; */
+"zvj-zF-pdo.text" = "Take new photo";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zvm-T9-5hW"; */
+"zvm-T9-5hW.text" = "Label";
