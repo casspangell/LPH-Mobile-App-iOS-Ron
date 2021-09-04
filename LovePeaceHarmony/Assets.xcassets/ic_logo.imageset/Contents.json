@@ -88,16 +88,19 @@
       "scale" : "3x"
     },
     {
+      "filename" : "lph_dutch.png",
       "idiom" : "universal",
       "locale" : "nl",
       "scale" : "1x"
     },
     {
+      "filename" : "lph_dutch@2x.png",
       "idiom" : "universal",
       "locale" : "nl",
       "scale" : "2x"
     },
     {
+      "filename" : "lph_dutch@3x.png",
       "idiom" : "universal",
       "locale" : "nl",
       "scale" : "3x"
