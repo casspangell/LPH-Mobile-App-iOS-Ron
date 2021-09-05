@@ -40,15 +40,17 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
         let songTitle = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songTitle, comment: "") )
         labelTitle.attributedText = songTitle
         
-        let songDescription = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription, comment: "") )
-        let songDescription2 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription2, comment: "") )
-        let songDescription3 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription3, comment: "") )
-        let songDescription4 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.songDescription4, comment: "") )
+        let songDescription = NSLocalizedString(AboutDescription.songDescription, comment: "")
+        let songDescription2 = NSLocalizedString(AboutDescription.songDescription2, comment: "")
+        let songDescription3 = NSLocalizedString(AboutDescription.songDescription3, comment: "")
+        let songDescription4 = NSLocalizedString(AboutDescription.songDescription4, comment: "")
         
-        let wholeSongDescription = NSMutableAttributedString(string:"\(songDescription)\n\n\(songDescription2)\n\n\(songDescription3)\n\n\(songDescription4)")
-        wholeSongDescription.addAttribute(.font, value: UIFont(name: "OpenSans", size: 15)!, range: NSRange(location: 0, length: wholeSongDescription.length))
+//        let wholeSongDescription = NSMutableAttributedString(string:"\(songDescription)\n\n\(songDescription2)\n\n\(songDescription3)\n\n\(songDescription4)")
+//        wholeSongDescription.addAttribute(.font, value: UIFont(name: "OpenSans", size: 15)!, range: NSRange(location: 0, length: wholeSongDescription.length))
 
-        labelDescription.attributedText = wholeSongDescription
+        let wholeSongDescription = "\(songDescription)\n\n\(songDescription2)\n\n\(songDescription3)\n\n\(songDescription4)"
+            
+        labelDescription.text = wholeSongDescription
     }
 
     // MARK: - XLPagerTabStrip
