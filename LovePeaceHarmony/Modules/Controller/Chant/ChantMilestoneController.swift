@@ -56,7 +56,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
         youHaveChantedLabel.text = NSLocalizedString("You have chanted for a total of:", comment: "")
         daysLabel.text = NSLocalizedString("Days", comment: "")
         longestStreakLabel.text = NSLocalizedString("Longest streak:", comment: "")
-        eraseButton.titleLabel?.text = NSLocalizedString("Erase Milestones", comment: "")
+        eraseButton.setTitle(NSLocalizedString("Erase Milestones", comment: ""), for: .normal)
         
         timestampActivityIndicator.hidesWhenStopped = true
         longestStreakActivityIndicator.hidesWhenStopped = true
