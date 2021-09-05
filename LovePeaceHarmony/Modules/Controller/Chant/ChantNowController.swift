@@ -26,7 +26,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var currentSong: ChantFile?
     var currentSongString: String?
     var isFirstRun = true
-    var isAudioPlaying = false
     var isShuffleEnabled = false
     var isRepeatEnabled = false
     var chantMilestoneCounter:Float = 0
@@ -425,7 +424,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
-//            isAudioPlaying = true
 
         //Pressed Pause
         } else {
@@ -435,7 +433,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//pause image
-//            isAudioPlaying = false
         }
     }
 
@@ -479,7 +476,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         startTime = labelSeekTime.text //set new start time
         sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
         buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
-//        isAudioPlaying = true
 
     }
     
@@ -780,23 +776,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         animateMusicButton(sender, 0) {}
         
         togglePlayPauseButton()
-        
-//        if currentSong != nil {
-//            animateMusicButton(sender, 0) {}
-//
-//            togglePlayPauseButton()
-//
-//            if (isAudioPlaying == false) {
-//                AVAudioSingleton.sharedInstance.play(chantFileName: currentSongString!)
-//                isAudioPlaying = true
-//            } else {
-//                AVAudioSingleton.sharedInstance.pause()
-//                isAudioPlaying = false
-//            }
-//
-//        } else {
-//            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
-//        }
+
     }
     
     @IBAction func onTapPreviousSong(_ sender: UIButton) {
@@ -997,7 +977,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             //Reset the player
             if AVAudioSingleton.sharedInstance.isPlaying() {
                 AVAudioSingleton.sharedInstance.pause()
-//                isAudioPlaying = false
             }
             
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
