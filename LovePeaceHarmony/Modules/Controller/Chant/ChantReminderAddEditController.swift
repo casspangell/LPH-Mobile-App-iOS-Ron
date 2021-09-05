@@ -48,10 +48,10 @@ class ChantReminderAddEditController: BaseViewController {
     override func viewDidLoad() {
         labelRepeat.text = NSLocalizedString("Repeat", comment: "")
         labelAlarmSoundName.text = NSLocalizedString("Default", comment: "")
-        buttonDeleteReminder.titleLabel?.text = NSLocalizedString("Delete Reminder", comment: "")
+        buttonDeleteReminder.setTitle(NSLocalizedString("Delete Reminder", comment: ""), for: .normal) 
         
-        cancelButton.titleLabel?.text = NSLocalizedString("Cancel", comment: "")
-        saveButton.titleLabel?.text = NSLocalizedString("Save", comment: "")
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        saveButton.setTitle(NSLocalizedString("Save", comment: ""), for: .normal)
         editReminderLabel.text = NSLocalizedString("Edit Reminder", comment: "")
         repeatLabel.text = NSLocalizedString("Repeat", comment: "")
         soundLabel.text = NSLocalizedString("Sound", comment: "")

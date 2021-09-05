@@ -37,7 +37,8 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         textFieldConfirmPassword.placeholder = NSLocalizedString("Confirm Passowrd", comment: "")
         backLabel.text = NSLocalizedString("Back", comment: "")
         createAccountLabel.text = NSLocalizedString("Create an Account", comment: "")
-        submitButton.titleLabel?.text = NSLocalizedString("Submit", comment: "")
+        submitButton.setTitle(NSLocalizedString("Submit", comment: ""), for: .normal)
+            
     }
     
     // MARK: - XLPagerTabStrip

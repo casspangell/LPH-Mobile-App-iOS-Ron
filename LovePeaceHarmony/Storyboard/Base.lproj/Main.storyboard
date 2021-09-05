@@ -1118,8 +1118,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="ccO-pC-mhn"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Love Peace Harmony in Many Languages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyl-K9-YF5">
-                                                        <rect key="frame" x="35.5" y="14" width="304.5" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Love Peace Harmony in Many Languages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oyl-K9-YF5">
+                                                        <rect key="frame" x="10" y="14" width="355" height="22"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1132,8 +1132,10 @@
                                                     <constraint firstAttribute="bottom" secondItem="U1l-UG-tw9" secondAttribute="bottom" id="LNW-Gm-Z64"/>
                                                     <constraint firstAttribute="height" constant="50" id="Lvv-7u-6Bj"/>
                                                     <constraint firstItem="5tv-ke-XH5" firstAttribute="top" secondItem="dpn-AP-hkb" secondAttribute="top" id="T00-VT-wCV"/>
+                                                    <constraint firstItem="Oyl-K9-YF5" firstAttribute="leading" secondItem="dpn-AP-hkb" secondAttribute="leading" constant="10" id="Uwz-h0-7ZY"/>
                                                     <constraint firstAttribute="trailing" secondItem="U1l-UG-tw9" secondAttribute="trailing" id="ceS-tl-kUw"/>
                                                     <constraint firstItem="Oyl-K9-YF5" firstAttribute="centerY" secondItem="dpn-AP-hkb" secondAttribute="centerY" id="cqA-P1-3Xv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Oyl-K9-YF5" secondAttribute="trailing" constant="10" id="cx0-IG-8EW"/>
                                                     <constraint firstItem="Oyl-K9-YF5" firstAttribute="centerX" secondItem="dpn-AP-hkb" secondAttribute="centerX" id="eKQ-LA-hqT"/>
                                                     <constraint firstAttribute="trailing" secondItem="5tv-ke-XH5" secondAttribute="trailing" id="kl2-wa-SV4"/>
                                                     <constraint firstItem="5tv-ke-XH5" firstAttribute="leading" secondItem="dpn-AP-hkb" secondAttribute="leading" id="usi-5U-nj8"/>
@@ -1439,8 +1441,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="2rL-7A-kdp"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expressions of Love Peace Harmony" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkL-mr-4kQ">
-                                                        <rect key="frame" x="61.5" y="15" width="252.5" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expressions of Love Peace Harmony" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xkL-mr-4kQ">
+                                                        <rect key="frame" x="10" y="15" width="355" height="20.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </label>
@@ -1449,11 +1451,13 @@
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="uaE-rH-enM" firstAttribute="leading" secondItem="ZKb-c8-G2C" secondAttribute="leading" id="9v8-N9-QbZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xkL-mr-4kQ" secondAttribute="trailing" constant="10" id="I2D-Gi-1hm"/>
                                                     <constraint firstAttribute="trailing" secondItem="uaE-rH-enM" secondAttribute="trailing" id="Kgj-1o-vRd"/>
                                                     <constraint firstAttribute="height" constant="50" id="Nnx-Li-wCV"/>
                                                     <constraint firstItem="xkL-mr-4kQ" firstAttribute="centerX" secondItem="ZKb-c8-G2C" secondAttribute="centerX" id="a0k-KD-Uka"/>
                                                     <constraint firstAttribute="bottom" secondItem="uaE-rH-enM" secondAttribute="bottom" id="frf-hi-oiQ"/>
                                                     <constraint firstItem="xkL-mr-4kQ" firstAttribute="centerY" secondItem="ZKb-c8-G2C" secondAttribute="centerY" id="gLo-qO-M3S"/>
+                                                    <constraint firstItem="xkL-mr-4kQ" firstAttribute="leading" secondItem="ZKb-c8-G2C" secondAttribute="leading" constant="10" id="pYc-rT-YVl"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGl-pp-nqt" userLabel="LPH in Hawaiian">
@@ -2072,10 +2076,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8z-R7-aXB">
-                                        <rect key="frame" x="317" y="8.5" width="50" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="PLP-Oh-Msc"/>
-                                        </constraints>
+                                        <rect key="frame" x="334" y="8.5" width="33" height="33"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
@@ -2242,10 +2243,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-81-00n">
-                                <rect key="frame" x="112.5" y="472" width="150" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="T5g-z1-FqO"/>
-                                </constraints>
+                                <rect key="frame" x="118.5" y="472" width="138" height="36"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
                                 <state key="normal" title="Delete Reminder">
                                     <color key="titleColor" red="1" green="0.12127383726032426" blue="0.068932079171960758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4561,8 +4559,8 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXL-4Q-RWa">
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chant Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-L3-pjf">
-                                                <rect key="frame" x="25" y="11" width="69.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chant Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-L3-pjf">
+                                                <rect key="frame" x="5" y="12.5" width="109" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667604176594" green="0.3313276731657816" blue="0.55433593749999988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4571,7 +4569,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="t8f-L3-pjf" firstAttribute="leading" secondItem="gXL-4Q-RWa" secondAttribute="leading" constant="5" id="6Zr-Ar-3TI"/>
                                             <constraint firstItem="t8f-L3-pjf" firstAttribute="centerX" secondItem="gXL-4Q-RWa" secondAttribute="centerX" id="Nsu-0W-siQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="t8f-L3-pjf" secondAttribute="trailing" constant="5" id="eGk-AC-9hX"/>
                                             <constraint firstItem="t8f-L3-pjf" firstAttribute="centerY" secondItem="gXL-4Q-RWa" secondAttribute="centerY" id="mj3-oX-39r"/>
                                         </constraints>
                                         <connections>
@@ -4581,8 +4581,8 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3y9-OQ-DeI">
                                         <rect key="frame" x="124" y="0.0" width="119" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuL-gv-ODe">
-                                                <rect key="frame" x="25.5" y="11" width="68" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JuL-gv-ODe">
+                                                <rect key="frame" x="2" y="12.5" width="115" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4591,8 +4591,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="JuL-gv-ODe" secondAttribute="trailing" constant="2" id="Cbo-54-csN"/>
                                             <constraint firstItem="JuL-gv-ODe" firstAttribute="centerY" secondItem="3y9-OQ-DeI" secondAttribute="centerY" id="Lir-BD-PmD"/>
                                             <constraint firstItem="JuL-gv-ODe" firstAttribute="centerX" secondItem="3y9-OQ-DeI" secondAttribute="centerX" id="Xaq-7t-ytg"/>
+                                            <constraint firstItem="JuL-gv-ODe" firstAttribute="leading" secondItem="3y9-OQ-DeI" secondAttribute="leading" constant="2" id="ihE-S4-Jyd"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="M3f-le-Df4" appends="YES" id="FGq-M7-LFj"/>
@@ -4601,8 +4603,8 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u81-sd-qJD">
                                         <rect key="frame" x="248" y="0.0" width="119" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Ha-PKr">
-                                                <rect key="frame" x="25.5" y="11" width="68.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milestones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ruu-Ha-PKr">
+                                                <rect key="frame" x="2" y="12.5" width="115" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="13"/>
                                                 <color key="textColor" red="0.36943667600000002" green="0.33132767320000001" blue="0.55433593749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -4612,7 +4614,9 @@
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Ruu-Ha-PKr" firstAttribute="centerY" secondItem="u81-sd-qJD" secondAttribute="centerY" id="cuW-JX-LWV"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ruu-Ha-PKr" secondAttribute="trailing" constant="2" id="dc0-co-q3M"/>
                                             <constraint firstItem="Ruu-Ha-PKr" firstAttribute="centerX" secondItem="u81-sd-qJD" secondAttribute="centerX" id="gUw-br-jcb"/>
+                                            <constraint firstItem="Ruu-Ha-PKr" firstAttribute="leading" secondItem="u81-sd-qJD" secondAttribute="leading" constant="2" id="i13-Ag-3sN"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="T6W-bl-5ul" appends="YES" id="xSh-4t-Go6"/>

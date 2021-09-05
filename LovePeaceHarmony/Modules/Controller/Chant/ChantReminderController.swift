@@ -15,6 +15,7 @@ class ChantReminderController: BaseViewController, ReminderCallback, IndicatorIn
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableViewReminder: UITableView!
+  
     
     // MARK: - Variables
     var reminderList = [Reminder]()

@@ -35,7 +35,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var noAccountButton: UIButton!
-
+    @IBOutlet weak var noAccountLabel: UILabel!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -44,12 +44,13 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         loginEngine = SocialLoginEngine(self)
         
         //Set up UI labels for translation
-        googleLoginButton.titleLabel?.text = NSLocalizedString("Connect with Google", comment: "")
-        facebookLoginButton.titleLabel?.text = NSLocalizedString("Connect with Facebook", comment: "")
-        loginButton.titleLabel?.text = NSLocalizedString("Login", comment: "")
-        noAccountButton.titleLabel?.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
+        googleLoginButton.setTitle(NSLocalizedString("Connect with Google", comment: ""), for: .normal)
+        facebookLoginButton.setTitle(NSLocalizedString("Connect with Facebook", comment: ""), for: .normal)
+        loginButton.setTitle(NSLocalizedString("Login", comment: ""), for: .normal)
+
         emailTextField.placeholder = NSLocalizedString("Email", comment: "")
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
+        noAccountLabel.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
     
     }
     

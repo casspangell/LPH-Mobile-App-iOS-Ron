@@ -552,20 +552,34 @@
                                         <rect key="frame" x="0.0" y="330" width="335" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKR-iC-5Ry">
-                                                <rect key="frame" x="44" y="9" width="247" height="32"/>
+                                                <rect key="frame" x="5" y="12" width="325" height="26"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <state key="normal" title="Don't have an account? Sign Up">
+                                                <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="signUpPressed:" destination="lbk-4m-TCN" eventType="touchUpInside" id="ATX-Dq-234"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZZ-Bk-bYc">
+                                                <rect key="frame" x="5" y="12" width="325" height="26"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="vKR-iC-5Ry" firstAttribute="top" secondItem="HZZ-Bk-bYc" secondAttribute="bottom" constant="-26" id="AF8-mJ-Slw"/>
+                                            <constraint firstItem="vKR-iC-5Ry" firstAttribute="leading" secondItem="hXm-vt-VvC" secondAttribute="leading" constant="5" id="GGd-Zv-tES"/>
                                             <constraint firstItem="vKR-iC-5Ry" firstAttribute="centerX" secondItem="hXm-vt-VvC" secondAttribute="centerX" id="OJh-Bi-y9a"/>
+                                            <constraint firstAttribute="trailing" secondItem="vKR-iC-5Ry" secondAttribute="trailing" constant="5" id="T66-im-wG2"/>
+                                            <constraint firstItem="HZZ-Bk-bYc" firstAttribute="centerY" secondItem="vKR-iC-5Ry" secondAttribute="centerY" id="edM-Xr-kBE"/>
+                                            <constraint firstItem="HZZ-Bk-bYc" firstAttribute="trailing" secondItem="vKR-iC-5Ry" secondAttribute="trailing" id="g3H-qP-WNw"/>
+                                            <constraint firstItem="HZZ-Bk-bYc" firstAttribute="centerX" secondItem="vKR-iC-5Ry" secondAttribute="centerX" id="j66-3b-Fa8"/>
                                             <constraint firstItem="vKR-iC-5Ry" firstAttribute="centerY" secondItem="hXm-vt-VvC" secondAttribute="centerY" id="pLg-YZ-igX"/>
+                                            <constraint firstItem="HZZ-Bk-bYc" firstAttribute="leading" secondItem="vKR-iC-5Ry" secondAttribute="leading" id="rFn-oe-cnK"/>
+                                            <constraint firstItem="HZZ-Bk-bYc" firstAttribute="bottom" secondItem="vKR-iC-5Ry" secondAttribute="bottom" id="ry4-Ba-zdF"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -606,6 +620,7 @@
                         <outlet property="googleLoginButton" destination="LIk-xX-qyR" id="AEw-yr-DsV"/>
                         <outlet property="loginButton" destination="ho5-Ws-VPc" id="ejp-O5-2rT"/>
                         <outlet property="noAccountButton" destination="vKR-iC-5Ry" id="fHO-hU-IWh"/>
+                        <outlet property="noAccountLabel" destination="HZZ-Bk-bYc" id="qch-7s-Nna"/>
                         <outlet property="passwordTextField" destination="DBM-f4-Bta" id="re3-rN-uwE"/>
                         <outlet property="stackView" destination="IV0-nr-n1V" id="71W-me-XEX"/>
                     </connections>

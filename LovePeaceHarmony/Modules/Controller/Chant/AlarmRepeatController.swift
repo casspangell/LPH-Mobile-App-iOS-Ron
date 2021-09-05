@@ -42,8 +42,8 @@ class AlarmRepeatController: BaseViewController {
         super.viewDidLoad()
         
         selectRepeatLabel.text = NSLocalizedString("Select Repeat", comment: "")
-        doneButton.titleLabel?.text = NSLocalizedString("Done", comment: "")
-        cancelButton.titleLabel?.text = NSLocalizedString("Cancel", comment: "")
+        doneButton.setTitle(NSLocalizedString("Done", comment: ""), for: .normal)
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         everydayLabel.text = NSLocalizedString("Everyday", comment: "")
         sundayLabel.text = NSLocalizedString("Sunday", comment: "")
         mondayLabel.text = NSLocalizedString("Monday", comment: "")

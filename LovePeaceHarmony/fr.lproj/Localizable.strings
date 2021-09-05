@@ -11,8 +11,8 @@
 "Connect with Facebook" = "Connectez-vous avec Facebook";
 "Login" = "Connexion";
 "Don't have an account? Sign Up" = "Vous n'avez pas de compte ? Inscrivez-vous";
-"Email" = "e-mail";
-"Password" = "Mot de passe";
+"Email" = "E-Mail";
+"Password" = "Mot de Passe";
 "email/password can't be empty" = "L'adresse électronique et le mot de passe ne peuvent être vides";
 "Please check your internet connection" = "Veuillez vérifier votre connexion Internet";
 
@@ -20,9 +20,9 @@
 "Tap anywhere to continue" = "Tapez n'importe où pour continuer.";
 
 /* Sign Up Email Controller */
-"Confirm Password" = "Confirmez le mot de passea";
+"Confirm Password" = "Confirmez le mot de Passea";
 "Back" = "Retour";
-"Create an Account" = "Créez un compte";
+"Create an Account" = "Créez un Compte";
 "Submit" = "Soumettre";
 
 /* Chant Now Controller */
@@ -38,7 +38,7 @@
 "Chant any time" = "Chanter en tout temps";
 "Set reminders to chant" = "Ajouter un rappel pour chanter";
 "View your milestones" = "Visualisez vos objectifs";
-"Every Day" = "Tous les jours";
+"Every Day" = "Tous les Jours";
 "Off" = "Arrêt";
 "Sun" = "Dim";
 "Mon" = "Lun";
@@ -79,7 +79,7 @@
 "No reminder added" = "Aucun Rappel Ajouté";
 "Repeat" = "Répéter";
 "Default" = "Défaut";
-"Delete Reminder" = "Supprimer le rappel";
+"Delete Reminder" = "Supprimer le Rappel";
 "Cancel" = "Annuler";
 "Save" = "Sauvegarder";
 "Edit Reminder" = "Modifier le Rappel";
