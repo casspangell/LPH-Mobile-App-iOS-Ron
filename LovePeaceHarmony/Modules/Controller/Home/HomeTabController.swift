@@ -3,32 +3,45 @@
 //  LovePeaceHarmony
 //
 //  Created by Aghil C M on 07/11/17.
+//  Updated by Cass Pangell on 9/5/21.
 //  Copyright © 2017 LovePeaceHarmony. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import FirebaseDynamicLinks
 
 class HomeTabController: UITabBarController {
 
+    @IBOutlet weak var homeTabController: UITabBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        dynamicLink() //gets the app share link
+        
+        let items = homeTabController.items
+        let chantItem = items![0]
+        let aboutItem = items![1]
+        let newsItem = items![2]
+        let logoutItem = items![3]
+        
+        chantItem.title = NSLocalizedString("Chant", comment: "")
+        aboutItem.title = NSLocalizedString("About", comment: "")
+        newsItem.title = NSLocalizedString("News", comment: "")
+        logoutItem.title = NSLocalizedString("Logout", comment: "")
+        
     }
 
     
-    func navigateToChantMilestone() {
-        selectedIndex = 0
-        let chantController = childViewControllers[0] as! ChantController
-        chantController.navigateToChantMilestone()
-    }
-    
-    func navigateToNewsFavourites() {
-        selectedIndex = 1
-        let newsController = childViewControllers[1] as! NewsController
-        newsController.navigateToNewsFavourite()
-    }
+//    func navigateToChantMilestone() {
+//        selectedIndex = 0
+//        let chantController = childViewControllers[0] as! ChantController
+//        chantController.navigateToChantMilestone()
+//    }
+//
+//    func navigateToNewsFavourites() {
+//        selectedIndex = 1
+//        let newsController = childViewControllers[1] as! NewsController
+//        newsController.navigateToNewsFavourite()
+//    }
     
 //    func generateContentLink() -> URL {
 //      let baseURL = URL(string: "https://lovepeaceharmony.page.link")!

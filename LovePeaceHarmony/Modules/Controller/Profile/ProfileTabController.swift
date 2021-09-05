@@ -16,6 +16,7 @@ class ProfileTabController: BaseViewController, SignOutCallback, ProfileLoginCal
     
     // MARK: - IBOutlets
     @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var logoutTabBar: UITabBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()

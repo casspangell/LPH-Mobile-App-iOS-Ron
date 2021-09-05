@@ -57,13 +57,13 @@ class ProfileController: BaseViewController, MFMessageComposeViewControllerDeleg
     }
     
     @IBAction func onTapManageFavorites(_ sender: UITapGestureRecognizer) {
-        let parentTabController = parent?.parent as! HomeTabController
-        parentTabController.navigateToNewsFavourites()
+//        let parentTabController = parent?.parent as! HomeTabController
+//        parentTabController.navigateToNewsFavourites()
     }
     
     @IBAction func onTapMilestones(_ sender: UITapGestureRecognizer) {
-        let parentTabController = parent?.parent as! HomeTabController
-        parentTabController.navigateToChantMilestone()
+//        let parentTabController = parent?.parent as! HomeTabController
+//        parentTabController.navigateToChantMilestone()
     }
     
     @IBAction func onTapProfilePic(_ sender: UITapGestureRecognizer) {

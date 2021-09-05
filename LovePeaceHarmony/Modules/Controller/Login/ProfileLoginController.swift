@@ -19,7 +19,8 @@ class ProfileLoginController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logoutButton.titleLabel?.text = NSLocalizedString("Logout", comment: "")
+
+        logoutButton.setTitle(NSLocalizedString("Logout", comment: ""), for: .normal) 
         lphMessengerLabel.text = NSLocalizedString("Love Peace Harmony Messenger", comment: "")
     }
     

@@ -39,8 +39,6 @@ class NewsController: ButtonBarPagerTabStripViewController {
     // MARK: - Views
     override func viewDidLoad() {
         
-        newsTab.title = NSLocalizedString("News", comment: "")
-        
         scrollViewContainer.isScrollEnabled = false
         containerView = scrollViewContainer
         settings.style.buttonBarHeight = 0

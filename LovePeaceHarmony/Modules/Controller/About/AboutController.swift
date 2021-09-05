@@ -39,13 +39,13 @@ class AboutController: ButtonBarPagerTabStripViewController {
         labelTabSong.text = NSLocalizedString("The Song", comment: "")
         labelTabMovement.text = NSLocalizedString("The Movement", comment: "")
         labelTabMasterSha.text = NSLocalizedString("Master Sha", comment: "")
-        visitWebsiteButton.titleLabel?.text = NSLocalizedString("Visit Our Website", comment: "")
-        donateNowButton.titleLabel?.text = NSLocalizedString("Donate Now", comment: "")
-        aboutTabBar.title = NSLocalizedString("About", comment: "")
+        visitWebsiteButton.setTitle(NSLocalizedString("Visit Our Website", comment: ""), for: .normal)
+        donateNowButton.setTitle(NSLocalizedString("Donate Now", comment: ""), for: .normal)
         
         scrollViewContainer.isScrollEnabled = false
         containerView = scrollViewContainer
         settings.style.buttonBarHeight = 0
+        
         super.viewDidLoad()
         selectedTab = .song
         populateTab(currentTab: .song)

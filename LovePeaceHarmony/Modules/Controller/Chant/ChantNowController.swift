@@ -92,6 +92,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .selected)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .focused)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .highlighted)
+        
         restoreChantSettings()
         initiateMusicPlayer()
         
@@ -100,12 +101,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        //        UIApplication.shared.beginReceivingRemoteControlEvents()
-        //        var mpic = MPNow
-        //        mpic.nowPlayingInfo = [
-        //            MPMediaItemPropertyTitle:"This Is a Test",
-        //            MPMediaItemPropertyArtist:"Matt Neuburg"
-        //        ]
     }
     
 
