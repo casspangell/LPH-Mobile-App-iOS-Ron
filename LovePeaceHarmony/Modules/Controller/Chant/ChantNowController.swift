@@ -29,7 +29,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var isShuffleEnabled = false
     var isRepeatEnabled = false
     var chantMilestoneCounter:Float = 0
-    var chantTitle = ["Mandarin, Soul Language and English", "Instrumental", "Hindi, Soul Language, English", "Spanish", "Mandarin, English, German", "French", "French Antillean Creole", "Kawehi Haw", "Master Sha English", "Master Sha Lula English Ka Haw"]
+    var chantTitle = ["Mandarin, Soul Language, English", "Instrumental", "Hindi, Soul Language, English", "Spanish, Soul Language", "German, English, Mandarin", "Soul Language, French", "Soul Language, French, Creole", "Aloha, Maluhia, Lokahi (LPH in Hawaiian)", "Lu La Li Version, English and Hawaiian", "Love Peace Harmony in English"]
   
     // MARK: - IBProperties
     @IBOutlet weak var buttonPlayPause: UIButton!
@@ -475,8 +475,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func renderSongName() {
+        let songTitle = chantTitle[(currentSong?.rawValue)!]
         if currentSong != nil {
-            labelSongName.text = "\(NSLocalizedString("Now playing: ", comment: "")) \(chantTitle[(currentSong?.rawValue)!])"
+            labelSongName.text = "\(NSLocalizedString("Now Playing: ", comment: "")) \(NSLocalizedString(songTitle, comment: ""))"
         } else {
             labelSongName.text = " "
         }
