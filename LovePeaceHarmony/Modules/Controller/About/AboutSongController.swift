@@ -24,6 +24,11 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     
+    @IBOutlet weak var descriptionOne: UILabel!
+    @IBOutlet weak var descriptionTwo: UILabel!
+    @IBOutlet weak var descriptionThree: UILabel!
+    @IBOutlet weak var descriptionFour: UILabel!
+    
     // MARK: - Views
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -45,12 +50,10 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
         let songDescription3 = NSLocalizedString(AboutDescription.songDescription3, comment: "")
         let songDescription4 = NSLocalizedString(AboutDescription.songDescription4, comment: "")
         
-//        let wholeSongDescription = NSMutableAttributedString(string:"\(songDescription)\n\n\(songDescription2)\n\n\(songDescription3)\n\n\(songDescription4)")
-//        wholeSongDescription.addAttribute(.font, value: UIFont(name: "OpenSans", size: 15)!, range: NSRange(location: 0, length: wholeSongDescription.length))
-
-        let wholeSongDescription = "\(songDescription)\n\n\(songDescription2)\n\n\(songDescription3)\n\n\(songDescription4)"
-            
-        labelDescription.text = wholeSongDescription
+        descriptionOne.text = songDescription
+        descriptionTwo.text = songDescription2
+        descriptionThree.text = songDescription3
+        descriptionFour.text = songDescription4
     }
 
     // MARK: - XLPagerTabStrip
@@ -66,10 +69,6 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
         if state == .playing {
             AVAudioSingleton.sharedInstance.pause()
-            
-//            if let homeController = parent?.parent as? HomeTabController {
-//                homeController.stopChantingPlayback()
-//            }
         }
     }
 
