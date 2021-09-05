@@ -163,11 +163,11 @@ class ChantController: ButtonBarPagerTabStripViewController, MaterialShowcaseDel
         selectedTab = currentTab
     }
     
-    func stopChantingPlayback() {
-        if let chantNowController = chantViewControllers[0] as? ChantNowController {
-            chantNowController.stopChantingIfPlaying()
-        }
-    }
+//    func stopChantingPlayback() {
+//        if let chantNowController = chantViewControllers[0] as? ChantNowController {
+//            chantNowController.stopChantingIfPlaying()
+//        }
+//    }
     
     func navigateToChantMilestone() {
         populateTab(currentTab: .chantMilestones)

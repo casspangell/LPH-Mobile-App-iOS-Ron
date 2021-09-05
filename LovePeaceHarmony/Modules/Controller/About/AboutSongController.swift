@@ -12,8 +12,9 @@ import XLPagerTabStrip
 import youtube_ios_player_helper
 
 class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerViewDelegate {
-    
+
     // MARK: Variables
+    
     var constraintCalculated = false
     
     // MARK: - IBOutlets
@@ -26,6 +27,7 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
     // MARK: - Views
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         if !constraintCalculated {
             let youtubePlayer: YTPlayerView = YTPlayerView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: viewVideoContainer.frame.height))
             activityIndicator.startAnimating()
@@ -61,9 +63,11 @@ class AboutSongController: BaseViewController, IndicatorInfoProvider, YTPlayerVi
     
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
         if state == .playing {
-            if let homeController = parent?.parent as? HomeTabController {
-                homeController.stopChantingPlayback()
-            }
+            AVAudioSingleton.sharedInstance.pause()
+            
+//            if let homeController = parent?.parent as? HomeTabController {
+//                homeController.stopChantingPlayback()
+//            }
         }
     }
 

@@ -17,7 +17,6 @@ import MaterialShowcase
 class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlayerDelegate {
     
     // MARK: - Variables
-//    var audioPlayer: AVAudioPlayer?
     var sliderTimer: Timer?
     var totalChantDuration: Float?
     var startTime: String?
@@ -32,7 +31,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var isRepeatEnabled = false
     var chantMilestoneCounter:Float = 0
     var chantTitle = ["Mandarin, Soul Language and English", "Instrumental", "Hindi, Soul Language, English", "Spanish", "Mandarin, English, German", "French", "French Antillean Creole", "Kawehi Haw", "Master Sha English", "Master Sha Lula English Ka Haw"]
-    
+  
     // MARK: - IBProperties
     @IBOutlet weak var buttonPlayPause: UIButton!
     @IBOutlet weak var labelSeekTime: UILabel!
@@ -75,7 +74,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //Strings for localization
         mandarinSoulEnglishLabel.text = NSLocalizedString("Mandarin, Soul Language, English", comment: "")
         instrumentalLabel.text = NSLocalizedString("Instrumental", comment: "")
@@ -110,16 +109,27 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //        ]
     }
     
+
+    override func viewDidAppear(_ animated: Bool) {
+        
+        //If in another class or view pauses the player
+        let image = buttonPlayPause.imageView?.image
+        let audioBool = AVAudioSingleton.sharedInstance.isPlaying()
+        if (image == #imageLiteral(resourceName: "ic_pause")) && (!audioBool) {
+            buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//play image
+        }
+    }
+    
     @objc func didBecomeActive() { 
 
         //Load previous chant data in UserDefaults
         let userID = LPHUtils.getCurrentUserID()
         APIUtilities.fetchCurrentChantingStreak(userID: userID) { (result) in
-            print("set userdefaults current chanting streak")
+            print("fetch userdefaults current chanting streak")
         }
         
         APIUtilities.fetchTotalSecsChanted(userID: userID) { (result) in
-            print("set userdefaults total secs chanted")
+            print("fetch userdefaults total secs chanted")
         }
         
     }
@@ -368,10 +378,11 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
     }
     
-    private func togglePlayPauseButton() {
+    public func togglePlayPauseButton() {
        
+        let audioBool = AVAudioSingleton.sharedInstance.isPlaying()
         //Pressed Play
-        if (!isAudioPlaying) {
+        if (!audioBool) {
  
                 var songName: String?
                 
@@ -406,6 +417,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             //If first run, start default song, else continue from the current song
             if (isFirstRun) {
                 AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
+                isFirstRun = false
             } else {
                 AVAudioSingleton.sharedInstance.play()
             }
@@ -413,7 +425,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
-            isAudioPlaying = true
+//            isAudioPlaying = true
 
         //Pressed Pause
         } else {
@@ -423,9 +435,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//pause image
-            isAudioPlaying = false
+//            isAudioPlaying = false
         }
     }
+
     
     private func pressedSkip() {
         
@@ -466,7 +479,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         startTime = labelSeekTime.text //set new start time
         sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
         buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
-        isAudioPlaying = true
+//        isAudioPlaying = true
 
     }
     
@@ -478,12 +491,12 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         }
     }
     
-    func stopChantingIfPlaying() {
-        if (AVAudioSingleton.sharedInstance.isPlaying()) {
-            AVAudioSingleton.sharedInstance.stop()
-            togglePlayPauseButton()
-        }
-    }
+//    func stopChantingIfPlaying() {
+//        if (AVAudioSingleton.sharedInstance.isPlaying()) {
+//            AVAudioSingleton.sharedInstance.stop()
+//            togglePlayPauseButton()
+//        }
+//    }
     
     private func processChantingMilestone() {
         //Grab timestamp label and convert to total seconds
@@ -984,7 +997,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             //Reset the player
             if AVAudioSingleton.sharedInstance.isPlaying() {
                 AVAudioSingleton.sharedInstance.pause()
-                isAudioPlaying = false
+//                isAudioPlaying = false
             }
             
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)

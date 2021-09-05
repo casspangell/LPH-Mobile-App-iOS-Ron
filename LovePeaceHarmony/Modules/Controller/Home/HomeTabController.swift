@@ -86,10 +86,10 @@ class HomeTabController: UITabBarController {
 //        }
 //    }
     
-    func stopChantingPlayback() {
-        if let chantNowController = childViewControllers[0] as? ChantController {
-            chantNowController.stopChantingPlayback()
-        }
-        
-    }
+//    func stopChantingPlayback() {
+//        if let chantNowController = childViewControllers[0] as? ChantController {
+//            chantNowController.stopChantingPlayback()
+//        }
+//
+//    }
 }

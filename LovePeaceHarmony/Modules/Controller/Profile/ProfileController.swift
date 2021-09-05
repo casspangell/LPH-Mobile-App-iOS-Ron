@@ -125,9 +125,9 @@ class ProfileController: BaseViewController, MFMessageComposeViewControllerDeleg
         DBUtils.deleteNews(newsId: nil, type: .category)
         DBUtils.deleteNews(newsId: nil, type: .favourite)
         LPHUtils.setLoginVo(loginVo: loginVo)
-        if let homeController = parent?.parent as? HomeTabController {
-            homeController.stopChantingPlayback()
-        }
+//        if let homeController = parent?.parent as? HomeTabController {
+//            homeController.stopChantingPlayback()
+//        }
         
         let reminderList = AlarmUtils.fetchCoreDataReminderList()
         for reminder in reminderList {

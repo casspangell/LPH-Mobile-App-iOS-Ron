@@ -302,9 +302,11 @@ extension UIColor {
 class AVAudioSingleton {
     static let sharedInstance = AVAudioSingleton()
     private var player: AVAudioPlayer?
+    var isAudioPlaying:Bool?
 
     func prepare() {
         player?.prepareToPlay()
+        isAudioPlaying = false
     }
     
     func startNewSong(chantFileName: String) {
@@ -327,18 +329,27 @@ class AVAudioSingleton {
     
     func play() {
         player?.play()
+        isAudioPlaying = true
     }
     
     func pause() {
         player?.pause()
+        isAudioPlaying = false
     }
     
     func stop() {
         player?.stop()
+        isAudioPlaying = false
     }
     
     func isPlaying() -> Bool {
-        if player != nil {
+//        if player != nil {
+//            return true
+//        } else {
+//            return false
+//        }
+        
+        if isAudioPlaying! {
             return true
         } else {
             return false
