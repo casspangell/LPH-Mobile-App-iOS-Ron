@@ -13,24 +13,32 @@ class AboutMovementController: BaseViewController, IndicatorInfoProvider {
 
     // MARK: - IBOutlets
     @IBOutlet weak var imageViewHeader: UIImageView!
-    @IBOutlet weak var labelMovementDescription: UILabel!
+    
+    @IBOutlet weak var descriptionOne: UILabel!
+    @IBOutlet weak var descriptionTwo: UILabel!
+    @IBOutlet weak var descriptionThree: UILabel!
+    @IBOutlet weak var descriptionFour: UILabel!
+    @IBOutlet weak var descriptionFive: UILabel!
+    @IBOutlet weak var descriptionSix: UILabel!
     
     // MARK: - Views
     override func initView() {
         super.initView()
         imageViewHeader.contentMode = UIViewContentMode.scaleAspectFill
         
-        let movementDescription = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.movement, comment: "") )
-        let movementDescription2 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.movement2, comment: "") )
-        let movementDescription3 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.movement3, comment: "") )
-        let movementDescription4 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.movement4, comment: "") )
-        let movementDescription5 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.movement5, comment: "") )
-        let movementDescription6 = NSMutableAttributedString(string: NSLocalizedString(AboutDescription.movement6, comment: "") )
-        
-        let wholeMovementDescription = NSMutableAttributedString(string:"\(movementDescription)\n\n\(movementDescription2)\n\n\(movementDescription3)\n\n\(movementDescription4)\n\n\(movementDescription5)\n\n\(movementDescription6)")
-        wholeMovementDescription.addAttribute(.font, value: UIFont(name: "OpenSans", size: 15)!, range: NSRange(location: 0, length: wholeMovementDescription.length))
+        let movementDescription = NSLocalizedString(AboutDescription.movement, comment: "")
+        let movementDescription2 = NSLocalizedString(AboutDescription.movement2, comment: "")
+        let movementDescription3 = NSLocalizedString(AboutDescription.movement3, comment: "")
+        let movementDescription4 = NSLocalizedString(AboutDescription.movement4, comment: "")
+        let movementDescription5 = NSLocalizedString(AboutDescription.movement5, comment: "")
+        let movementDescription6 = NSLocalizedString(AboutDescription.movement6, comment: "")
 
-        labelMovementDescription.attributedText = wholeMovementDescription
+        descriptionOne.text = movementDescription
+        descriptionTwo.text = movementDescription2
+        descriptionThree.text = movementDescription3
+        descriptionFour.text = movementDescription4
+        descriptionFive.text = movementDescription5
+        descriptionSix.text = movementDescription6
 
     }
 
