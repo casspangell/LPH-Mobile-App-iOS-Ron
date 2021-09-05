@@ -36,13 +36,14 @@ class SocialLoginEngine: NSObject {
                 initiateGoogleLogin()
             } else if loginType == .facebook {
                 initiateFacebookLogin()
-            }
+            } 
         } catch _ as LPHException<LoginError> {
             throw LPHException<LoginError>(controllerError: .invalidCredentials)
         } catch {
             
         }
     }
+    
     
 //    func initGoogleDelegation() {
 ////        GIDSignIn.sharedInstance().delegate = self
