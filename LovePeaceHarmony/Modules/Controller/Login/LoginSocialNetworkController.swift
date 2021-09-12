@@ -230,6 +230,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     // MARK: - Navigation
     private func navigateToHome() {
         let homeTabController = LPHUtils.getStoryboard(type: .home).instantiateViewController(withIdentifier: ViewController.homeTab)
+        
         let navVC = UINavigationController(rootViewController: homeTabController)
         navVC.setNavigationBarHidden(true, animated: false)
         navVC.modalPresentationStyle = .fullScreen

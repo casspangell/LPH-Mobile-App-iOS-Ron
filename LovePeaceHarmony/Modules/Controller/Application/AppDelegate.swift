@@ -44,7 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if loginVo.isLoggedIn {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTabController")
-                self.window?.rootViewController = initialViewController
+                let navigationController = UINavigationController(rootViewController: initialViewController)
+                self.window?.rootViewController = navigationController
                 self.window?.makeKeyAndVisible()
              }
          }

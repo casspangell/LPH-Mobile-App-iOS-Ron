@@ -43,6 +43,11 @@ class ProfileLoginController: BaseViewController {
  
     private func navigateToLogin() {
         let homeTabController = LPHUtils.getStoryboard(type: .login).instantiateViewController(withIdentifier: ViewController.login)
-        present(homeTabController, animated: true, completion: nil)
+//        present(homeTabController, animated: true, completion: nil)
+        
+        let navVC = UINavigationController(rootViewController: homeTabController)
+        navVC.setNavigationBarHidden(true, animated: false)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
     }
 }
