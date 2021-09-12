@@ -1194,16 +1194,24 @@
                                                         <rect key="frame" x="0.0" y="1" width="327" height="54"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                        <state key="normal" title="Submit">
+                                                        <state key="normal">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="submitPressed:" destination="WwV-Kj-ES4" eventType="touchUpInside" id="SUZ-Pf-XJe"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR0-3s-H1Z">
+                                                        <rect key="frame" x="140.5" y="15" width="54" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.33100718260000001" green="0.30234476919999997" blue="0.4549190998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
+                                                    <constraint firstItem="GR0-3s-H1Z" firstAttribute="centerX" secondItem="Oyb-mj-bXs" secondAttribute="centerX" id="1Is-CL-2nA"/>
+                                                    <constraint firstItem="GR0-3s-H1Z" firstAttribute="centerY" secondItem="Oyb-mj-bXs" secondAttribute="centerY" id="RXj-jP-qLe"/>
                                                     <constraint firstAttribute="height" constant="50" id="UjW-vD-eJK"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -1244,6 +1252,7 @@
                         <outlet property="backLabel" destination="m8R-qd-TyM" id="8Vm-xV-EsL"/>
                         <outlet property="createAccountLabel" destination="ajU-Dl-WOZ" id="x0d-71-nLy"/>
                         <outlet property="submitButton" destination="kKo-H3-aXn" id="Zhe-66-dPY"/>
+                        <outlet property="submitLabel" destination="GR0-3s-H1Z" id="7A9-Sf-aXp"/>
                         <outlet property="textFieldConfirmPassword" destination="yKc-uO-rwL" id="cZ4-lM-XRH"/>
                         <outlet property="textFieldEmail" destination="0Uj-Fb-geR" id="cYk-pE-WFL"/>
                         <outlet property="textFieldPassword" destination="sCT-ba-ge9" id="aDV-rS-j3j"/>

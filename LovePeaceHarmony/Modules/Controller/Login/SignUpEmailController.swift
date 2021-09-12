@@ -23,6 +23,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var createAccountLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var submitLabel: UILabel!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
         textFieldConfirmPassword.placeholder = NSLocalizedString("Confirm Passowrd", comment: "")
         backLabel.text = NSLocalizedString("Back", comment: "")
         createAccountLabel.text = NSLocalizedString("Create an Account", comment: "")
-        submitButton.setTitle(NSLocalizedString("Submit", comment: ""), for: .normal)
+        submitLabel.text = NSLocalizedString("Submit", comment: "")
             
     }
     
