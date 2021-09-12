@@ -155,7 +155,7 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                     labelMinutesCount.text = timeStamp
                 }
                 
-                self.timestampActivityIndicator.stopAnimating()
+                
 
             case .failure(let error):
                 fatalError("Error: \(String(describing: error))")
@@ -170,14 +170,16 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
                 self.labelStreakCount.text = String(streak.longest_streak)
                 self.labelDayCount.text = String(streak.current_streak)
                 
-                self.daysStraightActivityIndicator.stopAnimating()
-                self.longestStreakActivityIndicator.stopAnimating()
+
                 
             case .failure(let error):
                 fatalError("Error: \(String(describing: error))")
             }
         }
         
+        self.timestampActivityIndicator.stopAnimating()
+        self.daysStraightActivityIndicator.stopAnimating()
+        self.longestStreakActivityIndicator.stopAnimating()
         hideLoadingIndicator()
 
     }
