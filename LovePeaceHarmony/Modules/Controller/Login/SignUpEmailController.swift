@@ -137,6 +137,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             loginVo.loginType = .email
 //            loginVo.inviteCode = profileVo.inviteCode
 //            loginVo.token = response.getMetadata() as! String
+            let user = LPHUtils.getCurrentUserID()
             LPHUtils.setLoginVo(loginVo: loginVo)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
@@ -148,6 +149,9 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: false)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: false)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: false)
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantCurrentStreak)", value: "0")
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantLongestStreak)", value: "0")
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantTimestamp)", value: "0:00")
         
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
         

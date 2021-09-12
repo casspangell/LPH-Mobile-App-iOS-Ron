@@ -166,6 +166,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
             loginVo.token = token
             LPHUtils.setLoginVo(loginVo: loginVo)
             
+            let user = LPHUtils.getCurrentUserID()
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: true)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: false)
@@ -176,6 +177,9 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: false)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: false)
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: false)
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantCurrentStreak)", value: "0")
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantLongestStreak)", value: "0")
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantTimestamp)", value: "0:00")
         
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
         
