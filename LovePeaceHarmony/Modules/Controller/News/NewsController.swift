@@ -8,8 +8,9 @@
 
 import UIKit
 import XLPagerTabStrip
+import Lottie
 
-class NewsController: ButtonBarPagerTabStripViewController {
+class NewsController: ButtonBarPagerTabStripViewController, UIWebViewDelegate {
 
     //-----------------------------------------------------------//
     @IBOutlet weak var webView: UIWebView!
@@ -36,8 +37,12 @@ class NewsController: ButtonBarPagerTabStripViewController {
     private var selectedTab: NewsTab?
     private var newsViewControllers = [UIViewController]()
     
+    private let loadingAnimView = AnimationView(name: LOADING_INDICATOR)
+    
     // MARK: - Views
     override func viewDidLoad() {
+        
+        initAnimView()
         
         scrollViewContainer.isScrollEnabled = false
         containerView = scrollViewContainer
@@ -51,9 +56,30 @@ class NewsController: ButtonBarPagerTabStripViewController {
         //-----------------------------------------------------------//
         let url = URL (string: "https://www.drsha.com/news/")
         let requestObj = URLRequest(url: url!)
+        webView.delegate = self
         webView.loadRequest(requestObj)
-
+        showLoadingIndicator()
         //-----------------------------------------------------------//
+        
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        hideLoadingIndicator()
+    }
+    
+    private func initAnimView() {
+        loadingAnimView.frame = CGRect(x: (UIScreen.main.bounds.width / 2) - 25, y: (UIScreen.main.bounds.height / 2) - 120, width: 50, height: 50)
+        loadingAnimView.animationSpeed = CGFloat(1.5)
+        loadingAnimView.loopMode = .loop
+    }
+    
+    public func showLoadingIndicator() {
+        view.addSubview(loadingAnimView)
+        loadingAnimView.play()
+    }
+    
+    public func hideLoadingIndicator() {
+        loadingAnimView.removeFromSuperview()
     }
     
     // MARK: - XLPagerTabStrip
@@ -141,3 +167,4 @@ class NewsController: ButtonBarPagerTabStripViewController {
     }
     
 }
+
