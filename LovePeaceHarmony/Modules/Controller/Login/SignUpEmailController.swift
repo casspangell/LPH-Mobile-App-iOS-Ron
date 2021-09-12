@@ -198,7 +198,11 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
     // MARK: - Navigation
     private func navigateToHome() {
         let homeTabController = LPHUtils.getStoryboard(type: .home).instantiateViewController(withIdentifier: ViewController.homeTab)
-        present(homeTabController, animated: true, completion: nil)
+        
+        let navVC = UINavigationController(rootViewController: homeTabController)
+        navVC.setNavigationBarHidden(true, animated: false)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true, completion: nil)
     }
     
 }

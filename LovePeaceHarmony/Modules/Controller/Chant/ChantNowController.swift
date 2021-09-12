@@ -117,14 +117,14 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @objc func didBecomeActive() { 
 
         //Load previous chant data in UserDefaults
-        let userID = LPHUtils.getCurrentUserID()
-        APIUtilities.fetchCurrentChantingStreak(userID: userID) { (result) in
-            print("fetch userdefaults current chanting streak")
-        }
-        
-        APIUtilities.fetchTotalSecsChanted(userID: userID) { (result) in
-            print("fetch userdefaults total secs chanted")
-        }
+//        let userID = LPHUtils.getCurrentUserID()
+//        APIUtilities.fetchCurrentChantingStreak(userID: userID) { (result) in
+//            print("fetch userdefaults current chanting streak")
+//        }
+//
+//        APIUtilities.fetchTotalSecsChanted(userID: userID) { (result) in
+//            print("fetch userdefaults total secs chanted")
+//        }
         
     }
     
