@@ -73,9 +73,9 @@ class ChantMilestoneController: BaseViewController, IndicatorInfoProvider {
     }
     
     private func loadPreviouslySavedData(userId: String) {
-        let timeStamp = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.chantTimestamp)
-        let daysStraight = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.chantCurrentStreak)
-        let longestStreak = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.chantLongestStreak)
+        let timeStamp = LPHUtils.getUserDefaultsString(key: "\(userId):\(UserDefaults.Keys.chantTimestamp)")
+        let daysStraight = LPHUtils.getUserDefaultsString(key: "\(userId):\(UserDefaults.Keys.chantCurrentStreak)")
+        let longestStreak = LPHUtils.getUserDefaultsString(key: "\(userId):\(UserDefaults.Keys.chantLongestStreak)")
         
         labelMinutesCount.text = timeStamp
         labelDayCount.text = daysStraight

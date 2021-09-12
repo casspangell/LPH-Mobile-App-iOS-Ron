@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeTabController")
                 let navigationController = UINavigationController(rootViewController: initialViewController)
+                navigationController.setNavigationBarHidden(true, animated: false)
+                navigationController.modalPresentationStyle = .fullScreen
                 self.window?.rootViewController = navigationController
                 self.window?.makeKeyAndVisible()
              }

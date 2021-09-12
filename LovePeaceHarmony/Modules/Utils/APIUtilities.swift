@@ -205,8 +205,8 @@ class APIUtilities {
             currentChantingStreak = Streak(last_day_chanted: lastDay!, current_streak: currStreak!, longest_streak: longestStreak!)
                 
                 //Set UserDefaults
-                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantCurrentStreak, value: "\(currStreak ?? 0)")
-                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantLongestStreak, value: "\(longestStreak ?? 0)")
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantCurrentStreak)", value: "\(currStreak ?? 0)")
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantLongestStreak)", value: "\(longestStreak ?? 0)")
                 
                 completion(.success(currentChantingStreak))
             
@@ -251,7 +251,7 @@ class APIUtilities {
 
             //Set UserDefaults
             let timeStamp = LPHUtils.returnHoursMinsSeconds(seconds: totalSecsData)
-            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.chantTimestamp, value: timeStamp)
+            LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantTimestamp)", value: timeStamp)
             
             completion(.success(totalSecsData))
         }) { (error) in

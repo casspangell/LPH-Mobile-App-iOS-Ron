@@ -58,7 +58,7 @@ public class LPHServiceImpl: LPHService {
         RestClient.httpRequest(url: LPHUrl.REGISTER_SOCIAL_LOGIN, method: .post, params: loginRegisterParam, isLoading: true) { (rawResponse) in
             let lphResponse = LPHParser.parseLogin(rawResponse: rawResponse)
             if lphResponse.isSuccess() {
-                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.invitedCode, value: "")
+//                LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.invitedCode, value: "")
             }
             parsedResponse(lphResponse)
         }
