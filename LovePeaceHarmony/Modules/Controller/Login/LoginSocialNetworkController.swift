@@ -193,6 +193,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
                 if let error = error {
                   let _ = error as NSError
                     self.showToast(message: error.localizedDescription)
+                    print(error.localizedDescription)
                     return
                   }
 

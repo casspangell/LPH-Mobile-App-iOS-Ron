@@ -31,7 +31,7 @@ public class LPHParser {
         let dataJson = data["picture"]!["data"]! as! [String : Any]
         let profilePic = dataJson["url"]!
         loginVo.profilePicUrl = profilePic as! String
-        loginVo.email = data["email"] as! String
+//        loginVo.email = data["email"] as! String
         let userId = data["id"] as! String
         loginVo.password = userId
         return loginVo
