@@ -452,7 +452,7 @@ enum ChantFile: Int {
     case french
     case french_antillean_creole
     case kawehi_haw
-    case sha_eng
     case sha_lula_eng_ka_haw
+    case sha_eng
 }
 

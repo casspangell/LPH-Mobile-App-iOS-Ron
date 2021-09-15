@@ -476,6 +476,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     private func renderSongName() {
         let songTitle = chantTitle[(currentSong?.rawValue)!]
+        print("song title \(songTitle)")
         if currentSong != nil {
             labelSongName.text = "\(NSLocalizedString("Now Playing: ", comment: "")) \(NSLocalizedString(songTitle, comment: ""))"
         } else {
