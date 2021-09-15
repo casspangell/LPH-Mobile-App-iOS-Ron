@@ -13,6 +13,7 @@ import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
 
+
 class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
 
     
@@ -51,8 +52,12 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         emailTextField.placeholder = NSLocalizedString("Email", comment: "")
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
         noAccountLabel.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
+        
+        
     
     }
+    
+   
     
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)

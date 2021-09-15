@@ -12,6 +12,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseCore
 import FirebaseDynamicLinks
+import MaterialShowcase
 
 class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCallback, UIGestureRecognizerDelegate {
 
@@ -23,6 +24,7 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
     // MARK: - IBProperties
     @IBOutlet weak var scrollViewContainer: UIScrollView!
     @IBOutlet weak var imageViewCover: UIImageView!
+    @IBOutlet weak var logoImage: UIImageView!
     
     // MARK: -View
     override func viewDidLoad() {
@@ -37,6 +39,57 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
         tap.cancelsTouchesInView = true
         tap.delegate = self
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+        
+        //Check first run
+        let userDefaults = UserDefaults.standard
+        if userDefaults.object(forKey: "first_run") == nil  {
+            renderShowcaseView()
+            userDefaults.setValue("No", forKey: "first_run")
+        }
+    }
+    
+    func renderShowcaseView() {
+        let showcase = MaterialShowcase()
+        showcase.setTargetView(view: logoImage) // always required to set targetView
+        showcase.primaryText = "Welcome to the NEW Love, Peace, Harmony App! Please be sure to register for a new account to start singing."
+        showcase.secondaryText = "Tap to continue"
+        
+        // Background
+        showcase.backgroundAlpha = 0.9
+        showcase.backgroundPromptColor = UIColor.purple
+        showcase.backgroundPromptColorAlpha = 0.9
+        showcase.backgroundViewType = .circle // default is .circle
+        showcase.backgroundRadius = 300
+        // Target
+        showcase.targetTintColor = UIColor.blue
+        showcase.targetHolderRadius = 44
+        showcase.targetHolderColor = UIColor.white
+        // Text
+        showcase.primaryTextColor = UIColor.white
+        showcase.secondaryTextColor = UIColor.white
+        showcase.primaryTextSize = 20
+        showcase.secondaryTextSize = 15
+        showcase.primaryTextFont = UIFont.boldSystemFont(ofSize: showcase.primaryTextSize)
+        showcase.secondaryTextFont = UIFont.systemFont(ofSize: showcase.secondaryTextSize)
+        //Alignment
+        showcase.primaryTextAlignment = .left
+        showcase.secondaryTextAlignment = .left
+        // Animation
+        showcase.aniComeInDuration = 0.5 // unit: second
+        showcase.aniGoOutDuration = 0.5 // unit: second
+        showcase.aniRippleScale = 1.5
+        showcase.aniRippleColor = UIColor.white
+        showcase.aniRippleAlpha = 0.2
+        //...
+        
+        showcase.show(completion: {
+          // You can save showcase state here
+          // Later you can check and do not show it again
+        })
     }
     
     

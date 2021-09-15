@@ -199,22 +199,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2869C344-1B68-48DF-8BDF-86FCD34EFFC8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LovePeaceHarmony/Modules/Utils/LPHParser.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "parseFBLoginResponse(rawResponse:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E50EE0D6-FFEA-44F2-9FEB-4B4DB3AA82B9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -286,8 +270,8 @@
             filePath = "LovePeaceHarmony/Modules/Controller/Login/LoginSocialNetworkController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "fireSocialLoginRegisterApi(email:password:name:profilePic:source:deviceId:)"
             landmarkType = "7">
          </BreakpointContent>

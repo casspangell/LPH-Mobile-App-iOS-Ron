@@ -71,7 +71,6 @@
 		6F9867571FD6C2FE00A37114 /* ProfileLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9867561FD6C2FE00A37114 /* ProfileLoginController.swift */; };
 		6F9A39122008DDC700CF255F /* instrumental.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A390F2008DDC400CF255F /* instrumental.mp3 */; };
 		6F9A39132008DDC700CF255F /* mandarin-soul_language-english.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A39102008DDC600CF255F /* mandarin-soul_language-english.mp3 */; };
-		6F9A39142008DDC700CF255F /* hindi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6F9A39112008DDC700CF255F /* hindi.mp3 */; };
 		6FA48E521FD183BB0083BAF5 /* AlarmRepeatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA48E511FD183BB0083BAF5 /* AlarmRepeatController.swift */; };
 		6FAC87B91FE0F3E700520A51 /* AboutSongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC87B81FE0F3E700520A51 /* AboutSongController.swift */; };
 		6FAC87BB1FE0F40800520A51 /* AboutMovementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAC87BA1FE0F40800520A51 /* AboutMovementController.swift */; };
@@ -173,7 +172,6 @@
 		6F9867561FD6C2FE00A37114 /* ProfileLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoginController.swift; sourceTree = "<group>"; };
 		6F9A390F2008DDC400CF255F /* instrumental.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = instrumental.mp3; sourceTree = "<group>"; };
 		6F9A39102008DDC600CF255F /* mandarin-soul_language-english.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "mandarin-soul_language-english.mp3"; sourceTree = "<group>"; };
-		6F9A39112008DDC700CF255F /* hindi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hindi.mp3; sourceTree = "<group>"; };
 		6FA48E511FD183BB0083BAF5 /* AlarmRepeatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRepeatController.swift; sourceTree = "<group>"; };
 		6FAC87B81FE0F3E700520A51 /* AboutSongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSongController.swift; sourceTree = "<group>"; };
 		6FAC87BA1FE0F40800520A51 /* AboutMovementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMovementController.swift; sourceTree = "<group>"; };
@@ -411,7 +409,6 @@
 				50530152259D9EED00C61E82 /* hindi_sl_english.mp3 */,
 				5053014F259D9EE700C61E82 /* mandarin_english_german.mp3 */,
 				50530150259D9EEA00C61E82 /* spanish.mp3 */,
-				6F9A39112008DDC700CF255F /* hindi.mp3 */,
 				6F9A390F2008DDC400CF255F /* instrumental.mp3 */,
 				6F9A39102008DDC600CF255F /* mandarin-soul_language-english.mp3 */,
 				6F74D2531FD5B87000F96E1A /* email.mp3 */,
@@ -582,7 +579,6 @@
 				6F8BDED21FB4726800D924C6 /* loading_rainbow.json in Resources */,
 				50530154259D9EED00C61E82 /* mandarin_english_german.mp3 in Resources */,
 				6F95DA5A2032DE980086B8BA /* OpenSans-Regular.ttf in Resources */,
-				6F9A39142008DDC700CF255F /* hindi.mp3 in Resources */,
 				50530156259D9EED00C61E82 /* french_antillean_creole.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -258,6 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="imageViewCover" destination="Mdc-4a-1td" id="qku-ft-nVG"/>
+                        <outlet property="logoImage" destination="sfK-Zh-mZS" id="1mE-rN-GxU"/>
                         <outlet property="scrollViewContainer" destination="SVp-ES-ggI" id="K5W-Ck-qAO"/>
                     </connections>
                 </viewController>
