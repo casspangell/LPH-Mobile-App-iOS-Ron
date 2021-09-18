@@ -302,7 +302,7 @@ extension UIColor {
 class AVAudioSingleton {
     static let sharedInstance = AVAudioSingleton()
     private var player: AVAudioPlayer?
-    var isAudioPlaying:Bool?
+    var isAudioPlaying:Bool? = false
 
     func prepare() {
         player?.prepareToPlay()

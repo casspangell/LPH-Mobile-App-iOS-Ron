@@ -108,6 +108,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
         //If in another class or view pauses the player
         let image = buttonPlayPause.imageView?.image
+        
         let audioBool = AVAudioSingleton.sharedInstance.isPlaying()
         if (image == #imageLiteral(resourceName: "ic_pause")) && (!audioBool) {
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_play"), for: .normal)//play image
