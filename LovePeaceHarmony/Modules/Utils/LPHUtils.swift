@@ -316,10 +316,8 @@ class AVAudioSingleton {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
-            guard let player = player else { return }
             
-            player.play()
+            self.play()
             
         } catch let error {
             print(error.localizedDescription)

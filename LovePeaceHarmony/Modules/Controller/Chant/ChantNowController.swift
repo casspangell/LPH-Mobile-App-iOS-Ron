@@ -426,19 +426,18 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             //If first run, start default song, else continue from the current song
             if (isFirstRun == 0) {
                 AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
-                LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
             } else {
                 AVAudioSingleton.sharedInstance.play()
             }
             
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
             startTime = labelSeekTime.text //set new start time
             sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
 
         //Pressed Pause
         } else {
-//            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
-            
+
             AVAudioSingleton.sharedInstance.pause()
             processChantingMilestone()
             startTime = labelSeekTime.text //set new start time
@@ -449,9 +448,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
     
     private func pressedSkip() {
-        
-//        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
-        
+
         var songName: String?
         
         switch currentSong {
