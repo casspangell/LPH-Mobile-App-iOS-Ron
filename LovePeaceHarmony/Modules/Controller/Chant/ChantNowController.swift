@@ -25,7 +25,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var songListShuffled = [ChantFile]()
     var currentSong: ChantFile?
     var currentSongString: String?
-    var isFirstRun = true
+
     var isShuffleEnabled = false
     var isRepeatEnabled = false
     var chantMilestoneCounter:Float = 0
@@ -67,8 +67,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @IBOutlet weak var buttonShuffle: UIButton!
     @IBOutlet weak var buttonRepeat: UIButton!
     @IBOutlet weak var labelSongName: UILabel!
-    
-    
 
     // MARK: - View
     override func viewDidLoad() {
@@ -164,6 +162,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         } else {
             buttonRepeat.tintColor = Color.disabled
         }
+        
         songListStatus[.mandarin_soul_english] = isMandarinOn
         songListStatus[.instrumental] = isInstrumentalOn
         songListStatus[.hindi_sl_english] = isHindi_SL_EnglishOn
@@ -331,6 +330,19 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         }
     }
     
+    func checkChantSettings() {
+        let isMandarinOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish)
+        let isInstrumentalOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn)
+        let isHindi_SL_EnglishOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn)
+        let isSpanishOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn)
+        let isMandarinEnglishGermanOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn)
+        let isFrenchOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isFrenchOn)
+        let isfrenchAntilleanCreoleOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isfrenchAntilleanCreoleOn)
+        let isKawehiHawOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn)
+        let isShaEnglishOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn)
+        let isShaLulaEngKaHawOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn)
+    }
+    
     @objc func updateSlider() {
         
             let currentTime = AVAudioSingleton.sharedInstance.getCurrentTime()
@@ -408,11 +420,13 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 }
 
                 currentSongString = songName!
+            
+            let isFirstRun = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.isFirstRun)
                 
             //If first run, start default song, else continue from the current song
-            if (isFirstRun) {
+            if (isFirstRun == 0) {
                 AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
-                isFirstRun = false
+                LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
             } else {
                 AVAudioSingleton.sharedInstance.play()
             }
@@ -423,7 +437,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
         //Pressed Pause
         } else {
-            isFirstRun = false
+//            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
+            
             AVAudioSingleton.sharedInstance.pause()
             processChantingMilestone()
             startTime = labelSeekTime.text //set new start time
@@ -435,7 +450,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     private func pressedSkip() {
         
-        isFirstRun = false
+//        LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
         
         var songName: String?
         

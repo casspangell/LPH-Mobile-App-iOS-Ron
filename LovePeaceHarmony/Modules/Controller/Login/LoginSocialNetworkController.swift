@@ -164,6 +164,11 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     }
     
     private func processLoginResponse(source loginType: LoginType, password: String, token: String) {
+        
+        let isFirstRun = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.isFirstRun)
+        
+        if isFirstRun == 0 {
+                
             let loginVo = LPHUtils.getLoginVo()
             loginVo.isLoggedIn = true
             loginVo.loginType = loginType
@@ -185,8 +190,9 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantCurrentStreak)", value: "0")
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantLongestStreak)", value: "0")
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantTimestamp)", value: "0:00")
-        
-            LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
+            
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
+        }
         
         //Firebase Handling after user logs in with Facebook or Google
         switch loginType {

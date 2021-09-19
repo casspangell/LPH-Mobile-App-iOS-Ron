@@ -154,6 +154,7 @@ class SignUpEmailController: BaseViewController, IndicatorInfoProvider, UITextFi
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantTimestamp)", value: "0:00")
         
             LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isTutorialShown, value: true)
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
         
             self.fireUpdateTokenApi()
     }

@@ -142,6 +142,7 @@ extension UserDefaults {
         static let googleToken = "UserDefaultsGoogleToken"
         
         static let isTutorialShown = "UserDefaultsItemIsTutorialShown"
+        static let isFirstRun = "UserDefaultsIsFirstRun"
         static let currentChantSong = "UserDefaultsCurrentChantSong"
         static let currentSeek = "UserDefaultsCurrentSeek"
         
