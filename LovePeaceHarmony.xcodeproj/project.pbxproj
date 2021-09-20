@@ -899,7 +899,7 @@
 				CODE_SIGN_ENTITLEMENTS = LovePeaceHarmony/LovePeaceHarmony.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = " 13";
+				CURRENT_PROJECT_VERSION = " 14";
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -923,7 +923,7 @@
 				CODE_SIGN_ENTITLEMENTS = LovePeaceHarmony/LovePeaceHarmony.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = " 13";
+				CURRENT_PROJECT_VERSION = " 14";
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

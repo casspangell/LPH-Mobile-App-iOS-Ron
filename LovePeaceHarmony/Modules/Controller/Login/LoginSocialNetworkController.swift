@@ -14,7 +14,7 @@ import FBSDKLoginKit
 import GoogleSignIn
 
 
-class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
+class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, UITextFieldDelegate {
 
     
     /** @var handle
@@ -31,6 +31,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     
     @IBOutlet weak var googleLoginButton: UIButton!
     @IBOutlet weak var facebookLoginButton: UIButton!
+    @IBOutlet weak var appleLoginButton: UIButton!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -45,6 +46,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         loginEngine = SocialLoginEngine(self)
         
         //Set up UI labels for translation
+        appleLoginButton.setTitle(NSLocalizedString("Connect with Apple", comment: ""), for: .normal)
         googleLoginButton.setTitle(NSLocalizedString("Connect with Google", comment: ""), for: .normal)
         facebookLoginButton.setTitle(NSLocalizedString("Connect with Facebook", comment: ""), for: .normal)
         loginButton.setTitle(NSLocalizedString("Login", comment: ""), for: .normal)
@@ -53,7 +55,8 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
         noAccountLabel.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
         
-        
+//        emailTextField.delegate = self
+//        passwordTextField.delegate = self
     
     }
     
@@ -66,6 +69,28 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
     override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
     }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("editing begin")
+    }
+
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("editing end")
+        return false
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      textField.resignFirstResponder()
+
+        return true
+    }
+    
+    
+    
+    
+    
+    
     
     
     @IBAction func loginWithEmailPressed(_ sender: Any) {
@@ -91,6 +116,11 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider {
         }
             
     }
+    
+    @IBAction func appleLoginPressed(_ sender: Any) {
+        print("apple pressed")
+    }
+    
     
     @IBAction func facebookLoginPressed(_ sender: Any) {
         if LPHUtils.checkNetworkConnection() {
