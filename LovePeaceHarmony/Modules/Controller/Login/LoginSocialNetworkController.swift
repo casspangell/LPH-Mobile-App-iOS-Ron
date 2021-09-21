@@ -248,15 +248,24 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
         //Firebase Handling after user logs in with Facebook or Google
         switch loginType {
         case .apple:
-//            
-//            let idTokenString = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleTokenString)
-//            print(idTokenString)
-//            let nonce = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleNonce)
-//            print(nonce)
-//            let credential = OAuthProvider.credential(withProviderID: "apple.com",
-//                                                      idToken: idTokenString,
-//                                                      rawNonce: nonce)
-
+           
+            let nonce = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleNonce)
+            let idTokenString = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleTokenString)
+            
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                      idToken: idTokenString,
+                                                      rawNonce: nonce)
+            
+            // Sign in with Firebase.
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if (error != nil) {
+                    print(error!.localizedDescription)
+                return
+            }
+                //Login Success
+                self.navigateToHome()
+            }
             break
         case .facebook:
             let credential = FacebookAuthProvider

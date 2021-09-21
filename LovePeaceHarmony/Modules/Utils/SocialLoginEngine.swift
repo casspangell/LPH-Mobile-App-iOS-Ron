@@ -262,34 +262,15 @@ extension SocialLoginEngine: ASAuthorizationControllerPresentationContextProvidi
               return
             }
             
+            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleUserId, value: userId)
+            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleNonce, value: nonce)
+            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleTokenString, value: idTokenString)
+            
             loginVo.isLoggedIn = true
             loginVo.loginType = .apple
-            
-//            let appleIDTokenStringValue = String(decoding: appleIDToken, as: UTF8.self)
-            
-            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleUserId, value: userId)
-//            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleNonce, value: nonce)
-//            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleIdToken, value: appleIDTokenStringValue)
-//            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleTokenString, value: idTokenString)
-            
-        print("NONCE \(nonce)")
-            // Initialize a Firebase credential.
-            let credential = OAuthProvider.credential(withProviderID: "apple.com",
-                                                      idToken: idTokenString,
-                                                      rawNonce: nonce)
-            
-            // Sign in with Firebase.
-            Auth.auth().signIn(with: credential) { (authResult, error) in
-                if (error != nil) {
-                    print("ERROR!!")
-                    print(error!.localizedDescription)
-                return
-            }
-                print("success!")
-                let response = LPHResponse<LoginVo, LoginError>()
-                response.setResult(data: loginVo)
-                self.callbackDelegate(response)
-            }
+            let golResponse = LPHResponse<LoginVo, LoginError>()
+            golResponse.setResult(data: loginVo)
+            self.callbackDelegate(golResponse)
             
     }
     
