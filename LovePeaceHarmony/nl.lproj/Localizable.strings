@@ -7,9 +7,10 @@
 */
 
 /* Login Social Network Controller */
-"Connect with Google" = "Verbinden met Apple";
+"Connect with Apple" = "Verbinden met Apple";
 "Connect with Google" = "Verbinden met Google";
 "Connect with Facebook" = "Verbinden met Facebook";
+
 "Login" = "Inloggen";
 "Don't have an account? Sign Up" = "Heb je geen account? Meld je aan";
 "Email" = "E-mail";

@@ -56,11 +56,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
         emailTextField.placeholder = NSLocalizedString("Email", comment: "")
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
         noAccountLabel.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
-        
-//        emailTextField.delegate = self
-//        passwordTextField.delegate = self
-        
-//        setupSignInWithAppleButton()
+
     
     }
     
@@ -89,24 +85,6 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
 
         return true
     }
-    
-//    private func setupSignInWithAppleButton() {
-//        let signInWithAppleButton = ASAuthorizationAppleIDButton()
-//        signInWithAppleButton.addTarget(self, action: #selector(handleSignInWithApple), for: .touchUpInside)
-//        stackView.addArrangedSubview(signInWithAppleButton)
-//    }
-    
-//    @objc
-//    private func handleSignInWithApple() {
-//        let authorizationAppleIDProvider = ASAuthorizationAppleIDProvider()
-//        let request = authorizationAppleIDProvider.createRequest()
-//        request.requestedScopes = [.email, .fullName]
-//
-//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//        authorizationController.presentationContextProvider = self
-//        authorizationController.delegate = self
-//        authorizationController.performRequests()
-//    }
     
     @IBAction func loginWithEmailPressed(_ sender: Any) {
         guard let email = self.emailTextField.text, let password = self.passwordTextField.text else {
