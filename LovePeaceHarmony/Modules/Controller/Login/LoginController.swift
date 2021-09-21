@@ -237,5 +237,6 @@ public enum LoginType: Int {
     case email
     case facebook
     case google
+    case apple
     case withoutLogin
 }

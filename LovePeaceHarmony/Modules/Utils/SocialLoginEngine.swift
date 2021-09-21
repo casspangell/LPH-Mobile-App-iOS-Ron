@@ -19,6 +19,8 @@ class SocialLoginEngine: NSObject {
     // MARK: - Variables
     var presentingViewController: UIViewController?
     var callbackDelegate: (LPHResponse<LoginVo, LoginError>) -> ()?
+    // Unhashed nonce.
+    fileprivate var currentNonce: String?
     
     init(_ viewController: UIViewController) {
         self.presentingViewController = viewController
@@ -36,7 +38,9 @@ class SocialLoginEngine: NSObject {
                 initiateGoogleLogin()
             } else if loginType == .facebook {
                 initiateFacebookLogin()
-            } 
+            } else if loginType == .apple {
+                initiateAppleLogin()
+            }
         } catch _ as LPHException<LoginError> {
             throw LPHException<LoginError>(controllerError: .invalidCredentials)
         } catch {
@@ -45,11 +49,11 @@ class SocialLoginEngine: NSObject {
     }
     
     
-//    func initGoogleDelegation() {
-////        GIDSignIn.sharedInstance().delegate = self
-////        GIDSignIn.sharedInstance().uiDelegate = self
-//    }
-//
+    private func initiateAppleLogin() {
+        
+        
+    }
+    
     private func initiateGoogleLogin() {
 
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -180,4 +184,5 @@ class SocialLoginEngine: NSObject {
     func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
+
 }
