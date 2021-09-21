@@ -12,9 +12,12 @@ import FacebookCore
 import FBSDKLoginKit
 import FirebaseAuth
 import Firebase
+import FirebaseAuthUI
+import AuthenticationServices
+import CryptoKit
 
 //class SocialLoginEngine: NSObject, GIDSignInUIDelegate, GIDSignInDelegate {
-class SocialLoginEngine: NSObject {
+class SocialLoginEngine: NSObject, ASAuthorizationControllerDelegate, FUIAuthDelegate {
     
     // MARK: - Variables
     var presentingViewController: UIViewController?
@@ -28,7 +31,7 @@ class SocialLoginEngine: NSObject {
             return nil
         }
         super.init()
-//        initGoogleDelegation()
+
     }
     
     func initiateLogin(_ loginType: LoginType,_ loginResponse: @escaping (LPHResponse<LoginVo, LoginError>) -> Void) throws {
@@ -50,9 +53,24 @@ class SocialLoginEngine: NSObject {
     
     
     private func initiateAppleLogin() {
-        
+        if #available(iOS 13.0, *) {
+            let nonce = randomNonceString()
+            currentNonce = nonce
+            
+            let appleIDProvider = ASAuthorizationAppleIDProvider()
+            let request = appleIDProvider.createRequest()
+            request.requestedScopes = [.fullName, .email]
+            request.nonce = sha256(nonce)
+            
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self
+            authorizationController.presentationContextProvider = self
+            authorizationController.performRequests()
+        }
         
     }
+    
+ 
     
     private func initiateGoogleLogin() {
 
@@ -123,32 +141,6 @@ class SocialLoginEngine: NSObject {
             })
 
         }
- 
-        
-//        loginManager.logIn(permissions: [.email], viewController: presentingViewController) { loginResult in
-//            switch loginResult {
-//            case .failed(let error):
-//                print(error)
-//            case .cancelled:
-//                print("User cancelled login.")
-//            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-//                print("Logged in!")
-//                let graphRequest:GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":"first_name,last_name,email,picture.type(large)"])
-//
-//                graphRequest.start(completionHandler: { (connection, result, error) -> Void in
-//
-//                    if ((error) != nil) {
-//                        print("Error: \(error)")
-//                    } else {
-//                        let loginVo = LPHParser.parseFBLoginResponse(rawResponse: result!)
-//                        let golResponse = LPHResponse<LoginVo, LoginError>()
-//                        golResponse.setResult(data: loginVo)
-//                        self.callbackDelegate(golResponse)
-//                    }
-//                })
-//
-//            }
-//        }
     }
     
     // MARK: - GIDSignInDelegate
@@ -184,5 +176,152 @@ class SocialLoginEngine: NSObject {
     func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
+    
+    //MARK: Apple Login In
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        if let user = authDataResult?.user {
+            print("\(user.uid) \(user.email ?? "")")
+        }
+    }
+    
+    func getCredentialState() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: "USER_ID") { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                // Credential is valid
+                // Continiue to show 'User's Profile' Screen
+                break
+            case .revoked:
+                // Credential is revoked.
+                // Show 'Sign In' Screen
+                break
+            case .notFound:
+                // Credential not found.
+                // Show 'Sign In' Screen
+                break
+            default:
+                break
+            }
+        }
+    }
+    
+
+}
+
+//Apple login
+extension SocialLoginEngine: ASAuthorizationControllerPresentationContextProviding {
+
+    @available(iOS 13, *)
+    func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            return String(format: "%02x", $0)
+        }.joined()
+
+        return hashString
+    }
+    
+    // For present window
+    @available(iOS 13.0, *)
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        let presentingViewControllerWindow = (UIApplication.shared.windows.last?.rootViewController)!.view.window
+        return presentingViewControllerWindow!
+    }
+
+    // Authorization Failed
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+
+    // Authorization Succeeded
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        let loginVo = LPHUtils.getLoginVo()
+        
+        guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {
+            print("Encountered an authorization error")
+            return
+        }
+            // Get user data with Apple ID credentitial
+            let userId = appleIDCredential.user
+            print("User ID: \(userId)")
+            
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
+            
+            guard let appleIDToken = appleIDCredential.identityToken else {
+              print("Unable to fetch identity token")
+              return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+              print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+              return
+            }
+            
+            loginVo.isLoggedIn = true
+            loginVo.loginType = .apple
+            
+//            let appleIDTokenStringValue = String(decoding: appleIDToken, as: UTF8.self)
+            
+            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleUserId, value: userId)
+//            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleNonce, value: nonce)
+//            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleIdToken, value: appleIDTokenStringValue)
+//            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleTokenString, value: idTokenString)
+            
+        print("NONCE \(nonce)")
+            // Initialize a Firebase credential.
+            let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                      idToken: idTokenString,
+                                                      rawNonce: nonce)
+            
+            // Sign in with Firebase.
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if (error != nil) {
+                    print("ERROR!!")
+                    print(error!.localizedDescription)
+                return
+            }
+                print("success!")
+                let response = LPHResponse<LoginVo, LoginError>()
+                response.setResult(data: loginVo)
+                self.callbackDelegate(response)
+            }
+            
+    }
+    
+    private func randomNonceString(length: Int = 32) -> String {
+            precondition(length > 0)
+            let charset: Array<Character> =
+                Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+            var result = ""
+            var remainingLength = length
+
+            while remainingLength > 0 {
+                let randoms: [UInt8] = (0 ..< 16).map { _ in
+                    var random: UInt8 = 0
+                    let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                    if errorCode != errSecSuccess {
+                        fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                    }
+                    return random
+                }
+
+                randoms.forEach { random in
+                    if remainingLength == 0 {
+                        return
+                    }
+
+                    if random < charset.count {
+                        result.append(charset[Int(random)])
+                        remainingLength -= 1
+                    }
+                }
+            }
+            return result
+        }
 
 }

@@ -12,11 +12,11 @@ import XLPagerTabStrip
 import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
-import FirebaseAuthUI
-import AuthenticationServices
 
 
-class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, UITextFieldDelegate, FUIAuthDelegate, ASAuthorizationControllerDelegate {
+
+
+class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, UITextFieldDelegate  {
 
     
     /** @var handle
@@ -133,73 +133,15 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
     }
     
     @IBAction func appleLoginPressed(_ sender: Any) {
-//        if LPHUtils.checkNetworkConnection() {
-//            initiateLogin(type: .apple)
-//        } else {
-//            showToast(message: NSLocalizedString("Please check your internet connection", comment: ""))
-//        }
-        
-        if #available(iOS 13.0, *) {
-            let appleIDProvider = ASAuthorizationAppleIDProvider()
-            let request = appleIDProvider.createRequest()
-            request.requestedScopes = [.fullName, .email]
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self
-            authorizationController.presentationContextProvider = self
-            authorizationController.performRequests()
+        if LPHUtils.checkNetworkConnection() {
+            initiateLogin(type: .apple)
+        } else {
+            showToast(message: NSLocalizedString("Please check your internet connection", comment: ""))
         }
 
     }
     
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        if let user = authDataResult?.user {
-            print("\(user.uid) \(user.email ?? "")")
-        }
-    }
-    
-    func getCredentialState() {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: "USER_ID") { (credentialState, error) in
-            switch credentialState {
-            case .authorized:
-                // Credential is valid
-                // Continiue to show 'User's Profile' Screen
-                break
-            case .revoked:
-                // Credential is revoked.
-                // Show 'Sign In' Screen
-                break
-            case .notFound:
-                // Credential not found.
-                // Show 'Sign In' Screen
-                break
-            default:
-                break
-            }
-        }
-    }
-
-    @objc func actionHandleAppleSignin() {
-        if #available(iOS 13.0, *) {
-            let appleIDProvider = ASAuthorizationAppleIDProvider()
-            let request = appleIDProvider.createRequest()
-            request.requestedScopes = [.fullName, .email]
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self
-            authorizationController.presentationContextProvider = self
-            authorizationController.performRequests()
-        }
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailseg" {
-//            let DestView = segue.destination as! DetailsViewController
-//            DestView.userid = self.userId
-//            DestView.firstname = self.firstName
-//            DestView.lastname = self.lastName
-//            DestView.email = self.email
-        }
-    }
+ 
     
     //-----------
     
@@ -301,14 +243,20 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantCurrentStreak)", value: "0")
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantLongestStreak)", value: "0")
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantTimestamp)", value: "0:00")
-            
-//            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
         }
         
         //Firebase Handling after user logs in with Facebook or Google
         switch loginType {
         case .apple:
-            
+//            
+//            let idTokenString = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleTokenString)
+//            print(idTokenString)
+//            let nonce = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleNonce)
+//            print(nonce)
+//            let credential = OAuthProvider.credential(withProviderID: "apple.com",
+//                                                      idToken: idTokenString,
+//                                                      rawNonce: nonce)
+
             break
         case .facebook:
             let credential = FacebookAuthProvider
@@ -410,75 +358,8 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
         }
     }
     
-    // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
-    private func randomNonceString(length: Int = 32) -> String {
-      precondition(length > 0)
-      let charset: Array<Character> =
-          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-      var result = ""
-      var remainingLength = length
-
-      while remainingLength > 0 {
-        let randoms: [UInt8] = (0 ..< 16).map { _ in
-          var random: UInt8 = 0
-          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-          if errorCode != errSecSuccess {
-            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-          }
-          return random
-        }
-
-        randoms.forEach { random in
-          if remainingLength == 0 {
-            return
-          }
-
-          if random < charset.count {
-            result.append(charset[Int(random)])
-            remainingLength -= 1
-          }
-        }
-      }
-
-      return result
-    }
+  
     
 }
 
-extension LoginSocialNetworkController: ASAuthorizationControllerPresentationContextProviding {
 
-    // For present window
-    @available(iOS 13.0, *)
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
-    }
-
-    // Authorization Failed
-    @available(iOS 13.0, *)
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print(error.localizedDescription)
-    }
-
-    // Authorization Succeeded
-    @available(iOS 13.0, *)
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            // Get user data with Apple ID credentitial
-            let userId = appleIDCredential.user
-            let userFirstName = appleIDCredential.fullName?.givenName
-            let userLastName = appleIDCredential.fullName?.familyName
-            let userEmail = appleIDCredential.email
-            print("User ID: \(userId)")
-            print("User First Name: \(userFirstName ?? "")")
-            print("User Last Name: \(userLastName ?? "")")
-            print("User Email: \(userEmail ?? "")")
-            // Write your code here
-        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
-            // Get user data using an existing iCloud Keychain credential
-            let appleUsername = passwordCredential.user
-            let applePassword = passwordCredential.password
-            // Write your code here
-        }
-    }
-
-}

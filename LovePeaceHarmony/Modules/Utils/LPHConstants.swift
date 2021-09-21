@@ -140,6 +140,11 @@ extension UserDefaults {
         static let invitedCode = "UserDefaultsInvitedCode"
         static let googleAuth = "UserDefaultsGoogleAuth"
         static let googleToken = "UserDefaultsGoogleToken"
+        static let appleUserId = "UserDefaultsAppleUserId"
+        static let appleEmail = "UserDefaultsAppleEmail"
+        static let appleIdToken = "UserDefaultsAppleIdToken"
+        static let appleTokenString = "UserDefaultsAppleTokenString"
+        static let appleNonce = "UserDefaultsAppleNonce"
         
         static let isTutorialShown = "UserDefaultsItemIsTutorialShown"
         static let isFirstRun = "UserDefaultsIsFirstRun"
