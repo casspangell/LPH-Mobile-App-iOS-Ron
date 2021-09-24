@@ -184,6 +184,7 @@ class SocialLoginEngine: NSObject, ASAuthorizationControllerDelegate, FUIAuthDel
         }
     }
     
+    @available(iOS 13.0, *)
     func getCredentialState() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         appleIDProvider.getCredentialState(forUserID: "USER_ID") { (credentialState, error) in

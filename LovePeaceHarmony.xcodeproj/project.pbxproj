@@ -903,10 +903,10 @@
 				CODE_SIGN_ENTITLEMENTS = LovePeaceHarmony/LovePeaceHarmony.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = " 14";
+				CURRENT_PROJECT_VERSION = " 15";
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.lovepeaceharmony.ios.app;
@@ -927,10 +927,10 @@
 				CODE_SIGN_ENTITLEMENTS = LovePeaceHarmony/LovePeaceHarmony.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = " 14";
+				CURRENT_PROJECT_VERSION = " 15";
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.lovepeaceharmony.ios.app;
