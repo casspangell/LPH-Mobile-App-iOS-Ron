@@ -386,7 +386,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     public func togglePlayPauseButton() {
-       
+
         let audioBool = AVAudioSingleton.sharedInstance.isPlaying()
         //Pressed Play
         if (!audioBool) {
