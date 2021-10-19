@@ -10,7 +10,6 @@
 		319CB3242854F979D94A0538 /* Pods_LovePeaceHarmony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */; };
 		5018584C25FFEFEA005BF009 /* APIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5018584B25FFEFEA005BF009 /* APIUtilities.swift */; };
 		50327B62251CE06E002B34C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50327B61251CE06E002B34C0 /* GoogleService-Info.plist */; };
-		50390E4F270FA2F10004F629 /* gradient_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 50390E4E270FA2F10004F629 /* gradient_video.mp4 */; };
 		50390E82270FB4E80004F629 /* lph_unity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 50390E81270FB4E80004F629 /* lph_unity_2.mp4 */; };
 		50530153259D9EED00C61E82 /* french.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5053014E259D9EE600C61E82 /* french.mp3 */; };
 		50530154259D9EED00C61E82 /* mandarin_english_german.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5053014F259D9EE700C61E82 /* mandarin_english_german.mp3 */; };
@@ -96,7 +95,6 @@
 		2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LovePeaceHarmony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5018584B25FFEFEA005BF009 /* APIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtilities.swift; sourceTree = "<group>"; };
 		50327B61251CE06E002B34C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		50390E4E270FA2F10004F629 /* gradient_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = gradient_video.mp4; sourceTree = "<group>"; };
 		50390E81270FB4E80004F629 /* lph_unity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lph_unity_2.mp4; sourceTree = "<group>"; };
 		5053014E259D9EE600C61E82 /* french.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = french.mp3; sourceTree = "<group>"; };
 		5053014F259D9EE700C61E82 /* mandarin_english_german.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mandarin_english_german.mp3; sourceTree = "<group>"; };
@@ -322,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				50390E81270FB4E80004F629 /* lph_unity_2.mp4 */,
-				50390E4E270FA2F10004F629 /* gradient_video.mp4 */,
 				6F95DA572032DE3C0086B8BA /* Fonts */,
 				6F74D2521FD5B5F400F96E1A /* audio */,
 				6F8BDECF1FB4722600D924C6 /* Lottie-Files */,
@@ -581,7 +578,6 @@
 				6FC63F332032FF1E00C1CC96 /* OpenSans-Bold.ttf in Resources */,
 				505301B725A0249100C61E82 /* kawehi_haw.mp3 in Resources */,
 				6F3F6672204D39E900ADFFFC /* OpenSans-Italic.ttf in Resources */,
-				50390E4F270FA2F10004F629 /* gradient_video.mp4 in Resources */,
 				6F3D8BC21FB1CC2B008E0D82 /* Main.storyboard in Resources */,
 				50530153259D9EED00C61E82 /* french.mp3 in Resources */,
 				6FC63F312032EEEA00C1CC96 /* OpenSans-SemiboldItalic.ttf in Resources */,

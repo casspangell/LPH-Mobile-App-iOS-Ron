@@ -60,7 +60,7 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
     }
     
     func playVideo() {
-        guard let path = Bundle.main.path(forResource: "gradient_video", ofType: "mp4") else {
+        guard let path = Bundle.main.path(forResource: "lph_unity_2", ofType: "mp4") else {
             return
         }
         
