@@ -326,6 +326,7 @@ class AVAudioSingleton {
     }
     
     func play() {
+        print("Play()")
         player?.play()
         isAudioPlaying = true
     }
@@ -341,12 +342,6 @@ class AVAudioSingleton {
     }
     
     func isPlaying() -> Bool {
-//        if player != nil {
-//            return true
-//        } else {
-//            return false
-//        }
-        
         if isAudioPlaying! {
             return true
         } else {

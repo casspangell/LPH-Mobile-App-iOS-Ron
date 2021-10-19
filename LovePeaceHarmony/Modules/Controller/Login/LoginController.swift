@@ -13,6 +13,7 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseDynamicLinks
 import MaterialShowcase
+import AVFoundation
 
 class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCallback, UIGestureRecognizerDelegate {
 
@@ -20,16 +21,17 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
     var viewControllerList = [UIViewController]()
     var isFromProfileController = false
     var splashDelegate: SplashDelegate?
+    private let playerLayer = AVPlayerLayer()
+    private var playerLooper: AVPlayerLooper?
     
     // MARK: - IBProperties
     @IBOutlet weak var scrollViewContainer: UIScrollView!
-    @IBOutlet weak var imageViewCover: UIImageView!
     @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var videoLayer: UIView!
+    
     
     // MARK: -View
     override func viewDidLoad() {
-//        checkForUserInvite()
-        imageViewCover.contentMode = UIViewContentMode.scaleAspectFill
         self.view.isUserInteractionEnabled = true
         scrollViewContainer.isScrollEnabled = false
         containerView = scrollViewContainer
@@ -39,6 +41,11 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
         tap.cancelsTouchesInView = true
         tap.delegate = self
         view.addGestureRecognizer(tap)
+        
+        playVideo()
+        
+        videoLayer.bringSubview(toFront: scrollViewContainer)
+        videoLayer.bringSubview(toFront: logoImage)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +58,27 @@ class LoginController: ButtonBarPagerTabStripViewController, LoginControllerCall
             userDefaults.setValue("No", forKey: "first_run")
         }
     }
+    
+    func playVideo() {
+        guard let path = Bundle.main.path(forResource: "gradient_video", ofType: "mp4") else {
+            return
+        }
+        
+//        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let asset = AVAsset(url: URL(fileURLWithPath: path))
+        let item = AVPlayerItem(asset: asset)
+        let player = AVQueuePlayer()
+        
+        playerLayer.player = player
+        playerLayer.frame = self.view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        self.videoLayer.layer.addSublayer(playerLayer)
+
+        playerLooper = AVPlayerLooper(player: player, templateItem: item)
+        
+        player.play()
+    }
+
     
     func renderShowcaseView() {
         let showcase = MaterialShowcase()
