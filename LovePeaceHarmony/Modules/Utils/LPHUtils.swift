@@ -436,6 +436,8 @@ enum StoryboardType: Int {
     case home
 }
 
+//This needs to be in the order that is in the
+//scroll view window
 enum ChantFile: Int {
     case mandarin_soul_english
     case instrumental
@@ -444,12 +446,12 @@ enum ChantFile: Int {
     case mandarin_english_german
     case french
     case french_antillean_creole
+    case global_unison
     case kawehi_haw
     case sha_lula_eng_ka_haw
-    case sha_eng
     case rea_moyo
     case mufrika
     case indosakusa
-    case global_unison
+    case sha_eng
 }
 

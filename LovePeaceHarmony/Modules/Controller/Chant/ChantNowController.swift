@@ -292,12 +292,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         sliderMusicSeek.addTarget(self, action: #selector(sliderTouchDown), for: UIControlEvents.touchDown)
         sliderMusicSeek.addTarget(self, action: #selector(sliderRelease), for: UIControlEvents.touchUpInside)
 
-
         let currentSongIndex = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentChantSong)
-        print("current song index: \(currentSongIndex)")
-        
-        var songName: String?
-        songName = ChantFileName.mandarinSoulEnglish //set default song 
+        print("initiateMusicPlayer current song index: \(currentSongIndex)")
         
         if currentSongIndex != -1 {
             currentSong = ChantFile(rawValue: currentSongIndex)
@@ -306,9 +302,8 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             
             currentSongString = returnSongName(currentSong: currentSong!)
 
-            guard let url = Bundle.main.url(forResource: songName!, withExtension: "mp3") else { return }
-            currentSongString = songName!
-            
+            guard let url = Bundle.main.url(forResource: currentSongString, withExtension: "mp3") else { return }
+            print("song url \(url)")
             AVAudioSingleton.sharedInstance.prepare()
             
             let asset = AVURLAsset(url: url)
@@ -334,7 +329,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             AVAudioSingleton.sharedInstance.setCurrentTime(timeInterval: currentTime)
             
             //grabs the current timestamp for more accurate chanting time
-            print("Set START TIME \(currentTime)")
             startTime = String(currentTime)
             updateSlider()
         } else {
@@ -364,6 +358,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             let currentTime = AVAudioSingleton.sharedInstance.getCurrentTime()
 
             chantMilestoneCounter += 1
+ 
             let milestoneTempMinutes = chantMilestoneCounter.truncatingRemainder(dividingBy: 600)
             if milestoneTempMinutes == 0 {
                 let pendingMilestonesTemp = Int(chantMilestoneCounter / 600)
@@ -493,44 +488,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
     
     private func pressedSkip() {
-
-       /* var songName: String?
-        
-        switch currentSong {
-        case .mandarin_soul_english:
-            songName = ChantFileName.mandarinSoulEnglish
-        case .instrumental:
-            songName = ChantFileName.instrumental
-        case .hindi_sl_english:
-            songName = ChantFileName.hindi_sl_english
-        case .spanish:
-            songName = ChantFileName.spanish
-        case .mandarin_english_german:
-            songName = ChantFileName.mandarin_english_german
-        case .french:
-            songName = ChantFileName.french
-        case .french_antillean_creole:
-            songName = ChantFileName.french_antillean_creole
-        case .kawehi_haw:
-            songName = ChantFileName.kawehi_haw
-        case .sha_eng:
-            songName = ChantFileName.sha_eng
-        case .sha_lula_eng_ka_haw:
-            songName = ChantFileName.sha_lula_eng_ka_haw
-        case .global_unison:
-            songName = ChantFileName.global_unison
-        case .rea_moyo:
-            songName = ChantFileName.rea_moyo
-        case .indosakusa:
-            songName = ChantFileName.indosakusa
-        case .mufrika:
-            songName = ChantFileName.mufrika
-
-        default:
-            songName = ChantFileName.mandarinSoulEnglish
-        }*/
-
-       // currentSongString = songName!
         
         currentSongString = returnSongName(currentSong: currentSong!)
 
@@ -621,55 +578,17 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 currentSong = getNextSong()
                 print(currentSong)
                 checkToggles()
-//                if currentSong != nil {
-//                    LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (currentSong?.rawValue)!)
-//                } else {
-//                    LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: -1)
-//                    showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: "") )
-//                }
+
             }
             renderSongName()
             initiateMusicPlayer()
             togglePlayPauseButton()
         }
         
-        
         var currentSongIndex = -1
-        if currentSong == nil {
-            if songListStatus[.mandarin_soul_english]! {
-                currentSong = .mandarin_soul_english
-            } else if songListStatus[.instrumental]! {
-                currentSong = .instrumental
-            } else if songListStatus[.hindi_sl_english]! {
-                currentSong = .hindi_sl_english
-            } else if songListStatus[.spanish]! {
-                currentSong = .spanish
-            } else if songListStatus[.mandarin_english_german]! {
-                currentSong = .mandarin_english_german
-            } else if songListStatus[.french]! {
-                currentSong = .french
-            } else if songListStatus[.french_antillean_creole]! {
-                currentSong = .french_antillean_creole
-            } else if songListStatus[.kawehi_haw]! {
-                currentSong = .kawehi_haw
-            } else if songListStatus[.sha_eng]! {
-                currentSong = .sha_eng
-            } else if songListStatus[.sha_lula_eng_ka_haw]! {
-                currentSong = .sha_lula_eng_ka_haw
-            } else if songListStatus[.global_unison]! {
-                currentSong = .global_unison
-            } else if songListStatus[.rea_moyo]! {
-                currentSong = .rea_moyo
-            } else if songListStatus[.mufrika]! {
-                currentSong = .mufrika
-            } else if songListStatus[.indosakusa]! {
-                currentSong = .indosakusa
-            }
-            
-            renderSongName()
-        }
-
+        
         if currentSong != nil {
+            currentSongString = returnSongName(currentSong: currentSong!)
             currentSongIndex = (currentSong?.rawValue)!
             labelSeekTime.text = "0:0"
             sliderMusicSeek.setValue(0, animated: true)
@@ -677,6 +596,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         } else {
             labelTotalDuration.text = "-:-"
         }
+        
         LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: currentSongIndex)
     }
     
@@ -1082,44 +1002,36 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     @IBAction func onTapHawaiianGesture(_ sender: UITapGestureRecognizer) {
-        print("onTapHawaiianGesture")
         startSong(chantFile: .kawehi_haw)
     }
     
     @IBAction func onTapSLEngHawaiianGesture(_ sender: UITapGestureRecognizer) {
-        print("onTapSLEngHawaiianGesture")
         startSong(chantFile: .sha_lula_eng_ka_haw)
     }
     
     @IBAction func onTapEnglishGesture(_ sender: UITapGestureRecognizer) {
-        print("onTapEnglishGesture")
         startSong(chantFile: .sha_eng)
     }
     
     @IBAction func onTapGlobalUnisonGesture(_ sender: UITapGestureRecognizer) {
-        print("onTapGlobalUnisonGesture")
         startSong(chantFile: .global_unison)
     }
     
     @IBAction func onTapReaMoyoGesture(_ sender: UITapGestureRecognizer) {
-        print("onTapReaMoyoGesture")
         startSong(chantFile: .rea_moyo)
     }
     
     @IBAction func onTapMufrikaGesture(_ sender: UITapGestureRecognizer) {
-        print("onTapMufrikaGesture")
         startSong(chantFile: .mufrika)
     }
     
     @IBAction func onTapIndosakusaGesture(_ sender: UITapGestureRecognizer) {
-        print("onTapIndosakusaGesture")
         startSong(chantFile: .indosakusa)
     }
     
     
 
     private func startSong(chantFile: ChantFile) {
-        
         if songListStatus[chantFile]! {
 
             //Reset the player
@@ -1127,12 +1039,15 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 AVAudioSingleton.sharedInstance.pause()
             }
             
+            currentSongString = returnSongName(currentSong: chantFile)
+            
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: chantFile.rawValue)
+            print("chantFile.rawValue \(chantFile.rawValue)")
+            print("current song index \(LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentChantSong))")
+            
             initiateMusicPlayer()
           
-            currentSongString = returnSongName(currentSong: currentSong!)
-            
             AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
             
