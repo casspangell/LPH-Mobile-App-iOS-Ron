@@ -330,7 +330,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             
             //grabs the current timestamp for more accurate chanting time
             startTime = String(currentTime)
-            updateSlider()
+
+            sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
+
         } else {
             labelTotalDuration.text = "-:-"
         }
