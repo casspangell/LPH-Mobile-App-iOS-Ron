@@ -19,6 +19,10 @@
 		505301B725A0249100C61E82 /* kawehi_haw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 505301B625A0249000C61E82 /* kawehi_haw.mp3 */; };
 		505301BA25A0249800C61E82 /* sha_eng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 505301B925A0249800C61E82 /* sha_eng.mp3 */; };
 		505301BC25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 505301BB25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 */; };
+		5082F077271F790B007283E5 /* indosakusa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F074271F790A007283E5 /* indosakusa.mp3 */; };
+		5082F078271F790B007283E5 /* rea_moyo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F075271F790B007283E5 /* rea_moyo.mp3 */; };
+		5082F079271F790B007283E5 /* mufrika.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F076271F790B007283E5 /* mufrika.mp3 */; };
+		5082F07C271F791F007283E5 /* lph_unity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F07B271F791F007283E5 /* lph_unity.mp3 */; };
 		50DB654426710E2F004A7BFE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50DB654626710E2F004A7BFE /* Localizable.strings */; };
 		6F0B870C1FEA2A92004A7E45 /* ProfilePicEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B870B1FEA2A92004A7E45 /* ProfilePicEditController.swift */; };
 		6F18D42D1FF37D400026A617 /* SocialLoginEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F18D42C1FF37D400026A617 /* SocialLoginEngine.swift */; };
@@ -113,6 +117,10 @@
 		505FC95326E4109700429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		505FC95426E4109700429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		505FC95526E4109800429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5082F074271F790A007283E5 /* indosakusa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = indosakusa.mp3; sourceTree = "<group>"; };
+		5082F075271F790B007283E5 /* rea_moyo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rea_moyo.mp3; sourceTree = "<group>"; };
+		5082F076271F790B007283E5 /* mufrika.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mufrika.mp3; sourceTree = "<group>"; };
+		5082F07B271F791F007283E5 /* lph_unity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lph_unity.mp3; sourceTree = "<group>"; };
 		50DB653E26710A78004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		50DB653F26710A79004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		50DB654526710E2F004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -404,6 +412,10 @@
 		6F74D2521FD5B5F400F96E1A /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				5082F07B271F791F007283E5 /* lph_unity.mp3 */,
+				5082F074271F790A007283E5 /* indosakusa.mp3 */,
+				5082F076271F790B007283E5 /* mufrika.mp3 */,
+				5082F075271F790B007283E5 /* rea_moyo.mp3 */,
 				505301BB25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 */,
 				505301B925A0249800C61E82 /* sha_eng.mp3 */,
 				505301B625A0249000C61E82 /* kawehi_haw.mp3 */,
@@ -564,6 +576,7 @@
 				6F3D8BCA1FB1CC2B008E0D82 /* LaunchScreen.storyboard in Resources */,
 				50530157259D9EED00C61E82 /* hindi_sl_english.mp3 in Resources */,
 				505301BA25A0249800C61E82 /* sha_eng.mp3 in Resources */,
+				5082F078271F790B007283E5 /* rea_moyo.mp3 in Resources */,
 				6F3D8BC71FB1CC2B008E0D82 /* Assets.xcassets in Resources */,
 				50530155259D9EED00C61E82 /* spanish.mp3 in Resources */,
 				6F6356E01FCE8CE4002E2C13 /* Login.storyboard in Resources */,
@@ -575,7 +588,9 @@
 				6F74D2541FD5B87000F96E1A /* email.mp3 in Resources */,
 				6F38C7E11FB1D9D6005390C5 /* Podfile in Resources */,
 				6F9A39122008DDC700CF255F /* instrumental.mp3 in Resources */,
+				5082F079271F790B007283E5 /* mufrika.mp3 in Resources */,
 				6FC63F332032FF1E00C1CC96 /* OpenSans-Bold.ttf in Resources */,
+				5082F077271F790B007283E5 /* indosakusa.mp3 in Resources */,
 				505301B725A0249100C61E82 /* kawehi_haw.mp3 in Resources */,
 				6F3F6672204D39E900ADFFFC /* OpenSans-Italic.ttf in Resources */,
 				6F3D8BC21FB1CC2B008E0D82 /* Main.storyboard in Resources */,
@@ -584,6 +599,7 @@
 				6F8BDED21FB4726800D924C6 /* loading_rainbow.json in Resources */,
 				50530154259D9EED00C61E82 /* mandarin_english_german.mp3 in Resources */,
 				6F95DA5A2032DE980086B8BA /* OpenSans-Regular.ttf in Resources */,
+				5082F07C271F791F007283E5 /* lph_unity.mp3 in Resources */,
 				50530156259D9EED00C61E82 /* french_antillean_creole.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

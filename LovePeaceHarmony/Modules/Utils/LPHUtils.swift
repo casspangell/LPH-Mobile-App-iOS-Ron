@@ -447,5 +447,9 @@ enum ChantFile: Int {
     case kawehi_haw
     case sha_lula_eng_ka_haw
     case sha_eng
+    case rea_moyo
+    case mufrika
+    case indosakusa
+    case global_unison
 }
 

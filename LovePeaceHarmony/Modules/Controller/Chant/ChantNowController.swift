@@ -29,7 +29,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var isShuffleEnabled = false
     var isRepeatEnabled = false
     var chantMilestoneCounter:Float = 0
-    var chantTitle = ["Mandarin, Soul Language, English", "Instrumental", "Hindi, Soul Language, English", "Spanish, Soul Language", "German, English, Mandarin", "Soul Language, French", "Soul Language, French, Creole", "Aloha, Maluhia, Lokahi (LPH in Hawaiian)", "Lu La Li Version, English and Hawaiian", "Love Peace Harmony in English"]
+    var chantTitle = ["Mandarin, Soul Language, English", "Instrumental", "Hindi, Soul Language, English", "Spanish, Soul Language", "German, English, Mandarin", "Soul Language, French", "Soul Language, French, Creole", "Love Peace Harmony Global Unity", "Aloha, Maluhia, Lokahi (LPH in Hawaiian)", "Lu La Li Version, English and Hawaiian", "Rea Moyo", "Mufrika Edward (Zambia)", "Indosakusa The Morning Star (Zimbabwe)", "Love Peace Harmony in English"]
   
     // MARK: - IBProperties
     @IBOutlet weak var buttonPlayPause: UIButton!
@@ -48,6 +48,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @IBOutlet weak var switchKawehiHaw: UISwitch!
     @IBOutlet weak var switchShaLulaEngKaHaw: UISwitch!
     @IBOutlet weak var switchShaEng: UISwitch!
+    @IBOutlet weak var switchGlobalUnison: UISwitch!
+    @IBOutlet weak var switchReaMoyo: UISwitch!
+    @IBOutlet weak var switchMufrika: UISwitch!
+    @IBOutlet weak var switchIndosakusa: UISwitch!
     
     @IBOutlet weak var mandarinSoulEnglishLabel: UILabel!
     @IBOutlet weak var instrumentalLabel: UILabel!
@@ -63,6 +67,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     @IBOutlet weak var alohaLabel: UILabel!
     @IBOutlet weak var lulaliHawaiian: UILabel!
     @IBOutlet weak var lphEnglish: UILabel!
+    @IBOutlet weak var globalUnisonLabel: UILabel!
+    @IBOutlet weak var reaMoyoLabel: UILabel!
+    @IBOutlet weak var mufrikaLabel: UILabel!
+    @IBOutlet weak var indosakusaLabel: UILabel!
     
     @IBOutlet weak var buttonShuffle: UIButton!
     @IBOutlet weak var buttonRepeat: UIButton!
@@ -85,6 +93,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         alohaLabel.text = NSLocalizedString("Aloha, Maluhia, Lokahi (LPH in Hawaiian)", comment: "")
         lulaliHawaiian.text = NSLocalizedString("Lu La Li Version, English and Hawaiian", comment: "")
         lphEnglish.text = NSLocalizedString("Love Peace Harmony in English", comment: "")
+        globalUnisonLabel.text = NSLocalizedString("Love Peace Harmony Global Unison", comment: "")
+        reaMoyoLabel.text = NSLocalizedString("Rea Moyo", comment: "")
+        mufrikaLabel.text = NSLocalizedString("MuFrika Edward (Zambia)", comment: "")
+        indosakusaLabel.text = NSLocalizedString("Indosakusa The Morning Start (Zimbabwe)", comment: "")
         
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .normal)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .selected)
@@ -149,6 +161,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let isKawehiHawOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn)
         let isShaEnglishOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn)
         let isShaLulaEngKaHawOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn)
+        let isGlobalUnisonOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isGlobalUnisonOn)
+        let isReaMoyoOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isReaMoyoOn)
+        let isMufrikaOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isMufrikaOn)
+        let isIndosakusaOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isIndosakusaOn)
         
         isShuffleEnabled = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShuffleEnabled)
         if isShuffleEnabled {
@@ -173,6 +189,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         songListStatus[.kawehi_haw] = isKawehiHawOn
         songListStatus[.sha_eng] = isShaEnglishOn
         songListStatus[.sha_lula_eng_ka_haw] = isShaLulaEngKaHawOn
+        songListStatus[.global_unison] = isGlobalUnisonOn
+        songListStatus[.rea_moyo] = isReaMoyoOn
+        songListStatus[.mufrika] = isMufrikaOn
+        songListStatus[.indosakusa] = isIndosakusaOn
         
         switchMandarinSoulEnglish.isOn = isMandarinOn
         switchInstrumental.isOn = isInstrumentalOn
@@ -184,6 +204,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         switchKawehiHaw.isOn = isKawehiHawOn
         switchShaEng.isOn = isShaEnglishOn
         switchShaLulaEngKaHaw.isOn = isShaLulaEngKaHawOn
+        switchGlobalUnison.isOn = isGlobalUnisonOn
+        switchReaMoyo.isOn = isReaMoyoOn
+        switchMufrika.isOn = isMufrikaOn
+        switchIndosakusa.isOn = isIndosakusaOn
         
         if totalChantDuration != nil {
             let currentTime = TimeInterval(LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.currentSeek))
@@ -212,10 +236,18 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 6)
         } else if songListStatus[.kawehi_haw]! {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 7)
-        } else if songListStatus[.sha_eng]! {
+        } else if songListStatus[.global_unison]! {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 8)
         } else if songListStatus[.sha_lula_eng_ka_haw]! {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 9)
+        } else if songListStatus[.sha_eng]! {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 10)
+        } else if songListStatus[.rea_moyo]! {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 11)
+        } else if songListStatus[.mufrika]! {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 12)
+        } else if songListStatus[.indosakusa]! {
+            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: 13)
         } else {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: -1)
         }
@@ -228,8 +260,12 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         songListOriginal.append(.french)
         songListOriginal.append(.french_antillean_creole)
         songListOriginal.append(.kawehi_haw)
-        songListOriginal.append(.sha_eng)
+        songListOriginal.append(.global_unison)
         songListOriginal.append(.sha_lula_eng_ka_haw)
+        songListOriginal.append(.sha_eng)
+        songListOriginal.append(.rea_moyo)
+        songListOriginal.append(.mufrika)
+        songListOriginal.append(.indosakusa)
         
     }
     
@@ -268,31 +304,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             renderSongName()
             labelSeekTime.text = "00:00"
             
-            switch currentSong {
-            case .mandarin_soul_english:
-                songName = ChantFileName.mandarinSoulEnglish
-            case .instrumental:
-                songName = ChantFileName.instrumental
-            case .hindi_sl_english:
-                songName = ChantFileName.hindi_sl_english
-            case .spanish:
-                songName = ChantFileName.spanish
-            case .mandarin_english_german:
-                songName = ChantFileName.mandarin_english_german
-            case .french:
-                songName = ChantFileName.french
-            case .french_antillean_creole:
-                songName = ChantFileName.french_antillean_creole
-            case .kawehi_haw:
-                songName = ChantFileName.kawehi_haw
-            case .sha_eng:
-                songName = ChantFileName.sha_eng
-            case .sha_lula_eng_ka_haw:
-                songName = ChantFileName.sha_lula_eng_ka_haw
-
-            default:
-                songName = ChantFileName.mandarinSoulEnglish
-            }
+            currentSongString = returnSongName(currentSong: currentSong!)
 
             guard let url = Bundle.main.url(forResource: songName!, withExtension: "mp3") else { return }
             currentSongString = songName!
@@ -341,6 +353,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let isKawehiHawOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn)
         let isShaEnglishOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn)
         let isShaLulaEngKaHawOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn)
+        let isGlobalUnisonOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isGlobalUnisonOn)
+        let isReaMoyoOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isReaMoyoOn)
+        let isMufrikaOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isMufrikaOn)
+        let isIndosakusaOn = LPHUtils.getUserDefaultsBool(key: UserDefaults.Keys.isIndosakusaOn)
     }
     
     @objc func updateSlider() {
@@ -387,41 +403,57 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         
     }
     
+    func returnSongName(currentSong:ChantFile) -> String {
+        
+        var songName: String?
+        
+        switch currentSong {
+        case .mandarin_soul_english:
+            songName = ChantFileName.mandarinSoulEnglish
+        case .instrumental:
+            songName = ChantFileName.instrumental
+        case .hindi_sl_english:
+            songName = ChantFileName.hindi_sl_english
+        case .spanish:
+            songName = ChantFileName.spanish
+        case .mandarin_english_german:
+            songName = ChantFileName.mandarin_english_german
+        case .french:
+            songName = ChantFileName.french
+        case .french_antillean_creole:
+            songName = ChantFileName.french_antillean_creole
+        case .kawehi_haw:
+            songName = ChantFileName.kawehi_haw
+        case .sha_eng:
+            songName = ChantFileName.sha_eng
+        case .sha_lula_eng_ka_haw:
+            songName = ChantFileName.sha_lula_eng_ka_haw
+        case .global_unison:
+            songName = ChantFileName.global_unison
+        case .rea_moyo:
+            songName = ChantFileName.rea_moyo
+        case .indosakusa:
+            songName = ChantFileName.indosakusa
+        case .mufrika:
+            songName = ChantFileName.mufrika
+
+        default:
+            songName = ChantFileName.mandarinSoulEnglish
+        }
+
+        currentSongString = songName!
+        
+        return currentSongString!
+    }
+    
     public func togglePlayPauseButton() {
 
         let audioBool = AVAudioSingleton.sharedInstance.isPlaying()
         //Pressed Play
         if (!audioBool) {
             print("pressing play, no audio was playing")
-                var songName: String?
-                
-                switch currentSong {
-                case .mandarin_soul_english:
-                    songName = ChantFileName.mandarinSoulEnglish
-                case .instrumental:
-                    songName = ChantFileName.instrumental
-                case .hindi_sl_english:
-                    songName = ChantFileName.hindi_sl_english
-                case .spanish:
-                    songName = ChantFileName.spanish
-                case .mandarin_english_german:
-                    songName = ChantFileName.mandarin_english_german
-                case .french:
-                    songName = ChantFileName.french
-                case .french_antillean_creole:
-                    songName = ChantFileName.french_antillean_creole
-                case .kawehi_haw:
-                    songName = ChantFileName.kawehi_haw
-                case .sha_eng:
-                    songName = ChantFileName.sha_eng
-                case .sha_lula_eng_ka_haw:
-                    songName = ChantFileName.sha_lula_eng_ka_haw
-
-                default:
-                    songName = ChantFileName.mandarinSoulEnglish
-                }
-
-                currentSongString = songName!
+             
+            currentSongString = returnSongName(currentSong: currentSong!)//songName!
             
             let isFirstRun = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.isFirstRun)
                 
@@ -462,7 +494,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     private func pressedSkip() {
 
-        var songName: String?
+       /* var songName: String?
         
         switch currentSong {
         case .mandarin_soul_english:
@@ -485,12 +517,22 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             songName = ChantFileName.sha_eng
         case .sha_lula_eng_ka_haw:
             songName = ChantFileName.sha_lula_eng_ka_haw
+        case .global_unison:
+            songName = ChantFileName.global_unison
+        case .rea_moyo:
+            songName = ChantFileName.rea_moyo
+        case .indosakusa:
+            songName = ChantFileName.indosakusa
+        case .mufrika:
+            songName = ChantFileName.mufrika
 
         default:
             songName = ChantFileName.mandarinSoulEnglish
-        }
+        }*/
 
-        currentSongString = songName!
+       // currentSongString = songName!
+        
+        currentSongString = returnSongName(currentSong: currentSong!)
 
         AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
         sliderTimer?.invalidate()
@@ -614,7 +656,16 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 currentSong = .sha_eng
             } else if songListStatus[.sha_lula_eng_ka_haw]! {
                 currentSong = .sha_lula_eng_ka_haw
+            } else if songListStatus[.global_unison]! {
+                currentSong = .global_unison
+            } else if songListStatus[.rea_moyo]! {
+                currentSong = .rea_moyo
+            } else if songListStatus[.mufrika]! {
+                currentSong = .mufrika
+            } else if songListStatus[.indosakusa]! {
+                currentSong = .indosakusa
             }
+            
             renderSongName()
         }
 
@@ -971,6 +1022,35 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         forceStopPlaying(chantSong: .sha_eng)
     }
     
+    @IBAction func onTapGlobalUnison(_ sender: UISwitch) {
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isGlobalUnisonOn, value: sender.isOn)
+        songListStatus[.global_unison] = sender.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .global_unison)
+    }
+    
+    @IBAction func onTapReaMoyo(_ sender: UISwitch) {
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isReaMoyoOn, value: sender.isOn)
+        songListStatus[.rea_moyo] = sender.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .rea_moyo)
+    }
+    
+    @IBAction func onTapMufrika(_ sender: UISwitch) {
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMufrikaOn, value: sender.isOn)
+        songListStatus[.mufrika] = sender.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .mufrika)
+    }
+    
+    @IBAction func onTapIndosakusa(_ sender: UISwitch) {
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isIndosakusaOn, value: sender.isOn)
+        songListStatus[.indosakusa] = sender.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .indosakusa)
+    }
+    
+    
 // MARK: OnTap Gestures
 
     @IBAction func onTapInstrumentalGesture(_ sender: UITapGestureRecognizer) {
@@ -1002,20 +1082,43 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     @IBAction func onTapHawaiianGesture(_ sender: UITapGestureRecognizer) {
+        print("onTapHawaiianGesture")
         startSong(chantFile: .kawehi_haw)
     }
     
     @IBAction func onTapSLEngHawaiianGesture(_ sender: UITapGestureRecognizer) {
+        print("onTapSLEngHawaiianGesture")
         startSong(chantFile: .sha_lula_eng_ka_haw)
     }
     
     @IBAction func onTapEnglishGesture(_ sender: UITapGestureRecognizer) {
+        print("onTapEnglishGesture")
         startSong(chantFile: .sha_eng)
     }
     
+    @IBAction func onTapGlobalUnisonGesture(_ sender: UITapGestureRecognizer) {
+        print("onTapGlobalUnisonGesture")
+        startSong(chantFile: .global_unison)
+    }
+    
+    @IBAction func onTapReaMoyoGesture(_ sender: UITapGestureRecognizer) {
+        print("onTapReaMoyoGesture")
+        startSong(chantFile: .rea_moyo)
+    }
+    
+    @IBAction func onTapMufrikaGesture(_ sender: UITapGestureRecognizer) {
+        print("onTapMufrikaGesture")
+        startSong(chantFile: .mufrika)
+    }
+    
+    @IBAction func onTapIndosakusaGesture(_ sender: UITapGestureRecognizer) {
+        print("onTapIndosakusaGesture")
+        startSong(chantFile: .indosakusa)
+    }
+    
+    
 
     private func startSong(chantFile: ChantFile) {
-        print("HELLO \(songListStatus[chantFile]!)")
         
         if songListStatus[chantFile]! {
 
@@ -1027,36 +1130,10 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentSeek, value: 0)
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: chantFile.rawValue)
             initiateMusicPlayer()
+          
+            currentSongString = returnSongName(currentSong: currentSong!)
             
-            var songName: String?
-            
-            switch chantFile {
-            case .mandarin_soul_english:
-                songName = ChantFileName.mandarinSoulEnglish
-            case .instrumental:
-                songName = ChantFileName.instrumental
-            case .hindi_sl_english:
-                songName = ChantFileName.hindi_sl_english
-            case .spanish:
-                songName = ChantFileName.spanish
-            case .mandarin_english_german:
-                songName = ChantFileName.mandarin_english_german
-            case .french:
-                songName = ChantFileName.french
-            case .french_antillean_creole:
-                songName = ChantFileName.french_antillean_creole
-            case .kawehi_haw:
-                songName = ChantFileName.kawehi_haw
-            case .sha_eng:
-                songName = ChantFileName.sha_eng
-            case .sha_lula_eng_ka_haw:
-                songName = ChantFileName.sha_lula_eng_ka_haw
-
-            default:
-                songName = ChantFileName.mandarinSoulEnglish
-            }
-            
-            AVAudioSingleton.sharedInstance.startNewSong(chantFileName: songName!)
+            AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
             
         } else {

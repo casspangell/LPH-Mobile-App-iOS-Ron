@@ -161,6 +161,10 @@ extension UserDefaults {
         static let isKawehiHawOn = "isKawehiHawOn"
         static let isShaEngOn = "isShaEngOn"
         static let isShaLulaEngKaHawOn = "isShaLulaEngHawOn"
+        static let isGlobalUnisonOn = "isGlobalUnisonOn"
+        static let isReaMoyoOn = "isReaMoyoOn"
+        static let isMufrikaOn = "isMufrikaOn"
+        static let isIndosakusaOn = "isIndosakusaOn"
         
         static let isRepeatEnabled = "UserDefaultsRepeatEnabled"
         static let isShuffleEnabled = "UserDefaultsShuffleEnabled"
@@ -223,6 +227,10 @@ enum ChantFileName {
     static let kawehi_haw = "kawehi_haw"
     static let sha_eng = "sha_eng"
     static let sha_lula_eng_ka_haw = "sha_lula_eng_ka_haw"
+    static let global_unison = "lph_unity"
+    static let indosakusa = "indosakusa"
+    static let mufrika = "mufrika"
+    static let rea_moyo = "rea_moyo"
 }
 
 // Messages
