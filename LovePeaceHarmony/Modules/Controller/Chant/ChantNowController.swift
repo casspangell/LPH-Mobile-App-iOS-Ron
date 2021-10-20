@@ -455,25 +455,26 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             let isFirstRun = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.isFirstRun)
                 
             //If first run, start default song, else continue from the current song
-//            if (isFirstRun == 0) {
+            if (isFirstRun == 0) {
 //                print("first run start default song")
             print("Starting new song")
             
             //Check to make sure a song is selected
             if checkToggles() {
-                print("checkToggles returns true")
                 AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
                 
                 LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
                 startTime = labelSeekTime.text //set new start time
+                print("startTime \(startTime)")
                 sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
                 buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
             }
             
-//            } else {
-//                print("not first run, playing")
-//                AVAudioSingleton.sharedInstance.play()
-//            }
+            } else {
+                print("not first run, playing")
+                buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
+                AVAudioSingleton.sharedInstance.play()
+            }
             
 
 
