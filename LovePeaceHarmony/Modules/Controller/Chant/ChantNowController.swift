@@ -29,7 +29,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     var isShuffleEnabled = false
     var isRepeatEnabled = false
     var chantMilestoneCounter:Float = 0
-    var chantTitle = ["Mandarin, Soul Language, English", "Instrumental", "Hindi, Soul Language, English", "Spanish, Soul Language", "German, English, Mandarin", "Soul Language, French", "Soul Language, French, Creole", "Love Peace Harmony Global Unity", "Aloha, Maluhia, Lokahi (LPH in Hawaiian)", "Lu La Li Version, English and Hawaiian", "Rea Moyo", "Mufrika Edward (Zambia)", "Indosakusa The Morning Star (Zimbabwe)", "Love Peace Harmony in English"]
+    var chantTitle = ["Mandarin, Soul Language, English", "Instrumental", "Hindi, Soul Language, English", "Spanish, Soul Language", "German, English, Mandarin", "Soul Language, French", "Soul Language, French, Creole", "Love Peace Harmony Global Unison", "Aloha, Maluhia, Lokahi (LPH in Hawaiian)", "Lu La Li Version, English and Hawaiian", "Rea Moyo (Zimbabwe)", "Mufrika Edward (Zambia)", "Indosakusa The Morning Star (Zimbabwe)", "Love Peace Harmony in English"]
   
     // MARK: - IBProperties
     @IBOutlet weak var buttonPlayPause: UIButton!
@@ -94,9 +94,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         lulaliHawaiian.text = NSLocalizedString("Lu La Li Version, English and Hawaiian", comment: "")
         lphEnglish.text = NSLocalizedString("Love Peace Harmony in English", comment: "")
         globalUnisonLabel.text = NSLocalizedString("Love Peace Harmony Global Unison", comment: "")
-        reaMoyoLabel.text = NSLocalizedString("Rea Moyo", comment: "")
+        reaMoyoLabel.text = NSLocalizedString("Rea Moyo (Zimbabwe)", comment: "")
         mufrikaLabel.text = NSLocalizedString("MuFrika Edward (Zambia)", comment: "")
-        indosakusaLabel.text = NSLocalizedString("Indosakusa The Morning Start (Zimbabwe)", comment: "")
+        indosakusaLabel.text = NSLocalizedString("Indosakusa The Morning Star (Zimbabwe)", comment: "")
         
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .normal)
         sliderMusicSeek.setThumbImage(#imageLiteral(resourceName: "ic_slider_thumb"), for: .selected)
@@ -449,18 +449,19 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         //Pressed Play
         if (!audioBool) {
             print("pressing play, no audio was playing")
-             
+            
+            //Check to make sure a song is selected
+            if checkToggles() {
             currentSongString = returnSongName(currentSong: currentSong!)//songName!
             
             let isFirstRun = LPHUtils.getUserDefaultsInt(key: UserDefaults.Keys.isFirstRun)
                 
+//            print("isFirstRun \(isFirstRun)")
             //If first run, start default song, else continue from the current song
-            if (isFirstRun == 0) {
+//            if (isFirstRun == 0) {
 //                print("first run start default song")
             print("Starting new song")
             
-            //Check to make sure a song is selected
-            if checkToggles() {
                 AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
                 
                 LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
@@ -468,7 +469,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 print("startTime \(startTime)")
                 sliderTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ChantNowController.updateSlider), userInfo: nil, repeats: true)
                 buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
-            }
+//            }
             
             } else {
                 print("not first run, playing")
