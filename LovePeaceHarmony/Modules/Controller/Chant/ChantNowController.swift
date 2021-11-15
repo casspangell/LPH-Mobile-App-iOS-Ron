@@ -492,7 +492,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
 
     
     private func pressedSkip() {
-        
+        print("pressed skip")
         currentSongString = returnSongName(currentSong: currentSong!)
 
         AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
@@ -605,15 +605,18 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     }
     
     private func getNextSong() -> ChantFile? {
-
+        
         processChantingMilestone()
         var nextSong: ChantFile?
         if currentSong != nil {
             let currentSongIndex = currentSong?.rawValue
+            print("currentsong \(currentSongIndex)")
             if isShuffleEnabled {
                 var shuffledSongIndex: Int?
+                print("isShuffleEnabled \(isShuffleEnabled)")
                 for (index, song) in songListShuffled.enumerated() {
                     if song == currentSong {
+                        print("shuffledSongIndex\(song)")
                         shuffledSongIndex = index
                         break
                     }
@@ -639,10 +642,14 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 }
                 
             } else if isRepeatEnabled {
+                print("isRepeatEnabled")
                 for (index, song) in songListOriginal.enumerated() {
                     print(song)
                     if currentSongIndex! < index {
+                        print("currentSongIndex \(currentSongIndex!)")
+                        print("songListStatus[song] \(songListStatus[song]!)")
                         if songListStatus[song]! {
+                            print("nextSong \(song)")
                             nextSong = song
                             break
                         }
@@ -651,7 +658,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
                 
                 if nextSong == nil {
                     for song in songListOriginal {
-                        print(song)
+                        print("song \(song)")
                         if songListStatus[song]! {
                             nextSong = song
                             break
@@ -812,6 +819,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
     
     @IBAction func onTapNextSong(_ sender: UIButton) {
         let nextSong = getNextSong()
+        print("next song \(nextSong)")
         if (nextSong != nil && nextSong != currentSong) {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: (nextSong?.rawValue)!)
             resetAudioPlayer()
@@ -876,167 +884,322 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         updateSlider()
     }
     
+    //Switch Buttons
     @IBAction func onTapSwitchMandarinSoulEnglish(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: sender.isOn)
-        songListStatus[.mandarin_soul_english] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .mandarin_soul_english)
+        onTapMandarinSoulEnglish()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: sender.isOn)
+//        songListStatus[.mandarin_soul_english] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .mandarin_soul_english)
     }
     
     @IBAction func onTapSwitchInstrumental(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: sender.isOn)
-        songListStatus[.instrumental] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .instrumental)
+        onTapInstrumental()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: sender.isOn)
+//        songListStatus[.instrumental] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .instrumental)
     }
     
     @IBAction func onTapSwitchHindiSLEnglish(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: sender.isOn)
-        songListStatus[.hindi_sl_english] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .hindi_sl_english)
+        onTapHindiSLEnglish()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: sender.isOn)
+//        songListStatus[.hindi_sl_english] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .hindi_sl_english)
     }
     
     @IBAction func onTapSpanish(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn, value: sender.isOn)
-        songListStatus[.spanish] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .spanish)
+        onTapSpanish()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn, value: sender.isOn)
+//        songListStatus[.spanish] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .spanish)
     }
     
     @IBAction func onTapMandarinEngGerman(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn, value: sender.isOn)
-        songListStatus[.mandarin_english_german] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .mandarin_english_german)
+        onTapMandarinEngGerman()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn, value: sender.isOn)
+//        songListStatus[.mandarin_english_german] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .mandarin_english_german)
     }
     
     @IBAction func onTapFrench(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isFrenchOn, value: sender.isOn)
-        songListStatus[.french] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .french)
+        onTapFrench()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isFrenchOn, value: sender.isOn)
+//        songListStatus[.french] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .french)
     }
     
     @IBAction func onTapAntilleanCreole(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isfrenchAntilleanCreoleOn, value: sender.isOn)
-        songListStatus[.french_antillean_creole] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .french_antillean_creole)
+        onTapAntilleanCreole()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isfrenchAntilleanCreoleOn, value: sender.isOn)
+//        songListStatus[.french_antillean_creole] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .french_antillean_creole)
     }
 
     @IBAction func onTapKawehiHaw(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: sender.isOn)
-        songListStatus[.kawehi_haw] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .kawehi_haw)
+        onTapKawehiHaw()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: sender.isOn)
+//        songListStatus[.kawehi_haw] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .kawehi_haw)
     }
     
     @IBAction func onTapShaLulaEngKaHaw(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: sender.isOn)
-        songListStatus[.sha_lula_eng_ka_haw] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .sha_lula_eng_ka_haw)
+        onTapShaLulaEngKaHaw()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: sender.isOn)
+//        songListStatus[.sha_lula_eng_ka_haw] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .sha_lula_eng_ka_haw)
     }
 
     @IBAction func onTapShaEng(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: sender.isOn)
-        songListStatus[.sha_eng] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .sha_eng)
+        onTapShaEng()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: sender.isOn)
+//        songListStatus[.sha_eng] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .sha_eng)
     }
     
     @IBAction func onTapGlobalUnison(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isGlobalUnisonOn, value: sender.isOn)
-        songListStatus[.global_unison] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .global_unison)
+        onTapGlobalUnison()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isGlobalUnisonOn, value: sender.isOn)
+//        songListStatus[.global_unison] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .global_unison)
     }
     
     @IBAction func onTapReaMoyo(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isReaMoyoOn, value: sender.isOn)
-        songListStatus[.rea_moyo] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .rea_moyo)
+        onTapReaMoyo()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isReaMoyoOn, value: sender.isOn)
+//        songListStatus[.rea_moyo] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .rea_moyo)
     }
     
     @IBAction func onTapMufrika(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMufrikaOn, value: sender.isOn)
-        songListStatus[.mufrika] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .mufrika)
+        onTapMufrika()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMufrikaOn, value: sender.isOn)
+//        songListStatus[.mufrika] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .mufrika)
     }
     
     @IBAction func onTapIndosakusa(_ sender: UISwitch) {
-        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isIndosakusaOn, value: sender.isOn)
-        songListStatus[.indosakusa] = sender.isOn
-//        checkAndTurnShuffleRepeatOff()
-        forceStopPlaying(chantSong: .indosakusa)
+        onTapIndosakusa()
+//        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isIndosakusaOn, value: sender.isOn)
+//        songListStatus[.indosakusa] = sender.isOn
+////        checkAndTurnShuffleRepeatOff()
+//        forceStopPlaying(chantSong: .indosakusa)
     }
     
-    
 // MARK: OnTap Gestures
-
     @IBAction func onTapInstrumentalGesture(_ sender: UITapGestureRecognizer) {
+        onTapInstrumental()
         startSong(chantFile: .instrumental)
+        switchInstrumental.setOn(true, animated: true)
     }
     
     @IBAction func onTapMandarinSLEngGesture(_ sender: UITapGestureRecognizer) {
+        onTapMandarinSoulEnglish()
         startSong(chantFile: .mandarin_soul_english)
+        switchMandarinSoulEnglish.setOn(true, animated: true)
     }
     
     @IBAction func onTapHindiSLEngGesture(_ sender: UITapGestureRecognizer) {
+        onTapHindiSLEnglish()
         startSong(chantFile: .hindi_sl_english)
+        switchHindiSLEng.setOn(true, animated: true)
+ 
     }
     
     @IBAction func onTapSpanishGesture(_ sender: UITapGestureRecognizer) {
+        onTapSpanish()
+        switchSpanish.setOn(true, animated: true)
         startSong(chantFile: .spanish)
     }
     
     @IBAction func onTapMandarinEngGerGesture(_ sender: UITapGestureRecognizer) {
+        onTapMandarinEngGerman()
         startSong(chantFile: .mandarin_english_german)
+        switchMandarinEngGerman.setOn(true, animated: true)
     }
     
     @IBAction func onTapFrenchGesture(_ sender: UITapGestureRecognizer) {
+        onTapFrench()
         startSong(chantFile: .french)
+        switchFrench.setOn(true, animated: true)
     }
     
     @IBAction func onTapFrenchCreoleGesture(_ sender: UITapGestureRecognizer) {
+        onTapAntilleanCreole()
         startSong(chantFile: .french_antillean_creole)
+        switchAntilleanCreole.setOn(true, animated: true)
     }
     
     @IBAction func onTapHawaiianGesture(_ sender: UITapGestureRecognizer) {
+        onTapKawehiHaw()
         startSong(chantFile: .kawehi_haw)
+        switchKawehiHaw.setOn(true, animated: true)
     }
     
     @IBAction func onTapSLEngHawaiianGesture(_ sender: UITapGestureRecognizer) {
+        onTapShaLulaEngKaHaw()
         startSong(chantFile: .sha_lula_eng_ka_haw)
+        switchShaLulaEngKaHaw.setOn(true, animated: true)
     }
     
     @IBAction func onTapEnglishGesture(_ sender: UITapGestureRecognizer) {
+        onTapShaEng()
         startSong(chantFile: .sha_eng)
+        switchShaEng.setOn(true, animated: true)
     }
     
     @IBAction func onTapGlobalUnisonGesture(_ sender: UITapGestureRecognizer) {
+        onTapGlobalUnison()
         startSong(chantFile: .global_unison)
+        switchGlobalUnison.setOn(true, animated: true)
     }
     
     @IBAction func onTapReaMoyoGesture(_ sender: UITapGestureRecognizer) {
+        onTapReaMoyo()
         startSong(chantFile: .rea_moyo)
+        switchReaMoyo.setOn(true, animated: true)
     }
     
     @IBAction func onTapMufrikaGesture(_ sender: UITapGestureRecognizer) {
+        onTapMufrika()
         startSong(chantFile: .mufrika)
+        switchMufrika.setOn(true, animated: true)
     }
     
     @IBAction func onTapIndosakusaGesture(_ sender: UITapGestureRecognizer) {
+        onTapIndosakusa()
         startSong(chantFile: .indosakusa)
+        switchIndosakusa.setOn(true, animated: true)
     }
     
+//MARK: Switch functions
+    func onTapMandarinSoulEnglish() {
+        let sender = switchMandarinSoulEnglish
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: sender!.isOn)
+        songListStatus[.mandarin_soul_english] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .mandarin_soul_english)
+    }
     
+   func onTapInstrumental() {
+        let sender = switchInstrumental
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: sender!.isOn)
+        songListStatus[.instrumental] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .instrumental)
+    }
+    
+    func onTapHindiSLEnglish() {
+        let sender = switchHindiSLEng
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: sender!.isOn)
+        songListStatus[.hindi_sl_english] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .hindi_sl_english)
+    }
+    
+    func onTapSpanish() {
+        print("onTapSpanish")
+        let sender = switchSpanish
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn, value: sender!.isOn)
+        songListStatus[.spanish] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .spanish)
+    }
+    
+    func onTapMandarinEngGerman() {
+        let sender = switchMandarinEngGerman
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn, value: sender!.isOn)
+        songListStatus[.mandarin_english_german] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .mandarin_english_german)
+    }
+    
+    func onTapFrench() {
+        let sender = switchFrench
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isFrenchOn, value: sender!.isOn)
+        songListStatus[.french] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .french)
+    }
+    
+    func onTapAntilleanCreole() {
+        let sender = switchAntilleanCreole
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isfrenchAntilleanCreoleOn, value: sender!.isOn)
+        songListStatus[.french_antillean_creole] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .french_antillean_creole)
+    }
 
+    func onTapKawehiHaw() {
+        let sender = switchKawehiHaw
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: sender!.isOn)
+        songListStatus[.kawehi_haw] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .kawehi_haw)
+    }
+    
+    func onTapShaLulaEngKaHaw() {
+        let sender = switchShaLulaEngKaHaw
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: sender!.isOn)
+        songListStatus[.sha_lula_eng_ka_haw] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .sha_lula_eng_ka_haw)
+    }
+
+    func onTapShaEng() {
+        let sender = switchShaEng
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: sender!.isOn)
+        songListStatus[.sha_eng] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .sha_eng)
+    }
+    
+    func onTapGlobalUnison() {
+        let sender = switchGlobalUnison
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isGlobalUnisonOn, value: sender!.isOn)
+        songListStatus[.global_unison] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .global_unison)
+    }
+    
+    func onTapReaMoyo() {
+        let sender = switchReaMoyo
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isReaMoyoOn, value: sender!.isOn)
+        songListStatus[.rea_moyo] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .rea_moyo)
+    }
+    
+    func onTapMufrika() {
+        let sender = switchMufrika
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMufrikaOn, value: sender!.isOn)
+        songListStatus[.mufrika] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .mufrika)
+    }
+    
+    func onTapIndosakusa() {
+        let sender = switchIndosakusa
+        LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isIndosakusaOn, value: sender!.isOn)
+        songListStatus[.indosakusa] = sender!.isOn
+//        checkAndTurnShuffleRepeatOff()
+        forceStopPlaying(chantSong: .indosakusa)
+    }
+
+//MARK: Functions
     private func startSong(chantFile: ChantFile) {
-        if songListStatus[chantFile]! {
+//        if songListStatus[chantFile]! {
 
             //Reset the player
             if AVAudioSingleton.sharedInstance.isPlaying() {
@@ -1055,9 +1218,9 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             AVAudioSingleton.sharedInstance.startNewSong(chantFileName: currentSongString!)
             buttonPlayPause.setImage(#imageLiteral(resourceName: "ic_pause"), for: .normal)//pause image
             
-        } else {
-            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
-        }
+//        } else {
+//            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: ""))
+//        }
     }
     
     // MARK: - Api
