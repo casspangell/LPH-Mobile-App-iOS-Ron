@@ -557,7 +557,7 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
             return true
         } else {
             LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.currentChantSong, value: -1)
-            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: "") )
+//            showToast(message: NSLocalizedString(AlertMessage.enableSong, comment: "") )
             return false
         }
     }
@@ -1014,7 +1014,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         onTapHindiSLEnglish()
         startSong(chantFile: .hindi_sl_english)
         switchHindiSLEng.setOn(true, animated: true)
- 
     }
     
     @IBAction func onTapSpanishGesture(_ sender: UITapGestureRecognizer) {
@@ -1088,7 +1087,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchMandarinSoulEnglish
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.mandarinSoulEnglish, value: sender!.isOn)
         songListStatus[.mandarin_soul_english] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .mandarin_soul_english)
     }
     
@@ -1096,7 +1094,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchInstrumental
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isInstrumentalOn, value: sender!.isOn)
         songListStatus[.instrumental] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .instrumental)
     }
     
@@ -1104,16 +1101,13 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchHindiSLEng
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isHindi_SL_EnglishOn, value: sender!.isOn)
         songListStatus[.hindi_sl_english] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .hindi_sl_english)
     }
     
     func onTapSpanish() {
-        print("onTapSpanish")
         let sender = switchSpanish
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isSpanishOn, value: sender!.isOn)
         songListStatus[.spanish] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .spanish)
     }
     
@@ -1121,7 +1115,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchMandarinEngGerman
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMandarinEnglishGermanOn, value: sender!.isOn)
         songListStatus[.mandarin_english_german] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .mandarin_english_german)
     }
     
@@ -1129,7 +1122,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchFrench
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isFrenchOn, value: sender!.isOn)
         songListStatus[.french] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .french)
     }
     
@@ -1137,7 +1129,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchAntilleanCreole
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isfrenchAntilleanCreoleOn, value: sender!.isOn)
         songListStatus[.french_antillean_creole] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .french_antillean_creole)
     }
 
@@ -1145,7 +1136,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchKawehiHaw
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isKawehiHawOn, value: sender!.isOn)
         songListStatus[.kawehi_haw] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .kawehi_haw)
     }
     
@@ -1153,7 +1143,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchShaLulaEngKaHaw
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaLulaEngKaHawOn, value: sender!.isOn)
         songListStatus[.sha_lula_eng_ka_haw] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .sha_lula_eng_ka_haw)
     }
 
@@ -1161,7 +1150,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchShaEng
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isShaEngOn, value: sender!.isOn)
         songListStatus[.sha_eng] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .sha_eng)
     }
     
@@ -1169,7 +1157,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchGlobalUnison
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isGlobalUnisonOn, value: sender!.isOn)
         songListStatus[.global_unison] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .global_unison)
     }
     
@@ -1177,7 +1164,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchReaMoyo
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isReaMoyoOn, value: sender!.isOn)
         songListStatus[.rea_moyo] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .rea_moyo)
     }
     
@@ -1185,7 +1171,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchMufrika
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isMufrikaOn, value: sender!.isOn)
         songListStatus[.mufrika] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .mufrika)
     }
     
@@ -1193,7 +1178,6 @@ class ChantNowController: BaseViewController, IndicatorInfoProvider, AVAudioPlay
         let sender = switchIndosakusa
         LPHUtils.setUserDefaultsBool(key: UserDefaults.Keys.isIndosakusaOn, value: sender!.isOn)
         songListStatus[.indosakusa] = sender!.isOn
-//        checkAndTurnShuffleRepeatOff()
         forceStopPlaying(chantSong: .indosakusa)
     }
 
