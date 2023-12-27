@@ -1099,7 +1099,7 @@
                                 <rect key="frame" x="0.0" y="154" width="375" height="463"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FRC-EC-Bma">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpn-AP-hkb" userLabel="LPH Bar">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -1188,7 +1188,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="01x-u5-uyS" secondAttribute="trailing" constant="8" id="XIS-IL-V1n"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="a9z-w6-joH" appends="YES" id="ZMY-YR-MRE"/>
+                                                    <outletCollection property="gestureRecognizers" destination="a9z-w6-joH" appends="YES" id="NnO-1v-egD"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yk-jq-hdT" userLabel="Instrumental">
@@ -1228,7 +1228,7 @@
                                                     <constraint firstItem="FEm-hb-fFn" firstAttribute="leading" secondItem="2Yk-jq-hdT" secondAttribute="leading" constant="16" id="l7V-Ku-e3r"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="CTs-4x-hKq" appends="YES" id="mqg-AA-V1l"/>
+                                                    <outletCollection property="gestureRecognizers" destination="CTs-4x-hKq" appends="YES" id="tTd-QW-cQG"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-CD-f1I" userLabel="Hindi SL Eng">
@@ -1268,7 +1268,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="1j6-dw-OQ5" secondAttribute="trailing" constant="8" id="n8C-Px-DCE"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="MzA-R5-TEM" appends="YES" id="kV8-AZ-lys"/>
+                                                    <outletCollection property="gestureRecognizers" destination="MzA-R5-TEM" appends="YES" id="dc4-P2-PVc"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCd-h1-ENJ" userLabel="Spanish">
@@ -1308,7 +1308,7 @@
                                                     <constraint firstItem="ITd-na-wvV" firstAttribute="centerY" secondItem="bCd-h1-ENJ" secondAttribute="centerY" id="waj-Ca-2X0"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="kv4-hK-Oaz" appends="YES" id="tVP-55-Oat"/>
+                                                    <outletCollection property="gestureRecognizers" destination="kv4-hK-Oaz" appends="YES" id="IH9-4l-DHg"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBl-NU-3M9" userLabel="Mandarin, Eng, Ger">
@@ -1348,7 +1348,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="Bfh-Cp-E8q" secondAttribute="trailing" id="zEv-bM-AvN"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="th9-oD-tIx" appends="YES" id="eNE-mS-vkf"/>
+                                                    <outletCollection property="gestureRecognizers" destination="th9-oD-tIx" appends="YES" id="s5c-Q5-Zt1"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpR-4p-rsQ" userLabel="French">
@@ -1388,7 +1388,7 @@
                                                     <constraint firstItem="qgC-ea-5YN" firstAttribute="leading" secondItem="NpR-4p-rsQ" secondAttribute="leading" constant="16" id="wKG-3H-hCn"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="ZMA-xD-m5m" appends="YES" id="GVJ-Mf-aBr"/>
+                                                    <outletCollection property="gestureRecognizers" destination="ZMA-xD-m5m" appends="YES" id="owC-bJ-5tG"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hw-5a-0ud" userLabel="French Creole">
@@ -1428,7 +1428,7 @@
                                                     <constraint firstItem="rhm-v3-ILe" firstAttribute="leading" secondItem="5hw-5a-0ud" secondAttribute="leading" id="tBG-uY-2pB"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="YCK-44-VUB" appends="YES" id="Xpa-DL-yJa"/>
+                                                    <outletCollection property="gestureRecognizers" destination="YCK-44-VUB" appends="YES" id="HVK-aP-ruC"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKb-c8-G2C" userLabel="Expressions Bar">
@@ -1460,7 +1460,7 @@
                                                     <constraint firstItem="xkL-mr-4kQ" firstAttribute="leading" secondItem="ZKb-c8-G2C" secondAttribute="leading" constant="10" id="pYc-rT-YVl"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGl-pp-nqt" userLabel="Global Unison">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGl-pp-nqt" userLabel="LPH in Hawaiian">
                                                 <rect key="frame" x="0.0" y="450" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAY-Dy-roH">
@@ -1470,8 +1470,8 @@
                                                             <constraint firstAttribute="height" constant="1" id="WY0-Q2-OJc"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Love Peace Harmony Global Unison" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vig-o1-eDk">
-                                                        <rect key="frame" x="16" y="16" width="216" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aloha, Maluhia, Lokahi (LPH in Hawaiian)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vig-o1-eDk">
+                                                        <rect key="frame" x="16" y="16" width="246" height="18"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1479,7 +1479,7 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fI6-26-khW">
                                                         <rect key="frame" x="318" y="9.5" width="51" height="31"/>
                                                         <connections>
-                                                            <action selector="onTapGlobalUnison:" destination="rRm-F9-0wR" eventType="valueChanged" id="02u-Ms-NCL"/>
+                                                            <action selector="onTapKawehiHaw:" destination="rRm-F9-0wR" eventType="valueChanged" id="Yeg-WE-FwS"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
@@ -1497,51 +1497,11 @@
                                                     <constraint firstAttribute="trailing" secondItem="fI6-26-khW" secondAttribute="trailing" constant="8" id="rYd-dk-5vg"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="2rC-z1-xGo" appends="YES" id="x2D-QX-X84"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46l-Cd-EUU" userLabel="LPH in Hawaiian">
-                                                <rect key="frame" x="0.0" y="500" width="375" height="50"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCN-Id-t3H">
-                                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
-                                                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="ZsS-QU-BgM"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aloha, Maluhia, Lokahi (LPH in Hawaiian)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60M-xe-cJn">
-                                                        <rect key="frame" x="16" y="16" width="246" height="18"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6VH-O3-s6u">
-                                                        <rect key="frame" x="318" y="9.5" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="onTapKawehiHaw:" destination="rRm-F9-0wR" eventType="valueChanged" id="wxe-cj-lxb"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstItem="60M-xe-cJn" firstAttribute="leading" secondItem="46l-Cd-EUU" secondAttribute="leading" constant="16" id="G43-iG-MBD"/>
-                                                    <constraint firstItem="6VH-O3-s6u" firstAttribute="centerY" secondItem="46l-Cd-EUU" secondAttribute="centerY" id="HzE-ca-8jF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="6VH-O3-s6u" secondAttribute="trailing" constant="8" id="VPo-u8-VMC"/>
-                                                    <constraint firstAttribute="bottom" secondItem="tCN-Id-t3H" secondAttribute="bottom" id="WeA-b6-20v"/>
-                                                    <constraint firstItem="60M-xe-cJn" firstAttribute="centerY" secondItem="46l-Cd-EUU" secondAttribute="centerY" id="ijW-Mk-qOb"/>
-                                                    <constraint firstAttribute="height" constant="50" id="kjD-7v-HiQ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="tCN-Id-t3H" secondAttribute="trailing" id="lZc-wL-bgh"/>
-                                                    <constraint firstItem="6VH-O3-s6u" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="60M-xe-cJn" secondAttribute="trailing" constant="8" symbolic="YES" id="lo4-FD-g66"/>
-                                                    <constraint firstItem="tCN-Id-t3H" firstAttribute="leading" secondItem="46l-Cd-EUU" secondAttribute="leading" id="u1b-MZ-7ma"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="gbY-R6-iTq" appends="YES" id="EWN-LW-mBt"/>
+                                                    <outletCollection property="gestureRecognizers" destination="gbY-R6-iTq" appends="YES" id="X0A-VH-z6v"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-Xg-8bF" userLabel="LuLaLi Eng Hawaiian">
-                                                <rect key="frame" x="0.0" y="550" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="500" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YE4-gL-Hgt">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1577,132 +1537,11 @@
                                                     <constraint firstAttribute="bottom" secondItem="YE4-gL-Hgt" secondAttribute="bottom" id="keD-f5-60G"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="2gw-6T-NGa" appends="YES" id="DqX-VK-Cpd"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNe-Qi-hFk" userLabel="Rea Moyo">
-                                                <rect key="frame" x="0.0" y="600" width="375" height="50"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvu-G7-Qwg">
-                                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
-                                                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="QQq-BR-KTH"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rea Moyo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FI-KH-d2T">
-                                                        <rect key="frame" x="16" y="16" width="60" height="18"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BSF-Oo-n1N">
-                                                        <rect key="frame" x="318" y="9.5" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="onTapReaMoyo:" destination="rRm-F9-0wR" eventType="valueChanged" id="hvO-ow-5Sj"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstItem="2FI-KH-d2T" firstAttribute="centerY" secondItem="oNe-Qi-hFk" secondAttribute="centerY" id="DI5-21-UfN"/>
-                                                    <constraint firstItem="BSF-Oo-n1N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2FI-KH-d2T" secondAttribute="trailing" constant="8" symbolic="YES" id="Idi-Zi-bLM"/>
-                                                    <constraint firstAttribute="height" constant="50" id="NWc-KY-jd7"/>
-                                                    <constraint firstItem="BSF-Oo-n1N" firstAttribute="centerY" secondItem="oNe-Qi-hFk" secondAttribute="centerY" id="ZS7-du-Gkv"/>
-                                                    <constraint firstAttribute="trailing" secondItem="BSF-Oo-n1N" secondAttribute="trailing" constant="8" id="cah-LA-Bfh"/>
-                                                    <constraint firstItem="2FI-KH-d2T" firstAttribute="leading" secondItem="oNe-Qi-hFk" secondAttribute="leading" constant="16" id="erh-W7-Zt2"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Cvu-G7-Qwg" secondAttribute="bottom" id="hYZ-Z5-6uU"/>
-                                                    <constraint firstItem="Cvu-G7-Qwg" firstAttribute="leading" secondItem="oNe-Qi-hFk" secondAttribute="leading" id="i2P-0s-Ffc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Cvu-G7-Qwg" secondAttribute="trailing" id="t5F-6K-y6Y"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="3A5-9s-Y5D" appends="YES" id="xgE-hK-Jw9"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jod-ba-t5E" userLabel="Mufrika">
-                                                <rect key="frame" x="0.0" y="650" width="375" height="50"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyT-s4-unb">
-                                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
-                                                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="4Jw-If-oKG"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MuFrika Edward (Zambia)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzf-31-Y5q">
-                                                        <rect key="frame" x="16" y="16" width="154.5" height="18"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7jF-Ok-dkL">
-                                                        <rect key="frame" x="318" y="9.5" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="onTapMufrika:" destination="rRm-F9-0wR" eventType="valueChanged" id="uH6-2c-dTo"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstItem="7jF-Ok-dkL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bzf-31-Y5q" secondAttribute="trailing" constant="8" symbolic="YES" id="2QP-E6-gEf"/>
-                                                    <constraint firstItem="hyT-s4-unb" firstAttribute="leading" secondItem="jod-ba-t5E" secondAttribute="leading" id="4Hp-6o-Nc9"/>
-                                                    <constraint firstItem="bzf-31-Y5q" firstAttribute="centerY" secondItem="jod-ba-t5E" secondAttribute="centerY" id="TbY-98-DLb"/>
-                                                    <constraint firstItem="bzf-31-Y5q" firstAttribute="leading" secondItem="jod-ba-t5E" secondAttribute="leading" constant="16" id="btW-Uw-IN4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="7jF-Ok-dkL" secondAttribute="trailing" constant="8" id="jOY-9N-O9x"/>
-                                                    <constraint firstAttribute="height" constant="50" id="n7A-nU-qkm"/>
-                                                    <constraint firstItem="7jF-Ok-dkL" firstAttribute="centerY" secondItem="jod-ba-t5E" secondAttribute="centerY" id="p5T-Ns-nS3"/>
-                                                    <constraint firstAttribute="bottom" secondItem="hyT-s4-unb" secondAttribute="bottom" id="xlB-O3-8Ez"/>
-                                                    <constraint firstAttribute="trailing" secondItem="hyT-s4-unb" secondAttribute="trailing" id="zDf-4T-BBd"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="NZu-RP-Mkl" appends="YES" id="18U-Qq-liL"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WeE-60-eAe" userLabel="Indosakusa">
-                                                <rect key="frame" x="0.0" y="700" width="375" height="50"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltc-wY-f6t">
-                                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
-                                                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="JqY-ck-S4e"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indosakusa The Morning Star (Zimbabwe)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCy-aB-h2e">
-                                                        <rect key="frame" x="16" y="16" width="251.5" height="18"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UFu-ki-bkr">
-                                                        <rect key="frame" x="318" y="9.5" width="51" height="31"/>
-                                                        <connections>
-                                                            <action selector="onTapIndosakusa:" destination="rRm-F9-0wR" eventType="valueChanged" id="QBn-Iz-UAh"/>
-                                                            <action selector="onTapKawehiHaw:" destination="rRm-F9-0wR" eventType="valueChanged" id="QIU-yc-AtN"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="8V3-z6-er6"/>
-                                                    <constraint firstItem="lCy-aB-h2e" firstAttribute="centerY" secondItem="WeE-60-eAe" secondAttribute="centerY" id="8V5-Yf-hH2"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ltc-wY-f6t" secondAttribute="bottom" id="BtP-WS-LhB"/>
-                                                    <constraint firstAttribute="trailing" secondItem="UFu-ki-bkr" secondAttribute="trailing" constant="8" id="EiM-cv-oYe"/>
-                                                    <constraint firstItem="ltc-wY-f6t" firstAttribute="leading" secondItem="WeE-60-eAe" secondAttribute="leading" id="FfJ-OM-diD"/>
-                                                    <constraint firstItem="lCy-aB-h2e" firstAttribute="leading" secondItem="WeE-60-eAe" secondAttribute="leading" constant="16" id="UlP-vC-Ixz"/>
-                                                    <constraint firstItem="UFu-ki-bkr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lCy-aB-h2e" secondAttribute="trailing" constant="8" symbolic="YES" id="afg-8A-ztY"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ltc-wY-f6t" secondAttribute="trailing" id="hSr-RQ-sJh"/>
-                                                    <constraint firstItem="UFu-ki-bkr" firstAttribute="centerY" secondItem="WeE-60-eAe" secondAttribute="centerY" id="xSu-uV-4iF"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="V25-ir-lMo" appends="YES" id="bBS-l9-s8D"/>
+                                                    <outletCollection property="gestureRecognizers" destination="2gw-6T-NGa" appends="YES" id="GED-q7-8oI"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3h-dm-e5g" userLabel="LPH in Eng">
-                                                <rect key="frame" x="0.0" y="750" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="550" width="375" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7C-Q6-TyF">
                                                         <rect key="frame" x="0.0" y="49" width="375" height="1"/>
@@ -1738,7 +1577,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="M7C-Q6-TyF" secondAttribute="bottom" id="xW6-Uj-fA5"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Wzq-qa-hg6" appends="YES" id="As4-lk-aSf"/>
+                                                    <outletCollection property="gestureRecognizers" destination="Wzq-qa-hg6" appends="YES" id="O4a-jB-hXg"/>
                                                 </connections>
                                             </view>
                                         </subviews>
@@ -1945,9 +1784,7 @@
                         <outlet property="expressionsOfLPHBarLabel" destination="xkL-mr-4kQ" id="0tb-CG-TfU"/>
                         <outlet property="frenchCreoleLabel" destination="uuw-H8-ulX" id="Mxz-Oe-KYD"/>
                         <outlet property="frenchLabel" destination="qgC-ea-5YN" id="fbV-61-oiy"/>
-                        <outlet property="globalUnisonLabel" destination="Vig-o1-eDk" id="mGP-ZB-Uhf"/>
                         <outlet property="hindiSoulLanguageEnglishLabel" destination="5rb-sW-iOg" id="P2s-nl-9Cd"/>
-                        <outlet property="indosakusaLabel" destination="lCy-aB-h2e" id="dMr-Hf-tPO"/>
                         <outlet property="instrumentalLabel" destination="FEm-hb-fFn" id="Gaj-LL-UHT"/>
                         <outlet property="labelSeekTime" destination="h8o-r7-XBs" id="Beg-Cz-az8"/>
                         <outlet property="labelSongName" destination="dNd-b4-r0T" id="qOv-mu-17E"/>
@@ -1956,22 +1793,16 @@
                         <outlet property="lulaliHawaiian" destination="9D6-gd-Z7E" id="abe-0J-MDM"/>
                         <outlet property="mandarinEnglishGermanLabel" destination="J38-id-ivG" id="sPc-Ww-eXt"/>
                         <outlet property="mandarinSoulEnglishLabel" destination="Rzd-0C-ftT" id="f6M-Lb-Nvn"/>
-                        <outlet property="mufrikaLabel" destination="bzf-31-Y5q" id="qgv-GG-xci"/>
-                        <outlet property="reaMoyoLabel" destination="2FI-KH-d2T" id="maG-hk-n69"/>
                         <outlet property="sliderMusicSeek" destination="DN2-6g-ONv" id="j9t-0Z-s0Q"/>
                         <outlet property="sliderVolume" destination="FLH-5N-opq" id="3VK-ge-NoP"/>
                         <outlet property="spanishLabel" destination="zBJ-T8-ItE" id="2hM-kr-G1O"/>
                         <outlet property="switchAntilleanCreole" destination="40B-gK-FMQ" id="T1h-ua-GHu"/>
                         <outlet property="switchFrench" destination="qXe-T9-Y1I" id="kR2-pr-pKf"/>
-                        <outlet property="switchGlobalUnison" destination="fI6-26-khW" id="w2Y-UG-fbz"/>
                         <outlet property="switchHindiSLEng" destination="1j6-dw-OQ5" id="aLj-W6-Kmf"/>
-                        <outlet property="switchIndosakusa" destination="UFu-ki-bkr" id="ego-9H-24n"/>
                         <outlet property="switchInstrumental" destination="ial-Ka-ZAM" id="5v9-Y4-yMV"/>
-                        <outlet property="switchKawehiHaw" destination="6VH-O3-s6u" id="YMn-fM-vIk"/>
+                        <outlet property="switchKawehiHaw" destination="fI6-26-khW" id="iFl-fC-sff"/>
                         <outlet property="switchMandarinEngGerman" destination="V12-x0-9zH" id="aZp-gw-cqa"/>
                         <outlet property="switchMandarinSoulEnglish" destination="01x-u5-uyS" id="CXk-tH-YaF"/>
-                        <outlet property="switchMufrika" destination="7jF-Ok-dkL" id="Hkh-M3-Df9"/>
-                        <outlet property="switchReaMoyo" destination="BSF-Oo-n1N" id="zc5-cT-9Yu"/>
                         <outlet property="switchShaEng" destination="FF0-8f-TFK" id="fXU-5f-CcG"/>
                         <outlet property="switchShaLulaEngKaHaw" destination="k0A-Nu-vLp" id="wdg-1t-h9J"/>
                         <outlet property="switchSpanish" destination="ITd-na-wvV" id="tA4-mr-qx5"/>
@@ -2013,34 +1844,14 @@
                         <action selector="onTapFrenchCreoleGesture:" destination="rRm-F9-0wR" id="2a1-Ar-54C"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="2rC-z1-xGo" userLabel="onTapGlobalUnison">
-                    <connections>
-                        <action selector="onTapGlobalUnisonGesture:" destination="rRm-F9-0wR" id="jmn-8F-Q8h"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="2gw-6T-NGa" userLabel="onTapSLEngHawaiian">
-                    <connections>
-                        <action selector="onTapSLEngHawaiianGesture:" destination="rRm-F9-0wR" id="cJo-2q-0ec"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="3A5-9s-Y5D" userLabel="onTapReaMoyo">
-                    <connections>
-                        <action selector="onTapReaMoyoGesture:" destination="rRm-F9-0wR" id="dzh-rQ-fiS"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="gbY-R6-iTq" userLabel="onTapHawaiian">
                     <connections>
                         <action selector="onTapHawaiianGesture:" destination="rRm-F9-0wR" id="KN1-yI-6Ws"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="V25-ir-lMo" userLabel="onTapIndosakusa">
+                <tapGestureRecognizer id="2gw-6T-NGa" userLabel="onTapSLEngHawaiian">
                     <connections>
-                        <action selector="onTapIndosakusaGesture:" destination="rRm-F9-0wR" id="ziY-Hq-r0m"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="NZu-RP-Mkl" userLabel="onTapMufrika">
-                    <connections>
-                        <action selector="onTapMufrikaGesture:" destination="rRm-F9-0wR" id="7Bl-d7-DRs"/>
+                        <action selector="onTapSLEngHawaiianGesture:" destination="rRm-F9-0wR" id="cJo-2q-0ec"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Wzq-qa-hg6" userLabel="onTapEnglish">

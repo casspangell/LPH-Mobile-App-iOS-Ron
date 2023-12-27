@@ -10,7 +10,6 @@
 		319CB3242854F979D94A0538 /* Pods_LovePeaceHarmony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */; };
 		5018584C25FFEFEA005BF009 /* APIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5018584B25FFEFEA005BF009 /* APIUtilities.swift */; };
 		50327B62251CE06E002B34C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50327B61251CE06E002B34C0 /* GoogleService-Info.plist */; };
-		50390E82270FB4E80004F629 /* lph_unity_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 50390E81270FB4E80004F629 /* lph_unity_2.mp4 */; };
 		50530153259D9EED00C61E82 /* french.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5053014E259D9EE600C61E82 /* french.mp3 */; };
 		50530154259D9EED00C61E82 /* mandarin_english_german.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5053014F259D9EE700C61E82 /* mandarin_english_german.mp3 */; };
 		50530155259D9EED00C61E82 /* spanish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50530150259D9EEA00C61E82 /* spanish.mp3 */; };
@@ -19,10 +18,6 @@
 		505301B725A0249100C61E82 /* kawehi_haw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 505301B625A0249000C61E82 /* kawehi_haw.mp3 */; };
 		505301BA25A0249800C61E82 /* sha_eng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 505301B925A0249800C61E82 /* sha_eng.mp3 */; };
 		505301BC25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 505301BB25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 */; };
-		5082F077271F790B007283E5 /* indosakusa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F074271F790A007283E5 /* indosakusa.mp3 */; };
-		5082F078271F790B007283E5 /* rea_moyo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F075271F790B007283E5 /* rea_moyo.mp3 */; };
-		5082F079271F790B007283E5 /* mufrika.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F076271F790B007283E5 /* mufrika.mp3 */; };
-		5082F07C271F791F007283E5 /* lph_unity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5082F07B271F791F007283E5 /* lph_unity.mp3 */; };
 		50DB654426710E2F004A7BFE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50DB654626710E2F004A7BFE /* Localizable.strings */; };
 		6F0B870C1FEA2A92004A7E45 /* ProfilePicEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B870B1FEA2A92004A7E45 /* ProfilePicEditController.swift */; };
 		6F18D42D1FF37D400026A617 /* SocialLoginEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F18D42C1FF37D400026A617 /* SocialLoginEngine.swift */; };
@@ -99,7 +94,6 @@
 		2139732EA45C62704A144544 /* Pods_LovePeaceHarmony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LovePeaceHarmony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5018584B25FFEFEA005BF009 /* APIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtilities.swift; sourceTree = "<group>"; };
 		50327B61251CE06E002B34C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		50390E81270FB4E80004F629 /* lph_unity_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lph_unity_2.mp4; sourceTree = "<group>"; };
 		5053014E259D9EE600C61E82 /* french.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = french.mp3; sourceTree = "<group>"; };
 		5053014F259D9EE700C61E82 /* mandarin_english_german.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mandarin_english_german.mp3; sourceTree = "<group>"; };
 		50530150259D9EEA00C61E82 /* spanish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spanish.mp3; sourceTree = "<group>"; };
@@ -117,10 +111,6 @@
 		505FC95326E4109700429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		505FC95426E4109700429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		505FC95526E4109800429570 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5082F074271F790A007283E5 /* indosakusa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = indosakusa.mp3; sourceTree = "<group>"; };
-		5082F075271F790B007283E5 /* rea_moyo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rea_moyo.mp3; sourceTree = "<group>"; };
-		5082F076271F790B007283E5 /* mufrika.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mufrika.mp3; sourceTree = "<group>"; };
-		5082F07B271F791F007283E5 /* lph_unity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lph_unity.mp3; sourceTree = "<group>"; };
 		50DB653E26710A78004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		50DB653F26710A79004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		50DB654526710E2F004A7BFE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -327,7 +317,6 @@
 		6F3D8BD71FB1CD00008E0D82 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				50390E81270FB4E80004F629 /* lph_unity_2.mp4 */,
 				6F95DA572032DE3C0086B8BA /* Fonts */,
 				6F74D2521FD5B5F400F96E1A /* audio */,
 				6F8BDECF1FB4722600D924C6 /* Lottie-Files */,
@@ -412,10 +401,6 @@
 		6F74D2521FD5B5F400F96E1A /* audio */ = {
 			isa = PBXGroup;
 			children = (
-				5082F07B271F791F007283E5 /* lph_unity.mp3 */,
-				5082F074271F790A007283E5 /* indosakusa.mp3 */,
-				5082F076271F790B007283E5 /* mufrika.mp3 */,
-				5082F075271F790B007283E5 /* rea_moyo.mp3 */,
 				505301BB25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 */,
 				505301B925A0249800C61E82 /* sha_eng.mp3 */,
 				505301B625A0249000C61E82 /* kawehi_haw.mp3 */,
@@ -507,7 +492,6 @@
 				6F3D8BB61FB1CC2B008E0D82 /* Frameworks */,
 				6F3D8BB71FB1CC2B008E0D82 /* Resources */,
 				5634D9FE2E21EB41F1347069 /* [CP] Embed Pods Frameworks */,
-				50E396B5270E56D800DEB423 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -576,11 +560,9 @@
 				6F3D8BCA1FB1CC2B008E0D82 /* LaunchScreen.storyboard in Resources */,
 				50530157259D9EED00C61E82 /* hindi_sl_english.mp3 in Resources */,
 				505301BA25A0249800C61E82 /* sha_eng.mp3 in Resources */,
-				5082F078271F790B007283E5 /* rea_moyo.mp3 in Resources */,
 				6F3D8BC71FB1CC2B008E0D82 /* Assets.xcassets in Resources */,
 				50530155259D9EED00C61E82 /* spanish.mp3 in Resources */,
 				6F6356E01FCE8CE4002E2C13 /* Login.storyboard in Resources */,
-				50390E82270FB4E80004F629 /* lph_unity_2.mp4 in Resources */,
 				6F95DA5B2032DE9C0086B8BA /* OpenSans-Semibold.ttf in Resources */,
 				6F9A39132008DDC700CF255F /* mandarin-soul_language-english.mp3 in Resources */,
 				505301BC25A0249E00C61E82 /* sha_lula_eng_ka_haw.mp3 in Resources */,
@@ -588,9 +570,7 @@
 				6F74D2541FD5B87000F96E1A /* email.mp3 in Resources */,
 				6F38C7E11FB1D9D6005390C5 /* Podfile in Resources */,
 				6F9A39122008DDC700CF255F /* instrumental.mp3 in Resources */,
-				5082F079271F790B007283E5 /* mufrika.mp3 in Resources */,
 				6FC63F332032FF1E00C1CC96 /* OpenSans-Bold.ttf in Resources */,
-				5082F077271F790B007283E5 /* indosakusa.mp3 in Resources */,
 				505301B725A0249100C61E82 /* kawehi_haw.mp3 in Resources */,
 				6F3F6672204D39E900ADFFFC /* OpenSans-Italic.ttf in Resources */,
 				6F3D8BC21FB1CC2B008E0D82 /* Main.storyboard in Resources */,
@@ -599,7 +579,6 @@
 				6F8BDED21FB4726800D924C6 /* loading_rainbow.json in Resources */,
 				50530154259D9EED00C61E82 /* mandarin_english_german.mp3 in Resources */,
 				6F95DA5A2032DE980086B8BA /* OpenSans-Regular.ttf in Resources */,
-				5082F07C271F791F007283E5 /* lph_unity.mp3 in Resources */,
 				50530156259D9EED00C61E82 /* french_antillean_creole.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,25 +604,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		50E396B5270E56D800DEB423 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
 		5634D9FE2E21EB41F1347069 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -658,15 +618,12 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseAuthUI/FirebaseAuthUI.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseDatabase/FirebaseDatabase.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseDynamicLinks/FirebaseDynamicLinks.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseOAuthUI/FirebaseOAuthUI.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
@@ -691,15 +648,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuthUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseDatabase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseDynamicLinks.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseMessaging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseOAuthUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
@@ -945,11 +899,10 @@
 				CODE_SIGN_ENTITLEMENTS = LovePeaceHarmony/LovePeaceHarmony.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				CURRENT_PROJECT_VERSION = " 14";
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.lovepeaceharmony.ios.app;
@@ -970,10 +923,10 @@
 				CODE_SIGN_ENTITLEMENTS = LovePeaceHarmony/LovePeaceHarmony.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = " 14";
 				DEVELOPMENT_TEAM = KTW53JUNM8;
 				INFOPLIST_FILE = LovePeaceHarmony/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.lovepeaceharmony.ios.app;

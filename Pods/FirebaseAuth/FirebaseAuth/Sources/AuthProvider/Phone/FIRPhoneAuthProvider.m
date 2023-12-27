@@ -629,12 +629,8 @@ extern NSString *const FIRPhoneMultiFactorID;
                                              FIRLogWarning(kFIRLoggerAuth, @"I-AUT000014",
                                                            @"Failed to receive remote notification "
                                                            @"to verify app identity within "
-                                                           @"%.0f second(s), falling back to "
-                                                           @"reCAPTCHA verification.",
+                                                           @"%.0f second(s)",
                                                            timeout);
-                                             [self reCAPTCHAFlowWithUIDelegate:UIDelegate
-                                                                    completion:completion];
-                                             return;
                                            }
                                            completion(credential, nil, nil);
                                          }];

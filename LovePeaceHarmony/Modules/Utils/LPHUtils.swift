@@ -326,7 +326,6 @@ class AVAudioSingleton {
     }
     
     func play() {
-        print("Play()")
         player?.play()
         isAudioPlaying = true
     }
@@ -342,6 +341,12 @@ class AVAudioSingleton {
     }
     
     func isPlaying() -> Bool {
+//        if player != nil {
+//            return true
+//        } else {
+//            return false
+//        }
+        
         if isAudioPlaying! {
             return true
         } else {
@@ -436,8 +441,6 @@ enum StoryboardType: Int {
     case home
 }
 
-//This needs to be in the order that is in the
-//scroll view window
 enum ChantFile: Int {
     case mandarin_soul_english
     case instrumental
@@ -446,12 +449,8 @@ enum ChantFile: Int {
     case mandarin_english_german
     case french
     case french_antillean_creole
-    case global_unison
     case kawehi_haw
     case sha_lula_eng_ka_haw
-    case rea_moyo
-    case mufrika
-    case indosakusa
     case sha_eng
 }
 

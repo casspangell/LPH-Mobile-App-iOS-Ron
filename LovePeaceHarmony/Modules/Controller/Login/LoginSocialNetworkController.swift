@@ -12,13 +12,12 @@ import XLPagerTabStrip
 import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
+import FirebaseAuth
+import AuthenticationServices
 
 
+class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, UITextFieldDelegate, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
 
-
-class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, UITextFieldDelegate  {
-
-    
     /** @var handle
         @brief The handler for the auth state listener, to allow cancelling later.
      */
@@ -34,6 +33,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
     @IBOutlet weak var googleLoginButton: UIButton!
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var appleLoginButton: UIButton!
+    @IBOutlet weak var appleLoginContainer: RoundedCornerView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -56,8 +56,12 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
         emailTextField.placeholder = NSLocalizedString("Email", comment: "")
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
         noAccountLabel.text = NSLocalizedString("Don't have an account? Sign Up", comment: "")
+        
+//        emailTextField.delegate = self
+//        passwordTextField.delegate = self
+        
+//        setupAppleButton()
 
-    
     }
     
    
@@ -86,6 +90,14 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
         return true
     }
     
+//    func setupAppleButton() {
+//        let authorizationButton = ASAuthorizationAppleIDButton()
+//        authorizationButton.addTarget(self, action: #selector(appleLoginPressed(_:)), for: .touchUpInside)
+//        authorizationButton.frame.size.width = appleLoginContainer.frame.size.width
+//        authorizationButton.frame.size.height = appleLoginContainer.frame.size.height
+//        appleLoginContainer.addSubview(authorizationButton)
+//    }
+
     @IBAction func loginWithEmailPressed(_ sender: Any) {
         guard let email = self.emailTextField.text, let password = self.passwordTextField.text else {
             self.showToast(message: NSLocalizedString("email/password can't be empty", comment: ""))
@@ -111,18 +123,22 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
     }
     
     @IBAction func appleLoginPressed(_ sender: Any) {
-        if LPHUtils.checkNetworkConnection() {
-            initiateLogin(type: .apple)
-        } else {
-            showToast(message: NSLocalizedString("Please check your internet connection", comment: ""))
+//        if LPHUtils.checkNetworkConnection() {
+//            initiateLogin(type: .apple)
+//        } else {
+//            showToast(message: NSLocalizedString("Please check your internet connection", comment: ""))
+//        }
+//
+        if #available(iOS 13.0, *) {
+            let appleIDProvider = ASAuthorizationAppleIDProvider()
+            let request = appleIDProvider.createRequest()
+            request.requestedScopes = [.fullName, .email]
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self
+            authorizationController.presentationContextProvider = self
+            authorizationController.performRequests()
         }
-
     }
-    
- 
-    
-    //-----------
-    
     
     @IBAction func facebookLoginPressed(_ sender: Any) {
         if LPHUtils.checkNetworkConnection() {
@@ -150,20 +166,6 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
         return IndicatorInfo(title: "Title")
     }
     
-    // MARK: - Login Methods
-    // Facebook Login
-    //ARE THESE BEING USED?
-//    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-//        print("Logged into Facebook")
-//        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-//    }
-//
-//    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-//        print("Logged out of Facebook")
-//    }
-    
-    // ------
-    
     private func initiateLogin(type: LoginType) {
         var firebaseDeviceToken = String()
         
@@ -175,6 +177,7 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
             firebaseDeviceToken = token
           }
         }
+        
 
         do {
             try loginEngine?.initiateLogin(type) { (lphResponse) in
@@ -221,29 +224,14 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantCurrentStreak)", value: "0")
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantLongestStreak)", value: "0")
             LPHUtils.setUserDefaultsString(key: "\(user):\(UserDefaults.Keys.chantTimestamp)", value: "0:00")
+            
+//            LPHUtils.setUserDefaultsInt(key: UserDefaults.Keys.isFirstRun, value: 1)
         }
         
         //Firebase Handling after user logs in with Facebook or Google
         switch loginType {
         case .apple:
-           
-            let nonce = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleNonce)
-            let idTokenString = LPHUtils.getUserDefaultsString(key: UserDefaults.Keys.appleTokenString)
-            
-            // Initialize a Firebase credential.
-            let credential = OAuthProvider.credential(withProviderID: "apple.com",
-                                                      idToken: idTokenString,
-                                                      rawNonce: nonce)
-            
-            // Sign in with Firebase.
-            Auth.auth().signIn(with: credential) { (authResult, error) in
-                if (error != nil) {
-                    print(error!.localizedDescription)
-                return
-            }
-                //Login Success
-                self.navigateToHome()
-            }
+            print("apple")
             break
         case .facebook:
             let credential = FacebookAuthProvider
@@ -345,8 +333,41 @@ class LoginSocialNetworkController: BaseViewController, IndicatorInfoProvider, U
         }
     }
     
-  
-    
 }
 
 
+extension LoginSocialNetworkController {
+
+    // Authorization Failed
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+
+    // Authorization Succeeded
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            // Get user data with Apple ID credentitial
+            let userId = appleIDCredential.user
+            let userFirstName = appleIDCredential.fullName?.givenName
+            let userLastName = appleIDCredential.fullName?.familyName
+            let userEmail = appleIDCredential.email
+            print("User ID: \(userId)")
+            print("User First Name: \(userFirstName ?? "")")
+            print("User Last Name: \(userLastName ?? "")")
+            print("User Email: \(userEmail ?? "")")
+            // Write your code here
+        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+            // Get user data using an existing iCloud Keychain credential
+            let appleUsername = passwordCredential.user
+            let applePassword = passwordCredential.password
+            // Write your code here
+        }
+    }
+
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+
+}

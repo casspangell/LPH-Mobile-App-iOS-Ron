@@ -12,18 +12,17 @@ import FacebookCore
 import FBSDKLoginKit
 import FirebaseAuth
 import Firebase
-import FirebaseAuthUI
-import AuthenticationServices
 import CryptoKit
+import SwiftUI
 
 //class SocialLoginEngine: NSObject, GIDSignInUIDelegate, GIDSignInDelegate {
-class SocialLoginEngine: NSObject, ASAuthorizationControllerDelegate, FUIAuthDelegate {
+class SocialLoginEngine: NSObject {
     
     // MARK: - Variables
     var presentingViewController: UIViewController?
     var callbackDelegate: (LPHResponse<LoginVo, LoginError>) -> ()?
-    // Unhashed nonce.
-    fileprivate var currentNonce: String?
+    
+    fileprivate var currentNonce: String? // Unhashed nonce.
     
     init(_ viewController: UIViewController) {
         self.presentingViewController = viewController
@@ -31,7 +30,7 @@ class SocialLoginEngine: NSObject, ASAuthorizationControllerDelegate, FUIAuthDel
             return nil
         }
         super.init()
-
+//        initGoogleDelegation()
     }
     
     func initiateLogin(_ loginType: LoginType,_ loginResponse: @escaping (LPHResponse<LoginVo, LoginError>) -> Void) throws {
@@ -53,24 +52,9 @@ class SocialLoginEngine: NSObject, ASAuthorizationControllerDelegate, FUIAuthDel
     
     
     private func initiateAppleLogin() {
-        if #available(iOS 13.0, *) {
-            let nonce = randomNonceString()
-            currentNonce = nonce
-            
-            let appleIDProvider = ASAuthorizationAppleIDProvider()
-            let request = appleIDProvider.createRequest()
-            request.requestedScopes = [.fullName, .email]
-            request.nonce = sha256(nonce)
-            
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self
-            authorizationController.presentationContextProvider = self
-            authorizationController.performRequests()
-        }
-        
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let presentingViewController = (UIApplication.shared.windows.last?.rootViewController)!
     }
-    
- 
     
     private func initiateGoogleLogin() {
 
@@ -177,133 +161,65 @@ class SocialLoginEngine: NSObject, ASAuthorizationControllerDelegate, FUIAuthDel
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    //MARK: Apple Login In
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        if let user = authDataResult?.user {
-            print("\(user.uid) \(user.email ?? "")")
-        }
-    }
-    
-    @available(iOS 13.0, *)
-    func getCredentialState() {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: "USER_ID") { (credentialState, error) in
-            switch credentialState {
-            case .authorized:
-                // Credential is valid
-                // Continiue to show 'User's Profile' Screen
-                break
-            case .revoked:
-                // Credential is revoked.
-                // Show 'Sign In' Screen
-                break
-            case .notFound:
-                // Credential not found.
-                // Show 'Sign In' Screen
-                break
-            default:
-                break
-            }
-        }
-    }
-    
-
+//MARK: Apple Login
+    // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
+//    private func randomNonceString(length: Int = 32) -> String {
+//      precondition(length > 0)
+//      let charset: Array<Character> =
+//          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+//      var result = ""
+//      var remainingLength = length
+//
+//      while remainingLength > 0 {
+//        let randoms: [UInt8] = (0 ..< 16).map { _ in
+//          var random: UInt8 = 0
+//          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+//          if errorCode != errSecSuccess {
+//            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+//          }
+//          return random
+//        }
+//
+//        randoms.forEach { random in
+//          if remainingLength == 0 {
+//            return
+//          }
+//
+//          if random < charset.count {
+//            result.append(charset[Int(random)])
+//            remainingLength -= 1
+//          }
+//        }
+//      }
+//
+//      return result
+//    }
+//
+//    @available(iOS 13, *)
+//    func startSignInWithAppleFlow() {
+//      let nonce = randomNonceString()
+//      currentNonce = nonce
+//      let appleIDProvider = ASAuthorizationAppleIDProvider()
+//      let request = appleIDProvider.createRequest()
+//      request.requestedScopes = [.fullName, .email]
+//      request.nonce = sha256(nonce)
+//
+//      let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+//      authorizationController.delegate = self
+//      authorizationController.presentationContextProvider = self
+//      authorizationController.performRequests()
+//    }
+//
+//    @available(iOS 13, *)
+//    private func sha256(_ input: String) -> String {
+//      let inputData = Data(input.utf8)
+//      let hashedData = SHA256.hash(data: inputData)
+//      let hashString = hashedData.compactMap {
+//        return String(format: "%02x", $0)
+//      }.joined()
+//
+//      return hashString
+//    }
 }
 
-//Apple login
-extension SocialLoginEngine: ASAuthorizationControllerPresentationContextProviding {
 
-    @available(iOS 13, *)
-    func sha256(_ input: String) -> String {
-        let inputData = Data(input.utf8)
-        let hashedData = SHA256.hash(data: inputData)
-        let hashString = hashedData.compactMap {
-            return String(format: "%02x", $0)
-        }.joined()
-
-        return hashString
-    }
-    
-    // For present window
-    @available(iOS 13.0, *)
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        let presentingViewControllerWindow = (UIApplication.shared.windows.last?.rootViewController)!.view.window
-        return presentingViewControllerWindow!
-    }
-
-    // Authorization Failed
-    @available(iOS 13.0, *)
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print(error.localizedDescription)
-    }
-
-    // Authorization Succeeded
-    @available(iOS 13.0, *)
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        let loginVo = LPHUtils.getLoginVo()
-        
-        guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {
-            print("Encountered an authorization error")
-            return
-        }
-            // Get user data with Apple ID credentitial
-            let userId = appleIDCredential.user
-            print("User ID: \(userId)")
-            
-            guard let nonce = currentNonce else {
-                fatalError("Invalid state: A login callback was received, but no login request was sent.")
-            }
-            
-            guard let appleIDToken = appleIDCredential.identityToken else {
-              print("Unable to fetch identity token")
-              return
-            }
-            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-              print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-              return
-            }
-            
-            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleUserId, value: userId)
-            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleNonce, value: nonce)
-            LPHUtils.setUserDefaultsString(key: UserDefaults.Keys.appleTokenString, value: idTokenString)
-            
-            loginVo.isLoggedIn = true
-            loginVo.loginType = .apple
-            let golResponse = LPHResponse<LoginVo, LoginError>()
-            golResponse.setResult(data: loginVo)
-            self.callbackDelegate(golResponse)
-            
-    }
-    
-    private func randomNonceString(length: Int = 32) -> String {
-            precondition(length > 0)
-            let charset: Array<Character> =
-                Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-            var result = ""
-            var remainingLength = length
-
-            while remainingLength > 0 {
-                let randoms: [UInt8] = (0 ..< 16).map { _ in
-                    var random: UInt8 = 0
-                    let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-                    if errorCode != errSecSuccess {
-                        fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-                    }
-                    return random
-                }
-
-                randoms.forEach { random in
-                    if remainingLength == 0 {
-                        return
-                    }
-
-                    if random < charset.count {
-                        result.append(charset[Int(random)])
-                        remainingLength -= 1
-                    }
-                }
-            }
-            return result
-        }
-
-}

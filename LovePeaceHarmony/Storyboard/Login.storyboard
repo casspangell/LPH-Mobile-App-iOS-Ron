@@ -225,45 +225,46 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9f-YC-Lz8">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cover_page" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-4a-1td">
+                                <rect key="frame" x="0.0" y="116" width="375" height="182"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mdc-4a-1td" secondAttribute="height" multiplier="375:182" id="PRM-Bb-xPe"/>
+                                </constraints>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVp-ES-ggI">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="298" width="375" height="369"/>
+                                <color key="backgroundColor" red="0.3920324147" green="0.35479167099999998" blue="0.59104061129999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Ah-Xb-1kd"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SVp-ES-ggI" firstAttribute="top" secondItem="ZJp-91-hNs" secondAttribute="bottom" constant="8" symbolic="YES" id="6xV-rY-5bH"/>
+                            <constraint firstItem="8Ah-Xb-1kd" firstAttribute="trailing" secondItem="Mdc-4a-1td" secondAttribute="trailing" id="6xi-hM-eAc"/>
                             <constraint firstItem="ZJp-91-hNs" firstAttribute="top" secondItem="KJu-Oy-Z9X" secondAttribute="bottom" constant="8" id="D6F-fr-ifr"/>
-                            <constraint firstAttribute="trailing" secondItem="G9f-YC-Lz8" secondAttribute="trailing" id="GjJ-h9-Dl5"/>
                             <constraint firstItem="8Ah-Xb-1kd" firstAttribute="trailing" secondItem="ZJp-91-hNs" secondAttribute="trailing" id="IOC-Nm-kNg"/>
-                            <constraint firstItem="G9f-YC-Lz8" firstAttribute="top" secondItem="ZJp-91-hNs" secondAttribute="bottom" constant="8" symbolic="YES" id="KBm-Ss-QQX"/>
                             <constraint firstItem="8Ah-Xb-1kd" firstAttribute="bottom" secondItem="SVp-ES-ggI" secondAttribute="bottom" id="Kxy-wf-gCl"/>
                             <constraint firstItem="ZJp-91-hNs" firstAttribute="leading" secondItem="9XJ-f2-hSW" secondAttribute="leading" id="UN0-GJ-DOo"/>
+                            <constraint firstItem="Mdc-4a-1td" firstAttribute="leading" secondItem="8Ah-Xb-1kd" secondAttribute="leading" id="Ykm-6g-HCV"/>
                             <constraint firstItem="KJu-Oy-Z9X" firstAttribute="trailing" secondItem="8Ah-Xb-1kd" secondAttribute="trailing" id="bqR-7b-Njj"/>
                             <constraint firstItem="KJu-Oy-Z9X" firstAttribute="top" secondItem="9XJ-f2-hSW" secondAttribute="top" id="dMG-cC-QkE"/>
                             <constraint firstItem="KJu-Oy-Z9X" firstAttribute="leading" secondItem="8Ah-Xb-1kd" secondAttribute="leading" id="fvs-su-iMd"/>
                             <constraint firstItem="KJu-Oy-Z9X" firstAttribute="leading" secondItem="8Ah-Xb-1kd" secondAttribute="leading" id="gDa-nE-5NY"/>
                             <constraint firstItem="8Ah-Xb-1kd" firstAttribute="trailing" secondItem="KJu-Oy-Z9X" secondAttribute="trailing" id="hMp-6A-yq9"/>
-                            <constraint firstItem="G9f-YC-Lz8" firstAttribute="bottom" secondItem="8Ah-Xb-1kd" secondAttribute="bottom" id="qaU-ra-O1u"/>
+                            <constraint firstItem="SVp-ES-ggI" firstAttribute="top" secondItem="Mdc-4a-1td" secondAttribute="bottom" id="mA5-aV-kM0"/>
+                            <constraint firstItem="Mdc-4a-1td" firstAttribute="top" secondItem="ZJp-91-hNs" secondAttribute="bottom" constant="8" id="pRH-Xh-7JO"/>
                             <constraint firstItem="SVp-ES-ggI" firstAttribute="leading" secondItem="8Ah-Xb-1kd" secondAttribute="leading" id="qqA-Ob-IMV"/>
-                            <constraint firstItem="G9f-YC-Lz8" firstAttribute="leading" secondItem="8Ah-Xb-1kd" secondAttribute="leading" id="shr-pz-aqS"/>
                             <constraint firstItem="8Ah-Xb-1kd" firstAttribute="trailing" secondItem="SVp-ES-ggI" secondAttribute="trailing" id="wfH-fk-vIU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageViewCover" destination="Mdc-4a-1td" id="qku-ft-nVG"/>
                         <outlet property="logoImage" destination="sfK-Zh-mZS" id="1mE-rN-GxU"/>
                         <outlet property="scrollViewContainer" destination="SVp-ES-ggI" id="K5W-Ck-qAO"/>
-                        <outlet property="videoLayer" destination="G9f-YC-Lz8" id="6dT-nY-AUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqW-Q1-zdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-122.40000000000001" y="173.16341829085459"/>
+            <point key="canvasLocation" x="-122" y="174"/>
         </scene>
         <!--Profile Login Controller-->
         <scene sceneID="jVS-n8-79N">
@@ -407,7 +408,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IV0-nr-n1V">
                                 <rect key="frame" x="20" y="10" width="335" height="380"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@test.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKQ-su-kpJ" userLabel="Email">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKQ-su-kpJ" userLabel="Email">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Kp9-zm-fiY"/>
@@ -417,12 +418,12 @@
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj1-8D-rAE" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="50" width="335" height="5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="s2i-ym-Prz"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DBM-f4-Bta" userLabel="Password">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DBM-f4-Bta" userLabel="Password">
                                         <rect key="frame" x="0.0" y="55" width="335" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jn3-xF-Ums"/>
@@ -432,7 +433,7 @@
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwC-es-4lm" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="105" width="335" height="10"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="VAw-xz-8ba"/>
                                         </constraints>
@@ -453,7 +454,6 @@
                                         <constraints>
                                             <constraint firstItem="ho5-Ws-VPc" firstAttribute="leading" secondItem="TZB-B8-dh4" secondAttribute="leading" constant="4" id="63V-f4-77D"/>
                                             <constraint firstAttribute="height" constant="50" id="FeW-Sj-Qfk"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="J4U-61-xgR"/>
                                             <constraint firstAttribute="trailing" secondItem="ho5-Ws-VPc" secondAttribute="trailing" constant="4" id="Xd8-qH-dss"/>
                                             <constraint firstItem="ho5-Ws-VPc" firstAttribute="centerY" secondItem="TZB-B8-dh4" secondAttribute="centerY" id="ht1-kX-PvI"/>
                                             <constraint firstItem="ho5-Ws-VPc" firstAttribute="centerX" secondItem="TZB-B8-dh4" secondAttribute="centerX" id="jHa-us-cPv"/>
@@ -466,7 +466,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAo-Cm-Q8h" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="165" width="335" height="0.0"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9z-ZU-hZi" userLabel="Apple" customClass="RoundedCornerView" customModule="LovePeaceHarmony" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="165" width="335" height="50"/>
@@ -502,7 +502,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tP9-j4-6d6" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="215" width="335" height="5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="8Td-zt-iJO"/>
                                         </constraints>
@@ -541,7 +541,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbH-1f-mrw" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="270" width="335" height="5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="GDV-Ro-Tkl"/>
                                         </constraints>
@@ -571,7 +571,6 @@
                                             <constraint firstItem="LIk-xX-qyR" firstAttribute="centerX" secondItem="Xbu-0v-tOk" secondAttribute="centerX" id="O7N-Eh-y2A"/>
                                             <constraint firstAttribute="bottom" secondItem="LIk-xX-qyR" secondAttribute="bottom" id="OUd-kR-a3h"/>
                                             <constraint firstItem="LIk-xX-qyR" firstAttribute="centerY" secondItem="Xbu-0v-tOk" secondAttribute="centerY" id="Ruv-sC-mye"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="TIJ-Vn-KHx"/>
                                             <constraint firstAttribute="bottom" secondItem="tyu-OS-ZEV" secondAttribute="bottom" id="bKX-wJ-tu4"/>
                                             <constraint firstItem="tyu-OS-ZEV" firstAttribute="leading" secondItem="Xbu-0v-tOk" secondAttribute="leading" constant="18" id="kpZ-CP-7va"/>
                                             <constraint firstItem="LIk-xX-qyR" firstAttribute="top" secondItem="Xbu-0v-tOk" secondAttribute="top" id="uMX-0g-D3e"/>
@@ -584,7 +583,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rm8-P4-KFc" userLabel="Spacer">
                                         <rect key="frame" x="0.0" y="325" width="335" height="5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="uVo-FF-Pwr"/>
                                         </constraints>
@@ -609,7 +608,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="vKR-iC-5Ry" firstAttribute="top" secondItem="HZZ-Bk-bYc" secondAttribute="bottom" constant="-26" id="AF8-mJ-Slw"/>
                                             <constraint firstItem="vKR-iC-5Ry" firstAttribute="leading" secondItem="hXm-vt-VvC" secondAttribute="leading" constant="5" id="GGd-Zv-tES"/>
@@ -632,10 +631,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="sbH-1f-mrw" firstAttribute="top" secondItem="WRh-OE-clE" secondAttribute="bottom" id="37b-eP-G7S"/>
-                                    <constraint firstItem="W9z-ZU-hZi" firstAttribute="height" secondItem="Xbu-0v-tOk" secondAttribute="height" id="8Yo-Mx-hd9"/>
                                     <constraint firstItem="rm8-P4-KFc" firstAttribute="top" secondItem="Xbu-0v-tOk" secondAttribute="bottom" id="8vo-ED-obm"/>
                                     <constraint firstItem="Xbu-0v-tOk" firstAttribute="top" secondItem="sbH-1f-mrw" secondAttribute="bottom" id="Bu0-gN-59Y"/>
                                     <constraint firstItem="rm8-P4-KFc" firstAttribute="leading" secondItem="IV0-nr-n1V" secondAttribute="leading" id="E0K-ZC-cc2"/>
@@ -647,7 +645,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l8r-b0-Pp8"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IV0-nr-n1V" firstAttribute="leading" secondItem="l8r-b0-Pp8" secondAttribute="leading" constant="20" id="0bX-SC-Ux9"/>
                             <constraint firstItem="IV0-nr-n1V" firstAttribute="top" secondItem="l8r-b0-Pp8" secondAttribute="top" constant="10" id="Gla-tL-cjz"/>
@@ -658,6 +656,7 @@
                     <size key="freeformSize" width="375" height="400"/>
                     <connections>
                         <outlet property="appleLoginButton" destination="hev-Q7-HVA" id="k6Q-be-bi3"/>
+                        <outlet property="appleLoginContainer" destination="W9z-ZU-hZi" id="zsc-QO-elZ"/>
                         <outlet property="emailTextField" destination="NKQ-su-kpJ" id="Bfy-Tc-eaz"/>
                         <outlet property="facebookLoginButton" destination="3ZT-ti-ag3" id="Db3-Iv-GiR"/>
                         <outlet property="googleLoginButton" destination="LIk-xX-qyR" id="AEw-yr-DsV"/>
@@ -2127,9 +2126,6 @@ AAC5pg
         </image>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
